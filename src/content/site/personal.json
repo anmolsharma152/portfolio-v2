@@ -157,9 +157,12 @@
     }
   ],
   "spotify": {
-    "enabled": false,
-    "embedUrl": null,
-    "profileUrl": null,
-    "title": "Anmol's Flow State"
+    "enabled": true,
+    "username": "Anmol",
+    "userId": "31fzcv4ts52untro5xsamjhddtre",
+    "profileUrl": "https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre",
+    "avatarUrl": "https://i.scdn.co/image/ab6775700000ee85148002f2172385d78f372b08",
+    "embedPlaylistUrl": null,
+    "title": "Soundtrack & Flow State"
   }
 }

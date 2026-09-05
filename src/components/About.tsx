@@ -189,13 +189,7 @@ const About = () => {
         {/* Curated Reading Stack & Spotify Records */}
         <div className="space-y-8">
           <ReadingStack />
-          {spotifyConfig?.enabled && (
-            <SpotifyShelf
-              embedUrl={spotifyConfig.embedUrl}
-              profileUrl={spotifyConfig.profileUrl}
-              title={spotifyConfig.title}
-            />
-          )}
+          {spotifyConfig?.enabled && <SpotifyShelf config={spotifyConfig} />}
         </div>
       </div>
 

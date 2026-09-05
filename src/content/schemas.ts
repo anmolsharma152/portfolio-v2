@@ -88,9 +88,12 @@ export const BookSchema = z.object({
 
 export const SpotifyConfigSchema = z
   .object({
-    enabled: z.boolean().default(false),
-    embedUrl: z.string().url().nullable().optional(),
-    profileUrl: z.string().url().nullable().optional(),
+    enabled: z.boolean().default(true),
+    username: z.string().default('Anmol'),
+    userId: z.string().optional(),
+    profileUrl: z.string().url(),
+    avatarUrl: z.string().url().nullable().optional(),
+    embedPlaylistUrl: z.string().url().nullable().optional(),
     title: z.string().optional(),
   })
   .optional();
