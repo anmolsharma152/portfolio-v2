@@ -7,7 +7,7 @@
       "category": "systems-ai",
       "publishedDate": "2017",
       "coverIsbn": "9781449373320",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_14%,rgba(96,165,250,0.22),transparent_30%),linear-gradient(135deg,rgba(30,58,138,0.46),rgba(255,255,255,0.07)_50%,rgba(16,185,129,0.14))] ring-blue-400/20",
+      "toneGradient": "ring-blue-500/20",
       "takeaway": "The gold standard blueprint for reliable, scalable, and maintainable data architectures."
     },
     {
@@ -17,7 +17,7 @@
       "category": "systems-ai",
       "publishedDate": "2024",
       "coverIsbn": "9781098166304",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_12%,rgba(244,114,182,0.24),transparent_30%),linear-gradient(135deg,rgba(131,24,67,0.42),rgba(99,102,241,0.18)_45%,rgba(255,255,255,0.06))] ring-pink-400/20",
+      "toneGradient": "ring-pink-500/20",
       "takeaway": "Foundational practices for shipping production-grade Foundation Model and LLM applications."
     },
     {
@@ -27,8 +27,44 @@
       "category": "systems-ai",
       "publishedDate": "2016",
       "coverIsbn": "9780262035613",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_20%,rgba(52,211,153,0.20),transparent_30%),linear-gradient(135deg,rgba(6,78,59,0.48),rgba(30,58,138,0.16)_44%,rgba(255,255,255,0.06))] ring-emerald-400/20",
+      "toneGradient": "ring-emerald-500/20",
       "takeaway": "The definitive theoretical bible on representation learning and deep neural networks."
+    },
+    {
+      "id": "lora-paper",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "authors": ["Edward Hu", "Yelong Shen", "Phillip Wallis et al."],
+      "category": "research-papers",
+      "publishedDate": "2021",
+      "toneGradient": "ring-cyan-500/20",
+      "takeaway": "Freezes pre-trained weights and injects trainable rank-decomposition matrices, cutting VRAM by 3x."
+    },
+    {
+      "id": "mamba-paper",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "authors": ["Albert Gu", "Tri Dao"],
+      "category": "research-papers",
+      "publishedDate": "2023",
+      "toneGradient": "ring-purple-500/20",
+      "takeaway": "Hardware-aware selective state-spaces delivering linear-time inference and 5x throughput over Transformers."
+    },
+    {
+      "id": "react-paper",
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "authors": ["Shunyu Yao", "Jeffrey Zhao", "Dian Yu et al."],
+      "category": "research-papers",
+      "publishedDate": "2022",
+      "toneGradient": "ring-indigo-500/20",
+      "takeaway": "The foundation of agentic tool-use: interleaved reasoning traces and external action execution."
+    },
+    {
+      "id": "graphrag-paper",
+      "title": "GraphRAG: Retrieval-Augmented Generation with Graphs",
+      "authors": ["Microsoft Research"],
+      "category": "research-papers",
+      "publishedDate": "2024",
+      "toneGradient": "ring-blue-500/20",
+      "takeaway": "Hierarchical community clustering over knowledge graphs for holistic corpus synthesis and reasoning."
     },
     {
       "id": "the-great-rebalancing",
@@ -37,8 +73,47 @@
       "category": "economics-policy",
       "publishedDate": "2013",
       "coverIsbn": "9780691158686",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_18%,rgba(251,191,36,0.22),transparent_30%),linear-gradient(135deg,rgba(120,53,15,0.42),rgba(30,58,138,0.24)_45%,rgba(255,255,255,0.06))] ring-amber-400/20",
+      "toneGradient": "ring-amber-500/20",
       "takeaway": "Masterclass on global trade imbalances, capital accounts, and structural macroeconomic shifts."
+    },
+    {
+      "id": "abundance-klein",
+      "title": "Abundance: What Progress Takes",
+      "authors": ["Ezra Klein", "Derek Thompson"],
+      "category": "economics-policy",
+      "publishedDate": "2024",
+      "toneGradient": "ring-orange-500/20",
+      "takeaway": "A supply-side progressive agenda on technological deployment, energy abundance, and state capacity."
+    },
+    {
+      "id": "how-to-win-trade-war",
+      "title": "How to Win a Trade War",
+      "authors": ["Soumaya Keynes"],
+      "category": "economics-policy",
+      "publishedDate": "2024",
+      "coverIsbn": "9781847927590",
+      "toneGradient": "ring-rose-500/20",
+      "takeaway": "Sharp analysis of tariffs, industrial subsidies, supply chain security, and geopolitical commerce."
+    },
+    {
+      "id": "avoiding-the-fall",
+      "title": "Avoiding the Fall: China's Economic Restructuring",
+      "authors": ["Michael Pettis"],
+      "category": "economics-policy",
+      "publishedDate": "2014",
+      "coverIsbn": "9780870034176",
+      "toneGradient": "ring-amber-500/20",
+      "takeaway": "Rigorous balance-sheet economics on investment-led growth, debt ceilings, and household transfers."
+    },
+    {
+      "id": "technical-analysis",
+      "title": "Technical Analysis of the Financial Markets",
+      "authors": ["John J. Murphy"],
+      "category": "economics-policy",
+      "publishedDate": "1999",
+      "coverIsbn": "9780735200661",
+      "toneGradient": "ring-yellow-500/20",
+      "takeaway": "The definitive treatise on price action, volume profiles, momentum oscillators, and market cycle psychology."
     },
     {
       "id": "why-were-polarized",
@@ -47,7 +122,7 @@
       "category": "economics-policy",
       "publishedDate": "2020",
       "coverIsbn": "9781476700328",
-      "toneGradient": "bg-[radial-gradient(circle_at_12%_14%,rgba(255,255,255,0.22),transparent_28%),linear-gradient(135deg,rgba(185,28,28,0.34),rgba(255,255,255,0.06)_46%,rgba(30,58,138,0.22))] ring-rose-400/20",
+      "toneGradient": "ring-red-500/20",
       "takeaway": "Insightful breakdown of identity feedback loops and institutional incentives."
     },
     {
@@ -57,7 +132,7 @@
       "category": "sci-fi-vision",
       "publishedDate": "1965",
       "coverIsbn": "9780441172719",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_12%,rgba(255,228,160,0.24),transparent_30%),linear-gradient(135deg,rgba(184,106,25,0.42),rgba(211,23,10,0.14)_45%,rgba(255,255,255,0.06))] ring-orange-200/20",
+      "toneGradient": "ring-orange-500/20",
       "takeaway": "Unmatched worldbuilding on resource scarcity, planetary ecology, and prescient intelligence."
     },
     {
@@ -67,7 +142,7 @@
       "category": "sci-fi-vision",
       "publishedDate": "1984",
       "coverIsbn": "9780143111603",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_20%,rgba(0,255,171,0.18),transparent_30%),linear-gradient(135deg,rgba(0,40,85,0.48),rgba(24,185,134,0.16)_44%,rgba(255,255,255,0.06))] ring-cyan-200/18",
+      "toneGradient": "ring-cyan-500/20",
       "takeaway": "The pioneer of cyberspace, synthetic consciousness, and decoupled neural interfaces."
     },
     {
@@ -77,8 +152,14 @@
       "category": "sci-fi-vision",
       "publishedDate": "2008",
       "coverIsbn": "9780765382030",
-      "toneGradient": "bg-[radial-gradient(circle_at_18%_14%,rgba(140,170,255,0.18),transparent_30%),linear-gradient(135deg,rgba(0,40,85,0.46),rgba(255,255,255,0.07)_50%,rgba(211,23,10,0.14))] ring-blue-100/18",
+      "toneGradient": "ring-blue-500/20",
       "takeaway": "A staggering cosmic scale examination of civilizations, contact physics, and game theory."
     }
-  ]
+  ],
+  "spotify": {
+    "enabled": false,
+    "embedUrl": null,
+    "profileUrl": null,
+    "title": "Anmol's Flow State"
+  }
 }

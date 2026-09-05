@@ -6,6 +6,7 @@ import {
   HeroContentSchema,
   ReachMetricSchema,
   BookSchema,
+  SpotifyConfigSchema,
   WorkExperienceItemSchema,
   type AboutContent,
   type ContactContent,
@@ -14,6 +15,7 @@ import {
   type HeroContent,
   type ReachMetric,
   type BookItem,
+  type SpotifyConfig,
   type WorkExperienceItem,
 } from './schemas';
 import aboutData from './site/about.json';
@@ -34,5 +36,6 @@ export const educationContent: EducationItem[] = EducationItemSchema.array().par
 export const curatedProjectsContent: CuratedProject[] =
   CuratedProjectSchema.array().parse(projectsData);
 export const booksContent: BookItem[] = BookSchema.array().parse(personalData.books);
+export const spotifyConfig: SpotifyConfig = SpotifyConfigSchema.parse(personalData.spotify);
 export const reachMetricsContent: ReachMetric[] = ReachMetricSchema.array().parse(reachData);
 export const contactContent: ContactContent = ContactContentSchema.parse(contactData);
