@@ -64,7 +64,8 @@ const Projects: React.FC = () => {
       : curatedProjectsContent.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-20 md:py-28 relative z-10">
+    <section id="work" className="py-20 md:py-28 relative z-10">
+      <span id="projects" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       {/* Background ambient lighting */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div

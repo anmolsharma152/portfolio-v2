@@ -12,7 +12,8 @@ const Resume = () => {
   const [activeTab, setActiveTab] = useState<'experience' | 'education'>('experience');
 
   return (
-    <section id="resume" className="py-20 relative z-10">
+    <section id="timeline" className="py-20 relative z-10">
+      <span id="resume" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         <motion.div
           ref={ref}
