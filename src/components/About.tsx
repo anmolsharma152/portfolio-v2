@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 import ReadingStack from './widgets/ReadingStack';
-import { aboutContent } from '@/content/loaders';
+import SpotifyShelf from './widgets/SpotifyShelf';
+import { aboutContent, spotifyConfig } from '@/content/loaders';
 
 const ICON_MAP = {
   brain: Brain,
@@ -33,7 +34,7 @@ const About = () => {
         <div className="absolute inset-0 bg-grid-pattern [mask-image:linear-gradient(to_bottom,transparent,black_70%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Top Header & Avatar with Ohshin aesthetic */}
         <motion.div
           ref={ref}
@@ -46,7 +47,7 @@ const About = () => {
           <div className="w-full flex items-center justify-between font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.24em] text-muted-foreground mb-8 border-b border-border/40 pb-3">
             <span>profile / anmol</span>
             <span className="hidden sm:inline">engineering &amp; research</span>
-            <span>new delhi, india</span>
+            <span>jaipur, india</span>
           </div>
 
           <div
@@ -59,7 +60,7 @@ const About = () => {
             }}
             role="button"
             tabIndex={0}
-            className="relative w-36 h-36 sm:w-40 sm:h-40 mb-6 rounded-full overflow-hidden border-4 border-primary/30 shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300 cursor-zoom-in ring-4 ring-background"
+            className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 mb-8 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-2xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300 cursor-zoom-in ring-4 ring-background"
           >
             <Image
               src={aboutContent.profileImage}
@@ -185,9 +186,16 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Curated Reading Stack */}
+        {/* Curated Reading Stack & Spotify Records */}
         <div className="space-y-8">
           <ReadingStack />
+          {spotifyConfig?.enabled && (
+            <SpotifyShelf
+              embedUrl={spotifyConfig.embedUrl}
+              profileUrl={spotifyConfig.profileUrl}
+              title={spotifyConfig.title}
+            />
+          )}
         </div>
       </div>
 

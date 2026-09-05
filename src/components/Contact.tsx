@@ -113,7 +113,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 md:py-28 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           ref={ref}
@@ -125,7 +125,7 @@ const Contact = () => {
           <div className="flex items-center justify-between font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.24em] text-muted-foreground border-b border-border/40 pb-3 mb-6">
             <span className="text-foreground font-semibold">contact / reach out</span>
             <span className="hidden sm:inline">hiring, advisory &amp; open source</span>
-            <span>delhi &bull; remote</span>
+            <span>jaipur &bull; remote</span>
           </div>
 
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary mb-2">

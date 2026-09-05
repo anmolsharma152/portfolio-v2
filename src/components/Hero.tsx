@@ -54,7 +54,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-grid-pattern [mask-image:linear-gradient(to_bottom,transparent,black_70%)]" />
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 xl:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}

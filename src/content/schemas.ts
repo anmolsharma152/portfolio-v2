@@ -78,13 +78,22 @@ export const BookSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
   authors: z.array(z.string().min(1)).min(1),
-  category: z.enum(['systems-ai', 'economics-policy', 'sci-fi-vision']),
+  category: z.enum(['systems-ai', 'research-papers', 'economics-policy', 'sci-fi-vision']),
   publishedDate: z.string().min(1),
   coverId: z.string().optional(),
   coverIsbn: z.string().optional(),
   toneGradient: z.string().min(1),
   takeaway: z.string().optional(),
 });
+
+export const SpotifyConfigSchema = z
+  .object({
+    enabled: z.boolean().default(false),
+    embedUrl: z.string().url().nullable().optional(),
+    profileUrl: z.string().url().nullable().optional(),
+    title: z.string().optional(),
+  })
+  .optional();
 
 export const ReachMetricSchema = z.object({
   id: z.string().min(1),
@@ -122,6 +131,7 @@ export type WorkExperienceItem = z.infer<typeof WorkExperienceItemSchema>;
 export type EducationItem = z.infer<typeof EducationItemSchema>;
 export type CuratedProject = z.infer<typeof CuratedProjectSchema>;
 export type BookItem = z.infer<typeof BookSchema>;
+export type SpotifyConfig = z.infer<typeof SpotifyConfigSchema>;
 export type ReachMetric = z.infer<typeof ReachMetricSchema>;
 export type ContactLane = z.infer<typeof ContactLaneSchema>;
 export type ContactContent = z.infer<typeof ContactContentSchema>;

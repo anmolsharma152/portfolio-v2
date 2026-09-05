@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Header with Ohshin-style Meta & Typography */}
         <header className="mb-14 sm:mb-16">
           {/* Micro Meta Row */}

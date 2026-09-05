@@ -93,21 +93,23 @@
   }
 
   .dark {
-    --background-h: 222.2;
-    --background-s: 84%;
-    --background-l: 4.9%;
+    /* Deep Obsidian Black #050506 */
+    --background-h: 240;
+    --background-s: 10%;
+    --background-l: 2.5%;
     --foreground-h: 210;
     --foreground-s: 40%;
     --foreground-l: 98%;
-    --card-h: 222.2;
-    --card-s: 84%;
-    --card-l: 4.9%;
+    /* Deep Steel Panel #0b0d13 */
+    --card-h: 220;
+    --card-s: 18%;
+    --card-l: 6%;
     --card-foreground-h: 210;
     --card-foreground-s: 40%;
     --card-foreground-l: 98%;
-    --popover-h: 222.2;
-    --popover-s: 84%;
-    --popover-l: 4.9%;
+    --popover-h: 220;
+    --popover-s: 18%;
+    --popover-l: 6%;
     --popover-foreground-h: 210;
     --popover-foreground-s: 40%;
     --popover-foreground-l: 98%;
@@ -152,10 +154,10 @@
     --ring-l: 48%;
     
     /* Glass & Grid styling variables */
-    --glass-bg: rgba(15, 23, 42, 0.65);
+    --glass-bg: rgba(11, 14, 20, 0.78);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.05);
-    --grid-color: rgba(255, 255, 255, 0.04);
+    --glass-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --grid-color: rgba(255, 255, 255, 0.035);
 
     /* Backward compatibility */
     --background: var(--background-h) var(--background-s) var(--background-l);

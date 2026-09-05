@@ -11,6 +11,7 @@ import type { BookItem } from '@/content/schemas';
 const CATEGORY_LABELS: Record<string, string> = {
   all: 'All Shelves',
   'systems-ai': 'Systems & AI',
+  'research-papers': 'Research Papers',
   'economics-policy': 'Economics & Policy',
   'sci-fi-vision': 'Sci-Fi & Vision',
 };
