@@ -117,8 +117,8 @@ function TechPill({ item }: { item: TechStackItem }) {
       className={cn(
         'flex h-10 items-center gap-2 rounded-full border px-3 font-mono text-[0.58rem] uppercase tracking-[0.16em] shadow-[0_10px_26px_rgba(0,0,0,0.18)] sm:h-11 sm:px-4 sm:text-[0.62rem]',
         item.accent
-          ? 'border-[#D3170A]/26 bg-[#D3170A]/[0.105] text-white'
-          : 'border-white/10 bg-white/[0.045] text-white/68'
+          ? 'border-white/20 bg-white/[0.08] text-white'
+          : 'border-white/10 bg-white/[0.045] text-white/75'
       )}
     >
       <TechMark id={item.id} />
@@ -163,7 +163,7 @@ export const TechStackSection: React.FC = () => {
 
       <div className="grid gap-4 lg:grid-cols-[12rem_minmax(0,1fr)] lg:items-center">
         <div>
-          <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-[#D3170A] sm:text-[0.62rem]">
+          <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-rose-200 font-semibold sm:text-[0.62rem]">
             stack overload
           </p>
           <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem]">
