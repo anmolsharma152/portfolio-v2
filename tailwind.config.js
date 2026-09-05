@@ -126,9 +126,18 @@ module.exports = {
           '70%': { opacity: '0.15' },
           '100%': { opacity: '0', transform: 'translateX(170%) skewX(-18deg)' },
         },
+        'work-reveal': {
+          '0%': { opacity: '0', transform: 'translate3d(0,28px,0)' },
+          '68%': { opacity: '1', transform: 'translate3d(0,-2px,0)' },
+          '100%': { opacity: '1', transform: 'translate3d(0,0,0)' },
+        },
         'reach-pulse': {
           '0%, 100%': { opacity: '0.25', transform: 'scale(0.985)' },
           '50%': { opacity: '0.6', transform: 'scale(1.025)' },
+        },
+        'reach-sweep': {
+          '0%': { transform: 'translateX(-120%)' },
+          '100%': { transform: 'translateX(120%)' },
         },
         'hero-static': {
           '0%': { transform: 'translate3d(0,0,0)' },
@@ -163,9 +172,11 @@ module.exports = {
         'slide-out-to-top': 'slide-out-to-top 0.3s ease-out',
         'slide-in-from-bottom': 'slide-in-from-bottom 0.3s ease-out',
         'slide-out-to-bottom': 'slide-out-to-bottom 0.3s ease-out',
+        'work-reveal': 'work-reveal 900ms cubic-bezier(0.16, 1, 0.3, 1) both',
         'glass-breathe': 'glass-breathe 11s cubic-bezier(0.45, 0, 0.2, 1) infinite',
         'glass-sheen': 'glass-sheen 8s cubic-bezier(0.45, 0, 0.2, 1) infinite',
         'reach-pulse': 'reach-pulse 7.2s ease-in-out infinite',
+        'reach-sweep': 'reach-sweep 3.8s cubic-bezier(0.16, 1, 0.3, 1) infinite',
         'hero-static': 'hero-static 180ms steps(2, end) infinite',
         'scan-roll': 'scan-roll 5.8s linear infinite',
         'chroma-shake': 'chroma-shake 950ms steps(2, end) infinite',
