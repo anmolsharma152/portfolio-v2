@@ -28,9 +28,15 @@ export const WorkView: React.FC = () => {
       </div>
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-12 relative z-10">
-        {/* 1. WORK HEADER CARD (Matches Home Page About Header 1-to-1: No horizontal line, clean natural spacing) */}
+        {/* 1. WORK HEADER CARD */}
         <header className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.20),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-7 lg:rounded-[2.5rem] lg:p-9 mb-8">
           <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
+
+          {/* Radial lighting */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.08),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(211,23,10,.20),transparent_40%)]"
+          />
 
           {/* Top Metadata Row */}
           <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
@@ -49,8 +55,13 @@ export const WorkView: React.FC = () => {
         </header>
 
         {/* 2. DELIVERABLES & IMPACT METRICS STRIP */}
-        <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/30 p-5 sm:p-7 lg:p-9 mb-8 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
+        <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 sm:p-7 lg:p-9 mb-8 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
           <GlassSheen className="left-[-40%] bg-white/[0.04]" />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
+          />
 
           <div className="flex items-end justify-between gap-4 mb-6">
             <div>
@@ -70,7 +81,7 @@ export const WorkView: React.FC = () => {
             {reachMetricsContent.map((metric, idx) => (
               <div
                 key={metric.id}
-                className="relative overflow-hidden rounded-2xl p-5 sm:p-6 ring-1 ring-white/10 bg-black/34 shadow-[0_16px_40px_rgba(0,0,0,0.22),0_0_40px_rgba(211,23,10,0.12),inset_0_1px_0_rgba(255,255,255,0.10)] backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:scale-[1.015] hover:ring-white/20 hover:bg-black/40"
+                className="relative overflow-hidden rounded-2xl p-5 sm:p-6 ring-1 ring-white/12 bg-black/46 shadow-[0_16px_40px_rgba(0,0,0,0.28),0_0_40px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:scale-[1.015] hover:ring-white/22 hover:bg-black/52"
               >
                 <div
                   aria-hidden="true"
@@ -80,7 +91,7 @@ export const WorkView: React.FC = () => {
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.07),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_45%)]"
                 />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/35" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
 
                 <div className="flex items-center justify-between font-mono text-[0.66rem] uppercase tracking-[0.16em] text-white/60 mb-4">
                   <span className="flex items-center gap-1.5 font-semibold text-white/85">
@@ -114,9 +125,13 @@ export const WorkView: React.FC = () => {
         <div className="grid gap-8 py-2 lg:grid-cols-[minmax(18rem,0.56fr)_minmax(0,1fr)] lg:gap-8 lg:py-4 items-start mb-8">
           {/* LEFT: EXPERIENCE TIMELINE (Sticky Sync Scrolling on Desktop) */}
           <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
-            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 sm:p-6 ring-1 ring-white/10 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl motion-safe:animate-glass-breathe">
+            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 sm:p-7 ring-1 ring-white/12 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
               <GlassSheen className="left-[-40%] bg-white/[0.035]" />
-              <div className="flex items-end justify-between gap-4 mb-5">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
+              />
+              <div className="flex items-end justify-between gap-4 mb-6">
                 <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
                   experience
                 </h2>
@@ -125,12 +140,17 @@ export const WorkView: React.FC = () => {
                 </span>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {workExperienceContent.map((exp) => (
                   <article
                     key={exp.id}
-                    className="relative overflow-hidden rounded-[1.35rem] p-4 sm:p-5 ring-1 ring-white/8 bg-black/28 shadow-[0_12px_38px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all duration-200 hover:ring-white/15 hover:bg-black/36"
+                    className="relative overflow-hidden rounded-[1.4rem] p-5 sm:p-6 ring-1 ring-white/12 bg-black/46 shadow-[0_16px_40px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-200 hover:ring-white/20 hover:bg-black/52"
                   >
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+                    />
                     <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-[0.68rem] uppercase tracking-wider text-white/50">
                       <span className="text-rose-300 font-bold">{exp.period}</span>
                       <span>{exp.location}</span>
@@ -159,7 +179,7 @@ export const WorkView: React.FC = () => {
                       {exp.techBadges.map((badge) => (
                         <span
                           key={badge}
-                          className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-white/[0.05] text-white/75 border border-white/10"
+                          className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-white/[0.08] text-white/80 border border-white/12"
                         >
                           {badge}
                         </span>
@@ -173,9 +193,13 @@ export const WorkView: React.FC = () => {
 
           {/* RIGHT: PROJECTS BUILD LOG (All 8 Projects Rendered Inline) */}
           <main className="min-w-0">
-            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 sm:p-6 ring-1 ring-white/10 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl motion-safe:animate-glass-breathe">
+            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 sm:p-7 ring-1 ring-white/12 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
               <GlassSheen className="left-[-40%] bg-white/[0.035]" />
-              <div className="flex items-end justify-between gap-3 mb-5">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
+              />
+              <div className="flex items-end justify-between gap-3 mb-6">
                 <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
                   projects
                 </h2>
@@ -184,12 +208,17 @@ export const WorkView: React.FC = () => {
                 </span>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {curatedProjectsContent.map((project, idx) => (
                   <article
                     key={project.id}
-                    className="group relative overflow-hidden rounded-[1.35rem] p-4 sm:p-5 ring-1 ring-white/6 bg-black/24 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all duration-200 hover:ring-white/15 hover:bg-black/32 sm:grid sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center gap-4"
+                    className="group relative overflow-hidden rounded-[1.4rem] p-5 sm:p-6 ring-1 ring-white/12 bg-black/46 shadow-[0_16px_40px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-200 hover:ring-white/20 hover:bg-black/52 sm:grid sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center gap-4"
                   >
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+                    />
                     {/* Left Serial Number */}
                     <div className="hidden sm:block font-doto text-[1.45rem] font-black leading-none text-rose-300/80 pr-2 select-none">
                       {String(idx + 1).padStart(2, '0')}
@@ -206,7 +235,7 @@ export const WorkView: React.FC = () => {
                         </h3>
                       </div>
 
-                      <p className="font-mono text-[0.74rem] sm:text-[0.8rem] text-white/68 leading-relaxed mb-2.5">
+                      <p className="font-mono text-[0.74rem] sm:text-[0.8rem] text-white/70 leading-relaxed mb-2.5">
                         {project.summary}
                       </p>
 
@@ -214,7 +243,7 @@ export const WorkView: React.FC = () => {
                         {project.tech.map((t) => (
                           <span
                             key={t}
-                            className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-white/[0.05] text-white/70 border border-white/8"
+                            className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-white/[0.08] text-white/75 border border-white/10"
                           >
                             {t}
                           </span>
@@ -255,11 +284,15 @@ export const WorkView: React.FC = () => {
         </div>
 
         {/* 5. OPEN CHANNELS / REACH OUT SECTION */}
-        <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/32 p-6 sm:p-9 lg:p-10 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe">
+        <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/34 p-6 sm:p-9 lg:p-10 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe">
           <GlassSheen className="left-[-40%] bg-white/[0.035] motion-safe:[animation-delay:-6.4s] motion-safe:[animation-duration:12.7s]" />
           <div
             aria-hidden="true"
             className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[#D3170A]/20 blur-3xl motion-safe:animate-reach-pulse"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
           />
 
           {/* Section Header: Left Stacked REACH OUT, Right Context Paragraph */}
@@ -281,8 +314,12 @@ export const WorkView: React.FC = () => {
           {/* 3 Channels Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6">
             {/* Channel 01: Team */}
-            <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/36 p-5 sm:p-6 shadow-[0_18px_70px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/10 backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:ring-white/20 hover:bg-black/42">
-              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/40" />
+            <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/46 p-6 sm:p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/12 backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:ring-white/22 hover:bg-black/52">
+              <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+              />
               <div>
                 <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
                   01 / Team Channel
@@ -336,8 +373,12 @@ export const WorkView: React.FC = () => {
             </article>
 
             {/* Channel 02: Advisory / Contract */}
-            <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/36 p-5 sm:p-6 shadow-[0_18px_70px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/10 backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:ring-white/20 hover:bg-black/42">
-              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/40" />
+            <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/46 p-6 sm:p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/12 backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:ring-white/22 hover:bg-black/52">
+              <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+              />
               <div>
                 <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
                   02 / Advisory &amp; Contracts
@@ -363,8 +404,12 @@ export const WorkView: React.FC = () => {
             </article>
 
             {/* Channel 03: Casual DM */}
-            <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/36 p-5 sm:p-6 shadow-[0_18px_70px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/10 backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:ring-white/20 hover:bg-black/42">
-              <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/40" />
+            <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/46 p-6 sm:p-7 shadow-[0_20px_70px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/12 backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:ring-white/22 hover:bg-black/52">
+              <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+              />
               <div>
                 <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
                   03 / Casual Channel
