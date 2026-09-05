@@ -58,6 +58,33 @@
       "takeaway": "The foundation of agentic tool-use: interleaved reasoning traces and external action execution."
     },
     {
+      "id": "deepseek-r1-paper",
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via RL",
+      "authors": ["DeepSeek-AI"],
+      "category": "research-papers",
+      "publishedDate": "2025",
+      "toneGradient": "ring-blue-500/20",
+      "takeaway": "Large-scale reinforcement learning without supervised warm-up triggers emergent test-time compute and self-reflection."
+    },
+    {
+      "id": "attention-paper",
+      "title": "Attention Is All You Need",
+      "authors": ["Vaswani et al."],
+      "category": "research-papers",
+      "publishedDate": "2017",
+      "toneGradient": "ring-amber-500/20",
+      "takeaway": "The foundational transformer architecture that discarded recurrent topologies in favor of multi-head self-attention."
+    },
+    {
+      "id": "constitutional-ai-paper",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "authors": ["Yuntao Bai et al. (Anthropic)"],
+      "category": "research-papers",
+      "publishedDate": "2022",
+      "toneGradient": "ring-emerald-500/20",
+      "takeaway": "Automated RL from AI Feedback (RLAIF) guided by explicit principles, reducing human labeling bottlenecks."
+    },
+    {
       "id": "graphrag-paper",
       "title": "GraphRAG: Retrieval-Augmented Generation with Graphs",
       "authors": ["Microsoft Research"],
@@ -65,6 +92,16 @@
       "publishedDate": "2024",
       "toneGradient": "ring-blue-500/20",
       "takeaway": "Hierarchical community clustering over knowledge graphs for holistic corpus synthesis and reasoning."
+    },
+    {
+      "id": "the-party-mcgregor",
+      "title": "The Party: The Secret World of China's Rulers",
+      "authors": ["Richard McGregor"],
+      "category": "economics-policy",
+      "publishedDate": "2010",
+      "coverIsbn": "9780061708763",
+      "toneGradient": "ring-red-500/20",
+      "takeaway": "An unvarnished investigation into the state-capitalist coordination, cadre appointment, and institutional secrecy of the CCP."
     },
     {
       "id": "the-great-rebalancing",
