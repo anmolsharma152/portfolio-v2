@@ -115,10 +115,10 @@ function TechPill({ item }: { item: TechStackItem }) {
   return (
     <span
       className={cn(
-        'flex h-10 items-center gap-2 rounded-full border px-3 font-mono text-[0.58rem] uppercase tracking-[0.16em] shadow-[0_10px_26px_rgba(0,0,0,0.18)] sm:h-11 sm:px-4 sm:text-[0.62rem]',
+        'flex h-10 items-center gap-2 rounded-full border px-3 font-mono text-[0.58rem] uppercase tracking-[0.16em] shadow-[0_8px_20px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] sm:h-11 sm:px-4 sm:text-[0.62rem] transition-all',
         item.accent
-          ? 'border-white/20 bg-white/[0.08] text-white'
-          : 'border-white/10 bg-white/[0.045] text-white/75'
+          ? 'border-white/20 bg-white/[0.10] text-white'
+          : 'border-white/10 bg-white/[0.05] text-white/75'
       )}
     >
       <TechMark id={item.id} />
@@ -135,7 +135,7 @@ function TechMarquee({
   reverse?: boolean;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-full border border-white/10 bg-black/24">
+    <div className="relative overflow-hidden rounded-full border border-white/12 bg-black/45 shadow-[inset_0_2px_8px_rgba(0,0,0,0.40),0_4px_16px_rgba(0,0,0,0.20)]">
       <div
         className={cn(
           'flex w-max transform-gpu gap-2 py-2 will-change-transform motion-safe:animate-stack-marquee motion-reduce:animate-none hover:[animation-play-state:paused]',
@@ -152,13 +152,13 @@ function TechMarquee({
 
 export const TechStackSection: React.FC = () => {
   return (
-    <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-4 sm:p-5 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 backdrop-blur-2xl motion-safe:animate-glass-breathe">
+    <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 sm:p-6 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
       <GlassSheen className="left-[-35%] bg-white/[0.035]" />
 
       {/* Radial lighting from ohshin-site */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(211,23,10,.13),transparent_36%)]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(211,23,10,.18),transparent_36%)]"
       />
 
       <div className="grid gap-4 lg:grid-cols-[12rem_minmax(0,1fr)] lg:items-center">
