@@ -6,191 +6,56 @@
       "authors": ["Martin Kleppmann"],
       "category": "systems-ai",
       "publishedDate": "2017",
+      "thumbnail": "/images/books/ddia.jpg",
       "coverIsbn": "9781449373320",
-      "toneGradient": "ring-blue-500/20",
       "takeaway": "The gold standard blueprint for reliable, scalable, and maintainable data architectures."
     },
     {
-      "id": "ai-engineering",
-      "title": "AI Engineering",
-      "authors": ["Chip Huyen"],
-      "category": "systems-ai",
-      "publishedDate": "2024",
-      "coverIsbn": "9781098166304",
-      "toneGradient": "ring-pink-500/20",
-      "takeaway": "Foundational practices for shipping production-grade Foundation Model and LLM applications."
-    },
-    {
-      "id": "deep-learning-goodfellow",
+      "id": "deep-learning",
       "title": "Deep Learning",
       "authors": ["Ian Goodfellow", "Yoshua Bengio", "Aaron Courville"],
       "category": "systems-ai",
       "publishedDate": "2016",
+      "thumbnail": "/images/books/deep-learning.jpg",
       "coverIsbn": "9780262035613",
-      "toneGradient": "ring-emerald-500/20",
       "takeaway": "The definitive theoretical bible on representation learning and deep neural networks."
     },
     {
-      "id": "lora-paper",
-      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
-      "authors": ["Edward Hu", "Yelong Shen", "Phillip Wallis et al."],
-      "category": "research-papers",
-      "publishedDate": "2021",
-      "toneGradient": "ring-cyan-500/20",
-      "takeaway": "Freezes pre-trained weights and injects trainable rank-decomposition matrices, cutting VRAM by 3x."
+      "id": "pragmatic-programmer",
+      "title": "The Pragmatic Programmer",
+      "authors": ["David Thomas", "Andrew Hunt"],
+      "category": "systems-ai",
+      "publishedDate": "1999",
+      "thumbnail": "/images/books/pragmatic-programmer.jpg",
+      "coverIsbn": "9780135957059",
+      "takeaway": "Essential philosophies of craft, modularity, and pragmatic systems engineering."
     },
     {
-      "id": "mamba-paper",
-      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
-      "authors": ["Albert Gu", "Tri Dao"],
-      "category": "research-papers",
-      "publishedDate": "2023",
-      "toneGradient": "ring-purple-500/20",
-      "takeaway": "Hardware-aware selective state-spaces delivering linear-time inference and 5x throughput over Transformers."
-    },
-    {
-      "id": "react-paper",
-      "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
-      "authors": ["Shunyu Yao", "Jeffrey Zhao", "Dian Yu et al."],
-      "category": "research-papers",
-      "publishedDate": "2022",
-      "toneGradient": "ring-indigo-500/20",
-      "takeaway": "The foundation of agentic tool-use: interleaved reasoning traces and external action execution."
-    },
-    {
-      "id": "deepseek-r1-paper",
-      "title": "DeepSeek-R1: Incentivizing Reasoning Capability via RL",
-      "authors": ["DeepSeek-AI"],
-      "category": "research-papers",
-      "publishedDate": "2025",
-      "toneGradient": "ring-blue-500/20",
-      "takeaway": "Large-scale reinforcement learning without supervised warm-up triggers emergent test-time compute and self-reflection."
-    },
-    {
-      "id": "attention-paper",
-      "title": "Attention Is All You Need",
-      "authors": ["Vaswani et al."],
-      "category": "research-papers",
-      "publishedDate": "2017",
-      "toneGradient": "ring-amber-500/20",
-      "takeaway": "The foundational transformer architecture that discarded recurrent topologies in favor of multi-head self-attention."
-    },
-    {
-      "id": "constitutional-ai-paper",
-      "title": "Constitutional AI: Harmlessness from AI Feedback",
-      "authors": ["Yuntao Bai et al. (Anthropic)"],
-      "category": "research-papers",
-      "publishedDate": "2022",
-      "toneGradient": "ring-emerald-500/20",
-      "takeaway": "Automated RL from AI Feedback (RLAIF) guided by explicit principles, reducing human labeling bottlenecks."
-    },
-    {
-      "id": "graphrag-paper",
-      "title": "GraphRAG: Retrieval-Augmented Generation with Graphs",
-      "authors": ["Microsoft Research"],
-      "category": "research-papers",
-      "publishedDate": "2024",
-      "toneGradient": "ring-blue-500/20",
-      "takeaway": "Hierarchical community clustering over knowledge graphs for holistic corpus synthesis and reasoning."
-    },
-    {
-      "id": "the-party-mcgregor",
-      "title": "The Party: The Secret World of China's Rulers",
-      "authors": ["Richard McGregor"],
-      "category": "economics-policy",
-      "publishedDate": "2010",
-      "coverIsbn": "9780061708763",
-      "toneGradient": "ring-red-500/20",
-      "takeaway": "An unvarnished investigation into the state-capitalist coordination, cadre appointment, and institutional secrecy of the CCP."
-    },
-    {
-      "id": "the-great-rebalancing",
-      "title": "The Great Rebalancing",
-      "authors": ["Michael Pettis"],
-      "category": "economics-policy",
-      "publishedDate": "2013",
-      "coverIsbn": "9780691158686",
-      "toneGradient": "ring-amber-500/20",
-      "takeaway": "Masterclass on global trade imbalances, capital accounts, and structural macroeconomic shifts."
-    },
-    {
-      "id": "abundance-klein",
+      "id": "abundance",
       "title": "Abundance: What Progress Takes",
-      "authors": ["Ezra Klein", "Derek Thompson"],
+      "authors": ["Derek Thompson", "Ezra Klein"],
       "category": "economics-policy",
       "publishedDate": "2024",
-      "toneGradient": "ring-orange-500/20",
-      "takeaway": "A supply-side progressive agenda on technological deployment, energy abundance, and state capacity."
+      "thumbnail": "/images/books/abundance.webp",
+      "takeaway": "Supply-side progressivism: why physical capacity, building velocity, and state execution matter."
     },
     {
       "id": "how-to-win-trade-war",
       "title": "How to Win a Trade War",
       "authors": ["Soumaya Keynes"],
       "category": "economics-policy",
-      "publishedDate": "2024",
-      "coverIsbn": "9781847927590",
-      "toneGradient": "ring-rose-500/20",
-      "takeaway": "Sharp analysis of tariffs, industrial subsidies, supply chain security, and geopolitical commerce."
+      "publishedDate": "2023",
+      "thumbnail": "/images/books/how-to-win-trade-war.webp",
+      "takeaway": "An inside analysis of globalization, tariff mechanics, subsidies, and strategic economic warfare."
     },
     {
       "id": "avoiding-the-fall",
-      "title": "Avoiding the Fall: China's Economic Restructuring",
+      "title": "Avoiding the Fall: China's Restructuring",
       "authors": ["Michael Pettis"],
       "category": "economics-policy",
-      "publishedDate": "2014",
-      "coverIsbn": "9780870034176",
-      "toneGradient": "ring-amber-500/20",
-      "takeaway": "Rigorous balance-sheet economics on investment-led growth, debt ceilings, and household transfers."
-    },
-    {
-      "id": "technical-analysis",
-      "title": "Technical Analysis of the Financial Markets",
-      "authors": ["John J. Murphy"],
-      "category": "economics-policy",
-      "publishedDate": "1999",
-      "coverIsbn": "9780735200661",
-      "toneGradient": "ring-yellow-500/20",
-      "takeaway": "The definitive treatise on price action, volume profiles, momentum oscillators, and market cycle psychology."
-    },
-    {
-      "id": "why-were-polarized",
-      "title": "Why We're Polarized",
-      "authors": ["Ezra Klein"],
-      "category": "economics-policy",
-      "publishedDate": "2020",
-      "coverIsbn": "9781476700328",
-      "toneGradient": "ring-red-500/20",
-      "takeaway": "Insightful breakdown of identity feedback loops and institutional incentives."
-    },
-    {
-      "id": "dune",
-      "title": "Dune",
-      "authors": ["Frank Herbert"],
-      "category": "sci-fi-vision",
-      "publishedDate": "1965",
-      "coverIsbn": "9780441172719",
-      "toneGradient": "ring-orange-500/20",
-      "takeaway": "Unmatched worldbuilding on resource scarcity, planetary ecology, and prescient intelligence."
-    },
-    {
-      "id": "neuromancer",
-      "title": "Neuromancer",
-      "authors": ["William Gibson"],
-      "category": "sci-fi-vision",
-      "publishedDate": "1984",
-      "coverIsbn": "9780143111603",
-      "toneGradient": "ring-cyan-500/20",
-      "takeaway": "The pioneer of cyberspace, synthetic consciousness, and decoupled neural interfaces."
-    },
-    {
-      "id": "the-three-body-problem",
-      "title": "The Three-Body Problem",
-      "authors": ["Cixin Liu"],
-      "category": "sci-fi-vision",
-      "publishedDate": "2008",
-      "coverIsbn": "9780765382030",
-      "toneGradient": "ring-blue-500/20",
-      "takeaway": "A staggering cosmic scale examination of civilizations, contact physics, and game theory."
+      "publishedDate": "2013",
+      "thumbnail": "/images/books/avoiding-the-fall.webp",
+      "takeaway": "Balance sheet dynamics, investment distortions, and structural rebalancing in macro systems."
     }
   ],
   "spotify": {
@@ -199,7 +64,37 @@
     "userId": "31fzcv4ts52untro5xsamjhddtre",
     "profileUrl": "https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre",
     "avatarUrl": "https://i.scdn.co/image/ab6775700000ee85148002f2172385d78f372b08",
-    "embedPlaylistUrl": null,
-    "title": "Soundtrack & Flow State"
+    "embedPlaylistUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator",
+    "title": "Soundtrack & Flow State",
+    "playlists": [
+      {
+        "id": "deep-focus",
+        "title": "Deep Focus",
+        "subtitle": "Ambient & Minimal Post-Rock",
+        "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator",
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWZeKCadgRdKQ"
+      },
+      {
+        "id": "beats-to-think-to",
+        "title": "Beats to think to",
+        "subtitle": "Melodic Techno & Downtempo",
+        "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DXa2SPUyWl8Y5?utm_source=generator",
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DXa2SPUyWl8Y5"
+      },
+      {
+        "id": "brain-food",
+        "title": "Brain Food",
+        "subtitle": "Hypnotic Electronic Focus",
+        "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator",
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWXLeA8Omikj7"
+      },
+      {
+        "id": "lofi-beats",
+        "title": "Lofi Beats",
+        "subtitle": "Late-Night Instrumental Focus",
+        "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator",
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn"
+      }
+    ]
   }
 }

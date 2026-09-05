@@ -21,7 +21,7 @@ const techStack = [
   {
     icon: <Code className="w-5 h-5" />,
     name: 'Machine Learning',
-    color: 'text-blue-600 dark:text-blue-400',
+    color: 'text-white/90',
   },
   {
     icon: <Database className="w-5 h-5" />,
@@ -56,7 +56,7 @@ export const ThreeDCard = () => {
   const gradient = useMotionTemplate`
     radial-gradient(
       350px circle at ${mouseX}px ${mouseY}px,
-      rgba(37, 99, 235, 0.35),
+      rgba(255, 255, 255, 0.12),
       transparent 70%
     )
   `;
@@ -118,12 +118,12 @@ export const ThreeDCard = () => {
           style={{
             background: gradient,
           }}
-          className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-transparent"
+          className="absolute inset-0 bg-zinc-950/80"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
           {/* Animated grid pattern */}
-          <div className="absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]">
+          <div className="absolute inset-0 opacity-20 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]">
             <div
               className="absolute inset-0"
               style={{
@@ -138,13 +138,13 @@ export const ThreeDCard = () => {
 
         {/* Glow effect */}
         <motion.div
-          className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-30 blur transition duration-500"
+          className="absolute -inset-1 bg-white/10 rounded-2xl opacity-0 group-hover:opacity-30 blur transition duration-500"
           style={{
             transform: 'translateZ(10px)',
           }}
           animate={{
-            opacity: isHovered ? 0.3 : 0,
-            scale: isHovered ? 1.05 : 1,
+            opacity: isHovered ? 0.2 : 0,
+            scale: isHovered ? 1.03 : 1,
           }}
         />
 
@@ -154,9 +154,9 @@ export const ThreeDCard = () => {
           <div className="flex justify-between items-start">
             <div>
               <motion.h2
-                className="font-heading text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent"
+                className="font-doto text-2xl md:text-3xl font-black uppercase tracking-tight text-white"
                 animate={{
-                  y: isHovered ? -5 : 0,
+                  y: isHovered ? -3 : 0,
                 }}
                 transition={{
                   duration: 0.3,
@@ -165,12 +165,12 @@ export const ThreeDCard = () => {
                 Tech Stack
               </motion.h2>
               <motion.p
-                className="text-muted-foreground mt-1"
+                className="text-white/60 text-xs font-mono mt-1"
                 animate={{
                   opacity: isHovered ? 1 : 0.8,
                 }}
               >
-                My expertise spans across
+                Core competencies &amp; platforms
               </motion.p>
             </div>
             <motion.div
@@ -178,18 +178,18 @@ export const ThreeDCard = () => {
                 rotate: isHovered ? 10 : 0,
                 scale: isHovered ? 1.1 : 1,
               }}
-              className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20"
+              className="p-2 rounded-lg bg-white/10 border border-white/10"
             >
-              <Zap className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
+              <Zap className="w-5 h-5 text-white/80" />
             </motion.div>
           </div>
 
           {/* Tech stack items */}
-          <div className="grid grid-cols-2 gap-4 mt-6">
+          <div className="grid grid-cols-2 gap-3 mt-4">
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                className={`p-4 rounded-xl bg-gradient-to-br from-background/50 to-background/30 backdrop-blur-sm border border-border/60 dark:border-border/30 hover:border-blue-500/30 transition-all duration-300 ${tech.color}`}
+                className="p-3.5 rounded-xl bg-white/[0.04] backdrop-blur-sm border border-white/10 hover:border-white/25 transition-all duration-300 text-white"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: 1,
@@ -200,16 +200,13 @@ export const ThreeDCard = () => {
                   },
                 }}
                 whileHover={{
-                  y: -5,
-                  boxShadow:
-                    '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                  y: -3,
+                  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.4)',
                 }}
               >
                 <div className="flex items-center space-x-2">
-                  <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-                    {tech.icon}
-                  </div>
-                  <span className="font-medium">{tech.name}</span>
+                  <div className="p-1.5 rounded-lg bg-white/10 text-white">{tech.icon}</div>
+                  <span className="font-mono text-xs font-medium text-white/90">{tech.name}</span>
                 </div>
               </motion.div>
             ))}
@@ -275,44 +272,44 @@ export const ThreeDCard = () => {
               >
                 <X className="w-5 h-5" />
               </button>
-              <h3 className="font-heading text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent mb-6">
-                Core Technologies & Tools
+              <h3 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mb-6">
+                Core Technologies &amp; Tools
               </h3>
-              <div className="space-y-6">
+              <div className="space-y-6 font-mono">
                 <div>
-                  <h4 className="text-lg font-bold text-purple-600 dark:text-purple-400 flex items-center gap-2 mb-2">
-                    <Cpu className="w-5 h-5" /> Generative AI & Agents
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-1.5">
+                    <Cpu className="w-4 h-4 text-white/80" /> Generative AI &amp; Agents
                   </h4>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-white/70 text-xs leading-relaxed">
                     LangGraph, CrewAI, Agentic RAG (CodexEngine), pgvector, FAISS, GPT-4, Llama 3,
                     Prompt Engineering
                   </p>
                 </div>
                 <div className="border-t border-border/60 dark:border-border/40 pt-4">
-                  <h4 className="text-lg font-bold text-blue-600 dark:text-blue-400 flex items-center gap-2 mb-2">
-                    <Code className="w-5 h-5" /> Machine Learning & CV
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-1.5">
+                    <Code className="w-4 h-4 text-white/80" /> Machine Learning &amp; CV
                   </h4>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-white/70 text-xs leading-relaxed">
                     PyTorch, TensorFlow, Computer Vision (YOLO, OpenCV), DeepFace, Recommender
                     Systems (RecSys_RL), Reinforcement Learning (Drone simulation, Q-Learning, PPO)
                   </p>
                 </div>
                 <div className="border-t border-border/60 dark:border-border/40 pt-4">
-                  <h4 className="text-lg font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-2 mb-2">
-                    <Database className="w-5 h-5" /> Edge & Low-Latency AI
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-1.5">
+                    <Database className="w-4 h-4 text-white/80" /> Edge &amp; Low-Latency AI
                   </h4>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-white/70 text-xs leading-relaxed">
                     ONNX Runtime, WebAssembly (WASM), Unix Domain Sockets, PAM Modules, Silero VAD,
                     Kokoro TTS, MediaPipe real-time posture tracking
                   </p>
                 </div>
                 <div className="border-t border-border/60 dark:border-border/40 pt-4">
-                  <h4 className="text-lg font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2 mb-2">
-                    <GitBranch className="w-5 h-5" /> Systems & Production Ops
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-1.5">
+                    <GitBranch className="w-4 h-4 text-white/80" /> Systems &amp; Production Ops
                   </h4>
-                  <p className="text-muted-foreground text-sm">
-                    Python (FastAPI, Asyncio), SQL & PostgreSQL (Async I/O), Docker, Linux System
-                    Administration, GitHub Actions CI/CD, Tauri Desktop Shells
+                  <p className="text-white/70 text-xs leading-relaxed">
+                    Python (FastAPI, Asyncio), SQL &amp; PostgreSQL (Async I/O), Docker, Linux
+                    System Administration, GitHub Actions CI/CD, Tauri Desktop Shells
                   </p>
                 </div>
               </div>

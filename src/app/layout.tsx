@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'Engineering production-grade agentic platforms, sub-150ms voice pipelines, and edge intelligence daemons.',
   metadataBase: new URL('https://anmolsharma152.vercel.app'),
   other: {
-    'msapplication-TileColor': '#2563eb',
+    'msapplication-TileColor': '#000000',
   },
   openGraph: {
     title: 'Anmol Sharma',
@@ -73,15 +73,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`light ${inter.variable} ${jakarta.variable}`}
+      className={`dark bg-[#000000] text-[#ededed] ${inter.variable} ${jakarta.variable}`}
+      style={{ colorScheme: 'dark' }}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        {/* eslint-disable-next-line @next/next/google-font-preconnect */}
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/doto/v3/t5t6IRMbNJ6TQG7Il_EKPqP9zTnvqouBWho.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display, @next/next/google-font-preconnect */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Doto:wght@400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Tektur:wght@500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Doto:wght@400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Tektur:wght@500;600;700;800&display=block"
         />
         <script
           type="application/ld+json"
