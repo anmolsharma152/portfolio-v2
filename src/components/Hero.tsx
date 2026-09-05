@@ -67,39 +67,44 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
+              {/* System status pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono text-xs mb-6">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>ONLINE // AI SYSTEMS &amp; AGENT PLATFORMS</span>
+              </div>
+
               <div className="overflow-x-visible">
-                <h1 className="font-heading text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight mb-4 text-foreground">
+                <h1 className="font-doto text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-4 text-foreground">
                   {heroContent.headlinePrefix}
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-                    {heroContent.headlineGradient}
-                  </span>
+                  <span className="text-primary">{heroContent.headlineGradient}</span>
                   {heroContent.headlineSuffix}
                 </h1>
               </div>
 
-              <div className="h-12 flex items-center justify-center lg:justify-start mb-6">
-                <h2 className="text-xl md:text-2xl font-medium text-muted-foreground">
+              <div className="h-12 flex items-center justify-center lg:justify-start mb-6 font-mono">
+                <h2 className="text-base sm:text-lg md:text-xl font-medium text-muted-foreground">
+                  <span className="text-primary mr-2">&gt;</span>
                   {text}
                   <span
-                    className={`inline-block w-1 h-7 ml-2 bg-primary ${isTyping ? 'animate-pulse' : ''}`}
+                    className={`inline-block w-1.5 h-5 ml-1 bg-primary ${isTyping ? 'animate-pulse' : ''}`}
                   />
                 </h2>
               </div>
 
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="font-mono text-xs sm:text-sm md:text-base text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 {heroContent.summary}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start font-mono">
                 <a
                   href={heroContent.primaryCta.href}
-                  className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:opacity-95 transition-all shadow-lg hover:shadow-blue-600/20"
+                  className="px-7 py-3.5 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20 text-xs sm:text-sm"
                 >
                   {heroContent.primaryCta.label}
                 </a>
                 <a
                   href={heroContent.secondaryCta.href}
-                  className="px-8 py-3.5 border border-border/80 text-foreground rounded-xl font-semibold hover:bg-muted/50 transition-colors"
+                  className="px-7 py-3.5 border border-border text-foreground rounded-xl font-semibold hover:bg-muted/60 transition-colors text-xs sm:text-sm"
                 >
                   {heroContent.secondaryCta.label}
                 </a>

@@ -76,12 +76,12 @@ export const ReachCounter: React.FC = () => {
 
       {/* Top Kicker */}
       <div className="flex items-center justify-between gap-4 mb-6 border-b border-border/40 pb-4">
-        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary">
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-primary">
           <Activity className="w-4 h-4 text-primary animate-pulse" />
-          <span>System Metrics &amp; Impact</span>
+          <span>[ 01 / VERIFIED SYSTEM BENCHMARKS ]</span>
         </div>
-        <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground hidden sm:block">
-          Verified Benchmarks
+        <span className="font-mono text-[0.68rem] uppercase tracking-[0.2em] text-muted-foreground hidden sm:block">
+          real-time metrics &amp; impact
         </span>
       </div>
 
@@ -93,19 +93,19 @@ export const ReachCounter: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 * index, duration: 0.4 }}
-            className="relative overflow-hidden rounded-xl bg-background/60 dark:bg-card/40 border border-border/60 p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:border-primary/40 transition-colors"
+            transition={{ delay: 0.08 * index, duration: 0.4 }}
+            className="relative overflow-hidden rounded-xl bg-card/80 dark:bg-zinc-900/70 border border-border/70 p-4 sm:p-5 flex flex-col justify-between shadow-sm hover:border-primary/50 transition-colors"
           >
             {/* Specular glow orb */}
             <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-primary/10 blur-xl" />
 
             <div className="flex items-center justify-between text-muted-foreground font-mono text-xs mb-3">
-              <span className="truncate pr-2">{metric.label}</span>
-              <span className="text-primary font-bold">0{index + 1}</span>
+              <span className="truncate pr-2 font-medium">{metric.label}</span>
+              <span className="font-doto text-primary font-black">0{index + 1}</span>
             </div>
 
             <div className="my-1">
-              <p className="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+              <p className="font-doto text-3xl sm:text-4xl font-black tracking-tight text-foreground">
                 <CountUpNumber metric={metric} />
               </p>
             </div>

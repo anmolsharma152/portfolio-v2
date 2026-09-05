@@ -86,13 +86,6 @@ export const BookSchema = z.object({
   takeaway: z.string().optional(),
 });
 
-export const SpotifyPlaylistSchema = z.object({
-  id: z.string().min(1),
-  title: z.string().min(1),
-  subtitle: z.string().min(1),
-  embedUrl: z.string().url(),
-});
-
 export const ReachMetricSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(1),
@@ -129,7 +122,6 @@ export type WorkExperienceItem = z.infer<typeof WorkExperienceItemSchema>;
 export type EducationItem = z.infer<typeof EducationItemSchema>;
 export type CuratedProject = z.infer<typeof CuratedProjectSchema>;
 export type BookItem = z.infer<typeof BookSchema>;
-export type SpotifyPlaylist = z.infer<typeof SpotifyPlaylistSchema>;
 export type ReachMetric = z.infer<typeof ReachMetricSchema>;
 export type ContactLane = z.infer<typeof ContactLaneSchema>;
 export type ContactContent = z.infer<typeof ContactContentSchema>;

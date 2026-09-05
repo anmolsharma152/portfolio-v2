@@ -199,10 +199,6 @@
     color: hsl(var(--foreground));
   }
 
-  p, li, span, div {
-    color: color-mix(in srgb, hsl(var(--foreground)) 90%, transparent);
-  }
-
   a {
     color: hsl(var(--primary));
     transition: color 0.2s ease-in-out;
@@ -211,23 +207,6 @@
   a:hover {
     color: color-mix(in srgb, hsl(var(--primary)) 90%, transparent);
   }
-}
-
-/* Text utility classes */
-.text-primary {
-  color: hsl(var(--foreground));
-}
-
-.text-secondary {
-  color: color-mix(in srgb, hsl(var(--foreground)) 80%, transparent);
-}
-
-.text-muted {
-  color: color-mix(in srgb, hsl(var(--foreground)) 60%, transparent);
-}
-
-.text-light {
-  color: color-mix(in srgb, hsl(var(--foreground)) 40%, transparent);
 }
 
 /* Custom utility classes */
