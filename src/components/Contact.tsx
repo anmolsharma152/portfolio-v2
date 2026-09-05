@@ -194,10 +194,10 @@ const Contact = () => {
                   href={lane.actionHref}
                   target={lane.actionHref.startsWith('http') ? '_blank' : undefined}
                   rel={lane.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-full font-doto text-xs sm:text-sm font-black lowercase tracking-[0.06em] transition-all duration-200 cursor-pointer ${
+                  className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-full font-mono text-xs sm:text-sm font-semibold lowercase tracking-wide transition-all duration-200 cursor-pointer ${
                     lane.isPrimary
-                      ? 'bg-white text-black hover:bg-white/90 shadow-md'
-                      : 'border border-white/20 bg-white/[0.06] text-white hover:bg-white/15'
+                      ? 'bg-white text-black hover:bg-neutral-200 shadow-md'
+                      : 'border border-white/20 bg-white/[0.08] text-white hover:bg-white/20'
                   }`}
                 >
                   <span>{lane.actionLabel.toLowerCase()}</span>
