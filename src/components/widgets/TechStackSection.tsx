@@ -115,10 +115,10 @@ function TechPill({ item }: { item: TechStackItem }) {
   return (
     <span
       className={cn(
-        'flex h-10 items-center gap-2 rounded-full border px-3.5 font-mono text-[0.58rem] uppercase tracking-[0.16em] shadow-[0_6px_18px_rgba(0,0,0,0.4)] sm:h-11 sm:px-4 sm:text-[0.62rem] backdrop-blur-sm',
+        'flex h-10 items-center gap-2 rounded-full border px-3 font-mono text-[0.58rem] uppercase tracking-[0.16em] shadow-[0_10px_26px_rgba(0,0,0,0.18)] sm:h-11 sm:px-4 sm:text-[0.62rem]',
         item.accent
-          ? 'border-[#D3170A]/35 bg-black/60 text-white ring-1 ring-[#D3170A]/20'
-          : 'border-white/12 bg-black/50 text-white/80'
+          ? 'border-[#D3170A]/26 bg-[#D3170A]/[0.105] text-white'
+          : 'border-white/10 bg-white/[0.045] text-white/68'
       )}
     >
       <TechMark id={item.id} />
@@ -135,14 +135,14 @@ function TechMarquee({
   reverse?: boolean;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-full border border-white/12 bg-black/75 shadow-[inset_0_3px_12px_rgba(0,0,0,0.85),0_2px_8px_rgba(0,0,0,0.4)] py-1.5 sm:py-2">
+    <div className="relative overflow-hidden rounded-full border border-white/10 bg-black/24">
       <div
         className={cn(
-          'flex w-max transform-gpu gap-2.5 py-1 will-change-transform motion-safe:animate-stack-marquee motion-reduce:animate-none hover:[animation-play-state:paused]',
+          'flex w-max transform-gpu gap-2 py-2 will-change-transform motion-safe:animate-stack-marquee motion-reduce:animate-none hover:[animation-play-state:paused]',
           reverse && 'motion-safe:[animation-direction:reverse]'
         )}
       >
-        {[...items, ...items, ...items].map((item, index) => (
+        {[...items, ...items].map((item, index) => (
           <TechPill key={`${item.id}-${index}`} item={item} />
         ))}
       </div>
@@ -152,26 +152,26 @@ function TechMarquee({
 
 export const TechStackSection: React.FC = () => {
   return (
-    <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/55 sm:bg-black/60 p-5 sm:p-7 lg:p-8 shadow-[0_32px_120px_rgba(0,0,0,0.55),0_12px_50px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe">
-      <GlassSheen className="left-[-35%] bg-white/[0.045]" />
+    <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-4 sm:p-5 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 backdrop-blur-2xl motion-safe:animate-glass-breathe">
+      <GlassSheen className="left-[-35%] bg-white/[0.035]" />
 
       {/* Radial lighting from ohshin-site */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.10),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(0,0,0,.5),transparent_40%)]"
+        className="absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(211,23,10,.13),transparent_36%)]"
       />
 
       <div className="grid gap-4 lg:grid-cols-[12rem_minmax(0,1fr)] lg:items-center">
         <div>
-          <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-[#D3170A] sm:text-[0.62rem] font-bold">
+          <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-[#D3170A] sm:text-[0.62rem]">
             stack overload
           </p>
-          <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem] drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]">
+          <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem]">
             tech<br />stack
           </h2>
         </div>
 
-        <div className="min-w-0 space-y-2.5">
+        <div className="min-w-0 space-y-2">
           <TechMarquee items={ROW_1_ITEMS} />
           <TechMarquee items={ROW_2_ITEMS} reverse />
         </div>

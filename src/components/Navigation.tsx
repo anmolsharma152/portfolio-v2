@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   FaGithub,
+  FaInstagram,
   FaLinkedinIn,
   FaRegEnvelope,
-  FaSpotify,
   FaXTwitter,
 } from 'react-icons/fa6';
 
@@ -17,54 +17,100 @@ const ALEX_SKIN_URL =
 const DIAMOND_PICKAXE_URL =
   'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/items/diamond_pickaxe.png';
 
+interface SocialLink {
+  label: string;
+  href: string;
+  icon: React.ReactNode;
+}
+
 export const Navigation: React.FC = () => {
   const pathname = usePathname();
   const isWork = pathname?.startsWith('/work');
+  const [isDockHidden, setIsDockHidden] = useState(false);
+  const hideTimeoutRef = useRef<number | null>(null);
+  const tickingRef = useRef(false);
 
-  // Exact order and icons matching Ohshin's dock pattern:
-  // X -> Spotify -> Mail -> LinkedIn -> GitHub
-  const socialLinks = [
+  // Exact 5 icons and classes from ohshin-site SOCIAL_ICON_CLASS_MAP (Image 2)
+  const socialLinks: SocialLink[] = [
     {
       label: 'X',
       href: 'https://x.com/ozymandias152',
-      icon: <FaXTwitter className="h-4 w-4 sm:h-5 sm:w-5" />,
+      icon: <FaXTwitter className="h-5 w-5 sm:h-5.5 sm:w-5.5" />,
     },
     {
-      label: 'Spotify',
-      href: 'https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre',
-      icon: <FaSpotify className="h-4 w-4 sm:h-5 sm:w-5" />,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/anmolsharma152/',
+      icon: <FaInstagram className="h-6 w-6 sm:h-7 sm:w-7" />,
     },
     {
-      label: 'Email',
+      label: 'Mail',
       href: 'mailto:anmolsharma152.dev@gmail.com',
-      icon: <FaRegEnvelope className="h-4 w-4 sm:h-5 sm:w-5" />,
+      icon: <FaRegEnvelope className="h-5 w-5 sm:h-6 sm:w-6" />,
     },
     {
       label: 'LinkedIn',
       href: 'https://linkedin.com/in/anmolsharma152/',
-      icon: <FaLinkedinIn className="h-4 w-4 sm:h-5 sm:w-5" />,
+      icon: <FaLinkedinIn className="h-5 w-5 sm:h-6 sm:w-6" />,
     },
     {
       label: 'GitHub',
       href: 'https://github.com/anmolsharma152',
-      icon: <FaGithub className="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />,
+      icon: <FaGithub className="h-5 w-5 sm:h-6 sm:w-6" />,
     },
   ];
 
+  // Auto-hide dock while scrolling down, reappear on scroll stop or top (ohshin-site parity)
+  useEffect(() => {
+    const updateDockVisibility = () => {
+      const currentScrollY = window.scrollY;
+
+      if (hideTimeoutRef.current) {
+        window.clearTimeout(hideTimeoutRef.current);
+      }
+
+      if (currentScrollY < 24) {
+        setIsDockHidden(false);
+      } else {
+        setIsDockHidden(true);
+        hideTimeoutRef.current = window.setTimeout(() => {
+          setIsDockHidden(false);
+        }, 560);
+      }
+
+      tickingRef.current = false;
+    };
+
+    const handleScroll = () => {
+      if (tickingRef.current) {
+        return;
+      }
+
+      tickingRef.current = true;
+      window.requestAnimationFrame(updateDockVisibility);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (hideTimeoutRef.current) {
+        window.clearTimeout(hideTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <header
-      className="pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-50 flex w-full justify-center px-2 sm:bottom-6 sm:px-3 transition-transform duration-300 ease-out"
+      className={`pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-50 flex w-full justify-center px-2 transition-transform duration-300 ease-out sm:bottom-6 sm:px-3 ${
+        isDockHidden ? 'translate-y-[calc(100%+2rem)]' : 'translate-y-0'
+      }`}
       data-site-nav
     >
       <div className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5">
-        {/* Physical 3D Glass Bevel & Specular Highlight */}
+        {/* Physical 3D Glass Specular Highlight from ohshin-site */}
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.045)_42%,rgba(0,0,0,0.12))]"
-        />
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-px rounded-full border border-black/18"
         />
 
         <nav
@@ -76,57 +122,77 @@ export const Navigation: React.FC = () => {
             {/* Abt Me Tab */}
             <Link
               href="/#about"
-              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2 sm:px-5 sm:py-2.5 text-center font-doto text-[10px] sm:text-[14px] font-black lowercase tracking-[0.06em] sm:tracking-[0.12em] transition-colors duration-200 outline-none cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 ${
+              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[10px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
                 !isWork ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
             >
               {!isWork && (
                 <motion.span
                   layoutId="dock-active-pill"
-                  className="absolute inset-0 -z-10 rounded-full border border-white/16 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_8px_24px_rgba(0,0,0,0.22)]"
+                  className="absolute inset-0 -z-10 rounded-full border border-white/16 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]"
                   transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.35 }}
                 />
               )}
-              <span aria-hidden="true" className="relative h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4">
-                <span
-                  className="absolute inset-0 bg-no-repeat [image-rendering:pixelated]"
-                  style={{
-                    backgroundImage: `url(${ALEX_SKIN_URL})`,
-                    backgroundSize: '128px 128px',
-                    backgroundPosition: '-16px -16px',
-                  }}
-                />
-              </span>
-              <span>abt me</span>
+              <motion.span
+                className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2"
+                animate={{ y: !isWork ? -1 : 0, opacity: !isWork ? 1 : 0.78 }}
+                transition={{ duration: 0.18, ease: 'easeOut' }}
+              >
+                <span aria-hidden="true" className="relative h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4">
+                  <span
+                    className="absolute inset-0 bg-no-repeat [image-rendering:pixelated]"
+                    style={{
+                      backgroundImage: `url(${ALEX_SKIN_URL})`,
+                      backgroundSize: '128px 128px',
+                      backgroundPosition: '-16px -16px',
+                    }}
+                  />
+                  <span
+                    className="absolute inset-0 bg-no-repeat [image-rendering:pixelated]"
+                    style={{
+                      backgroundImage: `url(${ALEX_SKIN_URL})`,
+                      backgroundSize: '128px 128px',
+                      backgroundPosition: '-80px -16px',
+                    }}
+                  />
+                </span>
+                <span>abt me</span>
+              </motion.span>
             </Link>
 
             {/* Work Tab */}
             <Link
               href="/work"
-              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2 sm:px-5 sm:py-2.5 text-center font-doto text-[10px] sm:text-[14px] font-black lowercase tracking-[0.06em] sm:tracking-[0.12em] transition-colors duration-200 outline-none cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 ${
+              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[10px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
                 isWork ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
             >
               {isWork && (
                 <motion.span
                   layoutId="dock-active-pill"
-                  className="absolute inset-0 -z-10 rounded-full border border-white/16 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_8px_24px_rgba(0,0,0,0.22)]"
+                  className="absolute inset-0 -z-10 rounded-full border border-white/16 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]"
                   transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.35 }}
                 />
               )}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={DIAMOND_PICKAXE_URL}
-                alt=""
-                aria-hidden="true"
-                className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
-                style={{ imageRendering: 'pixelated' }}
-              />
-              <span>work</span>
+              <motion.span
+                className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2"
+                animate={{ y: isWork ? -1 : 0, opacity: isWork ? 1 : 0.78 }}
+                transition={{ duration: 0.18, ease: 'easeOut' }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={DIAMOND_PICKAXE_URL}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                  style={{ imageRendering: 'pixelated' }}
+                />
+                <span>work</span>
+              </motion.span>
             </Link>
           </div>
 
-          {/* Vertical Divider Matching Ohshin */}
+          {/* Vertical Divider */}
           <span aria-hidden="true" className="h-7 w-px shrink-0 bg-white/10 mx-0.5 sm:mx-1" />
 
           {/* Social Links Row */}

@@ -59,51 +59,52 @@ export const WorkView: React.FC = () => {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-32 top-[44rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-black/25 blur-3xl"
+          className="pointer-events-none absolute -right-32 top-[44rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-black/20 blur-3xl"
         />
       </div>
 
       <div className="mx-auto min-h-screen w-full max-w-[1460px] px-4 py-6 pb-28 sm:px-8 sm:py-8 lg:px-10 lg:py-10 relative z-10">
         {/* 1. WORK HEADER CARD (Ohshin Crimson Glass Parity) */}
         <div className="motion-safe:animate-work-reveal mb-10">
-          <header className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/55 sm:bg-black/60 p-6 sm:p-8 lg:p-9 shadow-[0_32px_120px_rgba(0,0,0,0.55),0_12px_50px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe">
-            <GlassSheen className="left-[-35%] bg-white/[0.045]" />
+          <header className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.20),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe motion-safe:[animation-delay:-1.1s] motion-safe:[animation-duration:12.5s] sm:p-7 lg:rounded-[2.5rem] lg:p-9">
+            <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
 
             {/* Top Metadata Row */}
-            <div className="grid gap-2 font-mono text-[0.56rem] uppercase tracking-[0.18em] text-white/55 sm:grid-cols-3 sm:items-start sm:gap-3 sm:text-[0.62rem] sm:tracking-[0.28em]">
-              <p className="text-white font-semibold">work / output</p>
+            <div className="grid gap-2 font-mono text-[0.56rem] uppercase tracking-[0.18em] text-white/48 sm:grid-cols-3 sm:items-start sm:gap-3 sm:text-[0.62rem] sm:tracking-[0.28em]">
+              <p className="text-white">work / output</p>
               <p className="hidden text-center sm:block">scroll / inspect</p>
-              <p className="sm:text-right font-bold text-white flex items-center justify-start sm:justify-end gap-1.5">
-                <WorkClock /> <span>IST</span>
+              <p className="sm:text-right">
+                <WorkClock /> IST
               </p>
             </div>
 
             <div className="pt-12 sm:pt-16 lg:pt-20">
-              <p className="font-mono text-[0.64rem] uppercase tracking-[0.16em] text-white/55 sm:text-[0.74rem] sm:tracking-[0.24em]">
+              <p className="motion-safe:animate-work-reveal font-mono text-[0.64rem] uppercase tracking-[0.16em] text-white/48 sm:text-[0.74rem] sm:tracking-[0.24em]">
                 teams, roles and projects
               </p>
-              <h1 className="mt-5 font-doto text-[clamp(4.2rem,21vw,19rem)] font-black uppercase leading-[0.72] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] sm:text-[clamp(5.8rem,21vw,19rem)]">
+              <h1 className="mt-5 motion-safe:animate-work-reveal font-doto text-[clamp(4.2rem,21vw,19rem)] font-black uppercase leading-[0.72] tracking-tight text-white [animation-delay:90ms] sm:text-[clamp(5.8rem,21vw,19rem)]">
                 work
               </h1>
             </div>
           </header>
         </div>
 
-        {/* 2. REACH STRIP (Ohshin 3D Bevel Surface with Tektur Metric Font) */}
-        <div className="motion-safe:animate-work-reveal mb-10">
-          <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/55 sm:bg-black/60 p-6 sm:p-8 lg:p-9 shadow-[0_32px_120px_rgba(0,0,0,0.55),0_12px_50px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe">
-            <GlassSheen className="left-[-42%] bg-white/[0.04]" />
+        {/* 2. REACH STRIP */}
+        <div className="motion-safe:animate-work-reveal mb-10 [animation-delay:160ms]">
+          <section className="relative isolate overflow-hidden rounded-[2.5rem] bg-black/30 p-5 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe motion-safe:[animation-delay:-8.4s] motion-safe:[animation-duration:14.2s] sm:p-7">
+            <GlassSheen className="left-[-42%] bg-white/[0.04] motion-safe:[animation-delay:-1.8s] motion-safe:[animation-duration:13.1s]" />
             <div
               aria-hidden="true"
-              className="absolute -left-24 -top-28 -z-10 h-72 w-72 rounded-full bg-[#D3170A]/28 blur-3xl motion-safe:animate-reach-pulse"
+              className="absolute -left-24 -top-28 -z-10 h-72 w-72 rounded-full bg-[#D3170A]/28 blur-3xl motion-safe:animate-reach-pulse motion-safe:[animation-delay:-2.2s]"
             />
             <div
               aria-hidden="true"
-              className="absolute -right-20 top-10 -z-10 h-64 w-64 rounded-full bg-white/10 blur-3xl motion-safe:animate-reach-pulse"
+              className="absolute -right-20 top-10 -z-10 h-64 w-64 rounded-full bg-white/10 blur-3xl motion-safe:animate-reach-pulse motion-safe:[animation-delay:-5.6s]"
             />
 
             <SectionHeadingRow
               label="live-ish"
+              labelClassName="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-[#D3170A] sm:text-[0.62rem] sm:tracking-[0.28em]"
               title="reach"
               titleClassName="font-doto text-[2.25rem] font-black uppercase leading-none tracking-tight text-white sm:text-[4.5rem]"
             />
@@ -114,7 +115,7 @@ export const WorkView: React.FC = () => {
                 const content = (
                   <div
                     key={stat.id}
-                    className="relative isolate grid min-h-[11rem] min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/75 px-5 py-5 sm:px-6 sm:py-6 shadow-[0_20px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 motion-safe:animate-work-reveal sm:min-h-[13rem] group transition-all duration-200 hover:scale-[1.015] hover:bg-black/85"
+                    className="relative isolate grid min-h-[11rem] min-w-0 overflow-hidden rounded-[1.5rem] bg-black/38 px-4 py-4 shadow-[0_22px_80px_rgba(0,0,0,0.28),0_0_44px_rgba(211,23,10,0.12),inset_0_1px_0_rgba(255,255,255,0.11)] ring-1 ring-white/10 motion-safe:animate-work-reveal sm:min-h-[13rem] sm:rounded-[1.75rem] sm:px-6 sm:py-5 transition-transform duration-200 hover:scale-[1.015]"
                   >
                     <div
                       aria-hidden="true"
@@ -133,18 +134,18 @@ export const WorkView: React.FC = () => {
                       className="absolute inset-x-0 top-0 h-px bg-white/60 motion-safe:animate-reach-sweep"
                     />
 
-                    <div className="relative flex items-center justify-between gap-4 font-mono text-[0.74rem] uppercase tracking-[0.18em] text-white/60 sm:text-[0.82rem]">
+                    <div className="relative flex items-center justify-between gap-4 font-mono text-[0.74rem] uppercase tracking-[0.18em] text-white/56 sm:text-[0.82rem]">
                       <div className="flex items-center gap-3">
-                        <Icon className="h-6 w-6 text-white/80" />
+                        <Icon className="h-6 w-6 text-white/78" />
                         <span>{stat.label}</span>
                       </div>
-                      <span className="font-mono text-[0.58rem] text-[#D3170A] font-bold">
+                      <span className="font-mono text-[0.58rem] text-[#D3170A]">
                         0{index + 1}
                       </span>
                     </div>
 
                     <div className="relative mt-10 min-w-0 overflow-hidden">
-                      <p className="truncate font-metric text-[clamp(1.8rem,4.8vw,4.1rem)] font-semibold uppercase leading-none tracking-[-0.08em] text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.3)]">
+                      <p className="truncate font-metric text-[clamp(1.8rem,4.8vw,4.1rem)] font-semibold uppercase leading-none tracking-[-0.08em] text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.26)]">
                         {stat.value}
                       </p>
                       <div className="mt-3 flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-white/70">
@@ -172,48 +173,50 @@ export const WorkView: React.FC = () => {
         </div>
 
         {/* 4. TWO-COLUMN CORE: EXPERIENCE (Left) & PROJECTS (Right) */}
-        <div className="grid gap-8 py-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-8 lg:py-6 mb-10 items-start">
+        <div className="grid gap-8 py-4 lg:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] lg:gap-8 lg:py-6 mb-10 items-start">
           {/* LEFT: EXPERIENCE TIMELINE */}
-          <aside className="motion-safe:animate-work-reveal min-w-0">
-            <div className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.25rem] bg-black/55 sm:bg-black/60 p-6 sm:p-7 shadow-[0_32px_120px_rgba(0,0,0,0.55),0_12px_50px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe">
-              <GlassSheen className="left-[-45%] bg-white/[0.035]" />
-              <SectionHeadingRow label="timeline" title="experience" />
+          <aside className="motion-safe:animate-work-reveal min-w-0 [animation-delay:220ms]">
+            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 backdrop-blur-2xl motion-safe:animate-glass-breathe motion-safe:[animation-delay:-3.7s] motion-safe:[animation-duration:12.9s] sm:p-6">
+              <GlassSheen className="left-[-45%] bg-white/[0.035] motion-safe:[animation-delay:-7.1s] motion-safe:[animation-duration:12.4s]" />
+              <SectionHeadingRow
+                label="timeline"
+                labelClassName="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-[#D3170A] sm:text-[0.62rem] sm:tracking-[0.28em]"
+                title="experience"
+                titleClassName="font-doto text-[1.9rem] font-black uppercase leading-none tracking-tight text-white sm:text-[3.2rem]"
+              />
 
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 space-y-3">
                 {workExperienceContent.map((item) => (
                   <article
                     key={item.id}
-                    className="relative overflow-hidden rounded-[1.35rem] bg-black/75 p-5 sm:p-6 shadow-[0_16px_40px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 motion-safe:animate-work-reveal transition-all hover:bg-black/85 hover:ring-white/20"
+                    className="relative overflow-hidden rounded-[1.35rem] bg-black/32 p-4 sm:p-5 font-mono text-[0.82rem] leading-5 text-white/75 shadow-[0_12px_38px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.08)] ring-1 ring-white/8 motion-safe:animate-work-reveal transition-all hover:bg-black/40 sm:text-[0.88rem]"
                   >
-                    <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-white/50">
-                      <span className="text-[#D3170A] font-bold">{item.period}</span>
+                    <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-[0.64rem] uppercase tracking-[0.14em] text-white/46">
+                      <span className="text-[#D3170A] font-semibold">{item.period}</span>
                       <span>{item.location}</span>
                     </div>
 
-                    <h3 className="font-mono text-[1rem] sm:text-[1.05rem] font-bold text-white tracking-tight">
+                    <h3 className="font-mono text-[0.96rem] font-semibold text-white sm:text-[1.02rem]">
                       {item.role}
                     </h3>
-                    <p className="font-mono text-xs text-white/70 font-semibold mb-3">
+                    <p className="mt-0.5 text-white/86 text-xs sm:text-[0.88rem]">
                       {item.company}
                     </p>
 
-                    <ul className="space-y-2 mb-4">
+                    <ul className="mt-3 space-y-2 font-mono text-[11px] sm:text-xs text-white/68 leading-relaxed">
                       {item.highlights.map((highlight, idx) => (
-                        <li
-                          key={idx}
-                          className="font-mono text-[11px] sm:text-xs text-white/75 leading-relaxed flex items-start gap-2"
-                        >
+                        <li key={idx} className="flex items-start gap-2">
                           <span className="text-[#D3170A] mt-0.5 select-none font-bold">▹</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/10">
+                    <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-white/8">
                       {item.techBadges.map((badge) => (
                         <span
                           key={badge}
-                          className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-black/60 text-white/80 border border-white/10"
+                          className="rounded-full border border-white/10 bg-white/[0.045] px-2.5 py-0.5 font-mono text-[9px] sm:text-[10px] text-white/68 uppercase tracking-wider"
                         >
                           {badge}
                         </span>
@@ -226,68 +229,73 @@ export const WorkView: React.FC = () => {
           </aside>
 
           {/* RIGHT: PROJECTS BUILD LOG */}
-          <main className="motion-safe:animate-work-reveal min-w-0">
-            <div className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.25rem] bg-black/55 sm:bg-black/60 p-6 sm:p-7 shadow-[0_32px_120px_rgba(0,0,0,0.55),0_12px_50px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe">
-              <GlassSheen className="left-[-45%] bg-white/[0.035]" />
-              <SectionHeadingRow label="build log" title="projects" />
+          <main className="motion-safe:animate-work-reveal min-w-0 [animation-delay:280ms]">
+            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 backdrop-blur-2xl motion-safe:animate-glass-breathe motion-safe:[animation-delay:-6.2s] motion-safe:[animation-duration:13.4s] sm:p-6">
+              <GlassSheen className="left-[-45%] bg-white/[0.035] motion-safe:[animation-delay:-4.8s] motion-safe:[animation-duration:11.6s]" />
+              <SectionHeadingRow
+                label="build log"
+                labelClassName="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-[#D3170A] sm:text-[0.62rem] sm:tracking-[0.28em]"
+                title="projects"
+                titleClassName="font-doto text-[1.9rem] font-black uppercase leading-none tracking-tight text-white sm:text-[3.2rem]"
+              />
 
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 space-y-3">
                 {curatedProjectsContent.map((project, index) => (
                   <article
                     key={project.id}
-                    className="group relative overflow-hidden rounded-[1.35rem] bg-black/75 p-5 sm:p-6 shadow-[0_16px_40px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 motion-safe:animate-work-reveal transition-all hover:bg-black/85 hover:ring-white/20 flex flex-col justify-between"
+                    className="grid gap-4 rounded-[1.35rem] bg-black/24 px-4 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] ring-1 ring-white/6 motion-safe:animate-work-reveal sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:px-5 transition-all hover:bg-black/35"
                   >
-                    <div>
-                      <div className="flex items-start justify-between gap-4 mb-2.5">
-                        <div className="flex items-center gap-3">
-                          <span className="font-doto text-base sm:text-lg font-black text-[#D3170A]/90">
-                            {String(index + 1).padStart(2, '0')}
-                          </span>
-                          <h3 className="font-doto text-lg sm:text-xl font-black text-white uppercase tracking-tight group-hover:text-white/90 transition-colors">
-                            {project.title}
-                          </h3>
-                        </div>
-
-                        <div className="flex items-center gap-3 text-white drop-shadow-[0_0_14px_rgba(255,255,255,0.18)]">
-                          {project.githubUrl && (
-                            <a
-                              href={project.githubUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              aria-label={`${project.title} GitHub`}
-                              className="text-white hover:text-white/80 transition-colors"
-                            >
-                              <Github className="h-5 w-5" />
-                            </a>
-                          )}
-                          {project.liveUrl && (
-                            <a
-                              href={project.liveUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              aria-label={`${project.title} live site`}
-                              className="text-white hover:text-white/80 transition-colors"
-                            >
-                              <ArrowUpRight className="h-5 w-5" />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-
-                      <p className="font-mono text-xs text-white/70 leading-relaxed mb-4">
-                        {project.summary}
-                      </p>
+                    <div className="hidden pr-3 font-doto text-[1.6rem] font-black leading-none text-[#D3170A]/80 sm:block">
+                      {String(index + 1).padStart(2, '0')}
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/10">
-                      {project.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-black/60 text-white/80 border border-white/10"
-                        >
-                          {t}
+                    <div className="min-w-0">
+                      <div className="flex min-w-0 items-center gap-3">
+                        <span className="font-doto text-[1.4rem] font-black leading-none text-[#D3170A]/80 sm:hidden">
+                          {String(index + 1).padStart(2, '0')}
                         </span>
-                      ))}
+                        <h3 className="min-w-0 break-words font-doto text-[1.22rem] font-black uppercase leading-none tracking-tight text-white sm:text-[1.82rem]">
+                          {project.title}
+                        </h3>
+                      </div>
+                      <p className="mt-3 max-w-[50ch] font-mono text-[0.74rem] leading-6 text-white/68 sm:text-[0.8rem]">
+                        {project.summary}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {project.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full border border-white/8 bg-white/[0.035] px-2.5 py-0.5 font-mono text-[9px] sm:text-[10px] text-white/60 uppercase tracking-wider"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex h-full items-center gap-3 self-center justify-end text-white drop-shadow-[0_0_14px_rgba(255,255,255,0.18)] sm:justify-start">
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${project.title} GitHub`}
+                          className="text-white hover:text-white/80 transition-colors"
+                        >
+                          <Github className="h-6 w-6 sm:h-7 sm:w-7" />
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${project.title} live site`}
+                          className="text-white hover:text-white/80 transition-colors"
+                        >
+                          <ArrowUpRight className="h-6 w-6" />
+                        </a>
+                      )}
                     </div>
                   </article>
                 ))}
@@ -296,13 +304,13 @@ export const WorkView: React.FC = () => {
           </main>
         </div>
 
-        {/* 5. OPEN CHANNELS / REACH OUT SECTION (Ohshin Parity 1-to-1) */}
-        <div className="motion-safe:animate-work-reveal">
-          <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/55 sm:bg-black/60 p-6 sm:p-8 lg:p-9 shadow-[0_32px_120px_rgba(0,0,0,0.55),0_12px_50px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe">
-            <GlassSheen className="left-[-40%] bg-white/[0.035]" />
+        {/* 5. OPEN CHANNELS / REACH OUT SECTION */}
+        <div className="motion-safe:animate-work-reveal [animation-delay:340ms]">
+          <section className="relative isolate overflow-hidden rounded-[2.5rem] bg-black/32 p-5 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe motion-safe:[animation-delay:-4.9s] motion-safe:[animation-duration:13.8s] sm:p-7 lg:p-8">
+            <GlassSheen className="left-[-40%] bg-white/[0.035] motion-safe:[animation-delay:-6.4s] motion-safe:[animation-duration:12.7s]" />
             <div
               aria-hidden="true"
-              className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[#D3170A]/24 blur-3xl motion-safe:animate-reach-pulse"
+              className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[#D3170A]/24 blur-3xl motion-safe:animate-reach-pulse motion-safe:[animation-delay:-3.1s]"
             />
 
             {/* Section Header: Left Stacked REACH OUT, Right Context Paragraph */}
@@ -315,7 +323,7 @@ export const WorkView: React.FC = () => {
                   reach<br />out
                 </h2>
               </div>
-              <p className="max-w-[58ch] font-mono text-[0.82rem] leading-7 text-white/70 sm:text-[0.9rem] lg:justify-self-end">
+              <p className="max-w-[58ch] font-mono text-[0.82rem] leading-7 text-white/68 sm:text-[0.9rem] lg:justify-self-end">
                 Whether you are looking to collaborate, hire for AI systems, seek architecture advice,
                 or simply start a conversation, choose the channel that matches your intent.
               </p>
@@ -324,7 +332,7 @@ export const WorkView: React.FC = () => {
             {/* 3 Channels Cards Grid */}
             <div className="mt-7 grid gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-3">
               {/* Channel 01: Team */}
-              <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/75 p-5 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 motion-safe:animate-work-reveal flex flex-col justify-between hover:bg-black/85 transition-all">
+              <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] bg-black/40 p-4 shadow-[0_18px_70px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/10 motion-safe:animate-work-reveal sm:rounded-[1.75rem] sm:p-6 flex flex-col justify-between hover:bg-black/50 transition-all">
                 <div>
                   <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/48" />
                   <p className="font-mono text-[0.58rem] uppercase tracking-[0.24em] text-[#D3170A] font-semibold mb-3">
@@ -336,7 +344,7 @@ export const WorkView: React.FC = () => {
                       <h3 className="font-doto text-[2.25rem] font-black uppercase leading-[0.9] tracking-tight text-white sm:text-[2.7rem]">
                         want me on your team?
                       </h3>
-                      <p className="mt-5 font-mono text-[0.76rem] leading-6 text-white/65">
+                      <p className="mt-5 font-mono text-[0.76rem] leading-6 text-white/62">
                         For AI systems engineering, agent swarms, LLMOps pipelines, and production backend
                         infrastructure that need equal attention to speed and reliability.
                       </p>
@@ -363,7 +371,7 @@ export const WorkView: React.FC = () => {
                       <h3 className="font-doto text-[2rem] font-black uppercase leading-[0.9] tracking-tight text-white sm:text-[2.3rem]">
                         ship the idea
                       </h3>
-                      <p className="mt-4 font-mono text-[0.76rem] leading-6 text-white/65">
+                      <p className="mt-4 font-mono text-[0.76rem] leading-6 text-white/62">
                         Need help building something, where the idea needs to become a shipped prototype?
                       </p>
                       <div className="mt-6 flex flex-wrap gap-2">
@@ -381,7 +389,7 @@ export const WorkView: React.FC = () => {
               </article>
 
               {/* Channel 02: Advisory / Contract */}
-              <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/75 p-5 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 motion-safe:animate-work-reveal flex flex-col justify-between hover:bg-black/85 transition-all">
+              <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] bg-black/40 p-4 shadow-[0_18px_70px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/10 motion-safe:animate-work-reveal sm:rounded-[1.75rem] sm:p-6 flex flex-col justify-between hover:bg-black/50 transition-all">
                 <div>
                   <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/48" />
                   <p className="font-mono text-[0.58rem] uppercase tracking-[0.24em] text-[#D3170A] font-semibold mb-3">
@@ -392,7 +400,7 @@ export const WorkView: React.FC = () => {
                     <h3 className="font-doto text-[2.25rem] font-black uppercase leading-[0.9] tracking-tight text-white sm:text-[2.7rem]">
                       want to work with me?
                     </h3>
-                    <p className="mt-5 font-mono text-[0.76rem] leading-6 text-white/65">
+                    <p className="mt-5 font-mono text-[0.76rem] leading-6 text-white/62">
                       I partner with founders and engineering leaders on low-latency voice pipelines,
                       LangGraph state machine designs, PEFT/QLoRA, and production AI system evaluations.
                     </p>
@@ -411,7 +419,7 @@ export const WorkView: React.FC = () => {
               </article>
 
               {/* Channel 03: Casual DM */}
-              <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem] bg-black/75 p-5 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 motion-safe:animate-work-reveal flex flex-col justify-between hover:bg-black/85 transition-all">
+              <article className="relative min-w-0 overflow-hidden rounded-[1.5rem] bg-black/40 p-4 shadow-[0_18px_70px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/10 motion-safe:animate-work-reveal sm:rounded-[1.75rem] sm:p-6 flex flex-col justify-between hover:bg-black/50 transition-all">
                 <div>
                   <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-white/48" />
                   <p className="font-mono text-[0.58rem] uppercase tracking-[0.24em] text-[#D3170A] font-semibold mb-3">
@@ -422,7 +430,7 @@ export const WorkView: React.FC = () => {
                     <h3 className="font-doto text-[2.25rem] font-black uppercase leading-[0.9] tracking-tight text-white sm:text-[2.7rem]">
                       want to send a fun dm?
                     </h3>
-                    <p className="mt-5 font-mono text-[0.76rem] leading-6 text-white/65">
+                    <p className="mt-5 font-mono text-[0.76rem] leading-6 text-white/62">
                       For technical banter, ArXiv research paper discussions, sharing flow state Spotify
                       playlists, Hyprland/Linux configs, or anything else interesting.
                     </p>
@@ -450,3 +458,4 @@ export const WorkView: React.FC = () => {
 };
 
 export default WorkView;
+
