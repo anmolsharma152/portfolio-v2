@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 import ReadingStack from './widgets/ReadingStack';
-import SpotifyShelf from './widgets/SpotifyShelf';
 import { aboutContent } from '@/content/loaders';
 
 const ICON_MAP = {
@@ -29,13 +28,13 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-16 md:py-20 relative z-10">
+    <section id="about" className="py-16 md:py-24 relative z-10">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern [mask-image:linear-gradient(to_bottom,transparent,black_70%)]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Header & Avatar */}
+        {/* Top Header & Avatar with Ohshin aesthetic */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -43,6 +42,13 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center mb-14 sm:mb-16"
         >
+          {/* Header Meta */}
+          <div className="w-full flex items-center justify-between font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.24em] text-muted-foreground mb-8 border-b border-border/40 pb-3">
+            <span>profile / anmol</span>
+            <span className="hidden sm:inline">engineering &amp; research</span>
+            <span>new delhi, india</span>
+          </div>
+
           <div
             onClick={() => setIsZoomed(true)}
             onKeyDown={(e) => {
@@ -53,7 +59,7 @@ const About = () => {
             }}
             role="button"
             tabIndex={0}
-            className="relative w-36 h-36 sm:w-40 sm:h-40 mb-6 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg hover:shadow-primary/20 hover:scale-105 transition-all duration-300 cursor-zoom-in"
+            className="relative w-36 h-36 sm:w-40 sm:h-40 mb-6 rounded-full overflow-hidden border-4 border-primary/30 shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all duration-300 cursor-zoom-in ring-4 ring-background"
           >
             <Image
               src={aboutContent.profileImage}
@@ -63,11 +69,16 @@ const About = () => {
               priority
             />
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-            {aboutContent.sectionTitle}
+
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary mb-2">
+            origin, architecture &amp; methodology
+          </p>
+
+          <h2 className="font-doto text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight mb-4 text-foreground">
+            About
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6 rounded-full"></div>
-          <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed text-center">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6 rounded-full"></div>
+          <p className="font-mono text-sm sm:text-base md:text-lg text-foreground/80 max-w-4xl mx-auto leading-relaxed text-center">
             {aboutContent.introText}
           </p>
         </motion.div>
@@ -174,10 +185,9 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Personality Shelf: Reading Stack & Spotify Embedded Playlists */}
-        <div className="space-y-8 sm:space-y-10">
+        {/* Curated Reading Stack */}
+        <div className="space-y-8">
           <ReadingStack />
-          <SpotifyShelf />
         </div>
       </div>
 

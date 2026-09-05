@@ -17,6 +17,12 @@ module.exports = {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
       colors: {
+        theme: {
+          red: '#D3170A',
+          blue: '#002855',
+          black: '#000000',
+          white: '#FFFFFF',
+        },
         border: 'hsl(var(--border-h, 0) var(--border-s, 0%) var(--border-l, 0%))',
         input: 'hsl(var(--input-h, 0) var(--input-s, 0%) var(--input-l, 0%))',
         ring: 'hsl(var(--ring-h, 0) var(--ring-s, 0%) var(--ring-l, 0%))',
@@ -134,6 +140,9 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
         heading: ['var(--font-jakarta)', ...fontFamily.sans],
+        doto: ['"Doto"', 'monospace'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        metric: ['"Tektur"', 'monospace'],
       },
     },
   },

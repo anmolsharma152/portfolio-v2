@@ -112,7 +112,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative z-10">
+    <section id="contact" className="py-20 md:py-28 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -122,13 +122,21 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14 sm:mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-extrabold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              {contactContent.sectionTitle}
-            </span>
+          <div className="flex items-center justify-between font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.24em] text-muted-foreground border-b border-border/40 pb-3 mb-6">
+            <span className="text-foreground font-semibold">contact / reach out</span>
+            <span className="hidden sm:inline">hiring, advisory &amp; open source</span>
+            <span>delhi &bull; remote</span>
+          </div>
+
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary mb-2">
+            direct channels &amp; advisory
+          </p>
+
+          <h2 className="font-doto text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight mb-4 text-foreground">
+            Contact
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6 rounded-full" />
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6 rounded-full" />
+          <p className="font-mono text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {contactContent.sectionSubtitle}
           </p>
         </motion.div>
