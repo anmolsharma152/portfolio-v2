@@ -13,10 +13,10 @@ const Home = () => {
       <section id="about" className="scroll-mt-20">
         <About />
       </section>
-      <section id="projects" className="scroll-mt-20">
+      <section id="work" className="scroll-mt-20">
         <Projects />
       </section>
-      <section id="resume" className="scroll-mt-20">
+      <section id="timeline" className="scroll-mt-20">
         <Resume />
       </section>
       <section id="contact" className="scroll-mt-20">
