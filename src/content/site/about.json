@@ -1,6 +1,6 @@
 {
   "sectionTitle": "About Me",
-  "profileImage": "/images/Anmol.webp",
+  "profileImage": "/images/anmol-profile.jpg",
   "introText": "AI Engineer specializing in production-grade LLM applications, multi-agent swarms, stateful RAG architectures, and parameter-efficient fine-tuning (PEFT). Graduate of BCA (77.4% First Division) and Minor in AI & Data Science from CCE, IIT Mandi (CGPA 8.44/10). Combining deep systems engineering (Rust, C, Linux PAM, POSIX) with enterprise-grade reliability and client operations.",
   "missionTitle": "My Mission",
   "missionStatement": "To build high-performance, resilient AI systems that eliminate cloud vendor lock-in, deliver sub-150ms real-time interactions, and bring privacy-first agentic intelligence directly to production environments.",

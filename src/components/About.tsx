@@ -1,42 +1,17 @@
 'use client';
 
-import { motion, AnimatePresence, useInView } from 'framer-motion';
-import {
-  Brain,
-  Cpu,
-  Database,
-  GitBranch,
-  Globe,
-  Target,
-  Terminal,
-  X,
-  ArrowUpRight,
-} from 'lucide-react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, Mail, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef, useState } from 'react';
 
-import DecryptedText from './widgets/DecryptedText';
 import GlassSheen from './widgets/GlassSheen';
 import ReadingStack from './widgets/ReadingStack';
 import SpotifyShelf from './widgets/SpotifyShelf';
 import { aboutContent, spotifyConfig } from '@/content/loaders';
 
-const ICON_MAP = {
-  brain: Brain,
-  terminal: Terminal,
-  cpu: Cpu,
-  globe: Globe,
-  database: Database,
-  gitBranch: GitBranch,
-};
-
-const ABOUT_TAGS = [
-  'AI Systems Engineer',
-  'Multi-Agent Architect',
-  'LLMOps & PEFT',
-  'Edge & Speech Runtimes',
-  'Jaipur, India',
-];
+const ABOUT_TAGS = ['origin', 'linux', 'chess', 'systems', 'side-quests'];
 
 const About = () => {
   const ref = useRef(null);
@@ -44,206 +19,157 @@ const About = () => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   return (
-    <section id="about" className="py-20 md:py-28 relative z-10">
-      {/* Background ambient lighting */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-grid-pattern [mask-image:linear-gradient(to_bottom,transparent,black_70%)]" />
-        <div
-          aria-hidden="true"
-          className="absolute -right-28 top-20 h-[34rem] w-[34rem] rounded-full bg-blue-600/10 dark:bg-blue-600/15 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute -left-32 bottom-20 h-[32rem] w-[32rem] rounded-full bg-indigo-600/10 dark:bg-indigo-600/15 blur-3xl"
-        />
-      </div>
+    <section id="about" className="py-16 md:py-24 relative z-10 isolate overflow-hidden">
+      {/* Background ambient lighting & Ohshin dot-matrix raster */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-10 [background-image:radial-gradient(rgba(255,255,255,0.52)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_12%,rgba(211,23,10,0.12),transparent_28%),radial-gradient(circle_at_78%_72%,rgba(255,255,255,0.055),transparent_30%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-32 top-1/3 -z-10 h-[30rem] w-[30rem] rounded-full bg-[#d3170a]/12 blur-3xl"
+      />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Section Header with Ohshin Metadata Row */}
-        <header className="mb-14 sm:mb-16">
-          <div className="flex items-center justify-between font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.24em] text-muted-foreground border-b border-border/40 pb-3 mb-6">
-            <span className="text-foreground font-semibold">profile / anmol</span>
-            <span className="hidden sm:inline">engineering &amp; research</span>
-            <span>jaipur, india</span>
+      <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10">
+        {/* Dedicated About Header Card (Matches Ohshin aboutHeader 1-to-1) */}
+        <header className="relative isolate overflow-hidden rounded-[2rem] bg-white/[0.075] p-5 shadow-[0_30px_120px_rgba(0,0,0,0.42),0_0_74px_rgba(211,23,10,0.16),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-7 lg:rounded-[2.5rem] lg:p-9 mb-8">
+          <GlassSheen className="left-[-35%] bg-white/[0.045]" />
+
+          <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
+            <p className="text-white/80">profile / anmol</p>
+            <p className="sm:text-right">jaipur, india</p>
           </div>
 
-          <div ref={ref} className="pt-2">
-            <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary mb-2">
-              origin, architecture &amp; methodology
-            </p>
-            <h2 className="font-doto text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-foreground">
-              <DecryptedText text="About" speed={60} sequential animateOn="view" />
+          <div ref={ref} className="pt-10 sm:pt-14 lg:pt-18">
+            <h2 className="font-doto text-[clamp(4.2rem,21vw,19rem)] font-black uppercase leading-[0.72] tracking-tighter text-white">
+              about
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mt-4 rounded-full" />
           </div>
         </header>
 
-        {/* Main Showcase: Big Ohshin-Style 2-Column Split (Story & Capabilities Left | Big Portrait Right) */}
+        {/* Main Showcase: Flowing Personal Narrative on Left, Full Portrait on Right */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 36 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="relative isolate overflow-hidden rounded-[1.75rem] sm:rounded-[2.25rem] glass p-6 sm:p-8 lg:p-12 mb-14 shadow-2xl border border-border/70"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative isolate min-w-0 w-full overflow-hidden rounded-[1.5rem] bg-white/[0.07] shadow-[0_24px_100px_rgba(0,0,0,0.42),0_0_64px_rgba(211,23,10,0.12),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:rounded-[2rem] lg:rounded-[2.35rem] p-6 sm:p-8 lg:p-10 mb-12"
         >
-          <GlassSheen className="left-[-40%]" />
+          <GlassSheen className="left-[-42%] bg-white/[0.035]" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 xl:gap-12 items-stretch">
-            {/* Left Column: Narrative, Mission, Capabilities, Beyond Code */}
-            <div className="flex flex-col justify-between">
-              <div>
-                {/* Profile Badges */}
-                <div className="mb-6 flex flex-wrap gap-2 font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {ABOUT_TAGS.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full bg-foreground/5 border border-border/60 text-foreground/80 font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+          {/* 28px Mesh Grid */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-10 opacity-[0.08] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
+          />
 
-                {/* Narrative Intro */}
-                <p className="font-mono text-sm sm:text-base md:text-lg text-foreground/90 leading-relaxed mb-8">
-                  {aboutContent.introText}
-                </p>
-
-                {/* Mission Box */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-primary/5 border border-primary/20 mb-8 shadow-sm">
-                  <h3 className="font-heading text-lg sm:text-xl font-bold mb-2 flex items-center text-foreground">
-                    <Target className="w-5 h-5 mr-2 text-primary" />
-                    {aboutContent.missionTitle}
-                  </h3>
-                  <p className="text-foreground/90 text-xs sm:text-sm md:text-base leading-relaxed">
-                    {aboutContent.missionStatement}
-                  </p>
-                </div>
-
-                {/* Architectural Capabilities */}
-                <div className="space-y-4 mb-8">
-                  {aboutContent.capabilities.map((item) => {
-                    const IconComponent = ICON_MAP[item.icon] ?? Brain;
-                    return (
-                      <div
-                        key={item.id}
-                        className="relative pl-5 border-l-2 border-primary/30 py-2 group hover:border-primary transition-colors"
-                      >
-                        <div className="absolute left-[-5px] top-3 w-2 h-2 rounded-full bg-primary" />
-                        <div className="flex items-start space-x-3">
-                          <div className="flex-shrink-0 mt-0.5">
-                            <IconComponent className={`w-5 h-5 ${item.iconColor}`} />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <h4 className="font-heading font-semibold text-sm sm:text-base text-foreground">
-                              {item.title}
-                            </h4>
-                            <p className="text-muted-foreground text-xs sm:text-sm mt-0.5 leading-relaxed">
-                              {item.description}
-                            </p>
-                            {item.tools && item.tools.length > 0 && (
-                              <div className="flex flex-wrap gap-1.5 mt-2">
-                                {item.tools.map((tool) => (
-                                  <span
-                                    key={tool}
-                                    className="text-[0.65rem] font-mono px-2 py-0.5 rounded-full bg-foreground/5 text-foreground/70 border border-border/40"
-                                  >
-                                    {tool}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)] gap-8 lg:gap-10 items-stretch">
+            {/* Left Column: Flowing Personal Narrative */}
+            <div className="flex min-w-0 flex-col justify-center">
+              {/* Minimalist Profile Pills (Ohshin Style) */}
+              <div className="mb-6 flex flex-wrap gap-2 font-mono text-[0.56rem] uppercase tracking-[0.22em] text-white/46">
+                {ABOUT_TAGS.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full bg-white/[0.055] px-3 py-1 ring-1 ring-white/10"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
 
-              {/* Beyond the Code & Philosophy */}
-              <div className="pt-6 border-t border-border/50">
-                <h3 className="font-heading text-lg sm:text-xl font-bold mb-3 flex items-center text-foreground">
-                  <Globe className="w-5 h-5 mr-2 text-primary" />
-                  {aboutContent.beyondCodeTitle}
-                </h3>
-                <div className="space-y-3 text-xs sm:text-sm text-foreground/80 leading-relaxed mb-6">
-                  {aboutContent.beyondCodeParagraphs.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
-                </div>
-                <p className="text-muted-foreground text-xs sm:text-sm italic font-medium">
-                  &ldquo;{aboutContent.quote}&rdquo;
+              {/* Personal Story Copy */}
+              <div className="max-w-[72ch] space-y-4 font-mono text-[0.92rem] sm:text-[1rem] leading-[1.85] text-white/90">
+                <p>
+                  I grew up fascinated by how things work under the hood. My early obsession started
+                  in Jaipur—tearing down computers, breaking Linux kernels, and getting hopelessly
+                  lost in terminal configs long before I ever thought of it as a career path.
+                </p>
+                <p>
+                  My journey didn&apos;t follow the standard engineering playbook. I spent three
+                  years studying political science and economics at the Symbiosis School for Liberal
+                  Arts (SSLA). It was an unconventional detour for an engineer, but it fundamentally
+                  shaped how I think: teaching me to analyze complex macro incentives, technological
+                  governance, and the systemic feedback loops that dictate human behavior.
+                </p>
+                <p>
+                  Still, no matter how deeply I explored economic theory, I kept being pulled back
+                  to what I love most: writing code and building machines. I transitioned into deep
+                  AI and systems engineering at IIT Mandi, realizing that machine intelligence,
+                  local models, and autonomous agents are the ultimate synthesis of incentives,
+                  math, and low-level code.
+                </p>
+                <p>
+                  When I&apos;m not fine-tuning models, orchestrating multi-agent swarms, or writing
+                  low-latency speech pipelines, I&apos;m usually tinkering with minimalist
+                  Arch/Hyprland tiling environments, exploring cognitive spaced-repetition science,
+                  or diving deep into classic sci-fi worldbuilding with post-rock blasting on my
+                  headphones.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Big Ohshin-Style Framed Portrait Showcase */}
-            <aside className="order-first lg:order-last min-h-[26rem] sm:min-h-[36rem] lg:min-h-full flex flex-col">
-              <div
-                onClick={() => setIsZoomed(true)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setIsZoomed(true);
-                  }
-                }}
-                role="button"
-                tabIndex={0}
-                aria-label="Portrait of Anmol Sharma - Click to inspect"
-                className="relative w-full h-full min-h-[26rem] sm:min-h-[36rem] lg:min-h-[46rem] overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border-2 border-border/80 shadow-2xl bg-black/40 group cursor-zoom-in"
-              >
-                {/* Full-bleed Portrait Image */}
-                <Image
-                  src={aboutContent.profileImage}
-                  alt="Portrait of Anmol Sharma"
-                  fill
-                  priority
-                  className="object-cover object-center sm:object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-
-                {/* Ambient Radial Highlight & Vignette Overlays */}
+            {/* Right Column: Full Portrait Card (No Obstructing Badges) */}
+            <aside className="order-first min-h-[22rem] sm:min-h-[30rem] lg:order-none lg:min-h-full">
+              <div className="relative h-full min-h-[22rem] sm:min-h-[30rem] lg:min-h-full overflow-hidden rounded-[1.25rem] bg-black/35 shadow-[0_30px_90px_rgba(0,0,0,0.38)] ring-1 ring-white/10 sm:rounded-[1.65rem]">
                 <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(255,255,255,0.18),transparent_35%),linear-gradient(180deg,rgba(0,0,0,0.05)_0%,transparent_50%,rgba(0,0,0,0.85)_100%)]"
-                />
-
-                <GlassSheen className="left-[-42%] bg-white/[0.045] motion-safe:[animation-duration:12s]" />
-
-                {/* Bottom Overlay Info Card */}
-                <div className="absolute bottom-0 inset-x-0 p-5 sm:p-7 z-20 flex flex-col justify-end">
-                  <div className="backdrop-blur-md bg-black/60 border border-white/15 p-4 rounded-2xl shadow-lg">
-                    <div className="flex items-center justify-between gap-3">
-                      <div>
-                        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#1DB954] font-semibold mb-0.5">
-                          ONLINE // AI SYSTEMS ENGINEER
-                        </p>
-                        <h4 className="font-doto text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
-                          Anmol Sharma
-                        </h4>
-                        <p className="font-mono text-xs text-white/70 mt-0.5">
-                          Jaipur, India &bull; CCE, IIT Mandi Alumni
-                        </p>
-                      </div>
-                      <div className="flex-none p-2.5 rounded-full bg-white/10 text-white group-hover:bg-primary group-hover:text-white transition-colors duration-200">
-                        <ArrowUpRight size={18} />
-                      </div>
-                    </div>
-                  </div>
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setIsZoomed(true)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      setIsZoomed(true);
+                    }
+                  }}
+                  className="relative h-full w-full min-h-[22rem] sm:min-h-[30rem] lg:min-h-full cursor-zoom-in group"
+                >
+                  <Image
+                    src={aboutContent.profileImage}
+                    alt="Portrait of Anmol Sharma"
+                    fill
+                    priority
+                    className="object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(max-width: 1024px) 100vw, 480px"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_18%,rgba(255,255,255,0.18),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.06),transparent_32%,rgba(0,0,0,0.22))]"
+                  />
                 </div>
               </div>
             </aside>
           </div>
         </motion.div>
 
-        {/* Curated Reading Stack & Spotify Records */}
-        <div className="space-y-10">
-          {spotifyConfig?.enabled && <SpotifyShelf config={spotifyConfig} />}
+        {/* 2-Column Side-by-Side Shelves (Ohshin Style: Playlists Left, Books Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16 items-stretch">
+          <SpotifyShelf config={spotifyConfig} />
           <ReadingStack />
+        </div>
+
+        {/* Bottom Gateway to Dedicated Work Page & Direct Contact */}
+        <div className="flex flex-wrap items-center justify-center gap-4 pb-8">
+          <Link
+            href="/work"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-doto text-sm sm:text-base font-black lowercase tracking-[0.06em] bg-[#d3170a] text-white hover:bg-[#d3170a]/90 transition-all duration-300 shadow-[0_0_30px_rgba(211,23,10,0.35)] hover:shadow-[0_0_40px_rgba(211,23,10,0.55)] hover:scale-105 cursor-pointer"
+          >
+            <span>explore work &amp; systems</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </Link>
+          <a
+            href="mailto:anmolsharma152.dev@gmail.com"
+            className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-full font-doto text-sm sm:text-base font-black lowercase tracking-[0.06em] bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-300 hover:scale-105 cursor-pointer shadow-sm"
+          >
+            <span>send email</span>
+            <Mail className="w-4 h-4 text-white/80" />
+          </a>
         </div>
       </div>
 
-      {/* Profile Zoom Lightbox Modal */}
+      {/* Lightbox / Zoom Modal for High-Res Portrait */}
       <AnimatePresence>
         {isZoomed && (
           <motion.div
@@ -251,31 +177,31 @@ const About = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsZoomed(false)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md cursor-zoom-out p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl cursor-zoom-out"
           >
+            <button
+              onClick={() => setIsZoomed(false)}
+              className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+              aria-label="Close zoomed image"
+            >
+              <X className="w-6 h-6" />
+            </button>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative max-w-2xl w-full max-h-[85vh] flex flex-col items-center"
+              className="relative w-full max-w-lg md:max-w-xl aspect-square rounded-3xl overflow-hidden border border-white/20 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                onClick={() => setIsZoomed(false)}
-                className="absolute -top-12 right-0 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200 z-50 cursor-pointer"
-                aria-label="Close image modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <div className="relative w-full aspect-square max-w-[500px] rounded-3xl overflow-hidden border-4 border-primary/40 shadow-2xl">
-                <Image
-                  src={aboutContent.profileImage}
-                  alt="Anmol Sharma"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={aboutContent.profileImage}
+                alt="Portrait of Anmol Sharma"
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
             </motion.div>
           </motion.div>
         )}

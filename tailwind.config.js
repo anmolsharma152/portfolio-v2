@@ -3,7 +3,11 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   darkMode: ['class'],
-  content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/content/**/*.{js,ts,jsx,tsx,mdx,json}',
+  ],
   theme: {
     container: {
       center: true,
@@ -64,6 +68,10 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      boxShadow: {
+        'nav-glass':
+          '0 18px 60px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.06)',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
@@ -100,11 +108,15 @@ module.exports = {
         'glass-breathe': {
           '0%, 100%': {
             boxShadow:
-              '0 20px 70px -15px rgba(0, 0, 0, 0.25), 0 0 30px -5px rgba(37, 99, 235, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12)',
+              '0 24px 90px rgba(0,0,0,0.22), 0 0 34px rgba(211,23,10,0.09), inset 0 1px 0 rgba(255,255,255,0.11)',
           },
-          '50%': {
+          '38%': {
             boxShadow:
-              '0 28px 90px -15px rgba(0, 0, 0, 0.35), 0 0 45px -5px rgba(99, 102, 241, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.18)',
+              '0 30px 108px rgba(0,0,0,0.28), 0 0 42px rgba(211,23,10,0.13), inset 0 1px 0 rgba(255,255,255,0.15)',
+          },
+          '68%': {
+            boxShadow:
+              '0 34px 124px rgba(0,0,0,0.31), 0 0 58px rgba(211,23,10,0.16), inset 0 1px 0 rgba(255,255,255,0.17)',
           },
         },
         'glass-sheen': {
@@ -117,6 +129,29 @@ module.exports = {
         'reach-pulse': {
           '0%, 100%': { opacity: '0.25', transform: 'scale(0.985)' },
           '50%': { opacity: '0.6', transform: 'scale(1.025)' },
+        },
+        'hero-static': {
+          '0%': { transform: 'translate3d(0,0,0)' },
+          '20%': { transform: 'translate3d(-1px,1px,0)' },
+          '40%': { transform: 'translate3d(1px,-1px,0)' },
+          '60%': { transform: 'translate3d(-1px,0,0)' },
+          '80%': { transform: 'translate3d(1px,1px,0)' },
+          '100%': { transform: 'translate3d(0,0,0)' },
+        },
+        'scan-roll': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+        'chroma-shake': {
+          '0%, 100%': { transform: 'translate3d(0,0,0) skewX(0deg)' },
+          '14%': { transform: 'translate3d(2px,-1px,0) skewX(-2deg)' },
+          '28%': { transform: 'translate3d(-3px,1px,0) skewX(2deg)' },
+          '42%': { transform: 'translate3d(1px,2px,0) skewX(-1deg)' },
+          '70%': { transform: 'translate3d(-1px,-2px,0) skewX(1deg)' },
+        },
+        'stack-marquee': {
+          '0%': { transform: 'translate3d(0,0,0)' },
+          '100%': { transform: 'translate3d(-50%,0,0)' },
         },
       },
       animation: {
@@ -131,6 +166,11 @@ module.exports = {
         'glass-breathe': 'glass-breathe 11s cubic-bezier(0.45, 0, 0.2, 1) infinite',
         'glass-sheen': 'glass-sheen 8s cubic-bezier(0.45, 0, 0.2, 1) infinite',
         'reach-pulse': 'reach-pulse 7.2s ease-in-out infinite',
+        'hero-static': 'hero-static 180ms steps(2, end) infinite',
+        'scan-roll': 'scan-roll 5.8s linear infinite',
+        'chroma-shake': 'chroma-shake 950ms steps(2, end) infinite',
+        'stack-marquee': 'stack-marquee 24s linear infinite',
+        'stack-marquee-slow': 'stack-marquee 32s linear infinite',
       },
       card: {
         DEFAULT: 'hsl(var(--card-h, 0) var(--card-s, 0%) var(--card-l, 0%))',

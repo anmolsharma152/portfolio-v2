@@ -1,291 +1,152 @@
 'use client';
 
-// Next.js and React
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaRegEnvelope,
+  FaSpotify,
+  FaXTwitter,
+} from 'react-icons/fa6';
 
-// Third-party libraries
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X, Github, Linkedin, Mail } from 'lucide-react';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+const ALEX_SKIN_URL =
+  'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/entity/player/slim/alex.png';
+const DIAMOND_PICKAXE_URL =
+  'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/items/diamond_pickaxe.png';
 
-// Local imports
-import { useTheme } from '@/context/ThemeContext';
+export const Navigation: React.FC = () => {
+  const pathname = usePathname();
+  const isWork = pathname?.startsWith('/work');
 
-const Navigation = () => {
-  const { theme, toggleTheme } = useTheme();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    const handleInitialScroll = () => {
-      if (window.location.hash) {
-        // Wait for all components to be mounted
-        setTimeout(() => {
-          scrollToSection(window.location.hash);
-        }, 500);
-      }
-    };
-
-    // Initial scroll check
-    const timer = setTimeout(handleInitialScroll, 300);
-
-    // Add event listeners
-    window.addEventListener('load', handleInitialScroll);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Cleanup function
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('load', handleInitialScroll);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Work', href: '#work' },
-    { name: 'Timeline', href: '#timeline' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
+  // Exact order and icons matching Ohshin's dock pattern:
+  // X -> Spotify -> Mail -> LinkedIn -> GitHub
   const socialLinks = [
     {
-      icon: <Github size={18} />,
-      href: 'https://github.com/anmolsharma152',
-      label: 'GitHub',
+      label: 'X',
+      href: 'https://x.com/ozymandias152',
+      icon: <FaXTwitter className="h-4 w-4 sm:h-5 sm:w-5" />,
     },
     {
-      icon: <Linkedin size={18} />,
-      href: 'https://linkedin.com/in/anmolsharma152',
-      label: 'LinkedIn',
-    },
-    {
-      icon: (
-        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.29a.75.75 0 01-1.033.248c-2.83-1.73-6.393-2.12-10.59-1.163a.75.75 0 11-.334-1.462c4.593-1.047 8.528-.6 11.71 1.344a.75.75 0 01.247 1.033zm1.464-3.253a.938.938 0 01-1.29.31c-3.238-1.99-8.175-2.566-12.005-1.403a.938.938 0 11-.548-1.793c4.38-1.33 9.818-.69 13.533 1.596a.938.938 0 01.31 1.29zm.125-3.385c-3.882-2.306-10.29-2.518-14.01-1.39a1.125 1.125 0 11-.645-2.155c4.275-1.298 11.34-1.043 15.82 1.616a1.125 1.125 0 11-1.165 1.929z" />
-        </svg>
-      ),
-      href: 'https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre',
       label: 'Spotify',
+      href: 'https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre',
+      icon: <FaSpotify className="h-4 w-4 sm:h-5 sm:w-5" />,
     },
     {
-      icon: <Mail size={18} />,
-      href: 'mailto:anmolsharma152.dev@gmail.com',
       label: 'Email',
+      href: 'mailto:anmolsharma152.dev@gmail.com',
+      icon: <FaRegEnvelope className="h-4 w-4 sm:h-5 sm:w-5" />,
+    },
+    {
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/in/anmolsharma152/',
+      icon: <FaLinkedinIn className="h-4 w-4 sm:h-5 sm:w-5" />,
+    },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/anmolsharma152',
+      icon: <FaGithub className="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />,
     },
   ];
 
-  const scrollToSection = (href: string) => {
-    // Remove the # from the href to get the ID
-    const id = href.replace('#', '');
-    if (!id) return;
-
-    // Close mobile menu if open
-    setIsMenuOpen(false);
-
-    // Small delay to ensure state updates before scrolling
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      if (!element) {
-        console.error(`Element with id '${id}' not found`);
-        return;
-      }
-
-      // Calculate the correct scroll position
-      const headerOffset = 80; // Height of your header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      // Scroll to the element
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-
-      // Update URL without adding to history
-      window.history.pushState({}, '', href);
-    }, 50); // Small delay to ensure state updates
-  };
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    scrollToSection(href);
-  };
-
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-background/80 dark:bg-background/80 backdrop-blur-md border-b border-border/50'
-          : 'bg-background/50 dark:bg-background/50 backdrop-blur-sm'
-      }`}
+    <header
+      className="pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-50 flex w-full justify-center px-2 sm:bottom-6 sm:px-3 transition-transform duration-300 ease-out"
+      data-site-nav
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <motion.a
-            href="#home"
-            onClick={(e) => handleNavClick(e, '#home')}
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="flex items-center space-x-3 group cursor-pointer"
-          >
-            <motion.div
-              className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary/30"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Image
-                src="/images/Anmol.webp"
-                alt="Profile"
-                fill
-                className="object-cover"
-                sizes="40px"
-                priority
-              />
-            </motion.div>
-            <span className="font-heading text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              Anmol Sharma
-            </span>
-          </motion.a>
+      <div className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5">
+        {/* Physical 3D Glass Bevel & Specular Highlight */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.045)_42%,rgba(0,0,0,0.12))]"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-px rounded-full border border-black/18"
+        />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-0.5 lg:space-x-1">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.1 * index, duration: 0.3 }}
-                className="px-2.5 lg:px-4 py-2 text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 relative group cursor-pointer whitespace-nowrap"
+        <nav
+          aria-label="Primary Navigation"
+          className="relative flex max-w-full items-center justify-start gap-1 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] sm:justify-center sm:gap-1.5 sm:overflow-visible [&::-webkit-scrollbar]:hidden"
+        >
+          {/* Page Tabs */}
+          <div className="relative flex shrink-0 items-center justify-center gap-0.5 sm:gap-1">
+            {/* Abt Me Tab */}
+            <Link
+              href="/#about"
+              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2 sm:px-5 sm:py-2.5 text-center font-doto text-[10px] sm:text-[14px] font-black lowercase tracking-[0.06em] sm:tracking-[0.12em] transition-colors duration-200 outline-none cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 ${
+                !isWork ? 'text-white' : 'text-white/70 hover:text-white'
+              }`}
+            >
+              {!isWork && (
+                <motion.span
+                  layoutId="dock-active-pill"
+                  className="absolute inset-0 -z-10 rounded-full border border-white/16 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_8px_24px_rgba(0,0,0,0.22)]"
+                  transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.35 }}
+                />
+              )}
+              <span aria-hidden="true" className="relative h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4">
+                <span
+                  className="absolute inset-0 bg-no-repeat [image-rendering:pixelated]"
+                  style={{
+                    backgroundImage: `url(${ALEX_SKIN_URL})`,
+                    backgroundSize: '128px 128px',
+                    backgroundPosition: '-16px -16px',
+                  }}
+                />
+              </span>
+              <span>abt me</span>
+            </Link>
+
+            {/* Work Tab */}
+            <Link
+              href="/work"
+              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2 sm:px-5 sm:py-2.5 text-center font-doto text-[10px] sm:text-[14px] font-black lowercase tracking-[0.06em] sm:tracking-[0.12em] transition-colors duration-200 outline-none cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 ${
+                isWork ? 'text-white' : 'text-white/70 hover:text-white'
+              }`}
+            >
+              {isWork && (
+                <motion.span
+                  layoutId="dock-active-pill"
+                  className="absolute inset-0 -z-10 rounded-full border border-white/16 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_8px_24px_rgba(0,0,0,0.22)]"
+                  transition={{ type: 'spring', stiffness: 360, damping: 32, mass: 0.35 }}
+                />
+              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={DIAMOND_PICKAXE_URL}
+                alt=""
+                aria-hidden="true"
+                className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                style={{ imageRendering: 'pixelated' }}
+              />
+              <span>work</span>
+            </Link>
+          </div>
+
+          {/* Vertical Divider Matching Ohshin */}
+          <span aria-hidden="true" className="h-7 w-px shrink-0 bg-white/10 mx-0.5 sm:mx-1" />
+
+          {/* Social Links Row */}
+          <div className="flex shrink-0 items-center gap-0.5 pr-0.5 sm:gap-1 sm:pr-1">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/68 transition-colors duration-150 hover:text-white sm:h-11 sm:w-11 cursor-pointer"
               >
-                {item.name}
-                <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]" />
-              </motion.a>
+                {link.icon}
+              </a>
             ))}
           </div>
-
-          {/* Right Side - Theme Toggle & Socials */}
-          <div className="flex items-center space-x-1 sm:space-x-2">
-            {/* Social Icons - Shown on desktop (>= 1024px), hidden on half-screen/tablet to prevent crowding */}
-            <div className="hidden lg:flex items-center space-x-1 mr-2 lg:mr-4">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    delay: 0.5 + index * 0.1,
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
-                  }}
-                  className="p-2 rounded-lg text-foreground/70 hover:text-primary hover:bg-foreground/5 transition-colors duration-200"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Theme Toggle */}
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-foreground/5 transition-colors duration-200 text-foreground/80"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8, type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-yellow-300" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </motion.button>
-
-            {/* Mobile Menu Button */}
-            <motion.button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-foreground/5 transition-colors duration-200"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </motion.button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, y: -20 }}
-              animate={{ opacity: 1, height: 'auto', y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden overflow-hidden bg-background/80 dark:bg-background/90 backdrop-blur-lg border-t border-border/60 dark:border-border/30 shadow-lg"
-            >
-              <div className="px-2 pt-2 pb-4 space-y-1">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.05 * index, duration: 0.2 }}
-                    className="block w-full text-left px-4 py-3 text-base font-medium text-foreground/90 hover:text-primary hover:bg-foreground/5 rounded-lg transition-colors duration-200"
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-
-                {/* Social Icons - Mobile */}
-                <div className="pt-2 mt-4 border-t border-border/50 dark:border-border/20">
-                  <div className="flex justify-center space-x-4 px-4">
-                    {socialLinks.map((link, index) => (
-                      <motion.a
-                        key={link.label}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{
-                          delay: 0.2 + index * 0.1,
-                          type: 'spring',
-                          stiffness: 300,
-                        }}
-                        className="p-2 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground/70 hover:text-primary transition-colors duration-200"
-                        aria-label={link.label}
-                      >
-                        {link.icon}
-                      </motion.a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </nav>
       </div>
-    </motion.nav>
+    </header>
   );
 };
 

@@ -1,150 +1,145 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
-import ThreeDCard from './3DCard';
-import WorkClock from './widgets/WorkClock';
-import { heroContent } from '@/content/loaders';
+import DecryptedText from './widgets/DecryptedText';
 
-const TITLES = heroContent.typewriterTitles;
+export const Hero = () => {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
 
-const TYPING_SPEED = 50;
-const DELETING_SPEED = 25;
-const PAUSE_TIME = 1000;
-
-const Hero = () => {
-  const [text, setText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-
-  useEffect(() => {
-    const currentTitle = TITLES[currentTitleIndex];
-
-    if (isTyping) {
-      if (currentIndex < currentTitle.length) {
-        const timeout = setTimeout(() => {
-          setText(currentTitle.slice(0, currentIndex + 1));
-          setCurrentIndex(currentIndex + 1);
-        }, TYPING_SPEED);
-        return () => clearTimeout(timeout);
-      }
-      const timeout = setTimeout(() => setIsTyping(false), PAUSE_TIME);
-      return () => clearTimeout(timeout);
-    }
-
-    if (currentIndex > 0) {
-      const timeout = setTimeout(() => {
-        setText(currentTitle.slice(0, currentIndex - 1));
-        setCurrentIndex(currentIndex - 1);
-      }, DELETING_SPEED);
-      return () => clearTimeout(timeout);
-    }
-
-    const timeout = setTimeout(() => {
-      setIsTyping(true);
-      setCurrentTitleIndex((prev) => (prev + 1) % TITLES.length);
-    }, 500);
-    return () => clearTimeout(timeout);
-  }, [currentIndex, isTyping, currentTitleIndex]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.34]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 165]);
+  const imageX = useTransform(scrollYProgress, [0, 1], [0, -34]);
+  const ghostX = useTransform(scrollYProgress, [0, 1], [18, -42]);
+  const ghostY = useTransform(scrollYProgress, [0, 1], [-10, 92]);
+  const ghostOpacity = useTransform(scrollYProgress, [0, 0.22, 0.85], [0.12, 0.28, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.82], [0, -172]);
+  const textFilter = useTransform(scrollYProgress, [0, 0.74], ['blur(0px)', 'blur(10px)']);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.68], [1, 0]);
+  const scanOpacity = useTransform(scrollYProgress, [0, 1], [0.18, 0.58]);
+  const gridOpacity = useTransform(scrollYProgress, [0, 1], [0.08, 0.34]);
+  const lightOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.14, 0.42, 0.12]);
+  const lightX = useTransform(scrollYProgress, [0, 1], ['-18%', '24%']);
+  const scanBeamOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.18, 0.56, 0.2]);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-x-hidden bg-background py-14 sm:py-20 lg:py-24">
-      {/* Ambient Atmospheric Glow Orbs */}
-      <div className="pointer-events-none absolute -top-40 -left-40 w-96 sm:w-[540px] h-96 sm:h-[540px] rounded-full bg-blue-600/10 dark:bg-blue-600/20 blur-[130px] -z-10" />
-      <div className="pointer-events-none absolute top-1/2 -right-40 w-96 sm:w-[500px] h-96 sm:h-[500px] rounded-full bg-indigo-600/10 dark:bg-indigo-600/20 blur-[140px] -z-10" />
-
-      {/* Grid Pattern with Vignette */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+    <section
+      ref={heroRef}
+      id="hero"
+      className="relative isolate min-h-[100svh] overflow-hidden bg-black selection:bg-white selection:text-black"
+    >
+      {/* Background Cyberpunk Workstation Image */}
+      <div className="absolute inset-0">
+        <motion.img
+          src="/backgrounds/1.jpg"
+          alt="Cyberpunk Engineer Workstation"
+          className="h-full w-full object-cover object-center will-change-transform"
+          style={{
+            scale: imageScale,
+            x: imageX,
+            y: imageY,
+          }}
+        />
       </div>
 
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Top Ohshin Meta Strip */}
-        <div className="flex items-center justify-between font-mono text-[0.62rem] sm:text-xs uppercase tracking-[0.24em] text-muted-foreground mb-10 border-b border-border/40 pb-3">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-            <span>[ 00 / SYSTEM INITIALIZED ]</span>
-          </div>
-          <span className="hidden md:inline">LOC: JAIPUR, IN // 26.9124° N, 75.7873° E</span>
-          <div className="flex items-center gap-2">
-            <span className="text-muted-foreground/60">TIME:</span>
-            <WorkClock />
-            <span className="text-primary font-bold">IST</span>
-          </div>
-        </div>
+      {/* Ghost Aberration Layer */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[url('/backgrounds/1.jpg')] bg-cover bg-center opacity-20 mix-blend-screen will-change-transform [clip-path:polygon(0_8%,100%_0,100%_18%,0_28%)]"
+        style={{ opacity: ghostOpacity, x: ghostX, y: ghostY }}
+      />
 
-        <div className="grid lg:grid-cols-[1.25fr_1fr] gap-10 xl:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center lg:text-left"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              {/* System status pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-600 dark:text-emerald-400 font-mono text-xs mb-6 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>ONLINE // AI SYSTEMS &amp; AGENT PLATFORMS</span>
-              </div>
+      {/* Static Scanline & Vignette */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen motion-safe:animate-hero-static [background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.14)_0px,rgba(255,255,255,0.14)_1px,transparent_1px,transparent_4px),radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_72%_76%,rgba(211,23,10,0.22),transparent_34%)]"
+        style={{ opacity: scanOpacity }}
+      />
 
-              {/* Ultra-bold Doto Display Headline */}
-              <div className="overflow-x-visible">
-                <h1 className="font-doto text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight mb-5 text-foreground leading-[0.98]">
-                  {heroContent.headlinePrefix}
-                  <span className="text-primary drop-shadow-[0_0_25px_rgba(37,99,235,0.35)]">
-                    {heroContent.headlineGradient}
-                  </span>
-                  {heroContent.headlineSuffix}
-                </h1>
-              </div>
+      {/* Subtle Coordinate Grid */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[3] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:32px_32px]"
+        style={{ opacity: gridOpacity }}
+      />
 
-              {/* Typewriter Terminal Bar */}
-              <div className="h-12 flex items-center justify-center lg:justify-start mb-6 font-mono">
-                <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-muted-foreground">
-                  <span className="text-primary mr-2 font-bold">&gt;</span>
-                  <span className="text-foreground/90 font-semibold">{text}</span>
-                  <span
-                    className={`inline-block w-2 h-5 ml-1 bg-primary ${isTyping ? 'animate-pulse' : ''}`}
-                  />
-                </h2>
-              </div>
+      {/* Micro Pixel Grid */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[4] opacity-[0.09] motion-safe:animate-hero-static [background-image:radial-gradient(rgba(255,255,255,0.95)_0.7px,transparent_0.7px)] [background-size:5px_5px]"
+      />
 
-              {/* Compaction Summary */}
-              <p className="font-mono text-xs sm:text-sm md:text-base text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                {heroContent.summary}
-              </p>
+      {/* Rolling Scan Beam */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.22),rgba(211,23,10,0.16),transparent)] mix-blend-screen blur-sm motion-safe:animate-scan-roll"
+        style={{ opacity: scanBeamOpacity }}
+      />
 
-              {/* CTA Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start font-mono">
-                <a
-                  href={heroContent.primaryCta.href}
-                  className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-primary/25 text-xs sm:text-sm uppercase tracking-wider text-center"
-                >
-                  {heroContent.primaryCta.label}
-                </a>
-                <a
-                  href={heroContent.secondaryCta.href}
-                  className="px-8 py-4 border border-border/80 bg-card/60 backdrop-blur-md text-foreground rounded-xl font-semibold hover:bg-foreground/5 transition-all duration-200 text-xs sm:text-sm uppercase tracking-wider text-center"
-                >
-                  {heroContent.secondaryCta.label}
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
+      {/* Diagonal Ambient Light Sheen */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-[-18%] top-[-28%] z-[5] h-[42rem] rotate-[-9deg] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent)] blur-2xl"
+        style={{ opacity: lightOpacity, x: lightX }}
+      />
+
+      {/* Centered Hero Typography */}
+      <div className="relative z-10 flex min-h-[100svh] items-center justify-center px-4 py-20 text-center sm:px-6">
+        <div className="relative w-full max-w-5xl -translate-y-8 sm:-translate-y-16">
+          {/* Backdrop Shadow Orb to Ensure Text Legibility */}
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 -z-10 h-72 w-[min(92vw,54rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/65 blur-[80px] sm:h-[22rem] md:h-[26rem]"
+          />
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="h-[320px] sm:h-[360px] lg:h-[400px] max-w-xl lg:max-w-2xl mx-auto w-full mt-4 lg:mt-0"
+            className="relative"
+            style={{
+              filter: textFilter,
+              opacity: textOpacity,
+              y: textY,
+            }}
           >
-            <ThreeDCard />
+            <div className="relative inline-block">
+              {/* Ghost Red Chromatic Aberration */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 -z-10 font-doto text-[2.5rem] font-semibold leading-[1.04] text-[#D3170A]/40 blur-[1px] mix-blend-screen motion-safe:animate-chroma-shake sm:text-[3.75rem] md:text-[5rem] lg:text-[6.25rem]"
+              >
+                hi, im anmol.
+              </span>
+              {/* Ghost White Offset Aberration */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 -z-10 translate-x-2 font-doto text-[2.5rem] font-semibold leading-[1.04] text-white/25 blur-[2px] mix-blend-screen sm:text-[3.75rem] md:text-[5rem] lg:text-[6.25rem]"
+              >
+                hi, im anmol.
+              </span>
+              {/* Main Title with DecryptedText */}
+              <h1 className="font-doto text-[2.5rem] leading-[1.04] font-semibold tracking-normal text-white drop-shadow-[0_0_24px_rgba(255,255,255,0.22)] sm:text-[3.75rem] md:text-[5rem] lg:text-[6.25rem]">
+                <DecryptedText
+                  text="hi, im anmol."
+                  speed={80}
+                  sequential
+                  animateOn="view"
+                  encryptedClassName="text-white/50"
+                />
+              </h1>
+            </div>
+            <p className="mt-5 font-doto text-[13px] font-medium tracking-[0.1em] text-white/90 sm:mt-6 sm:text-[18px] sm:tracking-[0.14em] md:text-[24px]">
+              <DecryptedText
+                text="engineer. researcher. builder."
+                speed={60}
+                sequential
+                animateOn="view"
+                encryptedClassName="text-white/40"
+              />
+            </p>
           </motion.div>
         </div>
       </div>

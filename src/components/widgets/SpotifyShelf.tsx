@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink, Radio, Disc3 } from 'lucide-react';
+import { ExternalLink, Disc3, Radio } from 'lucide-react';
 import React from 'react';
 
 import GlassSheen from './GlassSheen';
@@ -8,123 +8,74 @@ import type { SpotifyConfig } from '@/content/schemas';
 
 interface SpotifyShelfProps {
   config?: SpotifyConfig;
-  embedUrl?: string | null;
-  profileUrl?: string | null;
-  title?: string;
 }
 
-export const SpotifyShelf: React.FC<SpotifyShelfProps> = ({
-  config,
-  embedUrl,
-  profileUrl,
-  title,
-}) => {
-  const activeConfig: SpotifyConfig = config || {
-    enabled: true,
-    username: 'Anmol',
-    userId: '31fzcv4ts52untro5xsamjhddtre',
-    profileUrl: profileUrl || 'https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre',
-    avatarUrl: 'https://i.scdn.co/image/ab6775700000ee85148002f2172385d78f372b08',
-    embedPlaylistUrl: embedUrl,
-    title: title || 'Soundtrack & Flow State',
-  };
-
-  if (!activeConfig.enabled || !activeConfig.profileUrl) {
-    return null;
-  }
+export const SpotifyShelf: React.FC<SpotifyShelfProps> = ({ config }) => {
+  const playlists = config?.playlists ?? [];
+  const profileUrl =
+    config?.profileUrl || 'https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre';
 
   return (
-    <div className="relative isolate overflow-hidden rounded-2xl glass p-6 sm:p-8 motion-safe:animate-glass-breathe">
-      <GlassSheen />
+    <div className="relative isolate min-w-0 overflow-hidden rounded-[1.75rem] sm:rounded-[2.25rem] bg-white/[0.075] p-5 sm:p-7 shadow-[0_24px_80px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe [contain:paint] flex flex-col justify-between h-full">
+      <GlassSheen className="left-[-42%] bg-white/[0.032]" />
 
-      {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 border-b border-border/40 pb-5">
-        <div>
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-[#1DB954] mb-1">
-            <Radio className="w-4 h-4 animate-pulse text-[#1DB954]" />
-            <span>Soundtrack &amp; Flow State</span>
+      {/* Header Row (Ohshin Style) */}
+      <div>
+        <div className="flex items-end justify-between gap-4 border-b border-white/12 pb-4 mb-5">
+          <div>
+            <p className="font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.24em] text-white/46 mb-1">
+              records shelf &bull; 4 playlists
+            </p>
+            <h3 className="font-doto text-[2rem] sm:text-[2.8rem] font-black lowercase leading-none tracking-tight text-white">
+              playlists
+            </h3>
           </div>
-          <h3 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-foreground">
-            Spotify Records
-          </h3>
+          <a
+            href={profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono text-[10px] sm:text-[11px] font-semibold bg-[#1DB954] text-black hover:bg-[#1ed760] transition-colors shadow-sm shrink-0 cursor-pointer"
+          >
+            <Disc3 className="w-3.5 h-3.5 animate-spin [animation-duration:8s]" />
+            <span>Profile</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
         </div>
 
-        <a
-          href={activeConfig.profileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-mono text-xs font-semibold bg-[#1DB954] text-black hover:bg-[#1ed760] transition-all duration-200 shadow-md shadow-[#1DB954]/20 self-start sm:self-auto cursor-pointer"
-        >
-          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.29a.75.75 0 01-1.033.248c-2.83-1.73-6.393-2.12-10.59-1.163a.75.75 0 11-.334-1.462c4.593-1.047 8.528-.6 11.71 1.344a.75.75 0 01.247 1.033zm1.464-3.253a.938.938 0 01-1.29.31c-3.238-1.99-8.175-2.566-12.005-1.403a.938.938 0 11-.548-1.793c4.38-1.33 9.818-.69 13.533 1.596a.938.938 0 01.31 1.29zm.125-3.385c-3.882-2.306-10.29-2.518-14.01-1.39a1.125 1.125 0 11-.645-2.155c4.275-1.298 11.34-1.043 15.82 1.616a1.125 1.125 0 11-1.165 1.929z" />
-          </svg>
-          <span>Open Spotify Profile</span>
-          <ExternalLink size={13} />
-        </a>
-      </div>
-
-      {/* Profile Card Showcase */}
-      <div className="relative overflow-hidden rounded-xl border border-border/70 bg-card/80 dark:bg-zinc-900/80 backdrop-blur-md p-5 sm:p-6 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 shadow-sm">
-        {/* Ambient Emerald Aura */}
-        <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#1DB954]/15 blur-2xl" />
-
-        {/* Real Spotify Avatar */}
-        <div className="relative flex-none">
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-[#1DB954]/40 shadow-lg ring-4 ring-[#1DB954]/10 bg-black/40">
-            {activeConfig.avatarUrl ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={activeConfig.avatarUrl}
-                alt={`${activeConfig.username} Spotify Profile`}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-zinc-900 text-[#1DB954]">
-                <Disc3 className="w-10 h-10 animate-spin" />
+        {/* 4 Playlists in a 2x2 Grid — All 4 Completely Visible */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          {playlists.map((playlist, idx) => (
+            <div key={playlist.embedUrl} className="space-y-1.5">
+              <div className="flex items-center justify-between font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/60 px-1">
+                <span className="text-[#1DB954] font-semibold">{`0${idx + 1}`}</span>
+                <span className="truncate max-w-[12rem] text-right text-white/80">
+                  {playlist.title.replace(/^Playlist \d+\s*\/\/\s*/i, '')}
+                </span>
               </div>
-            )}
-          </div>
-          <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#1DB954] flex items-center justify-center shadow-md">
-            <svg className="w-3.5 h-3.5 fill-black" viewBox="0 0 24 24">
-              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.29a.75.75 0 01-1.033.248c-2.83-1.73-6.393-2.12-10.59-1.163a.75.75 0 11-.334-1.462c4.593-1.047 8.528-.6 11.71 1.344a.75.75 0 01.247 1.033zm1.464-3.253a.938.938 0 01-1.29.31c-3.238-1.99-8.175-2.566-12.005-1.403a.938.938 0 11-.548-1.793c4.38-1.33 9.818-.69 13.533 1.596a.938.938 0 01.31 1.29zm.125-3.385c-3.882-2.306-10.29-2.518-14.01-1.39a1.125 1.125 0 11-.645-2.155c4.275-1.298 11.34-1.043 15.82 1.616a1.125 1.125 0 11-1.165 1.929z" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Profile Info */}
-        <div className="flex-1 text-center sm:text-left min-w-0">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 mb-2">
-            <h4 className="font-doto text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
-              {activeConfig.username}
-            </h4>
-            <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-[#1DB954]/15 text-[#1DB954] border border-[#1DB954]/30 w-fit mx-auto sm:mx-0">
-              Verified User
-            </span>
-          </div>
-
-          <p className="font-mono text-xs text-muted-foreground mb-3 truncate">
-            spotify.com/user/{activeConfig.userId}
-          </p>
-
-          <p className="font-mono text-xs sm:text-sm text-foreground/80 leading-relaxed max-w-xl">
-            Ambient synthesizer soundscapes, deep techno, atmospheric phonk, and algorithmic focus
-            playlists powering late-night AI systems engineering.
-          </p>
+              <div className="overflow-hidden rounded-[1.25rem] bg-black/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_24px_rgba(0,0,0,0.3)] ring-1 ring-white/10 hover:ring-white/25 transition-all">
+                <iframe
+                  title={playlist.title}
+                  src={playlist.embedUrl}
+                  className="block w-full h-[152px] border-0"
+                  width="100%"
+                  height="152"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Optional Embedded Playlist Player */}
-      {activeConfig.embedPlaylistUrl && (
-        <div className="mt-5 overflow-hidden rounded-xl bg-card border border-border/60 shadow-sm">
-          <iframe
-            title={activeConfig.title || 'Spotify Playlist'}
-            src={activeConfig.embedPlaylistUrl}
-            className="block w-full h-[152px] border-0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          />
-        </div>
-      )}
+      {/* Footer Info Row */}
+      <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 font-mono text-[0.62rem] sm:text-[0.68rem] text-white/46">
+        <span className="flex items-center gap-1.5">
+          <Radio className="w-3 h-3 text-[#1DB954] animate-pulse" />
+          <span>algorithmic focus &amp; flow mixes</span>
+        </span>
+        <span className="text-white/30 hidden sm:inline">spotify verified</span>
+      </div>
     </div>
   );
 };

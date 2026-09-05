@@ -9,8 +9,8 @@
       "label": "01 / Engineering & Teams",
       "title": "Hire for Systems & AI",
       "description": "For high-impact AI systems engineering, stateful multi-agent architectures, PEFT/QLoRA pipelines, and production backend infrastructure.",
-      "actionLabel": "Email Directly",
-      "actionHref": "mailto:anmolsharma152.dev@gmail.com?subject=Hiring%20Anmol%20Sharma%20-%20AI%20Systems%20Engineering",
+      "actionLabel": "Send Message",
+      "actionHref": "#contact-form",
       "isPrimary": true
     },
     {
