@@ -2,7 +2,7 @@
 
 **Date**: 2026-09-05  
 **Current Branch**: `feature/ohshin-inspired-refactor`  
-**Latest Commit**: `9dd1be6` (`feat(refactor): full Ohshin aesthetic overhaul, purge Spotify, static projects build log, and light mode contrast fix`)  
+**Latest Commit**: `af90584` (`feat(design): scale up Hero display typography, add ambient glow, integrate real books/papers, and add Spotify to nav & contact`)  
 **Main Branch Status**: Clean at `dad14dad` (untouched)  
 **Dev Server**: Running on `http://localhost:3000` (Daemon task)  
 
@@ -10,19 +10,23 @@
 
 ## 1. What Was Accomplished in This Session
 
-1. **Fixed "System Metrics & Impact" Display Glitch (`src/components/Projects.tsx`)**:
-   - Resolved the missing projects bug where unauthenticated client-side GitHub fetches (`api.github.com/...`) failed with HTTP 403 Rate Limits, leaving only the top `<ReachCounter />` visible while the project cards broke.
-   - Converted the Projects section into a 100% static Build Log driven by `src/content/site/projects.json`.
-   - Clearly separated the reach counter as `[ 01 / VERIFIED SYSTEM BENCHMARKS ]` and the project list as `[ 02 / SELECTED PLATFORMS & ENGINES ]`.
-   - Rendered all 8 curated projects (CodexEngine, Sarvam-1 Fine-Tuning, Disha, Nimbus, AlgoDeck, commerce_cortex, vad_processor, Aura) with serial indices (`01`, `02`, `03`...), status pills, and direct Code/Demo links.
+1. **Integrated Real Spotify Profile (`src/components/widgets/SpotifyShelf.tsx`)**:
+   - Integrated verified Spotify card for Anmol (`user/31fzcv4ts52untro5xsamjhddtre`) with authentic CDN avatar, verified badge, direct profile button, and optional playlist embed player.
+   - Wired into `About.tsx` seamlessly with zero build/type errors.
+   - Added Spotify profile links to `Navigation.tsx` and `Contact.tsx`.
 
-2. **Purged Spotify Playlists Completely**:
-   - Deleted `src/components/widgets/SpotifyShelf.tsx`.
-   - Removed all `spotifyPlaylists` schemas, loaders, and JSON records.
-   - Removed `<SpotifyShelf />` from `src/components/About.tsx`. Zero unverified external accounts remain.
+2. **Hero Typography Scale-Up & Atmospheric Glow (`src/components/Hero.tsx`)**:
+   - Scaled display typography to `text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-doto uppercase`.
+   - Added top Ohshin micro-metadata strip: `[ 00 / SYSTEM INITIALIZED ]`, `LOC: JAIPUR, IN // 26.9124° N, 75.7873° E`, and live `<WorkClock /> IST`.
+   - Injected dual atmospheric radial glow spheres (`blue-600` and `indigo-600`) for depth.
 
-3. **Resolved Light Mode Contrast Trap**:
-   - Replaced all hardcoded `text-white` in `src/components/widgets/ReadingStack.tsx` with theme-adaptive tokens (`text-foreground`, `text-muted-foreground`, `text-foreground/80`).
+3. **Research Papers & Library Expansion (`src/content/site/personal.json`)**:
+   - Extracted authentic books and research papers from user's local directories (`/home/omarchy/Documents/Books` and `/home/anmol/Anmol/Research Papers`).
+   - Added DeepSeek-R1 (2025), Attention Is All You Need (2017), Constitutional AI (Anthropic, 2022), and The Party by Richard McGregor.
+
+4. **100% Clean Production Build (`npm run build`)**:
+   - Fixed module contention between background dev server and webpack cache.
+   - Verified clean exit code 0 across all 8 static pages.
    - Cleaned `src/app/globals.css` of conflicting `.text-primary`, `.text-secondary`, `.text-muted` classes and aggressive base `p, li, span, div` selectors that were clobbering Tailwind styles.
    - Tested high-contrast legibility across both porcelain light mode and dark obsidian mode.
 

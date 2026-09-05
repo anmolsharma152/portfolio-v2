@@ -34,7 +34,9 @@ This document tracks completed features, active development items, and upcoming 
 ### Phase 4: Static Projects Build Log & Bug Resolutions
 - [x] **Eliminated Runtime GitHub API Dependency:** Replaced flaky client-side `fetch('https://api.github.com/...')` with 100% static JSON rendering from `projects.json`.
 - [x] **Resolved "System Metrics & Impact" Display Glitch:** Clearly demarcated `[ 01 / VERIFIED SYSTEM BENCHMARKS ]` from `[ 02 / SELECTED PLATFORMS & ENGINES ]`, ensuring project cards render immediately.
-- [x] **Purged Spotify Playlists Completely:** Deleted `SpotifyShelf.tsx` and all mock/unverified playlist data.
+- [x] **Verified Spotify Integration:** Replaced mock playlists with verified Spotify Profile Card (`SpotifyShelf.tsx`) using Anmol's real Spotify account (`31fzcv4ts52untro5xsamjhddtre`), real profile avatar, and verified user badge. Also linked in Navigation and Contact channels.
+- [x] **Research & Book Stack Expansion:** Added real user library items (DeepSeek-R1, Attention Is All You Need, Constitutional AI, The Party by Richard McGregor) from local documents.
+- [x] **Hero Typography & Atmosphere Scale-Up:** Scaled display headline to 8xl `font-doto` with blue-violet ambient glow orbs, meta header strip (`[ 00 / SYSTEM INITIALIZED ]`, Jaipur geo-coordinates, real-time IST clock), and typewriter status line.
 - [x] **Fixed Light Mode Contrast Trap:** Removed white-on-white text in `ReadingStack.tsx` and deleted rogue `.text-primary` / `.text-muted` CSS overrides in `globals.css`.
 
 ---
@@ -56,8 +58,3 @@ This document tracks completed features, active development items, and upcoming 
 - [ ] **Command K (`Cmd+K` / `Ctrl+K`) Modal:**
   - Quick navigation across sections, external repositories, resume download, and theme toggle.
   - System diagnostics simulator (RAM, latency, model status).
-
-### Phase 8: Research Papers & Deep Reading Expansion
-- [ ] **Expanded Reading & Papers Shelf:**
-  - Incorporate research papers from local library (Attention Is All You Need, LoRA, FlashAttention, QLoRA, DPO).
-  - Search / tag filtering across reading entries.
