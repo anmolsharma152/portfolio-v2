@@ -28,23 +28,20 @@ export const WorkView: React.FC = () => {
       </div>
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-12 relative z-10">
-        {/* 1. WORK HEADER CARD */}
-        <header className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-6 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.20),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-8 lg:rounded-[2.5rem] lg:p-10 mb-10">
+        {/* 1. WORK HEADER CARD (Matches Home Page About Header 1-to-1: No horizontal line, clean natural spacing) */}
+        <header className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.20),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-7 lg:rounded-[2.5rem] lg:p-9 mb-8">
           <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
 
           {/* Top Metadata Row */}
-          <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/60 border-b border-white/10 pb-4 mb-8 sm:mb-12">
-            <span className="text-white/90 font-semibold">work / output</span>
+          <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
+            <span className="text-white/80 font-medium">work / output</span>
             <span className="hidden sm:block text-center text-white/50">scroll / inspect</span>
-            <span className="flex items-center gap-1.5 font-bold text-white/90">
+            <span className="flex items-center gap-1.5 font-bold text-white/80">
               <WorkClock /> <span>IST</span>
             </span>
           </div>
 
           <div className="pt-10 sm:pt-14 lg:pt-18">
-            <p className="font-mono text-[0.64rem] uppercase tracking-[0.24em] text-white/55 mb-3 sm:text-[0.74rem]">
-              teams, roles and projects
-            </p>
             <h1 className="font-doto text-[clamp(4.2rem,21vw,19rem)] font-black uppercase leading-[0.72] tracking-tighter text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
               work
             </h1>
@@ -52,10 +49,10 @@ export const WorkView: React.FC = () => {
         </header>
 
         {/* 2. DELIVERABLES & IMPACT METRICS STRIP */}
-        <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/30 p-6 sm:p-8 lg:p-10 mb-10 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
+        <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/30 p-5 sm:p-7 lg:p-9 mb-8 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
           <GlassSheen className="left-[-40%] bg-white/[0.04]" />
 
-          <div className="flex items-baseline justify-between gap-4 mb-6 border-b border-white/10 pb-4">
+          <div className="flex items-end justify-between gap-4 mb-6">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-rose-200/90 font-semibold mb-1">
                 Project &amp; Work Performance
@@ -75,7 +72,6 @@ export const WorkView: React.FC = () => {
                 key={metric.id}
                 className="relative overflow-hidden rounded-2xl p-5 sm:p-6 ring-1 ring-white/10 bg-black/34 shadow-[0_16px_40px_rgba(0,0,0,0.22),0_0_40px_rgba(211,23,10,0.12),inset_0_1px_0_rgba(255,255,255,0.10)] backdrop-blur-xl flex flex-col justify-between transition-all duration-200 hover:scale-[1.015] hover:ring-white/20 hover:bg-black/40"
               >
-                {/* Inner radial warm glow for rich red-obsidian vibe */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute -right-12 -top-12 -z-10 h-32 w-32 rounded-full bg-[#D3170A]/20 blur-2xl"
@@ -110,17 +106,17 @@ export const WorkView: React.FC = () => {
         </section>
 
         {/* 3. AUTO-SCROLLING TECH STACK SECTION */}
-        <div className="mb-10">
+        <div className="mb-8">
           <TechStackSection />
         </div>
 
         {/* 4. TWO-COLUMN CORE: EXPERIENCE (0.56fr) & PROJECTS (1fr) */}
-        <div className="grid gap-8 py-4 lg:grid-cols-[minmax(18rem,0.56fr)_minmax(0,1fr)] lg:gap-8 lg:py-6 items-start mb-12">
+        <div className="grid gap-8 py-2 lg:grid-cols-[minmax(18rem,0.56fr)_minmax(0,1fr)] lg:gap-8 lg:py-4 items-start mb-8">
           {/* LEFT: EXPERIENCE TIMELINE (Sticky Sync Scrolling on Desktop) */}
           <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
-            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 sm:p-7 ring-1 ring-white/10 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl motion-safe:animate-glass-breathe">
+            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 sm:p-6 ring-1 ring-white/10 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl motion-safe:animate-glass-breathe">
               <GlassSheen className="left-[-40%] bg-white/[0.035]" />
-              <div className="flex items-baseline justify-between gap-4 mb-6 border-b border-white/10 pb-4">
+              <div className="flex items-end justify-between gap-4 mb-5">
                 <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
                   experience
                 </h2>
@@ -129,7 +125,7 @@ export const WorkView: React.FC = () => {
                 </span>
               </div>
 
-              <div className="space-y-3.5">
+              <div className="space-y-3">
                 {workExperienceContent.map((exp) => (
                   <article
                     key={exp.id}
@@ -175,11 +171,11 @@ export const WorkView: React.FC = () => {
             </div>
           </aside>
 
-          {/* RIGHT: PROJECTS BUILD LOG (All 8 Projects Rendered Inline, No Toggle Buttons) */}
+          {/* RIGHT: PROJECTS BUILD LOG (All 8 Projects Rendered Inline) */}
           <main className="min-w-0">
-            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 sm:p-7 ring-1 ring-white/10 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl motion-safe:animate-glass-breathe">
+            <div className="relative isolate overflow-hidden rounded-[2rem] bg-black/32 p-5 sm:p-6 ring-1 ring-white/10 shadow-[0_24px_90px_rgba(0,0,0,0.26),0_0_52px_rgba(211,23,10,0.14),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl motion-safe:animate-glass-breathe">
               <GlassSheen className="left-[-40%] bg-white/[0.035]" />
-              <div className="flex items-baseline justify-between gap-3 mb-6 border-b border-white/10 pb-4">
+              <div className="flex items-end justify-between gap-3 mb-5">
                 <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
                   projects
                 </h2>
@@ -259,7 +255,7 @@ export const WorkView: React.FC = () => {
         </div>
 
         {/* 5. OPEN CHANNELS / REACH OUT SECTION */}
-        <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/32 p-6 sm:p-10 lg:p-12 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe">
+        <section className="relative isolate overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-black/32 p-6 sm:p-9 lg:p-10 shadow-[0_30px_120px_rgba(0,0,0,0.30),0_0_74px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe">
           <GlassSheen className="left-[-40%] bg-white/[0.035] motion-safe:[animation-delay:-6.4s] motion-safe:[animation-duration:12.7s]" />
           <div
             aria-hidden="true"
@@ -267,7 +263,7 @@ export const WorkView: React.FC = () => {
           />
 
           {/* Section Header: Left Stacked REACH OUT, Right Context Paragraph */}
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-end mb-10 border-b border-white/10 pb-8">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-end mb-8">
             <div>
               <p className="font-mono text-[0.62rem] sm:text-[0.7rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
                 open channels
