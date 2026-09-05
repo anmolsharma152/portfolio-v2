@@ -2,7 +2,7 @@
 
 **Date**: 2026-09-05  
 **Current Branch**: `feature/ohshin-inspired-refactor`  
-**Latest Commit**: `af90584` (`feat(design): scale up Hero display typography, add ambient glow, integrate real books/papers, and add Spotify to nav & contact`)  
+**Latest Commit**: `6dfaed4` (`feat(ui): update nav items to About/Work/Timeline/Contact and implement large Ohshin portrait showcase card in About`)  
 **Main Branch Status**: Clean at `dad14dad` (untouched)  
 **Dev Server**: Running on `http://localhost:3000` (Daemon task)  
 
@@ -10,24 +10,31 @@
 
 ## 1. What Was Accomplished in This Session
 
-1. **Integrated Real Spotify Profile (`src/components/widgets/SpotifyShelf.tsx`)**:
+1. **Aligned Navigation Titles & Section IDs (`src/components/Navigation.tsx`, `src/app/page.tsx`)**:
+   - Updated the 4 core navigation items to: `About` (`#about`), `Work` (`#work`), `Timeline` (`#timeline`), and `Contact` (`#contact`).
+   - Updated `page.tsx`, `Projects.tsx`, `Resume.tsx`, and `hero.json` to seamlessly match `#work` and `#timeline`, while preserving `#projects` and `#resume` as anchor aliases.
+
+2. **Big Ohshin-Style Portrait Showcase Card (`src/components/About.tsx`)**:
+   - Re-architected the About section to feature a towering full-height portrait card (`min-h-[26rem] sm:min-h-[36rem] lg:min-h-[46rem]`) alongside the story, capabilities, and beyond-code narrative.
+   - Framed with rounded corners (`rounded-[2rem]`), dark gradient vignette, subtle sheen, and floating status tag (`ONLINE // AI SYSTEMS ENGINEER`, `Anmol Sharma`, `Jaipur, India`).
+   - High-res lightbox zoom modal retained on click.
+
+3. **Integrated Real Spotify Profile (`src/components/widgets/SpotifyShelf.tsx`)**:
    - Integrated verified Spotify card for Anmol (`user/31fzcv4ts52untro5xsamjhddtre`) with authentic CDN avatar, verified badge, direct profile button, and optional playlist embed player.
    - Wired into `About.tsx` seamlessly with zero build/type errors.
    - Added Spotify profile links to `Navigation.tsx` and `Contact.tsx`.
 
-2. **Hero Typography Scale-Up & Atmospheric Glow (`src/components/Hero.tsx`)**:
+4. **Hero Typography Scale-Up & Atmospheric Glow (`src/components/Hero.tsx`)**:
    - Scaled display typography to `text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-doto uppercase`.
    - Added top Ohshin micro-metadata strip: `[ 00 / SYSTEM INITIALIZED ]`, `LOC: JAIPUR, IN // 26.9124° N, 75.7873° E`, and live `<WorkClock /> IST`.
    - Injected dual atmospheric radial glow spheres (`blue-600` and `indigo-600`) for depth.
 
-3. **Research Papers & Library Expansion (`src/content/site/personal.json`)**:
+5. **Research Papers & Library Expansion (`src/content/site/personal.json`)**:
    - Extracted authentic books and research papers from user's local directories (`/home/omarchy/Documents/Books` and `/home/anmol/Anmol/Research Papers`).
    - Added DeepSeek-R1 (2025), Attention Is All You Need (2017), Constitutional AI (Anthropic, 2022), and The Party by Richard McGregor.
 
-4. **100% Clean Production Build (`npm run build`)**:
-   - Fixed module contention between background dev server and webpack cache.
-   - Verified clean exit code 0 across all 8 static pages.
-   - Cleaned `src/app/globals.css` of conflicting `.text-primary`, `.text-secondary`, `.text-muted` classes and aggressive base `p, li, span, div` selectors that were clobbering Tailwind styles.
+6. **100% Clean Production Build (`npm run build`)**:
+   - Verified clean exit code 0 across all 8 static pages. Zero errors, zero warnings.
    - Tested high-contrast legibility across both porcelain light mode and dark obsidian mode.
 
 4. **Infused Ohshin Visual Design & Typography**:

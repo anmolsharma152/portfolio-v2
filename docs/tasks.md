@@ -38,6 +38,8 @@ This document tracks completed features, active development items, and upcoming 
 - [x] **Research & Book Stack Expansion:** Added real user library items (DeepSeek-R1, Attention Is All You Need, Constitutional AI, The Party by Richard McGregor) from local documents.
 - [x] **Hero Typography & Atmosphere Scale-Up:** Scaled display headline to 8xl `font-doto` with blue-violet ambient glow orbs, meta header strip (`[ 00 / SYSTEM INITIALIZED ]`, Jaipur geo-coordinates, real-time IST clock), and typewriter status line.
 - [x] **Fixed Light Mode Contrast Trap:** Removed white-on-white text in `ReadingStack.tsx` and deleted rogue `.text-primary` / `.text-muted` CSS overrides in `globals.css`.
+- [x] **Aligned Navigation Titles (`Navigation.tsx`):** Standardized nav links to the 4 core components: `About` (`#about`), `Work` (`#work`), `Timeline` (`#timeline`), and `Contact` (`#contact`). Added backward-compatible aliases for `#projects` and `#resume`.
+- [x] **Big Ohshin Portrait Showcase (`About.tsx`):** Transformed the About section from a small centered avatar into a full-height, magazine-style framed portrait card (`min-h-[26rem] sm:min-h-[36rem] lg:min-h-[46rem]`) alongside the editorial narrative and capabilities, with bottom status badge (`ANMOL SHARMA // AI SYSTEMS ENGINEER`), glass sheen, and lightbox zoom.
 
 ---
 
