@@ -33,11 +33,11 @@ export const Hero = () => {
       id="hero"
       className="relative isolate min-h-[100svh] overflow-hidden bg-black selection:bg-white selection:text-black"
     >
-      {/* Background Cyberpunk Workstation Image */}
+      {/* Background Deep Hyprland Wallpaper */}
       <div className="absolute inset-0">
         <motion.img
-          src="/backgrounds/1.jpg"
-          alt="Cyberpunk Engineer Workstation"
+          src="/backgrounds/bg-orbit-drifter.jpg"
+          alt="Dark Atmospheric Space Canvas"
           className="h-full w-full object-cover object-center will-change-transform"
           style={{
             scale: imageScale,
@@ -45,26 +45,29 @@ export const Hero = () => {
             y: imageY,
           }}
         />
+        {/* Deep Obsidian Contrast Overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
+        <div className="pointer-events-none absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black" />
       </div>
 
       {/* Ghost Aberration Layer */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[1] bg-[url('/backgrounds/1.jpg')] bg-cover bg-center opacity-20 mix-blend-screen will-change-transform [clip-path:polygon(0_8%,100%_0,100%_18%,0_28%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[url('/backgrounds/bg-orbit-drifter.jpg')] bg-cover bg-center opacity-10 mix-blend-screen will-change-transform [clip-path:polygon(0_8%,100%_0,100%_18%,0_28%)]"
         style={{ opacity: ghostOpacity, x: ghostX, y: ghostY }}
       />
 
-      {/* Static Scanline & Vignette */}
+      {/* Static Scanline & Ambient Crimson Glow */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen motion-safe:animate-hero-static [background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.14)_0px,rgba(255,255,255,0.14)_1px,transparent_1px,transparent_4px),radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_72%_76%,rgba(211,23,10,0.22),transparent_34%)]"
+        className="pointer-events-none absolute inset-0 z-[2] mix-blend-screen motion-safe:animate-hero-static [background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_4px),radial-gradient(circle_at_24%_18%,rgba(255,255,255,0.06),transparent_30%),radial-gradient(circle_at_72%_76%,rgba(211,23,10,0.25),transparent_34%)]"
         style={{ opacity: scanOpacity }}
       />
 
       {/* Subtle Coordinate Grid */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[3] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:32px_32px]"
+        className="pointer-events-none absolute inset-0 z-[3] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:32px_32px]"
         style={{ opacity: gridOpacity }}
       />
 
