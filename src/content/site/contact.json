@@ -1,0 +1,42 @@
+{
+  "sectionTitle": "Get In Touch",
+  "sectionSubtitle": "Have an engineering challenge, an agent platform to architect, or want to discuss low-latency systems? Reach out through any of the channels below.",
+  "email": "anmolsharma152.dev@gmail.com",
+  "location": "Jaipur, India",
+  "lanes": [
+    {
+      "id": "hiring",
+      "label": "01 / Engineering & Teams",
+      "title": "Hire for Systems & AI",
+      "description": "For high-impact AI systems engineering, stateful multi-agent architectures, PEFT/QLoRA pipelines, and production backend infrastructure.",
+      "actionLabel": "Email Directly",
+      "actionHref": "mailto:anmolsharma152.dev@gmail.com?subject=Hiring%20Anmol%20Sharma%20-%20AI%20Systems%20Engineering",
+      "isPrimary": true
+    },
+    {
+      "id": "advisory",
+      "label": "02 / Technical Advisory",
+      "title": "System Architecture & Review",
+      "description": "Consulting on low-latency voice pipelines, LangGraph state machine designs, pgvector indexing, and 3-tier LLMOps observability.",
+      "actionLabel": "Download Resume",
+      "actionHref": "/resume.pdf",
+      "isPrimary": false
+    },
+    {
+      "id": "community",
+      "label": "03 / Open Source & Banter",
+      "title": "Collaborate & Connect",
+      "description": "For open source contributions, discussing research papers, minimalist Linux setups, or speculative tech ideas.",
+      "actionLabel": "View GitHub",
+      "actionHref": "https://github.com/anmolsharma152",
+      "isPrimary": false
+    }
+  ],
+  "offerings": [
+    "Stateful Multi-Agent Orchestration (LangGraph, PostgreSQL 16, pgvector)",
+    "Sub-150ms Edge & Local Speech Pipelines (Silero VAD, Rust/WASM, ONNX)",
+    "3-Tier LLMOps Observability & Evaluation (LangSmith, Langfuse, RAGAS)",
+    "Parameter-Efficient Fine-Tuning & Serving (QLoRA, PEFT, vLLM)",
+    "High-Throughput Async Backends & System Daemons (FastAPI, Docker, C/Rust)"
+  ]
+}

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: 'If you use this software, please cite it as below.'
+title: 'Portfolio Website'
+version: 1.0.0
+date-released: 2023-07-09
+authors:
+  - family-names: 'Sharma'
+    given-names: 'Anmol'
+    email: 'anmolsharma152.dev@gmail.com'
+    website: 'https://anmolsharma152.vercel.app'
+repository-code: 'https://github.com/anmolsharma152/nextjs-portfolio'
+url: 'https://github.com/anmolsharma152/nextjs-portfolio'
+keywords:
+  - 'portfolio'
+  - 'personal website'
+  - 'nextjs'
+  - 'react'
+  - 'typescript'
+license: MIT
+abstract: 'A modern, responsive, and customizable personal portfolio website built with Next.js, React, and TypeScript.'

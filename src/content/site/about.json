@@ -1,0 +1,47 @@
+{
+  "sectionTitle": "About Me",
+  "profileImage": "/images/Anmol.webp",
+  "introText": "AI Engineer specializing in production-grade LLM applications, multi-agent swarms, stateful RAG architectures, and parameter-efficient fine-tuning (PEFT). Graduate of BCA (77.4% First Division) and Minor in AI & Data Science from CCE, IIT Mandi (CGPA 8.44/10). Combining deep systems engineering (Rust, C, Linux PAM, POSIX) with enterprise-grade reliability and client operations.",
+  "missionTitle": "My Mission",
+  "missionStatement": "To build high-performance, resilient AI systems that eliminate cloud vendor lock-in, deliver sub-150ms real-time interactions, and bring privacy-first agentic intelligence directly to production environments.",
+  "capabilities": [
+    {
+      "id": "agentic-orchestration",
+      "icon": "brain",
+      "iconColor": "text-primary",
+      "title": "Stateful Agentic Orchestration",
+      "description": "Building resilient multi-agent graphs with LangGraph, cyclic supervisor routing, async PostgreSQL state management, and long-term memory.",
+      "tools": ["LangGraph", "FastAPI", "PostgreSQL 16", "pgvector", "LangChain"]
+    },
+    {
+      "id": "edge-speech",
+      "icon": "terminal",
+      "iconColor": "text-green-500",
+      "title": "Sub-150ms Edge & Speech Pipelines",
+      "description": "Optimizing local voice activity detection (VAD), client-side speech inference, Rust/WASM, and ONNX Runtime execution for seamless voice loops.",
+      "tools": ["Rust", "WASM", "Silero VAD", "ONNX Runtime", "WebSockets"]
+    },
+    {
+      "id": "llmops-peft",
+      "icon": "cpu",
+      "iconColor": "text-purple-500",
+      "title": "PEFT, Fine-Tuning & 3-Tier LLMOps",
+      "description": "Distilling synthetic instruction datasets, 4-bit NF4 QLoRA adaptation, vLLM serving, and automated regression testing (LangSmith, Langfuse, RAGAS).",
+      "tools": ["PyTorch", "QLoRA (NF4)", "PEFT", "vLLM", "LangSmith", "RAGAS"]
+    },
+    {
+      "id": "decoupled-backends",
+      "icon": "globe",
+      "iconColor": "text-amber-500",
+      "title": "Decoupled Systems & Production Backends",
+      "description": "Developing Unix domain socket daemons, low-level Linux authentication modules, and containerized async FastAPI & Node.js microservices.",
+      "tools": ["Docker Compose", "Unix Sockets", "Linux PAM", "Caddy", "C / Python"]
+    }
+  ],
+  "beyondCodeTitle": "Beyond the Code",
+  "beyondCodeParagraphs": [
+    "Before moving full-time into artificial intelligence systems, my academic background included political science and economics at Symbiosis School for Liberal Arts (SSLA). This grounding gives me a sharp lens on systemic incentives, macro trade balances, and technological governance.",
+    "When I am not training models or architecting stateful agent graphs, you can find me experimenting with minimalist Linux tiling setups (Hyprland / Arch), studying cognitive spaced repetition (FSRS / SM-2 algorithms), or diving deep into literature across economic theory and classic sci-fi worldbuilding."
+  ],
+  "quote": "The best AI systems are fast, local, and invisible: users forget they are even there."
+}

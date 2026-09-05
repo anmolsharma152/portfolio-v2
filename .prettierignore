@@ -1,0 +1,16 @@
+.next
+node_modules
+package-lock.json
+.next
+out
+build
+dist
+*.md
+*.mdx
+*.json
+*.yaml
+*.yml
+*.html
+*.css
+*.scss
+*.svg

@@ -1,0 +1,159 @@
+# Save exact version of installed packages
+save-exact = true
+
+# Set the package-lock to version 2
+package-lock = true
+package-lock-only = false
+
+# Disable package-lock.json creation
+# package-lock = false
+
+# Set the package-lock.json version to 2
+lockfile-version = 2
+
+# Set the package manager version
+npm_package_engines_npm = ">=8.0.0"
+npm_package_engines_node = ">=16.0.0"
+
+# Configure the package manager
+engine-strict = true
+
+# Configure the registry
+# registry=https://registry.npmjs.org/
+
+# Configure authentication for private packages
+# @your-scope:registry=https://your-private-registry.com/
+# //your-private-registry.com/:_authToken=${NPM_TOKEN}
+
+# Configure cache settings
+cache = .npm-cache
+prefer-offline = true
+
+# Configure network settings
+fetch-retries = 3
+fetch-retry-mintimeout = 3000
+fetch-retry-maxtimeout = 30000
+
+# Configure logging
+loglevel = "warn"
+
+# Configure scripts
+ignore-scripts = false
+
+# Configure audit settings
+audit = true
+audit-level = "moderate"
+
+# Configure fund settings
+fund = false
+
+# Configure package-lock settings
+package-lock = true
+package-lock-only = false
+
+# Configure save settings
+save = true
+save-prefix = "^"
+save-dev = true
+save-optional = true
+save-bundle = false
+
+# Configure script-shell settings
+# script-shell = "/bin/bash"
+
+# Configure strict-ssl settings
+strict-ssl = true
+
+# Configure tmp settings
+tmp = "/tmp"
+
+# Configure update-notifier settings
+update-notifier = true
+
+# Configure user-agent settings
+user-agent = "npm/{npm-version} node/{node-version} {platform} {arch} {ci}"
+
+# Configure workspaces settings
+workspaces = true
+workspace = true
+workspaces-update = true
+
+# Configure package manager settings
+package-manager = "npm@8.19.4"
+
+# Configure node-gyp settings
+node_gyp = "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js"
+
+# Configure cache settings
+cache-max = Infinity
+cache-min = 10
+
+# Configure fetch settings
+fetch-retry-factor = 10
+fetch-retry-mintimeout = 10000
+fetch-retry-maxtimeout = 60000
+
+# Configure log settings
+loglevel = "warn"
+logs-max = 10
+
+# Configure maxsockets settings
+maxsockets = 50
+
+# Configure prefix settings
+prefix = "/usr/local"
+
+# Configure production settings
+production = false
+
+# Configure save-exact settings
+save-exact = true
+
+# Configure save-prefix settings
+save-prefix = "^"
+
+# Configure scope settings
+scope = ""
+
+# Configure search settings
+searchlimit = 20
+searchopts = ""
+searchstaleness = 900
+
+# Configure shell settings
+shell = "/bin/bash"
+
+# Configure tag settings
+tag-version-prefix = "v"
+
+# Configure tmp settings
+tmp = "/tmp"
+
+# Configure umask settings
+umask = 18
+
+# Configure user-agent settings
+user-agent = "npm/{npm-version} node/{node-version} {platform} {arch} {ci}"
+
+# Configure userconfig settings
+userconfig = "/home/user/.npmrc"
+
+# Configure version settings
+version = false
+
+# Configure versionsort settings
+versionsort = true
+
+# Configure view settings
+viewer = "man"
+
+# Configure workspace settings
+workspace = []
+workspaces = true
+workspaces-update = true
+
+# Configure xterm settings
+xterm = "xterm-256color"
+
+# Configure yarn settings
+yarn = false

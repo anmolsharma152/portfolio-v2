@@ -1,0 +1,22 @@
+{
+  "name": "Anmol Sharma",
+  "headlinePrefix": "Building ",
+  "headlineGradient": "Low-Latency AI Infra",
+  "headlineSuffix": " & Stateful Multi-Agent Backends",
+  "typewriterTitles": [
+    "AI Systems Engineer",
+    "Multi-Agent Architect",
+    "LLMOps & Fine-Tuning Engineer",
+    "Backend Systems Developer",
+    "Low-Latency ML Engineer"
+  ],
+  "summary": "Specializing in Python, TypeScript/Node.js, and Rust. Architecting stateful agentic systems (LangGraph), async FastAPI & Node backends, PEFT/QLoRA pipelines, sub-150ms edge inferencing, and pgvector knowledge retrieval.",
+  "primaryCta": {
+    "label": "Get In Touch",
+    "href": "#contact"
+  },
+  "secondaryCta": {
+    "label": "View My Work",
+    "href": "#projects"
+  }
+}

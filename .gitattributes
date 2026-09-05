@@ -1,0 +1,182 @@
+# Set default behavior to automatically normalize line endings
+* text=auto eol=lf
+
+# Force these files to always use LF line endings and not be modified
+*.sh text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.jsx text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.svg text eol=lf
+
+# Binary files that should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.bz2 binary
+*.tar binary
+*.exe binary
+*.dll binary
+*.class binary
+*.jar binary
+*.war binary
+*.ear binary
+*.7z binary
+*.pdb binary
+*.suo binary
+*.user binary
+*.userosscache binary
+*.sln.docstates binary
+*.userprefs binary
+*.pfx binary
+*.publishsettings binary
+*.pyc binary
+*.pyo binary
+*.pyd binary
+*.dbmdl binary
+*.jfm binary
+*.pfx binary
+*.publishsettings binary
+*.sln.docstates binary
+*.suo binary
+*.user binary
+*.userosscache binary
+*.vspscc binary
+*.vssscc binary
+*.builds binary
+*.dbmdl binary
+*.pfx binary
+*.publishsettings binary
+*.scssc binary
+*.scc binary
+*.sln binary
+*.sw? binary
+*.swo binary
+*.swp binary
+*.swn binary
+*.swo binary
+*.swp binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.otf binary
+*.svgz binary
+*.ico binary
+*.icns binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.png binary
+*.bmp binary
+*.tiff binary
+*.tif binary
+*.webp binary
+*.mp3 binary
+*.wav binary
+*.mp4 binary
+*.webm binary
+*.mov binary
+*.avi binary
+*.flv binary
+*.mkv binary
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+*.odt binary
+*.ods binary
+*.odp binary
+*.odg binary
+*.odc binary
+*.odf binary
+*.odb binary
+*.sxw binary
+*.sxc binary
+*.sxi binary
+*.sxd binary
+*.sxm binary
+*.sxg binary
+*.sda binary
+*.sdd binary
+*.sdp binary
+*.sdc binary
+*.sds binary
+*.sdf binary
+*.sdw binary
+*.sgl binary
+*.sxc binary
+*.sxd binary
+*.sxg binary
+*.sxi binary
+*.sxm binary
+*.sxw binary
+*.thmx binary
+*.vsd binary
+*.vss binary
+*.vst binary
+*.vsw binary
+*.wri binary
+*.xla binary
+*.xlam binary
+*.xlc binary
+*.xld binary
+*.xlk binary
+*.xll binary
+*.xlm binary
+*.xls binary
+*.xlsb binary
+*.xlsm binary
+*.xlsx binary
+*.xlt binary
+*.xltm binary
+*.xltx binary
+*.xlw binary
+*.xps binary
+*.dot binary
+*.dotx binary
+*.dotm binary
+*.pot binary
+*.potm binary
+*.potx binary
+*.ppam binary
+*.pps binary
+*.ppsm binary
+*.ppsx binary
+*.ppt binary
+*.pptm binary
+*.pptx binary
+*.prn binary
+*.prt binary
+*.psd binary
+*.pspimage binary
+*.ps binary
+*.eps binary
+*.ai binary
+*.indd binary
+*.indl binary
+*.indt binary
+*.indb binary
+*.inx binary
+*.idml binary
+*.pmd binary
+*.xqx binary

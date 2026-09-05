@@ -1,0 +1,23 @@
+# This is a sample CODEOWNERS file
+
+# These owners will be the default owners for everything in the repo
+*       @anmolsharma152
+
+# Order is important. The last matching pattern has the most precedence.
+# So if a pull request only touches JavaScript files, only these owners will be requested to review.
+*.js    @anmolsharma152
+
+# You can also use email addresses if you prefer
+# docs/*  docs@example.com
+
+# Teams can be specified as code owners as well
+# docs/   @github/docs
+
+# More specific patterns take precedence over folder patterns
+# So this will make the JavaScript owner in src the owner of everything in the lib directory
+# except for the src/foo/ directory, whose owner is @foo.
+# /lib/*.js    @js-owner
+# /src/foo/    @foo
+
+# You can also use email addresses if you prefer
+# docs/*  docs@example.com
