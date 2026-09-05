@@ -1,16 +1,16 @@
 <div align="center">
 
-# ⚡ Anmol Sharma — Portfolio (v2)
+# Anmol Sharma — Portfolio (v2)
 
-**A retro-futuristic, high-craft personal portfolio and systems engineering showcase.**
+**A multi-page personal portfolio website built with Next.js 14, Tailwind CSS, and Framer Motion.**  
+Features a dark retro-futuristic aesthetic inspired by [Ohshin Bhat](https://ohshin.me), with Google's `Doto` dot-matrix typography, physical frosted glassmorphism, an interactive floating dock navigation, and decoupled JSON content management.
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.18-ff0055?style=flat-square&logo=framer)](https://www.framer.com/motion/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-[Architecture Overview](#-architecture--surfaces) • [Design System](#-design-system--tokens) • [Quick Start](#-quick-start) • [Documentation](#-project-documentation)
+[Pages & Routes](#-pages--routes) • [Components & UI Features](#-components--ui-features) • [Design System](#-design-system--styling) • [Getting Started](#-getting-started) • [Documentation](#-documentation)
 
 </div>
 
@@ -18,76 +18,89 @@
 
 ## ✦ Overview
 
-Designed as a **digital atelier** rather than a conventional resume. This platform pairs low-level systems engineering—multi-agent graphs, sub-150ms speech loops, PEFT adaptation, and Linux socket daemons—with tactile retro-futuristic craft inspired by brutalist terminal aesthetics, physical frosted glass, and dot-matrix typography.
-
-### Highlights
-- **Obsidian & Crimson Glassmorphism**: Physical 3D layered glass bevels with sweeping specular light sheens (`glass-sheen`), ambient atmospheric breathing glows, and 28px dot-matrix grid rasters.
-- **Physical Floating Dock Navigation**: Framer Motion spring-physics pill (`layoutId="dock-active-pill"`), 3D glass sheen, official FontAwesome 6 icons, and pixelated Minecraft status badges.
-- **Sticky Production Work Canvas (`/work`)**: A 2-column layout pairing a sticky Experience timeline with 8 deep-tech project build cards, live IST timezone clock, reach proof metrics, and an infinite auto-scrolling tech marquee.
-- **Zero-FOUT Font Optimization**: WOFF2 variable font preloading (`Doto` & `IBM Plex Mono`) with zero layout shifts or font flash on frame 1.
-- **Type-Safe Content Layer**: All portfolio content (projects, experience, metrics, books, playlists) is decoupled into pure JSON schemas validated via Zod.
+This repository contains the v2 rebuild of my personal portfolio website. The goal of this redesign was to move from a generic single-page layout to an editorial, multi-page site with tactile UI elements, rich typography, and clean separation between personal background and work output.
 
 ---
 
-## 🏛 Architecture & Surfaces
+## 📄 Pages & Routes
 
-### 1. Home Surface (`/`) — *Narrative & Taste*
-- **Hero Display**: High-impact cyber-glitch title with dynamic roles ticker and atmospheric crimson backlight.
-- **Profile Narrative**: Personal journey spanning foundational Linux tearing down in Jaipur &rarr; political science and economics at the Symbiosis School for Liberal Arts (SSLA) &rarr; deep AI systems and autonomous agent orchestration at IIT Mandi.
-- **High-Res Portrait**: Dynamic aspect card with interactive full-screen lightbox zoom modal.
-- **Cultural Shelves**: Side-by-side 2-column shelves balancing the interactive 3D **Reading Stack** with the **Records Shelf**.
-- **Gateway CTAs**: Physical direct buttons routing to `/work` and direct email dispatch.
+### 1. Home (`/`)
+- **Hero Section (`Hero.tsx`)**: Minimalist headline with a dynamic roles ticker and atmospheric crimson backlight glow.
+- **About Card (`About.tsx`)**: Dedicated profile header card (`profile / anmol` • `jaipur, india`), personal bio narrative, and a high-resolution portrait with an interactive zoom/lightbox modal.
+- **Cultural Shelves**:
+  - **Reading Stack (`ReadingStack.tsx`)**: An interactive 3D perspective shelf showing current and influential books.
+  - **Records Shelf (`SpotifyShelf.tsx`)**: Embed cards for curated focus and flow-state music playlists.
+- **Gateway Actions**: Direct buttons to navigate to `/work` or dispatch an email.
 
-### 2. Work & Systems Surface (`/work`) — *Engineering Output*
-- **Work Header**: Monospace metadata row featuring a live, second-accurate IST timezone clock (`WorkClock.tsx`).
-- **Deliverables & Impact Strip**: 4 production benchmark cards (`45K+` synthetic tokens, `120ms` speech loop, `4-bit` QLoRA, `500+` concurrent agents).
-- **Infinite Tech Marquee**: Dual-row hardware-accelerated auto-scrolling ticker grouping Core AI, Systems/Edge, and Backend infrastructure.
+### 2. Work (`/work`)
+- **Work Header (`WorkView.tsx`)**: Displays page title with live Indian Standard Time (`WorkClock.tsx`).
+- **Deliverables & Impact Strip**: 4 benchmark cards highlighting project reach, performance numbers, and scale.
+- **Tech Stack Marquee (`TechStackSection.tsx`)**: Hardware-accelerated infinite auto-scrolling ticker grouping Core AI, Systems/Edge, and Backend infrastructure.
 - **Two-Column Work Core**:
-  - **Left**: Work Experience timeline with `lg:sticky lg:top-8` desktop containment to anchor the screen.
-  - **Right**: 8 detailed Project build cards with architecture breakdowns, impact metrics, and repository links.
-- **Open Reach-Out Channels**: Direct communication lanes for Team Hiring (`mailto:` + Resume download), Advisory/Contracts, and Casual DMs on X.
-
-### 3. Floating Dock Navigation (`Navigation.tsx`)
-A tactile, screen-anchored dock matching Ohshin Bhat's physical glass aesthetic:
-- **Tabs**: `[abt me]` (Alex skin badge) • `[work]` (Diamond pickaxe badge)
-- **Glass Divider**: `h-7 w-px bg-white/10`
-- **Social & Contact Hub**: `X` &bull; `Spotify` &bull; `Email` &bull; `LinkedIn` &bull; `GitHub`
+  - **Left Column**: Work Experience timeline with `lg:sticky lg:top-8` desktop positioning so the timeline stays in view as you scroll through projects.
+  - **Right Column**: 8 detailed project build cards with descriptions, key highlights, tech badges, and source links.
+- **Open Channels**: Direct reach-out cards for team hiring (email + resume download), advisory inquiries, and casual DMs on X.
 
 ---
 
-## 🎨 Design System & Tokens
+## 🧩 Components & UI Features
 
-| Token | Value | Purpose |
+| Component | File | Description |
 |---|---|---|
-| **Canvas Dark** | `#000000` | Pure obsidian deep space background |
-| **Canvas Crimson** | `#94130b` / `#d3170a` | Atmospheric work glow and accent highlights |
-| **Glass Surface** | `rgba(255, 255, 255, 0.075)` | High-refraction card background with `backdrop-blur-2xl` |
-| **Nav Glass Shadow** | `0 18px 60px rgba(0,0,0,0.34)` | Physical 3D dock elevation with dual inset bevels |
-| **Display Font** | `Doto` (Google Fonts) | Dot-matrix lowercase headings |
-| **Code & Body Font** | `IBM Plex Mono` | Monospace narrative, metadata, and timestamps |
-| **Metric Font** | `Tektur` | Angular, high-legibility impact numbers |
+| **Floating Dock Navigation** | `src/components/Navigation.tsx` | Screen-anchored glass dock with physical bevels (`shadow-nav-glass`), Framer Motion `layoutId` spring-physics active pill, Minecraft status badges, and official FontAwesome 6 icons. |
+| **Tech Stack Marquee** | `src/components/widgets/TechStackSection.tsx` | Infinite auto-scrolling ticker with pause-on-hover and categorized technology badges. |
+| **Reading Stack** | `src/components/widgets/ReadingStack.tsx` | CSS perspective 3D book spine stack with book covers and metadata. |
+| **Records Shelf** | `src/components/widgets/SpotifyShelf.tsx` | Responsive grid of embedded Spotify playlist cards with direct profile link. |
+| **Live IST Clock** | `src/components/widgets/WorkClock.tsx` | Client-side second-accurate digital clock tracking Indian Standard Time (IST). |
+| **Glass Sheen** | `src/components/widgets/GlassSheen.tsx` | Sweeping keyframe specular light reflection effect across glass cards. |
 
 ---
 
-## 🛠 Tech Stack
+## 🎨 Design System & Styling
 
-- **Framework**: [Next.js 14.2](https://nextjs.org/) (App Router, Server & Client Components)
-- **Language**: [TypeScript 5.8](https://www.typescriptlang.org/) (Strict Mode)
-- **Styling**: [Tailwind CSS 3.4](https://tailwindcss.com/), [`tailwindcss-animate`](https://github.com/jamiebuilds/tailwindcss-animate)
-- **Animation**: [Framer Motion 10.18](https://www.framer.com/motion/) (Spring physics, layoutId transitions)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (`react-icons/fa6`), [Lucide React](https://lucide.dev/)
-- **Validation**: [Zod 3.22](https://zod.dev/)
-- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
+- **Color Palette**:
+  - Background: Pure obsidian black (`#000000`)
+  - Work Canvas Accent: Deep crimson glow (`#94130b` / `#d3170a`)
+  - Glass Panels: `rgba(255, 255, 255, 0.075)` with `backdrop-blur-2xl` and `ring-1 ring-white/15`
+  - Active Dock Pill: `rgba(255, 255, 255, 0.12)` with `border-white/16` and top specular sheen
+- **Typography**:
+  - Display: Google's `Doto` (dot-matrix display font used for titles and tabs)
+  - Body & Code: `IBM Plex Mono` (monospace font for all body copy and timestamps)
+  - Metrics: `Tektur` (angular display font for numbers)
+- **Zero-FOUT Font Loading**: Primary WOFF2 variable font (`Doto`) is preloaded directly via `<link rel="preload">` in `layout.tsx` with `display=block` to eliminate font flash on initial paint.
 
 ---
 
-## 🚀 Quick Start
+## 🗄 Content Management
+
+All site content is completely decoupled from React components into pure JSON files located in `src/content/site/`:
+
+```
+src/content/
+├── schemas.ts         # Zod schemas for all content types
+├── loaders.ts         # Type-safe loaders importing JSON files
+└── site/
+    ├── about.json
+    ├── books.json
+    ├── personal.json
+    ├── projects.json
+    ├── reach-metrics.json
+    ├── spotify.json
+    ├── tech-stack.json
+    └── work-experience.json
+```
+
+Updating content (adding a project, changing experience, editing books) only requires editing the corresponding JSON file.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js 18+ (tested on Node v20/v26)
 - npm, pnpm, or bun
 
-### Local Setup
+### Setup
 
 ```bash
 # 1. Clone repository
@@ -101,81 +114,25 @@ npm install
 npm run dev
 ```
 
-Visit [`http://localhost:3000`](http://localhost:3000) in your browser.
+Open [`http://localhost:3000`](http://localhost:3000) to view the site.
 
-### Quality Verification
+### Verification Commands
 
 ```bash
-# Lint check and code style formatting
-npm run lint
-
-# Strict TypeScript verification
-npx tsc --noEmit
-
-# Production build bundle check
-npm run build
+npm run lint      # Run ESLint check and auto-fixes
+npx tsc --noEmit  # Run strict TypeScript compiler check
+npm run build     # Test production Next.js build
 ```
 
 ---
 
-## 📂 Project Structure
+## 📖 Documentation
 
-```
-portfolio-v2/
-├── docs/                      # Architectural specs and decision records
-│   ├── DECISIONS.md           # Technical & design decision log
-│   ├── OPEN_QUESTIONS.md      # Active open questions (Spotify vs Systems shelf)
-│   ├── STATUS.md              # Project status & resume commands
-│   └── V2_ARCHITECTURE.md     # Component hierarchy & token guide
-├── public/                    # Static assets
-│   ├── backgrounds/           # Atmosphere overlays & pixel textures
-│   ├── images/                # High-res portraits, book & paper covers
-│   └── resume.pdf             # Direct resume download asset
-├── src/
-│   ├── app/
-│   │   ├── globals.css        # Theme variables, glass keyframes, scanlines
-│   │   ├── layout.tsx         # Root layout, font preloads, dock nav & SEO
-│   │   ├── page.tsx           # Home route (Hero + About)
-│   │   └── work/
-│   │       ├── page.tsx       # Work route definition
-│   │       └── WorkView.tsx   # Deliverables, tech marquee, sticky experience & projects
-│   ├── components/
-│   │   ├── About.tsx          # Personal narrative, portrait card, shelves & CTA
-│   │   ├── Hero.tsx           # Display heading, cyber-glitch title, dynamic roles
-│   │   ├── Navigation.tsx     # 3D floating glass dock navigation with spring pill
-│   │   └── widgets/
-│   │       ├── GlassSheen.tsx        # Specular light keyframe animation
-│   │       ├── ReadingStack.tsx      # Interactive 3D stacked book shelf
-│   │       ├── SpotifyShelf.tsx      # Curated playlist embed cards
-│   │       ├── TechStackSection.tsx  # Infinite auto-scrolling tech marquee
-│   │       └── WorkClock.tsx         # Live IST timezone clock
-│   ├── content/
-│   │   ├── loaders.ts         # Type-safe content loaders
-│   │   ├── schemas.ts         # Zod schemas for site content
-│   │   └── site/              # Pure JSON content records
-│   │       ├── about.json
-│   │       ├── books.json
-│   │       ├── personal.json
-│   │       ├── projects.json
-│   │       ├── reach-metrics.json
-│   │       ├── spotify.json
-│   │       ├── tech-stack.json
-│   │       └── work-experience.json
-│   └── context/
-│       └── ThemeContext.tsx   # Dark mode context provider
-├── tailwind.config.js         # Theme extensions, glass animations, custom fonts
-└── package.json
-```
-
----
-
-## 📖 Project Documentation
-
-Detailed technical documentation is maintained in the `docs/` directory:
-- [**`docs/DECISIONS.md`**](./docs/DECISIONS.md) — Architectural records: repository separation, floating dock parity, FOUT elimination, layout void fixes.
-- [**`docs/OPEN_QUESTIONS.md`**](./docs/OPEN_QUESTIONS.md) — Active roadmap decisions, notably the evaluation matrix for replacing the Spotify shelf with an ArXiv research / systems rig shelf.
-- [**`docs/STATUS.md`**](./docs/STATUS.md) — Active build status, routes, and verified environments.
-- [**`docs/V2_ARCHITECTURE.md`**](./docs/V2_ARCHITECTURE.md) — Deep-dive into component lifecycles, spring physics, and CSS tokens.
+Detailed architectural notes and open decision logs are maintained in the [`docs/`](./docs) directory:
+- [**`docs/DECISIONS.md`**](./docs/DECISIONS.md) — Technical decision records covering dock navigation parity, FOUT elimination, layout void fixes, and styling choices.
+- [**`docs/OPEN_QUESTIONS.md`**](./docs/OPEN_QUESTIONS.md) — Tracks active, undecided design questions (such as evaluating whether to keep the Spotify shelf or replace it with an ArXiv research / systems shelf).
+- [**`docs/STATUS.md`**](./docs/STATUS.md) — Current build status, verified environments, and quick-resume commands.
+- [**`docs/V2_ARCHITECTURE.md`**](./docs/V2_ARCHITECTURE.md) — Component hierarchy, CSS animation tokens, and Framer Motion spring physics specs.
 
 ---
 
