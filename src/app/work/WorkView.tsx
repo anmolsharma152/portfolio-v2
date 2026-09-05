@@ -273,7 +273,7 @@ export const WorkView: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   <a
                     href="mailto:anmolsharma152.dev@gmail.com?subject=Hiring%20Anmol%20-%20Engineering%20Role"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-doto text-xs font-bold lowercase tracking-wider bg-white text-[#94130b] hover:bg-white/90 transition-colors cursor-pointer shadow-sm"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-mono text-xs font-semibold lowercase tracking-wider bg-white text-black hover:bg-neutral-200 transition-colors cursor-pointer shadow-sm"
                   >
                     <span>send message</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -281,7 +281,7 @@ export const WorkView: React.FC = () => {
                   <a
                     href="/resume.pdf"
                     download
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-doto text-xs font-bold lowercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer ring-1 ring-white/20"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-mono text-xs font-semibold lowercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer ring-1 ring-white/20"
                   >
                     <span>get resume</span>
                     <Download className="w-3.5 h-3.5" />
@@ -323,7 +323,7 @@ export const WorkView: React.FC = () => {
               <div>
                 <a
                   href="mailto:anmolsharma152.dev@gmail.com?subject=Advisory%20%2F%20Contract%20Inquiry"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-doto text-xs font-bold lowercase tracking-wider bg-white text-[#94130b] hover:bg-white/90 transition-colors cursor-pointer shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-mono text-xs font-semibold lowercase tracking-wider bg-white text-black hover:bg-neutral-200 transition-colors cursor-pointer shadow-sm"
                 >
                   <span>send message / advisory</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -351,7 +351,7 @@ export const WorkView: React.FC = () => {
                   href="https://x.com/ozymandias152"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-doto text-xs font-bold lowercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer ring-1 ring-white/20"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full font-mono text-xs font-semibold lowercase tracking-wider bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer ring-1 ring-white/20"
                 >
                   <span>dm on x</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
