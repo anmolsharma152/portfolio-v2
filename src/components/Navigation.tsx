@@ -149,7 +149,7 @@ const Navigation = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-0.5 lg:space-x-1">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -158,7 +158,7 @@ const Navigation = () => {
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
-                className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 relative group cursor-pointer"
+                className="px-2.5 lg:px-4 py-2 text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 relative group cursor-pointer whitespace-nowrap"
               >
                 {item.name}
                 <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]" />
@@ -167,9 +167,9 @@ const Navigation = () => {
           </div>
 
           {/* Right Side - Theme Toggle & Socials */}
-          <div className="flex items-center space-x-2">
-            {/* Social Icons - Desktop */}
-            <div className="hidden md:flex items-center space-x-1 mr-4">
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            {/* Social Icons - Shown on desktop (>= 1024px), hidden on half-screen/tablet to prevent crowding */}
+            <div className="hidden lg:flex items-center space-x-1 mr-2 lg:mr-4">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.label}

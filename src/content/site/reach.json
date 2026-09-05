@@ -1,0 +1,34 @@
+[
+  {
+    "id": "turnaround",
+    "label": "Operational Turnaround",
+    "value": 65,
+    "prefix": "-",
+    "suffix": "%",
+    "description": "Manual operations reduction across B2B SaaS workflow automation pipelines at The Bullseye."
+  },
+  {
+    "id": "voice-latency",
+    "label": "Voice Edge Latency",
+    "value": 150,
+    "prefix": "<",
+    "suffix": "ms",
+    "description": "Client-side voice activity detection and local streaming speech inferencing."
+  },
+  {
+    "id": "synthetic-samples",
+    "label": "Distilled Instruction Pairs",
+    "value": 10000,
+    "prefix": "",
+    "suffix": "+",
+    "description": "Multilingual instruction dataset synthesized for Sarvam-1 QLoRA fine-tuning."
+  },
+  {
+    "id": "open-source",
+    "label": "Public GitHub Repositories",
+    "value": 25,
+    "prefix": "",
+    "suffix": "+",
+    "description": "Open source agent frameworks, system daemons, ML pipelines, and tools shipped."
+  }
+]

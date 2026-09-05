@@ -1,0 +1,90 @@
+[
+  {
+    "id": "CodexEngine",
+    "title": "CodexEngine v4/v5",
+    "summary": "Production-ready Agentic RAG engine with hybrid search, pgvector, LangGraph state machines, async FastAPI, and automated regression testing.",
+    "tech": ["Python", "LangGraph", "FastAPI", "Next.js", "pgvector", "LangSmith", "RAGAS"],
+    "githubUrl": "https://github.com/anmolsharma152/CodexEngine",
+    "liveUrl": "https://codex-engine.vercel.app",
+    "featured": true,
+    "sortOrder": 1,
+    "category": "ai-agent"
+  },
+  {
+    "id": "Fine-tuning-Sarvam-1",
+    "title": "Sarvam-1 QLoRA Fine-Tuning",
+    "summary": "Parameter-efficient fine-tuning pipeline for Sarvam-1 using 4-bit NF4 QLoRA, Nemotron-49B distillation, and dual-engine FastAPI/vLLM serving.",
+    "tech": ["PyTorch", "QLoRA (NF4)", "PEFT", "SFTTrainer", "vLLM", "Python"],
+    "githubUrl": "https://github.com/anmolsharma152/Fine-tuning-Sarvam-1",
+    "liveUrl": null,
+    "featured": true,
+    "sortOrder": 2,
+    "category": "ml-vision"
+  },
+  {
+    "id": "Disha",
+    "title": "Disha Multi-Agent Intelligence",
+    "summary": "Production-grade agentic Personal Intelligence platform with LLM resume evaluation, cyclic supervisor routing, SSRF protection, and pgvector long-term memory.",
+    "tech": ["Python", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "Next.js"],
+    "githubUrl": "https://github.com/anmolsharma152/Disha",
+    "liveUrl": null,
+    "featured": true,
+    "sortOrder": 3,
+    "category": "ai-agent"
+  },
+  {
+    "id": "Nimbus",
+    "title": "Nimbus Agent Platform",
+    "summary": "Multi-tenant autonomous software engineering agent platform with disposable Docker sandbox workspaces, real-time WebSockets, and GitHub App credential brokering.",
+    "tech": ["FastAPI", "LangGraph", "Docker", "WebSockets", "GitHub API", "Python"],
+    "githubUrl": "https://github.com/anmolsharma152/Nimbus",
+    "liveUrl": null,
+    "featured": true,
+    "sortOrder": 4,
+    "category": "ai-agent"
+  },
+  {
+    "id": "AlgoDeck",
+    "title": "AlgoDeck Learning Workstation",
+    "summary": "Full-stack DSA workstation featuring a dual-pane VS Code Monaco IDE, isolated subprocess execution sandbox (5s kill timeout), and SM-2 spaced repetition math.",
+    "tech": ["Node.js", "Express", "PostgreSQL 16", "Docker Compose", "Monaco IDE", "Caddy"],
+    "githubUrl": "https://github.com/anmolsharma152/AlgoDeck",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 5,
+    "category": "platform"
+  },
+  {
+    "id": "commerce_cortex",
+    "title": "commerce_cortex",
+    "summary": "Containerized commerce backend with LangGraph state machine routing, PostgreSQL transactional checkpoints, Human-in-the-Loop approval gates, and Langfuse tracing.",
+    "tech": ["FastAPI", "LangGraph", "PostgreSQL", "Docker Compose", "Langfuse", "DeepEval"],
+    "githubUrl": "https://github.com/anmolsharma152/commerce_cortex",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 6,
+    "category": "ai-agent"
+  },
+  {
+    "id": "vad_processor",
+    "title": "vad_processor",
+    "summary": "Real-time client-side Voice Activity Detection built with Rust, WebAssembly, and ONNX Runtime for sub-150ms speech pipeline integration.",
+    "tech": ["Rust", "WASM", "ONNX Runtime", "Silero VAD", "Audio DSP"],
+    "githubUrl": "https://github.com/anmolsharma152/vad_processor",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 7,
+    "category": "systems"
+  },
+  {
+    "id": "Aura",
+    "title": "Aura Edge Biometrics",
+    "summary": "Privacy-focused edge Linux biometric authentication daemon decoupled via Unix domain sockets and custom PAM security modules.",
+    "tech": ["C", "Rust", "Linux PAM", "Unix Sockets", "Security"],
+    "githubUrl": "https://github.com/anmolsharma152/Aura",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 8,
+    "category": "systems"
+  }
+]

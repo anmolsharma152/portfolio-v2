@@ -1,0 +1,51 @@
+[
+  {
+    "id": "the-bullseye",
+    "role": "AI & Data Solutions Engineer",
+    "company": "The Bullseye",
+    "period": "04/2024 – Present",
+    "location": "Jaipur, India",
+    "summary": "Engineering automated analytics pipelines, workflow automation, and dynamic LLM personalization systems across B2B SaaS client accounts.",
+    "highlights": [
+      "Engineered automated Python (pandas, SQL) data extraction pipelines to aggregate cross-channel conversion, demo booking, and user onboarding metrics across B2B SaaS client accounts.",
+      "Built end-to-end multi-platform automation workflows using n8n, Zapier, and webhooks — orchestrating automated LinkedIn lead capture, email sequencing pipelines, and CRM synchronization.",
+      "Integrated LLM prompt pipelines (FastAPI, Groq API) into n8n automation flows to dynamically synthesize weekly client performance digests and personalize outreach copy, cutting manual operational turnaround by 65%."
+    ],
+    "techBadges": ["Python", "SQL", "n8n", "Zapier", "FastAPI", "Groq API", "Webhooks", "pandas"],
+    "featured": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "independent-rd",
+    "role": "AI Systems Engineer / Open Source Builder",
+    "company": "Independent Research & Development",
+    "period": "06/2024 – Present",
+    "location": "Remote / Self-Directed",
+    "summary": "Architecting production-grade multi-agent platforms, low-latency audio inference engines, and fine-tuning pipelines.",
+    "highlights": [
+      "Architected CodexEngine v4/v5 document intelligence platform on LangGraph state machines with multi-tenant pgvector storage, streaming SSE responses, and automated golden dataset regression testing.",
+      "Distilled a 10K multilingual instruction corpus from Nemotron-49B; engineered PyTorch SFTTrainer pipeline using 4-bit NF4 QLoRA (r=16, alpha=32) with completion loss masking and dual-engine FastAPI/vLLM serving.",
+      "Built AlgoDeck full-stack DSA learning workstation featuring dual-pane Monaco IDE, isolated subprocess execution sandbox (5s kill timeout, 512KB buffer cap), and automated test suites.",
+      "Engineered Nimbus multi-tenant autonomous software engineering agent platform with disposable Docker/MicroVM sandbox workspaces and real-time WebSocket event streams."
+    ],
+    "techBadges": ["LangGraph", "FastAPI", "PyTorch", "QLoRA", "pgvector", "Rust/WASM", "Docker Compose", "vLLM"],
+    "featured": true,
+    "sortOrder": 2
+  },
+  {
+    "id": "teleperformance",
+    "role": "Technical Support Executive",
+    "company": "Teleperformance",
+    "period": "07/2023 – 04/2024",
+    "location": "Jaipur, India",
+    "summary": "Delivered mission-critical enterprise technical support and diagnostic troubleshooting under strict SLA metrics.",
+    "highlights": [
+      "Completed 2 months of intensive internal technical training on Voice Technical Support protocols, system diagnostic workflows, and enterprise security client SOPs (Norton / Microsoft).",
+      "Delivered technical support across 9.5-hour shifts (5.5 days/week) handling software troubleshooting, security issue resolution, and system diagnostics under strict enterprise SLA metrics.",
+      "Developed structured diagnostic reasoning under time pressure — triaging complex multi-component issues, documenting resolutions, and escalating edge cases within enterprise frameworks."
+    ],
+    "techBadges": ["System Diagnostics", "Enterprise SOPs", "SLA Management", "Troubleshooting", "SQL"],
+    "featured": false,
+    "sortOrder": 3
+  }
+]

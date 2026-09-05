@@ -1,13 +1,14 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { Mail, Github, Linkedin, Send } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { Mail, Github, Linkedin, Send, ArrowUpRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import GlassSheen from './widgets/GlassSheen';
+import { contactContent } from '@/content/loaders';
 import { toast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
@@ -44,8 +45,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'anmolsharma152.dev@gmail.com',
-      link: 'mailto:anmolsharma152.dev@gmail.com',
+      value: contactContent.email,
+      link: `mailto:${contactContent.email}`,
     },
     {
       icon: Github,
@@ -92,14 +93,12 @@ const Contact = () => {
         throw new Error(result.error || 'Failed to send message');
       }
 
-      // Show success toast
       toast({
         title: 'Message Sent',
         description: "I'll get back to you soon!",
         variant: 'default',
       });
 
-      // Reset form
       reset();
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -115,94 +114,142 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14 sm:mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-extrabold mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl font-extrabold mb-4">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              Get In Touch
+              {contactContent.sectionTitle}
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to start a conversation? Let&apos;s discuss your next project or collaboration
-            opportunity. Or, if you&apos;d prefer, send me a message using the form below.
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6 rounded-full" />
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            {contactContent.sectionSubtitle}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="font-heading text-2xl font-bold mb-6">Let&apos;s Connect</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                I&apos;m always interested in hearing about new opportunities and exciting projects.
-                Whether you have a question or just want to say hi, I&apos;ll try my best to get
-                back to you!
-              </p>
-            </div>
-
-            {/* Contact Details */}
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.label}
-                  href={info.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => handleContactClick(e, info.label, info.value)}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
-                  whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 glass rounded-lg hover:bg-opacity-20 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
-                    <info.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">{info.label}</div>
-                    <div className="text-muted-foreground">{info.value}</div>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Additional Info */}
+        {/* Intent Channels / Lanes (Inspired by Ohshin) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+          {contactContent.lanes.map((lane, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              key={lane.id}
+              initial={{ opacity: 0, y: 25 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="glass p-6 rounded-lg"
+              transition={{ delay: 0.15 + index * 0.1, duration: 0.4 }}
+              className={`relative overflow-hidden rounded-2xl glass p-6 flex flex-col justify-between shadow-sm transition-all duration-300 hover:shadow-md ${
+                lane.isPrimary ? 'ring-2 ring-primary/40' : ''
+              }`}
             >
-              <h4 className="font-heading font-semibold mb-3">What I Offer</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Agentic AI & RAG Pipeline Development</li>
-                <li>• Edge / On-Device ML Deployment</li>
-                <li>• LLM Evaluation & Fine-Tuning</li>
-                <li>• Production Backend Systems (FastAPI, PostgreSQL)</li>
-                <li>• Open Source AI Tooling & Consulting</li>
-              </ul>
+              <GlassSheen />
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+                  {lane.label}
+                </span>
+                <h3 className="font-heading text-xl font-bold mt-2 mb-3 text-foreground">
+                  {lane.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+                  {lane.description}
+                </p>
+              </div>
+
+              <div>
+                <a
+                  href={lane.actionHref}
+                  target={lane.actionHref.startsWith('http') ? '_blank' : undefined}
+                  rel={lane.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={`inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                    lane.isPrimary
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:opacity-95 shadow-md shadow-blue-600/20'
+                      : 'border border-border/80 text-foreground hover:bg-muted/50'
+                  }`}
+                >
+                  <span>{lane.actionLabel}</span>
+                  <ArrowUpRight size={16} />
+                </a>
+              </div>
             </motion.div>
+          ))}
+        </div>
+
+        {/* Form and Contact Details Grid */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+          {/* Left Column: Direct Info & Offerings */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="space-y-6"
+          >
+            <div className="glass p-6 sm:p-7 rounded-2xl shadow-sm">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold mb-3 text-foreground">
+                Direct Communication
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Prefer email or social links? Click to copy or open direct links below:
+              </p>
+
+              <div className="space-y-3">
+                {contactInfo.map((info) => (
+                  <a
+                    key={info.label}
+                    href={info.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => handleContactClick(e, info.label, info.value)}
+                    className="flex items-center space-x-3.5 p-3.5 rounded-xl bg-background/50 border border-border/50 hover:border-primary/40 hover:bg-background/80 transition-all duration-200 cursor-pointer"
+                  >
+                    <div className="w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                      <info.icon className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-xs font-mono text-muted-foreground">{info.label}</div>
+                      <div className="text-sm font-semibold text-foreground truncate">
+                        {info.value}
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Offerings card */}
+            <div className="glass p-6 sm:p-7 rounded-2xl shadow-sm">
+              <h4 className="font-heading text-lg font-bold mb-4 text-foreground flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span>Areas of Technical Focus</span>
+              </h4>
+              <ul className="space-y-2.5 text-xs sm:text-sm text-muted-foreground">
+                {contactContent.offerings.map((offering, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-foreground/90">{offering}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right Column: Direct Message Form with Honeypot */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="glass p-8 rounded-lg"
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="glass p-6 sm:p-8 rounded-2xl shadow-sm"
           >
-            <h3 className="font-heading text-2xl font-bold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <h3 className="font-heading text-xl sm:text-2xl font-bold mb-2 text-foreground">
+              Send a Direct Message
+            </h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              Delivered immediately to my primary inbox via Resend.
+            </p>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               {/* Hidden honeypot field for bot spam detection */}
               <input
                 type="text"
@@ -211,101 +258,102 @@ const Contact = () => {
                 tabIndex={-1}
                 autoComplete="off"
               />
-              <div className="grid md:grid-cols-2 gap-6">
+
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name *
-                    {errors.name && (
-                      <span className="ml-2 text-sm text-red-500">{errors.name.message}</span>
-                    )}
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-mono font-medium mb-1.5 text-foreground/80"
+                  >
+                    Your Name *
                   </label>
                   <input
                     id="name"
+                    type="text"
                     {...register('name')}
-                    className={`w-full px-4 py-3 bg-background border ${
-                      errors.name ? 'border-red-500' : 'border-border'
-                    } rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300`}
-                    placeholder="Your full name"
-                    disabled={isSubmitting}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-background/50 border border-border/70 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm text-foreground"
+                    placeholder="Jane Doe"
                   />
+                  {errors.name && (
+                    <span className="text-xs text-red-500 mt-1 block">{errors.name.message}</span>
+                  )}
                 </div>
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email *
-                    {errors.email && (
-                      <span className="ml-2 text-sm text-red-500">{errors.email.message}</span>
-                    )}
+                  <label
+                    htmlFor="email"
+                    className="block text-xs font-mono font-medium mb-1.5 text-foreground/80"
+                  >
+                    Email Address *
                   </label>
                   <input
                     id="email"
                     type="email"
-                    autoComplete="email"
-                    placeholder="you@example.com"
                     {...register('email')}
-                    className={`w-full px-4 py-3 bg-background border ${
-                      errors.email ? 'border-red-500' : 'border-border'
-                    } rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300`}
-                    disabled={isSubmitting}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-background/50 border border-border/70 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm text-foreground"
+                    placeholder="jane@company.com"
                   />
+                  {errors.email && (
+                    <span className="text-xs text-red-500 mt-1 block">{errors.email.message}</span>
+                  )}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-xs font-mono font-medium mb-1.5 text-foreground/80"
+                >
                   Subject *
-                  {errors.subject && (
-                    <span className="ml-2 text-sm text-red-500">{errors.subject.message}</span>
-                  )}
                 </label>
                 <input
                   id="subject"
+                  type="text"
                   {...register('subject')}
-                  className={`w-full px-4 py-3 bg-background border ${
-                    errors.subject ? 'border-red-500' : 'border-border'
-                  } rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300`}
-                  placeholder="What's this about?"
-                  disabled={isSubmitting}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-background/50 border border-border/70 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm text-foreground"
+                  placeholder="AI Engineering / Systems Collaboration"
                 />
+                {errors.subject && (
+                  <span className="text-xs text-red-500 mt-1 block">{errors.subject.message}</span>
+                )}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-xs font-mono font-medium mb-1.5 text-foreground/80"
+                >
                   Message *
-                  {errors.message && (
-                    <span className="ml-2 text-sm text-red-500">{errors.message.message}</span>
-                  )}
                 </label>
                 <textarea
                   id="message"
-                  rows={6}
+                  rows={5}
                   {...register('message')}
-                  className={`w-full px-4 py-3 bg-background border ${
-                    errors.message ? 'border-red-500' : 'border-border'
-                  } rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none`}
-                  placeholder="Tell me about your project or inquiry..."
-                  disabled={isSubmitting}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-background/50 border border-border/70 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm text-foreground resize-none"
+                  placeholder="Tell me about your project, system architecture requirements, or timeline..."
                 />
+                {errors.message && (
+                  <span className="text-xs text-red-500 mt-1 block">{errors.message.message}</span>
+                )}
               </div>
 
-              <motion.button
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-blue-600/20 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold shadow-md hover:shadow-blue-600/20 hover:opacity-95 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Sending...
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>Sending message...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
-                    Send Message
+                    <Send size={16} />
+                    <span>Send Message</span>
                   </>
                 )}
-              </motion.button>
+              </button>
             </form>
           </motion.div>
         </div>

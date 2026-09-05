@@ -4,13 +4,9 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 import ThreeDCard from './3DCard';
+import { heroContent } from '@/content/loaders';
 
-const TITLES = [
-  'AI Systems Engineer',
-  'Backend Systems Developer',
-  'Multi-Agent Architect',
-  'Low-Latency ML Engineer',
-];
+const TITLES = heroContent.typewriterTitles;
 
 const TYPING_SPEED = 50;
 const DELETING_SPEED = 25;
@@ -53,7 +49,7 @@ const Hero = () => {
   }, [currentIndex, isTyping, currentTitleIndex]);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-x-hidden bg-background py-20">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-x-hidden bg-background py-12 md:py-16 lg:py-20">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern [mask-image:linear-gradient(to_bottom,transparent,black_70%)]" />
       </div>
@@ -72,12 +68,12 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
             >
               <div className="overflow-x-visible">
-                <h1 className="font-heading text-3xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight mb-4 text-foreground">
-                  Building{' '}
+                <h1 className="font-heading text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight mb-4 text-foreground">
+                  {heroContent.headlinePrefix}
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-                    Low-Latency AI Infra
-                  </span>{' '}
-                  &amp; Stateful Multi-Agent Backends
+                    {heroContent.headlineGradient}
+                  </span>
+                  {heroContent.headlineSuffix}
                 </h1>
               </div>
 
@@ -91,23 +87,21 @@ const Hero = () => {
               </div>
 
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
-                Specializing in Python, TypeScript/Node.js, and Rust. Architecting stateful agentic
-                systems, async FastAPI &amp; Node backends, sub-150ms edge inferencing, and pgvector
-                knowledge retrieval.
+                {heroContent.summary}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
-                  href="#contact"
+                  href={heroContent.primaryCta.href}
                   className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:opacity-95 transition-all shadow-lg hover:shadow-blue-600/20"
                 >
-                  Get In Touch
+                  {heroContent.primaryCta.label}
                 </a>
                 <a
-                  href="#projects"
+                  href={heroContent.secondaryCta.href}
                   className="px-8 py-3.5 border border-border/80 text-foreground rounded-xl font-semibold hover:bg-muted/50 transition-colors"
                 >
-                  View My Work
+                  {heroContent.secondaryCta.label}
                 </a>
               </div>
             </motion.div>
@@ -117,7 +111,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="h-[400px] max-w-2xl mx-auto w-full"
+            className="h-[320px] sm:h-[360px] lg:h-[400px] max-w-xl lg:max-w-2xl mx-auto w-full mt-4 lg:mt-0"
           >
             <ThreeDCard />
           </motion.div>

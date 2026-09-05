@@ -1,96 +1,15 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { Calendar, MapPin, Briefcase, GraduationCap, Download } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { Calendar, MapPin, Briefcase, GraduationCap, Download, Award } from 'lucide-react';
 import { useRef, useState } from 'react';
+
+import { workExperienceContent, educationContent } from '@/content/loaders';
 
 const Resume = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [activeTab, setActiveTab] = useState<'experience' | 'education'>('experience');
-
-  const experience = [
-    {
-      title: 'AI Systems Engineer / Developer',
-      company: 'Independent Research & Development',
-      period: '2024 - Present',
-      location: 'Remote',
-      description:
-        'Architecting production-grade agentic platforms (Disha, CodexEngine) using LangGraph, pgvector, and async PostgreSQL.\nEngineering sub-150ms speech pipelines (vad_processor) and edge Linux biometric daemons (Aura).\nStructuring reinforcement learning environments for recommendation and personalized simulation.',
-      technologies: [
-        'LangGraph',
-        'FastAPI',
-        'pgvector',
-        'PyTorch',
-        'Rust/WASM',
-        'ONNX',
-        'Tauri',
-        'Python',
-      ],
-    },
-    {
-      title: 'Technical Support Executive',
-      company: 'Teleperformance',
-      period: 'Jul 2023 - Apr 2024',
-      location: 'Jaipur, India',
-      description:
-        'Diagnosed software issues in production environments while maintaining a CSAT of 4.8/5.\nTranslated user issues into technical requirements and used SQL-based analysis to improve tool reliability and system performance.',
-      technologies: ['Customer Support', 'SQL', 'Salesforce', 'Japanese Language'],
-    },
-    {
-      title: 'Freelance Developer & Technologist',
-      company: 'Self-Employed',
-      period: '2022 - 2024',
-      location: 'Remote',
-      description:
-        'Delivered modular CLI utilities and custom automation scripts in Python.\nConfigured and optimized minimalist, Linux-first local development workflows.',
-      technologies: ['Python', 'CLI Tools', 'Neovim', 'Linux'],
-    },
-  ];
-
-  const education = [
-    {
-      degree: 'Minor in Artificial Intelligence & Data Science',
-      institution: 'Indian Institute of Technology, Mandi (via CCE)',
-      period: 'May 2025 - Feb 2026',
-      description:
-        'CGPA: 8.44/10. Coursework in Mathematics for Data Science, Machine Learning, Deep Learning, NLP, Reinforcement Learning, and Computer Vision across 3 trimesters.',
-      technologies: [
-        'Trimester 1: Maths & Data Science',
-        'Trimester 2: Machine Learning',
-        'Trimester 3: DL, NLP, RL & CV',
-      ],
-    },
-    {
-      degree: 'Bachelor of Computer Applications',
-      institution: 'Jaipur National University',
-      period: 'Jun 2019 - Jun 2022',
-      description:
-        'Coursework in OOP (C++), Linux Environment, Management Information Systems, Visual Programming, and Web Design.',
-      technologies: [
-        'OOP with C++',
-        'Linux Programming',
-        'Database Systems & SQL',
-        'Visual Programming',
-        'Web Design',
-        'MIS',
-      ],
-    },
-    {
-      degree: 'BA in Political Science and Economics',
-      institution: 'Symbiosis School for Liberal Arts',
-      period: 'Jul 2016 - May 2020',
-      description:
-        'Focused on public policy analysis, institutional economics, and academic writing.',
-      technologies: [
-        'Public Policy Analysis',
-        'Institutional Economics',
-        'Academic Research Writing',
-        'Research Methodology',
-      ],
-    },
-  ];
 
   return (
     <section id="resume" className="py-20 relative z-10">
@@ -108,11 +27,12 @@ const Resume = () => {
             transition={{ duration: 0.3 }}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              Resume & Experience
+              Resume &amp; Experience
             </span>
           </motion.h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            My professional journey, education, and certifications in data science and AI.
+            My professional journey, enterprise operations, and academic foundations in AI and
+            Systems.
           </p>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -125,7 +45,7 @@ const Resume = () => {
               download="Anmol_Sharma_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-blue-600/20 transition-all duration-300 transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-blue-600/20 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
             >
               <Download size={18} />
               Download PDF Resume
@@ -143,9 +63,9 @@ const Resume = () => {
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as 'experience' | 'education')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300 ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300 cursor-pointer ${
                   activeTab === tab.id
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-white shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -158,58 +78,71 @@ const Resume = () => {
           </div>
         </div>
 
-        {/* Content */}
+        {/* Timeline Content */}
         <div className="relative">
           <div className="absolute left-[31px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary to-secondary opacity-30" />
 
+          {/* Work Experience Tab */}
           {activeTab === 'experience' && (
             <div className="space-y-8">
-              {experience.map((exp, idx) => (
+              {workExperienceContent.map((exp, idx) => (
                 <motion.div
-                  key={idx}
+                  key={exp.id}
                   initial={{ opacity: 0, x: -50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: idx * 0.2, duration: 0.8 }}
-                  className="relative pl-16"
+                  transition={{ delay: idx * 0.15, duration: 0.6 }}
+                  className="relative pl-14 sm:pl-16"
                 >
                   <div className="absolute left-[32px] -translate-x-1/2 top-6 w-4 h-4 bg-primary rounded-full border-4 border-background" />
 
                   <motion.div
-                    className="glass p-6 rounded-lg hover:shadow-lg transition-all duration-300"
-                    whileHover={{ scale: 1.02, x: 10 }}
+                    className="glass p-6 sm:p-7 rounded-2xl hover:shadow-lg transition-all duration-300"
+                    whileHover={{ scale: 1.01, x: 6 }}
                   >
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
-                        <h3 className="font-heading text-xl font-bold text-primary">{exp.title}</h3>
-                        <p className="text-lg font-semibold">{exp.company}</p>
+                        <h3 className="font-heading text-xl font-bold text-primary">{exp.role}</h3>
+                        <p className="text-lg font-semibold text-foreground/90">{exp.company}</p>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2 md:mt-0">
-                        <Calendar size={14} />
-                        {exp.period}
-                        <MapPin size={14} />
-                        {exp.location}
+                      <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mt-2 md:mt-0 font-mono">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar size={14} />
+                          {exp.period}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <MapPin size={14} />
+                          {exp.location}
+                        </span>
                       </div>
                     </div>
 
+                    {exp.summary && (
+                      <p className="text-sm text-foreground/80 mb-4 leading-relaxed font-medium">
+                        {exp.summary}
+                      </p>
+                    )}
+
                     <div className="text-muted-foreground mb-4 space-y-2">
-                      {exp.description.split('\n').map((bullet, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-sm leading-relaxed">
-                          <span className="text-primary mt-1.5 select-none">•</span>
+                      {exp.highlights.map((bullet, bulletIdx) => (
+                        <div
+                          key={bulletIdx}
+                          className="flex items-start gap-2 text-sm leading-relaxed"
+                        >
+                          <span className="text-primary mt-1.5 select-none font-bold">•</span>
                           <span>{bullet}</span>
                         </div>
                       ))}
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies &&
-                        exp.technologies.map((tech: string, idx: number) => (
-                          <span
-                            key={idx}
-                            className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-2 border-t border-border/40">
+                      {exp.techBadges.map((tech, techIdx) => (
+                        <span
+                          key={techIdx}
+                          className="px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </motion.div>
                 </motion.div>
@@ -217,32 +150,40 @@ const Resume = () => {
             </div>
           )}
 
+          {/* Education Tab */}
           {activeTab === 'education' && (
             <div className="space-y-8">
-              {education.map((edu, idx) => (
+              {educationContent.map((edu, idx) => (
                 <motion.div
-                  key={idx}
+                  key={edu.id}
                   initial={{ opacity: 0, x: -50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: idx * 0.2, duration: 0.8 }}
-                  className="relative pl-16"
+                  transition={{ delay: idx * 0.15, duration: 0.6 }}
+                  className="relative pl-14 sm:pl-16"
                 >
                   <div className="absolute left-[32px] -translate-x-1/2 top-6 w-4 h-4 bg-secondary rounded-full border-4 border-background" />
 
                   <motion.div
-                    className="glass p-6 rounded-lg hover:shadow-lg transition-all duration-300"
-                    whileHover={{ scale: 1.02, x: 10 }}
+                    className="glass p-6 sm:p-7 rounded-2xl hover:shadow-lg transition-all duration-300"
+                    whileHover={{ scale: 1.01, x: 6 }}
                   >
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                       <div>
                         <h3 className="font-heading text-xl font-bold text-primary">
                           {edu.degree}
                         </h3>
-                        <p className="text-lg font-semibold">{edu.institution}</p>
+                        <p className="text-lg font-semibold text-foreground/90">
+                          {edu.institution}
+                        </p>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2 md:mt-0">
-                        <Calendar size={14} />
-                        {edu.period}
+                      <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mt-2 md:mt-0 font-mono">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar size={14} />
+                          {edu.period}
+                        </span>
+                        <span className="px-2.5 py-0.5 rounded-full bg-primary/15 text-primary text-xs font-bold">
+                          {edu.grade}
+                        </span>
                       </div>
                     </div>
 
@@ -252,14 +193,15 @@ const Resume = () => {
                       </p>
                     )}
 
-                    {edu.technologies && (
-                      <div className="flex flex-wrap gap-2">
-                        {edu.technologies.map((tech: string, techIdx: number) => (
+                    {edu.honors && edu.honors.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-border/40">
+                        {edu.honors.map((honor, honorIdx) => (
                           <span
-                            key={techIdx}
-                            className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                            key={honorIdx}
+                            className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full text-xs font-medium"
                           >
-                            {tech}
+                            <Award size={13} />
+                            {honor}
                           </span>
                         ))}
                       </div>

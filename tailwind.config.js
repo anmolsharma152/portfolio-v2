@@ -91,6 +91,27 @@ module.exports = {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(100%)' },
         },
+        'glass-breathe': {
+          '0%, 100%': {
+            boxShadow:
+              '0 20px 70px -15px rgba(0, 0, 0, 0.25), 0 0 30px -5px rgba(37, 99, 235, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12)',
+          },
+          '50%': {
+            boxShadow:
+              '0 28px 90px -15px rgba(0, 0, 0, 0.35), 0 0 45px -5px rgba(99, 102, 241, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.18)',
+          },
+        },
+        'glass-sheen': {
+          '0%': { opacity: '0', transform: 'translateX(-150%) skewX(-18deg)' },
+          '20%': { opacity: '0' },
+          '45%': { opacity: '0.8' },
+          '70%': { opacity: '0.15' },
+          '100%': { opacity: '0', transform: 'translateX(170%) skewX(-18deg)' },
+        },
+        'reach-pulse': {
+          '0%, 100%': { opacity: '0.25', transform: 'scale(0.985)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.025)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -101,6 +122,9 @@ module.exports = {
         'slide-out-to-top': 'slide-out-to-top 0.3s ease-out',
         'slide-in-from-bottom': 'slide-in-from-bottom 0.3s ease-out',
         'slide-out-to-bottom': 'slide-out-to-bottom 0.3s ease-out',
+        'glass-breathe': 'glass-breathe 11s cubic-bezier(0.45, 0, 0.2, 1) infinite',
+        'glass-sheen': 'glass-sheen 8s cubic-bezier(0.45, 0, 0.2, 1) infinite',
+        'reach-pulse': 'reach-pulse 7.2s ease-in-out infinite',
       },
       card: {
         DEFAULT: 'hsl(var(--card-h, 0) var(--card-s, 0%) var(--card-l, 0%))',
