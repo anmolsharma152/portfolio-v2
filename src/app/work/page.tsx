@@ -1,10 +1,5 @@
 import { Metadata } from 'next';
-import WorkHeader from '@/components/work/WorkHeader';
-import DeliverablesSection from '@/components/work/DeliverablesSection';
-import TechStackSection from '@/components/widgets/TechStackSection';
-import ExperienceSection from '@/components/work/ExperienceSection';
-import ProjectsSection from '@/components/work/ProjectsSection';
-import ReachOutSection from '@/components/work/ReachOutSection';
+import WorkStation from '@/components/work/WorkStation';
 
 export const metadata: Metadata = {
   title: 'Work & Systems // Anmol Sharma',
@@ -14,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <div className="min-h-screen relative pb-36 bg-black text-white selection:bg-white selection:text-black">
+    <main className="min-h-screen relative pb-36 sm:pb-40 bg-black text-white selection:bg-white selection:text-black">
       {/* Deep Atmospheric Glow & Subtle Grid Raster */}
       <div
         aria-hidden="true"
@@ -39,18 +34,7 @@ export default function WorkPage() {
         />
       </div>
 
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-12 relative z-10 space-y-8">
-        <WorkHeader />
-        <DeliverablesSection />
-        <TechStackSection />
-
-        <div className="grid gap-8 py-2 lg:grid-cols-2 lg:gap-8 items-start">
-          <ExperienceSection />
-          <ProjectsSection />
-        </div>
-
-        <ReachOutSection />
-      </div>
-    </div>
+      <WorkStation />
+    </main>
   );
 }

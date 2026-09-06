@@ -8,6 +8,13 @@ export default function ReachOutSection() {
   return (
     <section className="work-panel p-6 sm:p-9 lg:p-10 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-40%] bg-white/[0.035] motion-safe:[animation-delay:-6.4s] motion-safe:[animation-duration:12.7s]" />
+
+      {/* 28px Mesh Grid */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
+      />
+
       <div
         aria-hidden="true"
         className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-white/[0.04] blur-3xl motion-safe:animate-reach-pulse"

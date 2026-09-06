@@ -9,6 +9,12 @@ export default function WorkHeader() {
     <header className="work-panel p-5 sm:p-7 lg:p-9 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
 
+      {/* 28px Mesh Grid */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 opacity-[0.08] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
+      />
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.09),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(255,255,255,.04),transparent_40%)]"
