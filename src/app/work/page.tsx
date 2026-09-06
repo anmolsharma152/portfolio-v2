@@ -14,16 +14,24 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen relative pb-36 bg-[#D3170A] text-white selection:bg-white selection:text-[#D3170A]">
-      {/* Atmospheric Glow */}
+    <div className="min-h-screen relative pb-36 bg-[#090b0e] text-white selection:bg-white selection:text-black">
+      {/* Deep Atmospheric Glow & Subtle Grid Raster */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-15 [background-image:radial-gradient(rgba(255,255,255,0.4)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
+      />
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-28 top-24 -z-10 h-[34rem] w-[34rem] rounded-full bg-white/10 blur-3xl"
+          className="pointer-events-none absolute -left-28 top-20 -z-10 h-[38rem] w-[38rem] rounded-full bg-white/[0.04] blur-[140px]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-32 top-[44rem] -z-10 h-[38rem] w-[38rem] rounded-full bg-black/30 blur-3xl"
+          className="pointer-events-none absolute -right-32 top-[42rem] -z-10 h-[42rem] w-[42rem] rounded-full bg-white/[0.03] blur-[150px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/3 bottom-24 -z-10 h-[32rem] w-[32rem] rounded-full bg-white/[0.025] blur-[130px]"
         />
       </div>
 
@@ -39,6 +47,6 @@ export default function WorkPage() {
 
         <ReachOutSection />
       </div>
-    </main>
+    </div>
   );
 }

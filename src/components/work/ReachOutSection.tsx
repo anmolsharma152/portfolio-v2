@@ -10,17 +10,17 @@ export default function ReachOutSection() {
       <GlassSheen className="left-[-40%] bg-white/[0.035] motion-safe:[animation-delay:-6.4s] motion-safe:[animation-duration:12.7s]" />
       <div
         aria-hidden="true"
-        className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-[#D3170A]/20 blur-3xl motion-safe:animate-reach-pulse"
+        className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-white/[0.04] blur-3xl motion-safe:animate-reach-pulse"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.03),transparent_42%)]"
       />
 
       {/* Section Header */}
       <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-end mb-8">
         <div>
-          <p className="font-mono text-[0.62rem] sm:text-[0.7rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
+          <p className="font-mono text-[0.62rem] sm:text-[0.7rem] uppercase tracking-[0.24em] text-white/50 font-semibold mb-3">
             open channels
           </p>
           <h2 className="font-doto text-[clamp(3rem,13vw,7.5rem)] font-black uppercase leading-[0.82] tracking-tighter text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.30)]">
@@ -37,13 +37,13 @@ export default function ReachOutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6">
         {/* Channel 01: Team */}
         <article className="work-card p-6 sm:p-7 flex flex-col justify-between">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
           />
           <div>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-white/50 font-semibold mb-3">
               01 / Team Channel
             </p>
 
@@ -75,8 +75,11 @@ export default function ReachOutSection() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-white/10">
-                <h3 className="font-doto text-[1.45rem] sm:text-[1.7rem] font-black uppercase leading-[0.92] tracking-tight text-white mb-2">
+              <div className="pt-5 border-t border-white/10">
+                <p className="font-mono text-[0.58rem] uppercase tracking-[0.2em] text-white/40 mb-1">
+                  or
+                </p>
+                <h3 className="font-doto text-[1.25rem] sm:text-[1.4rem] font-black uppercase tracking-tight text-white mb-1.5">
                   ship the idea
                 </h3>
                 <p className="font-mono text-[0.74rem] text-white/68 leading-relaxed mb-5">
@@ -96,13 +99,13 @@ export default function ReachOutSection() {
 
         {/* Channel 02: Advisory / Contract */}
         <article className="work-card p-6 sm:p-7 flex flex-col justify-between">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
           />
           <div>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-white/50 font-semibold mb-3">
               02 / Advisory &amp; Contracts
             </p>
             <h3 className="font-doto text-[1.85rem] sm:text-[2.2rem] font-black uppercase leading-[0.92] tracking-tight text-white mb-3">
@@ -127,13 +130,13 @@ export default function ReachOutSection() {
 
         {/* Channel 03: Casual DM */}
         <article className="work-card p-6 sm:p-7 flex flex-col justify-between">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
           />
           <div>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-rose-300 font-semibold mb-3">
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.24em] text-white/50 font-semibold mb-3">
               03 / Casual Channel
             </p>
             <h3 className="font-doto text-[1.85rem] sm:text-[2.2rem] font-black uppercase leading-[0.92] tracking-tight text-white mb-3">

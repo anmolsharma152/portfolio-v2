@@ -59,6 +59,7 @@ export const SpotifyShelf: React.FC<SpotifyShelfProps> = ({ config }) => {
                   className="block w-full h-[152px] border-0"
                   width="100%"
                   height="152"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                 />

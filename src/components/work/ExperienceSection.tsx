@@ -6,18 +6,18 @@ import { workExperienceContent } from '@/content/loaders';
 
 export default function ExperienceSection() {
   return (
-    <aside className="min-w-0 lg:sticky lg:top-24 lg:self-start">
+    <section className="min-w-0 lg:sticky lg:top-24 lg:self-start" aria-label="Work Experience">
       <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe">
         <GlassSheen className="left-[-40%] bg-white/[0.035]" />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.03),transparent_42%)]"
         />
         <div className="flex items-end justify-between gap-4 mb-6">
           <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
             experience
           </h2>
-          <span className="font-mono text-[0.62rem] sm:text-[0.68rem] uppercase tracking-[0.2em] text-rose-200/80 font-semibold">
+          <span className="font-mono text-[0.62rem] sm:text-[0.68rem] uppercase tracking-[0.2em] text-white/50 font-semibold">
             Timeline
           </span>
         </div>
@@ -28,13 +28,13 @@ export default function ExperienceSection() {
               key={exp.id}
               className="work-card p-5 sm:p-6"
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
               />
               <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-[0.68rem] uppercase tracking-wider text-white/50">
-                <span className="text-rose-300 font-bold">{exp.period}</span>
+                <span className="text-emerald-400 font-bold">{exp.period}</span>
                 <span>{exp.location}</span>
               </div>
 
@@ -51,7 +51,7 @@ export default function ExperienceSection() {
                     key={i}
                     className="font-mono text-[0.74rem] sm:text-xs text-white/70 leading-relaxed flex items-start gap-2"
                   >
-                    <span className="text-rose-300 mt-0.5 select-none font-bold">▹</span>
+                    <span className="text-white/40 mt-0.5 select-none font-bold">▹</span>
                     <span>{h}</span>
                   </li>
                 ))}
@@ -71,6 +71,6 @@ export default function ExperienceSection() {
           ))}
         </div>
       </div>
-    </aside>
+    </section>
   );
 }

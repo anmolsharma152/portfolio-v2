@@ -1,40 +1,56 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const createEmailContent = (name: string, email: string, subject: string, message: string) => ({
-  from: 'Contact Form <onboarding@resend.dev>',
-  to: process.env.NEXT_PUBLIC_RECIPIENT_EMAIL || 'anmolsharma152.dev@gmail.com',
-  replyTo: email,
-  subject: `New Contact: ${subject}`,
-  text: `
-    You have a new contact form submission:
-    
-    Name: ${name}
-    Email: ${email}
-    
-    Message:
-    ${message}
-  `,
-  html: `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #4f46e5;">New Contact Form Submission</h2>
-      <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-top: 20px;">
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e5e7eb;">
-          <p><strong>Message:</strong></p>
-          <p style="white-space: pre-line; background-color: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb; margin-top: 10px;">
-            ${message.replace(/\n/g, '<br>')}
-          </p>
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+const createEmailContent = (name: string, email: string, subject: string, message: string) => {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+
+  return {
+    from: 'Contact Form <onboarding@resend.dev>',
+    to: process.env.NEXT_PUBLIC_RECIPIENT_EMAIL || 'anmolsharma152.dev@gmail.com',
+    replyTo: email,
+    subject: `New Contact: ${safeSubject}`,
+    text: `
+      You have a new contact form submission:
+      
+      Name: ${name}
+      Email: ${email}
+      
+      Message:
+      ${message}
+    `,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #4f46e5;">New Contact Form Submission</h2>
+        <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-top: 20px;">
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
+          <p><strong>Subject:</strong> ${safeSubject}</p>
+          <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e5e7eb;">
+            <p><strong>Message:</strong></p>
+            <p style="white-space: pre-line; background-color: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb; margin-top: 10px;">
+              ${safeMessage}
+            </p>
+          </div>
         </div>
+        <p style="margin-top: 20px; color: #6b7280; font-size: 0.9em;">
+          This message was sent from your portfolio contact form.
+        </p>
       </div>
-      <p style="margin-top: 20px; color: #6b7280; font-size: 0.9em;">
-        This message was sent from your portfolio contact form.
-      </p>
-    </div>
-  `,
-});
+    `,
+  };
+};
 
 export const runtime = 'nodejs';
 

@@ -3,7 +3,7 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import GlassSheen from './widgets/GlassSheen';
 import ReadingStack from './widgets/ReadingStack';
@@ -17,8 +17,21 @@ const About = () => {
   const isInView = useInView(ref, { once: true });
   const [isZoomed, setIsZoomed] = useState(false);
 
+  // Close lightbox on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsZoomed(false);
+      }
+    };
+    if (isZoomed) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isZoomed]);
+
   return (
-    <section id="about" className="py-16 md:py-24 relative z-10 isolate overflow-hidden">
+    <section id="about" className="pt-16 md:pt-24 pb-8 md:pb-12 relative z-10 isolate overflow-hidden">
       {/* Background ambient lighting & Ohshin dot-matrix raster */}
       <div
         aria-hidden="true"
@@ -26,16 +39,16 @@ const About = () => {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_12%,rgba(211,23,10,0.12),transparent_28%),radial-gradient(circle_at_78%_72%,rgba(255,255,255,0.055),transparent_30%)]"
+        className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_12%,rgba(255,255,255,0.06),transparent_28%),radial-gradient(circle_at_78%_72%,rgba(255,255,255,0.04),transparent_30%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-1/3 -z-10 h-[30rem] w-[30rem] rounded-full bg-[#d3170a]/12 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-1/3 -z-10 h-[30rem] w-[30rem] rounded-full bg-white/[0.03] blur-3xl"
       />
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10">
-        {/* Dedicated About Header Card (Matches Ohshin aboutHeader 1-to-1) */}
-        <header className="relative isolate overflow-hidden rounded-[2rem] bg-white/[0.075] p-5 shadow-[0_30px_120px_rgba(0,0,0,0.42),0_0_74px_rgba(211,23,10,0.16),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-7 lg:rounded-[2.5rem] lg:p-9 mb-8">
+        {/* Dedicated About Header Card (Obsidian Glass) */}
+        <header className="relative isolate overflow-hidden rounded-[2rem] bg-white/[0.05] p-5 shadow-[0_30px_120px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-7 lg:rounded-[2.5rem] lg:p-9 mb-8">
           <GlassSheen className="left-[-35%] bg-white/[0.045]" />
 
           <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
@@ -55,7 +68,7 @@ const About = () => {
           initial={{ opacity: 0, y: 36 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative isolate min-w-0 w-full overflow-hidden rounded-[1.5rem] bg-white/[0.07] shadow-[0_24px_100px_rgba(0,0,0,0.42),0_0_64px_rgba(211,23,10,0.12),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:rounded-[2rem] lg:rounded-[2.35rem] p-6 sm:p-8 lg:p-10 mb-12"
+          className="relative isolate min-w-0 w-full overflow-hidden rounded-[1.5rem] bg-white/[0.05] shadow-[0_24px_100px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:rounded-[2rem] lg:rounded-[2.35rem] p-6 sm:p-8 lg:p-10 mb-12"
         >
           <GlassSheen className="left-[-42%] bg-white/[0.035]" />
 
@@ -112,18 +125,19 @@ const About = () => {
             </div>
 
             {/* Right Column: Full Portrait Card (No Obstructing Badges) */}
-            <aside className="order-first min-h-[22rem] sm:min-h-[30rem] lg:order-none lg:min-h-full">
+            <figure className="order-first min-h-[22rem] sm:min-h-[30rem] lg:order-none lg:min-h-full m-0">
               <div className="relative h-full min-h-[22rem] sm:min-h-[30rem] lg:min-h-full overflow-hidden rounded-[1.25rem] bg-black/35 shadow-[0_30px_90px_rgba(0,0,0,0.38)] ring-1 ring-white/10 sm:rounded-[1.65rem]">
                 <div
                   role="button"
                   tabIndex={0}
+                  aria-label="Enlarge portrait photo"
                   onClick={() => setIsZoomed(true)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       setIsZoomed(true);
                     }
                   }}
-                  className="relative h-full w-full min-h-[22rem] sm:min-h-[30rem] lg:min-h-full cursor-zoom-in group"
+                  className="relative h-full w-full min-h-[22rem] sm:min-h-[30rem] lg:min-h-full cursor-zoom-in group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <Image
                     src={aboutContent.profileImage}
@@ -139,12 +153,12 @@ const About = () => {
                   />
                 </div>
               </div>
-            </aside>
+            </figure>
           </div>
         </motion.div>
 
         {/* 2-Column Side-by-Side Shelves (Ohshin Style: Playlists Left, Books Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           <SpotifyShelf config={spotifyConfig} />
           <ReadingStack />
         </div>
@@ -154,6 +168,9 @@ const About = () => {
       <AnimatePresence>
         {isZoomed && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged portrait view"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

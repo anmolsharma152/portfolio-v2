@@ -3,10 +3,10 @@ import Hero from '@/components/Hero';
 
 const Home = () => {
   return (
-    <main className="min-h-screen relative pb-28">
+    <div className="min-h-screen relative pb-16">
       <Hero />
       <About />
-    </main>
+    </div>
   );
 };
 

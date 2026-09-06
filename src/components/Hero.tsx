@@ -28,8 +28,9 @@ export const Hero = () => {
       {/* Background Linux Developer Room */}
       <div className="absolute inset-0">
         <motion.img
-          src="/backgrounds/bg-linux-user-room.png"
-          alt="Linux Developer Room"
+          src="/backgrounds/bg-linux-user-room.webp"
+          alt=""
+          aria-hidden="true"
           className="h-full w-full object-cover object-center will-change-transform"
           style={{
             scale: imageScale,
