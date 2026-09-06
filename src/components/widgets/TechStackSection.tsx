@@ -276,11 +276,7 @@ export const TechStackSection: React.FC = () => {
     <section className="work-panel p-5 sm:p-6 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-35%] bg-white/[0.035]" />
 
-      {/* Radial lighting */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(255,255,255,.03),transparent_36%)]"
-      />
+
 
       <div className="grid gap-4 lg:grid-cols-[12rem_minmax(0,1fr)] lg:items-center">
         <div>
