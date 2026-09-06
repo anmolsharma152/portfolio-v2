@@ -16,24 +16,6 @@
     "sortOrder": 1
   },
   {
-    "id": "independent-rd",
-    "role": "AI Systems Engineer / Open Source Builder",
-    "company": "Independent Research & Development",
-    "period": "06/2024 – Present",
-    "location": "Remote / Self-Directed",
-    "summary": "Architecting production-grade multi-agent platforms, low-latency audio inference engines, and fine-tuning pipelines.",
-    "highlights": [
-      "Architected CodexEngine v4/v5 document intelligence platform on LangGraph state machines with multi-tenant pgvector storage, streaming SSE responses, and automated golden dataset faithfulness regression testing.",
-      "Distilled a 10K multilingual instruction corpus from Nemotron-49B teacher model; engineered PyTorch SFTTrainer pipeline using 4-bit NF4 QLoRA (r=16, alpha=32) with completion loss masking and dual-engine FastAPI/vLLM serving.",
-      "Built AlgoDeck full-stack DSA learning workstation featuring dual-pane Monaco IDE, isolated subprocess execution sandbox (5s kill timeout, 512KB buffer limit), and PostgreSQL 16 connection pooling.",
-      "Engineered Nimbus multi-tenant autonomous software engineering agent platform with disposable Docker/MicroVM sandbox workspaces and real-time WebSocket event streams.",
-      "Built commerce_cortex containerized commerce backend with LangGraph state machine routing, PostgreSQL transactional checkpoints, Human-in-the-Loop approval gates, and 3-tier LLMOps observability with distributed execution tracing."
-    ],
-    "techBadges": ["LangGraph", "FastAPI", "PyTorch", "QLoRA (NF4)", "pgvector", "Docker Compose", "vLLM", "Langfuse", "RAGAS"],
-    "featured": true,
-    "sortOrder": 2
-  },
-  {
     "id": "teleperformance",
     "role": "Technical Support Executive",
     "company": "Teleperformance",
@@ -45,7 +27,7 @@
       "Delivered technical support across 9.5-hour shifts (5.5 days/week) handling software troubleshooting, security issue resolution, and system diagnostics under strict enterprise SLA metrics."
     ],
     "techBadges": ["System Diagnostics", "Enterprise SOPs", "SLA Management", "Troubleshooting", "Windows / Security"],
-    "featured": false,
-    "sortOrder": 3
+    "featured": true,
+    "sortOrder": 2
   }
 ]
