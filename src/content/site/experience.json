@@ -5,11 +5,11 @@
     "company": "The Bullseye",
     "period": "04/2024 – Present",
     "location": "Jaipur, India",
-    "summary": "Engineering automated analytics pipelines, workflow automation, and dynamic LLM personalization systems across B2B SaaS client accounts.",
+    "summary": "Engineering automated analytics pipelines, workflow automation, and dynamic LLM personalization systems.",
     "highlights": [
-      "Engineered automated Python (pandas, SQL) data extraction pipelines to aggregate cross-channel conversion, demo booking, and user onboarding metrics across B2B SaaS client accounts.",
-      "Built end-to-end multi-platform automation workflows using n8n, Zapier, and webhooks — orchestrating automated LinkedIn lead capture, email sequencing pipelines, and CRM synchronization.",
-      "Integrated LLM prompt pipelines (FastAPI, Groq API) into n8n automation flows to dynamically synthesize weekly client performance digests and personalize outreach copy, cutting manual operational turnaround by 65%."
+      "Built multi-platform automation workflows (n8n, Zapier, Webhooks) for lead capture and CRM synchronization.",
+      "Deployed LLM prompt pipelines (FastAPI, Groq) for weekly performance digests, cutting manual turnaround by 65%.",
+      "Engineered automated Python (pandas, SQL) pipelines aggregating cross-channel B2B conversion metrics."
     ],
     "techBadges": ["Python", "SQL", "n8n", "Zapier", "FastAPI", "Groq API", "Webhooks", "pandas"],
     "featured": true,
@@ -21,12 +21,12 @@
     "company": "Teleperformance",
     "period": "06/2023 – 03/2024",
     "location": "Jaipur, India",
-    "summary": "Delivered mission-critical enterprise technical support and diagnostic troubleshooting under strict SLA metrics.",
+    "summary": "Enterprise technical support, system diagnostics, and security troubleshooting under strict SLAs.",
     "highlights": [
-      "Completed 2 months of intensive internal technical training on Voice Technical Support protocols, system diagnostic workflows, and enterprise security client SOPs (Norton / Microsoft).",
-      "Delivered technical support across 9.5-hour shifts (5.5 days/week) handling software troubleshooting, security issue resolution, and system diagnostics under strict enterprise SLA metrics."
+      "Delivered voice technical support, security troubleshooting, and diagnostic resolution for enterprise clients (Norton / Microsoft).",
+      "Trained on enterprise security client SOPs, system diagnostic workflows, and SLA metrics."
     ],
-    "techBadges": ["System Diagnostics", "Enterprise SOPs", "SLA Management", "Troubleshooting", "Windows / Security"],
+    "techBadges": ["System Diagnostics", "Windows Security", "Enterprise SOPs", "SLA Management"],
     "featured": true,
     "sortOrder": 2
   }
