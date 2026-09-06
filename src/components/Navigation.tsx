@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   FaGithub,
@@ -25,10 +25,11 @@ interface SocialLink {
 
 export const Navigation: React.FC = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const isWork = pathname?.startsWith('/work');
   const [isDockHidden, setIsDockHidden] = useState(false);
-  const hideTimeoutRef = useRef<number | null>(null);
-  const tickingRef = useRef(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const lastScrollY = useRef(0);
 
   // Exact 5 icons and classes from ohshin-site SOCIAL_ICON_CLASS_MAP (Image 2)
   const socialLinks: SocialLink[] = [
@@ -59,45 +60,86 @@ export const Navigation: React.FC = () => {
     },
   ];
 
-  // Auto-hide dock while scrolling down, reappear on scroll stop or top (ohshin-site parity)
+  // Immediately reveal dock on route change
   useEffect(() => {
-    const updateDockVisibility = () => {
-      const currentScrollY = window.scrollY;
+    setIsDockHidden(false);
+  }, [pathname]);
 
-      if (hideTimeoutRef.current) {
-        window.clearTimeout(hideTimeoutRef.current);
-      }
-
-      if (currentScrollY < 24) {
-        setIsDockHidden(false);
-      } else {
-        setIsDockHidden(true);
-        hideTimeoutRef.current = window.setTimeout(() => {
-          setIsDockHidden(false);
-        }, 560);
-      }
-
-      tickingRef.current = false;
-    };
-
+  // Direction-aware dock visibility: hides on rapid downward scroll, immediately surfaces on upward scroll or hover
+  useEffect(() => {
     const handleScroll = () => {
-      if (tickingRef.current) {
+      if (isHovered) {
+        setIsDockHidden(false);
         return;
       }
 
-      tickingRef.current = true;
-      window.requestAnimationFrame(updateDockVisibility);
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY < 60) {
+        setIsDockHidden(false);
+      } else if (delta > 20 && currentScrollY > 120) {
+        setIsDockHidden(true);
+      } else if (delta < -10) {
+        setIsDockHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHovered]);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (hideTimeoutRef.current) {
-        window.clearTimeout(hideTimeoutRef.current);
+  // Handle smooth scroll to #about when landing from /work
+  useEffect(() => {
+    if (!isWork && typeof window !== 'undefined' && window.location.hash === '#about') {
+      const timer = setTimeout(() => {
+        const target = document.getElementById('about');
+        if (target) {
+          const rect = target.getBoundingClientRect();
+          const targetY = window.scrollY + rect.top - 24;
+          window.scrollTo({
+            top: Math.max(targetY, 0),
+            behavior: 'smooth',
+          });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [isWork, pathname]);
+
+  const handleAbtClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (!isWork) {
+      // Already on home page: smooth scroll directly to #about
+      const target = document.getElementById('about');
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        const targetY = window.scrollY + rect.top - 24;
+        window.scrollTo({
+          top: Math.max(targetY, 0),
+          behavior: 'smooth',
+        });
+        window.history.replaceState(null, '', '/#about');
       }
-    };
-  }, []);
+    } else {
+      // From /work -> navigate to /#about
+      router.push('/#about');
+    }
+  };
+
+  const handleWorkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isWork) {
+      // Already on /work -> smooth scroll to top of work page
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+    // If on home page, normal Link navigation to /work executes with scroll to top
+  };
 
   return (
     <header
@@ -106,7 +148,11 @@ export const Navigation: React.FC = () => {
       }`}
       data-site-nav
     >
-      <div className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5">
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5"
+      >
         {/* Physical 3D Glass Specular Highlight from ohshin-site */}
         <span
           aria-hidden="true"
@@ -122,6 +168,7 @@ export const Navigation: React.FC = () => {
             {/* Abt Me Tab */}
             <Link
               href="/#about"
+              onClick={handleAbtClick}
               className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[10px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
                 !isWork ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
@@ -163,6 +210,7 @@ export const Navigation: React.FC = () => {
             {/* Work Tab */}
             <Link
               href="/work"
+              onClick={handleWorkClick}
               className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[10px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
                 isWork ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
