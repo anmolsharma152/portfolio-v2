@@ -97,48 +97,32 @@ export const Navigation: React.FC = () => {
       const timer = setTimeout(() => {
         const target = document.getElementById('about');
         if (target) {
-          const rect = target.getBoundingClientRect();
-          const targetY = window.scrollY + rect.top - 24;
-          window.scrollTo({
-            top: Math.max(targetY, 0),
-            behavior: 'smooth',
-          });
+          target.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 150);
+      }, 50);
       return () => clearTimeout(timer);
     }
   }, [isWork, pathname]);
 
   const handleAbtClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
     if (!isWork) {
-      // Already on home page: smooth scroll directly to #about
+      e.preventDefault();
       const target = document.getElementById('about');
       if (target) {
-        const rect = target.getBoundingClientRect();
-        const targetY = window.scrollY + rect.top - 24;
-        window.scrollTo({
-          top: Math.max(targetY, 0),
-          behavior: 'smooth',
-        });
+        target.scrollIntoView({ behavior: 'smooth' });
         window.history.replaceState(null, '', '/#about');
       }
-    } else {
-      // From /work -> navigate to /#about
-      router.push('/#about');
     }
   };
 
   const handleWorkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isWork) {
-      // Already on /work -> smooth scroll to top of work page
       e.preventDefault();
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
     }
-    // If on home page, normal Link navigation to /work executes with scroll to top
   };
 
   return (
