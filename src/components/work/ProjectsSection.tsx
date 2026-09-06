@@ -14,6 +14,12 @@ export default function ProjectsSection() {
       <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe flex flex-col justify-between h-full">
         <GlassSheen className="left-[-40%] bg-white/[0.035]" />
 
+        {/* 28px Mesh Grid */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
+        />
+
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"

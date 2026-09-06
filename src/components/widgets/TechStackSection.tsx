@@ -276,6 +276,12 @@ export const TechStackSection: React.FC = () => {
     <section className="work-panel p-5 sm:p-6 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-35%] bg-white/[0.035]" />
 
+      {/* 28px Mesh Grid */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
+      />
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
@@ -286,7 +292,7 @@ export const TechStackSection: React.FC = () => {
           <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-white/60 font-semibold sm:text-[0.62rem]">
             stack overload
           </p>
-          <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem]">
+          <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem] drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
             tech<br />stack
           </h2>
         </div>

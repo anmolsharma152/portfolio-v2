@@ -1,20 +1,19 @@
 'use client';
 
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import Image from 'next/image';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import GlassSheen from './widgets/GlassSheen';
 import ReadingStack from './widgets/ReadingStack';
 import SpotifyShelf from './widgets/SpotifyShelf';
+import WorkClock from './widgets/WorkClock';
 import { aboutContent, spotifyConfig } from '@/content/loaders';
 
 const ABOUT_TAGS = ['origin', 'linux', 'chess', 'systems', 'side-quests'];
 
 const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   const [isZoomed, setIsZoomed] = useState(false);
 
   // Close lightbox on Escape key
@@ -35,7 +34,7 @@ const About = () => {
       {/* Background ambient lighting & Ohshin dot-matrix raster */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-10 [background-image:radial-gradient(rgba(255,255,255,0.52)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-12 [background-image:radial-gradient(rgba(255,255,255,0.45)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
       />
       <div
         aria-hidden="true"
@@ -48,27 +47,50 @@ const About = () => {
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10">
         {/* Dedicated About Header Card (Obsidian Glass) */}
-        <header className="work-panel p-5 sm:p-7 lg:p-9 mb-8 motion-safe:animate-glass-breathe">
-          <GlassSheen className="left-[-35%] bg-white/[0.045]" />
+        <motion.header
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="work-panel p-5 sm:p-7 lg:p-9 mb-8 sm:mb-10 motion-safe:animate-glass-breathe"
+        >
+          <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
+
+          {/* 28px Mesh Grid */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-10 opacity-[0.08] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
+          />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.09),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(255,255,255,.04),transparent_40%)]"
+          />
 
           <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
-            <p className="text-white/80">profile / anmol</p>
-            <p className="sm:text-right">jaipur, india</p>
+            <span className="text-white/80 font-medium">profile / anmol</span>
+            <span className="hidden sm:block text-center text-white/50">scroll / inspect</span>
+            <span className="flex items-center gap-1.5 font-bold text-white/80">
+              <span>jaipur, in</span>
+              <span className="text-white/30">•</span>
+              <WorkClock /> <span>IST</span>
+            </span>
           </div>
 
-          <div ref={ref} className="pt-10 sm:pt-14 lg:pt-18">
-            <h2 className="font-doto text-[clamp(4.2rem,21vw,19rem)] font-black uppercase leading-[0.72] tracking-tighter text-white">
+          <div className="pt-10 sm:pt-14 lg:pt-18">
+            <h2 className="font-doto text-[clamp(4.2rem,21vw,19rem)] font-black uppercase leading-[0.72] tracking-tighter text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
               about
             </h2>
           </div>
-        </header>
+        </motion.header>
 
         {/* Main Showcase: Flowing Personal Narrative on Left, Full Portrait on Right */}
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="work-panel p-6 sm:p-8 lg:p-10 mb-12 motion-safe:animate-glass-breathe"
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="work-panel p-6 sm:p-8 lg:p-10 mb-8 sm:mb-10 motion-safe:animate-glass-breathe"
         >
           <GlassSheen className="left-[-42%] bg-white/[0.035]" />
 
@@ -158,10 +180,16 @@ const About = () => {
         </motion.div>
 
         {/* 2-Column Side-by-Side Shelves (Ohshin Style: Playlists Left, Books Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch"
+        >
           <SpotifyShelf config={spotifyConfig} />
           <ReadingStack />
-        </div>
+        </motion.div>
       </div>
 
       {/* Lightbox / Zoom Modal for High-Res Portrait */}

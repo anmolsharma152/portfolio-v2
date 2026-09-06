@@ -1,13 +1,11 @@
 import About from '@/components/About';
 import Hero from '@/components/Hero';
 
-const Home = () => {
+export default function Home() {
   return (
-    <div className="min-h-screen relative pb-36 sm:pb-40">
+    <main className="min-h-screen relative pb-36 sm:pb-40 bg-black text-white selection:bg-white selection:text-black">
       <Hero />
       <About />
-    </div>
+    </main>
   );
-};
-
-export default Home;
+}
