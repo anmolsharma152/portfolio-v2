@@ -1,20 +1,13 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ArrowUpRight, Sparkles, FolderGit2 } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Github, ArrowUpRight, Sparkles } from 'lucide-react';
 import GlassSheen from '@/components/widgets/GlassSheen';
 import { curatedProjectsContent } from '@/content/loaders';
 
 export default function ProjectsSection() {
-  const [viewMode, setViewMode] = useState<'featured' | 'all'>('featured');
-
-  const displayedProjects = useMemo(() => {
-    if (viewMode === 'featured') {
-      return curatedProjectsContent.filter((p) => p.featured);
-    }
-    return curatedProjectsContent;
-  }, [viewMode]);
+  const featuredProjects = curatedProjectsContent.filter((p) => p.featured);
 
   return (
     <section className="min-w-0" aria-label="Projects Showcase">
@@ -27,49 +20,14 @@ export default function ProjectsSection() {
         />
 
         <div>
-          {/* Header with Interactive Tabs (Matching ExperienceSection) */}
+          {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
             <div>
-              <div className="flex items-center gap-1.5 p-1 rounded-full bg-white/[0.06] border border-white/10 w-fit mb-3">
-                <button
-                  type="button"
-                  onClick={() => setViewMode('featured')}
-                  className={`relative px-3.5 py-1 rounded-full font-mono text-[0.66rem] sm:text-xs uppercase tracking-[0.16em] transition-all cursor-pointer flex items-center gap-1.5 ${
-                    viewMode === 'featured'
-                      ? 'text-white font-bold'
-                      : 'text-white/50 hover:text-white/80'
-                  }`}
-                >
-                  {viewMode === 'featured' && (
-                    <motion.div
-                      layoutId="proj-active-tab-pill"
-                      className="absolute inset-0 rounded-full bg-white/15 border border-white/20 shadow-sm"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <Sparkles className="w-3.5 h-3.5 relative z-10 text-amber-300" />
-                  <span className="relative z-10">Featured (5)</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setViewMode('all')}
-                  className={`relative px-3.5 py-1 rounded-full font-mono text-[0.66rem] sm:text-xs uppercase tracking-[0.16em] transition-all cursor-pointer flex items-center gap-1.5 ${
-                    viewMode === 'all'
-                      ? 'text-white font-bold'
-                      : 'text-white/50 hover:text-white/80'
-                  }`}
-                >
-                  {viewMode === 'all' && (
-                    <motion.div
-                      layoutId="proj-active-tab-pill"
-                      className="absolute inset-0 rounded-full bg-white/15 border border-white/20 shadow-sm"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <FolderGit2 className="w-3.5 h-3.5 relative z-10" />
-                  <span className="relative z-10">All Systems (8)</span>
-                </button>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 w-fit mb-3">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <span className="font-mono text-[0.66rem] sm:text-xs uppercase tracking-[0.16em] text-white/90 font-semibold">
+                  Featured Systems ({featuredProjects.length})
+                </span>
               </div>
 
               <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
@@ -78,14 +36,13 @@ export default function ProjectsSection() {
             </div>
 
             <span className="font-mono text-[0.64rem] sm:text-xs uppercase tracking-[0.2em] text-white/50 font-semibold">
-              Open Source &amp; Systems
+              Flagship Architectures
             </span>
           </div>
 
           {/* Compact Project Telemetry Rows */}
-          <motion.div layout className="space-y-3">
-            <AnimatePresence mode="popLayout">
-              {displayedProjects.map((project, idx) => (
+          <div className="space-y-3">
+            {featuredProjects.map((project, idx) => (
                 <motion.article
                   layout
                   key={project.id}
@@ -167,14 +124,13 @@ export default function ProjectsSection() {
                     </div>
                   </div>
                 </motion.article>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* GitHub Full Archive Footer Link */}
         <div className="pt-4 mt-4 border-t border-white/8 flex items-center justify-between font-mono text-[0.66rem] sm:text-xs text-white/50">
-          <span>Complete archives on GitHub</span>
+          <span>42+ complete repositories on GitHub</span>
           <a
             href="https://github.com/anmolsharma152?tab=repositories"
             target="_blank"
