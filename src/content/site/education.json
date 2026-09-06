@@ -5,8 +5,8 @@
     "institution": "Indian Institute of Technology (IIT), Mandi",
     "period": "05/2025 – 06/2026",
     "grade": "CGPA 8.44 / 10",
-    "description": "Center for Continuing Education (CCE). Advanced coursework across Mathematical Foundations of ML, Classical Machine Learning, and Deep Learning (GANs, VAEs, Transformers, Reinforcement Learning, Computer Vision).",
-    "honors": ["First Class with Distinction", "Dean's Commendation"],
+    "description": "Center for Continuing Education (CCE). Mathematical Foundations → Classical ML → Deep Learning (GANs, VAEs, Transformers, RL, Computer Vision).",
+    "honors": ["Dean's Commendation", "First Class with Distinction"],
     "sortOrder": 1
   },
   {
@@ -15,8 +15,8 @@
     "institution": "Jaipur National University",
     "period": "06/2019 – 05/2022",
     "grade": "77.4% — First Division",
-    "description": "Comprehensive core foundations in Computer Science, Relational Database Management Systems, Data Structures & Algorithms, Object-Oriented Programming, and Operating Systems.",
-    "honors": ["First Division with Distinction"],
+    "description": "Comprehensive core foundations in Computer Science, Relational Database Management Systems (RDBMS), Data Structures & Algorithms, Object-Oriented Programming, and Operating Systems.",
+    "honors": ["First Division (77.4%)"],
     "sortOrder": 2
   },
   {
@@ -26,7 +26,10 @@
     "period": "07/2016 – 05/2020",
     "grade": "Undergraduate Studies",
     "description": "Interdisciplinary focus on macroeconomic policy, trade dynamics, constitutional law, and empirical social research methodologies.",
-    "honors": ["Director's Certificate of Appreciation", "NTSE Scholar (National Talent Search Examination)"],
+    "honors": [
+      "NTSE Scholar (National Talent Search Examination)",
+      "Director's Certificate of Appreciation (Student Council, SSLA)"
+    ],
     "sortOrder": 3
   }
 ]
