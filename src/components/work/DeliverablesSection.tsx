@@ -10,7 +10,10 @@ export default function DeliverablesSection() {
     <section className="work-panel p-5 sm:p-7 lg:p-9 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-40%] bg-white/[0.04]" />
 
-
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
+      />
 
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
@@ -32,7 +35,10 @@ export default function DeliverablesSection() {
             key={metric.id}
             className="work-card p-5 sm:p-6 flex flex-col justify-between hover:scale-[1.015]"
           >
-
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.03),transparent_45%)]"
+            />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
 
             <div className="flex items-center justify-between font-mono text-[0.66rem] uppercase tracking-[0.16em] text-white/60 mb-4">
