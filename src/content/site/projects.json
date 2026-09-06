@@ -34,8 +34,8 @@
   },
   {
     "id": "Nimbus",
-    "title": "Nimbus Agent Platform",
-    "summary": "Engineered a multi-tenant autonomous software engineering agent platform featuring a trusted control plane, disposable Docker/MicroVM sandbox workspaces, real-time WebSocket event streams, and short-lived GitHub App credential brokering.",
+    "title": "Nimbus Cloud Agent Platform",
+    "summary": "Autonomous cloud software engineering agent platform featuring a trusted control plane, disposable cloud Docker/MicroVM sandboxes, real-time WebSockets, and GitHub App credential brokering.",
     "tech": ["Python", "FastAPI", "LangGraph", "Docker", "WebSockets", "GitHub API", "MicroVM Isolation"],
     "githubUrl": "https://github.com/anmolsharma152/Nimbus",
     "liveUrl": null,
