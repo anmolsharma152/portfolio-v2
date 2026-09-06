@@ -22,7 +22,6 @@ module.exports = {
       },
       colors: {
         theme: {
-          red: '#D3170A',
           blue: '#002855',
           black: '#000000',
           white: '#FFFFFF',
@@ -108,15 +107,15 @@ module.exports = {
         'glass-breathe': {
           '0%, 100%': {
             boxShadow:
-              '0 24px 90px rgba(0,0,0,0.22), 0 0 34px rgba(211,23,10,0.09), inset 0 1px 0 rgba(255,255,255,0.11)',
+              '0 24px 90px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.11)',
           },
           '38%': {
             boxShadow:
-              '0 30px 108px rgba(0,0,0,0.28), 0 0 42px rgba(211,23,10,0.13), inset 0 1px 0 rgba(255,255,255,0.15)',
+              '0 30px 108px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.14)',
           },
           '68%': {
             boxShadow:
-              '0 34px 124px rgba(0,0,0,0.31), 0 0 58px rgba(211,23,10,0.16), inset 0 1px 0 rgba(255,255,255,0.17)',
+              '0 34px 124px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.16)',
           },
         },
         'glass-sheen': {
