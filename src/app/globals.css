@@ -283,3 +283,40 @@ html {
     font-feature-settings: "smcp", "c2sc";
   }
 }
+
+/* Work Page Middle-Shade Glass Surface Styling */
+.work-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: rgba(18, 14, 14, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.38), 0 0 60px rgba(211, 23, 10, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+@media (min-width: 1024px) {
+  .work-panel {
+    border-radius: 2.5rem;
+  }
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  background: rgba(14, 10, 10, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-card:hover {
+  background: rgba(8, 4, 4, 0.68);
+  border-color: rgba(255, 255, 255, 0.20);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}

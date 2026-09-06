@@ -1,10 +1,15 @@
 'use client';
 
 import React from 'react';
+import { FaAws } from 'react-icons/fa6';
 import {
   SiDocker,
+  SiExpo,
   SiFastapi,
+  SiFigma,
+  SiFramer,
   SiGithubactions,
+  SiGraphql,
   SiLangchain,
   SiLinux,
   SiNextdotjs,
@@ -15,6 +20,7 @@ import {
   SiRust,
   SiTailwindcss,
   SiTypescript,
+  SiVite,
   SiVllm,
 } from 'react-icons/si';
 
@@ -36,6 +42,10 @@ const ROW_1_ITEMS: TechStackItem[] = [
   { id: 'python', label: 'Python', accent: true },
   { id: 'rust', label: 'Rust', accent: true },
   { id: 'linux', label: 'Linux PAM', accent: true },
+  { id: 'aws', label: 'AWS', accent: true },
+  { id: 'graphql', label: 'GraphQL', accent: false },
+  { id: 'spline', label: 'Spline', accent: false },
+  { id: 'vite', label: 'Vite', accent: false },
 ];
 
 const ROW_2_ITEMS: TechStackItem[] = [
@@ -45,8 +55,12 @@ const ROW_2_ITEMS: TechStackItem[] = [
   { id: 'nextjs', label: 'Next.js', accent: true },
   { id: 'typescript', label: 'TypeScript', accent: true },
   { id: 'react', label: 'React', accent: true },
+  { id: 'react-native', label: 'React Native', accent: true },
+  { id: 'expo', label: 'Expo', accent: false },
   { id: 'tailwind', label: 'Tailwind CSS', accent: true },
   { id: 'github', label: 'GitHub CI/CD', accent: true },
+  { id: 'figma', label: 'Figma', accent: true },
+  { id: 'framer', label: 'Framer', accent: false },
 ];
 
 function TechMark({ id }: { id: string }) {
@@ -97,11 +111,37 @@ function TechMark({ id }: { id: string }) {
     case 'typescript':
       return <SiTypescript className={iconClass} />;
     case 'react':
+    case 'react-native':
       return <SiReact className={iconClass} />;
+    case 'expo':
+      return <SiExpo className={iconClass} />;
     case 'tailwind':
       return <SiTailwindcss className={iconClass} />;
     case 'github':
       return <SiGithubactions className={iconClass} />;
+    case 'aws':
+      return <FaAws className={iconClass} />;
+    case 'graphql':
+      return <SiGraphql className={iconClass} />;
+    case 'figma':
+      return <SiFigma className={iconClass} />;
+    case 'vite':
+      return <SiVite className={iconClass} />;
+    case 'framer':
+      return <SiFramer className={iconClass} />;
+    case 'spline':
+      return (
+        <svg
+          className={iconClass}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+          <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" />
+        </svg>
+      );
     default:
       return (
         <span className="grid h-6 min-w-6 place-items-center rounded-md bg-white/12 px-1.5 font-doto text-[0.68rem] font-black uppercase text-white">
@@ -152,10 +192,10 @@ function TechMarquee({
 
 export const TechStackSection: React.FC = () => {
   return (
-    <section className="relative isolate overflow-hidden rounded-[2rem] bg-black/34 p-5 sm:p-6 shadow-[0_28px_100px_rgba(0,0,0,0.30),0_0_70px_rgba(211,23,10,0.18),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe lg:rounded-[2.5rem]">
+    <section className="work-panel p-5 sm:p-6 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-35%] bg-white/[0.035]" />
 
-      {/* Radial lighting from ohshin-site */}
+      {/* Radial lighting */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(211,23,10,.18),transparent_36%)]"

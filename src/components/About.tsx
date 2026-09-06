@@ -1,9 +1,8 @@
 'use client';
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Mail, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRef, useState } from 'react';
 
 import GlassSheen from './widgets/GlassSheen';
@@ -148,24 +147,6 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16 items-stretch">
           <SpotifyShelf config={spotifyConfig} />
           <ReadingStack />
-        </div>
-
-        {/* Bottom Gateway to Dedicated Work Page & Direct Contact */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pb-8">
-          <Link
-            href="/work"
-            className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-doto text-sm sm:text-base font-black lowercase tracking-[0.06em] bg-[#d3170a] text-white hover:bg-[#d3170a]/90 transition-all duration-300 shadow-[0_0_30px_rgba(211,23,10,0.35)] hover:shadow-[0_0_40px_rgba(211,23,10,0.55)] hover:scale-105 cursor-pointer"
-          >
-            <span>explore work &amp; systems</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </Link>
-          <a
-            href="mailto:anmolsharma152.dev@gmail.com"
-            className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-full font-doto text-sm sm:text-base font-black lowercase tracking-[0.06em] bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all duration-300 hover:scale-105 cursor-pointer shadow-sm"
-          >
-            <span>send email</span>
-            <Mail className="w-4 h-4 text-white/80" />
-          </a>
         </div>
       </div>
 
