@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FaAws } from 'react-icons/fa6';
+import { FaAws, FaDatabase } from 'react-icons/fa6';
 import {
   SiDocker,
   SiExpo,
@@ -9,14 +9,20 @@ import {
   SiFigma,
   SiFramer,
   SiGithubactions,
+  SiGooglecloud,
   SiGraphql,
+  SiHuggingface,
+  SiKubernetes,
   SiLangchain,
   SiLinux,
   SiNextdotjs,
   SiNvidia,
+  SiOnnx,
   SiPostgresql,
   SiPytorch,
+  SiQdrant,
   SiReact,
+  SiRedis,
   SiRust,
   SiTailwindcss,
   SiTypescript,
@@ -38,26 +44,36 @@ const ROW_1_ITEMS: TechStackItem[] = [
   { id: 'cuda', label: 'CUDA', accent: true },
   { id: 'tensorrt', label: 'TensorRT-LLM', accent: true },
   { id: 'vllm', label: 'vLLM', accent: true },
+  { id: 'onnx', label: 'ONNX Runtime', accent: true },
+  { id: 'huggingface', label: 'Hugging Face', accent: true },
+  { id: 'qlora', label: 'PEFT / QLoRA', accent: true },
+  { id: 'rag', label: 'Agentic RAG', accent: true },
   { id: 'langgraph', label: 'LangGraph', accent: true },
+  { id: 'agents', label: 'Multi-Agent Systems', accent: true },
   { id: 'python', label: 'Python', accent: true },
   { id: 'rust', label: 'Rust', accent: true },
   { id: 'linux', label: 'Linux PAM', accent: true },
+  { id: 'gcp', label: 'Google Cloud (GCP)', accent: true },
   { id: 'aws', label: 'AWS', accent: true },
   { id: 'graphql', label: 'GraphQL', accent: false },
   { id: 'spline', label: 'Spline', accent: false },
-  { id: 'vite', label: 'Vite', accent: false },
 ];
 
 const ROW_2_ITEMS: TechStackItem[] = [
   { id: 'docker', label: 'Docker', accent: true },
-  { id: 'fastapi', label: 'FastAPI', accent: true },
+  { id: 'kubernetes', label: 'Kubernetes', accent: true },
+  { id: 'sql', label: 'SQL', accent: true },
   { id: 'postgres', label: 'PostgreSQL / pgvector', accent: true },
+  { id: 'qdrant', label: 'Qdrant Vector DB', accent: true },
+  { id: 'redis', label: 'Redis Semantic Cache', accent: true },
+  { id: 'fastapi', label: 'FastAPI', accent: true },
   { id: 'nextjs', label: 'Next.js', accent: true },
   { id: 'typescript', label: 'TypeScript', accent: true },
   { id: 'react', label: 'React', accent: true },
   { id: 'react-native', label: 'React Native', accent: true },
   { id: 'expo', label: 'Expo', accent: false },
   { id: 'tailwind', label: 'Tailwind CSS', accent: true },
+  { id: 'vite', label: 'Vite', accent: false },
   { id: 'github', label: 'GitHub CI/CD', accent: true },
   { id: 'figma', label: 'Figma', accent: true },
   { id: 'framer', label: 'Framer', accent: false },
@@ -87,6 +103,57 @@ function TechMark({ id }: { id: string }) {
       );
     case 'vllm':
       return <SiVllm className={iconClass} />;
+    case 'onnx':
+      return <SiOnnx className={iconClass} />;
+    case 'huggingface':
+      return <SiHuggingface className={iconClass} />;
+    case 'qlora':
+      return (
+        <svg
+          className={iconClass}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect x="3" y="3" width="7" height="7" rx="1.5" />
+          <rect x="14" y="3" width="7" height="7" rx="1.5" />
+          <rect x="8.5" y="14" width="7" height="7" rx="1.5" />
+          <path d="M6.5 10v2a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" />
+        </svg>
+      );
+    case 'rag':
+      return (
+        <svg
+          className={iconClass}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="11" cy="11" r="7" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          <line x1="11" y1="8" x2="11" y2="14" />
+          <line x1="8" y1="11" x2="14" y2="11" />
+        </svg>
+      );
+    case 'agents':
+      return (
+        <svg
+          className={iconClass}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="5" r="3" />
+          <circle cx="5" cy="19" r="3" />
+          <circle cx="19" cy="19" r="3" />
+          <line x1="12" y1="8" x2="5" y2="16" />
+          <line x1="12" y1="8" x2="19" y2="16" />
+          <line x1="8" y1="19" x2="16" y2="19" />
+        </svg>
+      );
     case 'langgraph':
       return <SiLangchain className={iconClass} />;
     case 'python':
@@ -100,12 +167,22 @@ function TechMark({ id }: { id: string }) {
       return <SiRust className={iconClass} />;
     case 'linux':
       return <SiLinux className={iconClass} />;
+    case 'gcp':
+      return <SiGooglecloud className={iconClass} />;
     case 'docker':
       return <SiDocker className={iconClass} />;
+    case 'kubernetes':
+      return <SiKubernetes className={iconClass} />;
+    case 'sql':
+      return <FaDatabase className={iconClass} />;
     case 'fastapi':
       return <SiFastapi className={iconClass} />;
     case 'postgres':
       return <SiPostgresql className={iconClass} />;
+    case 'qdrant':
+      return <SiQdrant className={iconClass} />;
+    case 'redis':
+      return <SiRedis className={iconClass} />;
     case 'nextjs':
       return <SiNextdotjs className={iconClass} />;
     case 'typescript':
