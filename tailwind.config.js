@@ -106,16 +106,10 @@ module.exports = {
         },
         'glass-breathe': {
           '0%, 100%': {
-            boxShadow:
-              '0 24px 90px rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.11)',
+            opacity: '0.98',
           },
-          '38%': {
-            boxShadow:
-              '0 30px 108px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.14)',
-          },
-          '68%': {
-            boxShadow:
-              '0 34px 124px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.16)',
+          '50%': {
+            opacity: '1',
           },
         },
         'glass-sheen': {
