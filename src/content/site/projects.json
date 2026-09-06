@@ -2,7 +2,7 @@
   {
     "id": "CodexEngine",
     "title": "CodexEngine v4/v5",
-    "summary": "Production-ready Agentic RAG engine with hybrid search, pgvector, LangGraph state machines, async FastAPI, and automated regression testing.",
+    "summary": "Deployed a production document intelligence platform (codex-engine.vercel.app) on LangGraph state machines with multi-tenant pgvector search, streaming SSE responses, and automated golden dataset faithfulness regression testing.",
     "tech": ["Python", "LangGraph", "FastAPI", "Next.js", "pgvector", "LangSmith", "RAGAS"],
     "githubUrl": "https://github.com/anmolsharma152/CodexEngine",
     "liveUrl": "https://codex-engine.vercel.app",
@@ -13,8 +13,8 @@
   {
     "id": "Fine-tuning-Sarvam-1",
     "title": "Sarvam-1 QLoRA Fine-Tuning",
-    "summary": "Parameter-efficient fine-tuning pipeline for Sarvam-1 using 4-bit NF4 QLoRA, Nemotron-49B distillation, and dual-engine FastAPI/vLLM serving.",
-    "tech": ["PyTorch", "QLoRA (NF4)", "PEFT", "SFTTrainer", "vLLM", "Python"],
+    "summary": "Distilled a 10K multilingual instruction corpus from Nemotron-49B teacher model; engineered SFTTrainer pipeline using 4-bit NF4 QLoRA (r=16, alpha=32) with completion loss masking and dual-engine FastAPI/vLLM serving.",
+    "tech": ["Python", "PyTorch", "QLoRA (NF4)", "PEFT", "SFTTrainer", "vLLM", "Synthetic Data"],
     "githubUrl": "https://github.com/anmolsharma152/Fine-tuning-Sarvam-1",
     "liveUrl": null,
     "featured": true,
@@ -22,21 +22,21 @@
     "category": "ml-vision"
   },
   {
-    "id": "Disha",
-    "title": "Disha Multi-Agent Intelligence",
-    "summary": "Production-grade agentic Personal Intelligence platform with LLM resume evaluation, cyclic supervisor routing, SSRF protection, and pgvector long-term memory.",
-    "tech": ["Python", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "Next.js"],
-    "githubUrl": "https://github.com/anmolsharma152/Disha",
+    "id": "AlgoDeck",
+    "title": "AlgoDeck Learning Workstation",
+    "summary": "Built a full-stack learning workstation featuring a dual-pane VS Code Monaco IDE, isolated subprocess execution sandbox (5s kill timeout, 512KB buffer limit), PostgreSQL 16 connection pooling, and automated test suites.",
+    "tech": ["Node.js", "Express", "PostgreSQL 16", "Docker Compose", "Monaco IDE", "Sandbox"],
+    "githubUrl": "https://github.com/anmolsharma152/AlgoDeck",
     "liveUrl": null,
     "featured": true,
     "sortOrder": 3,
-    "category": "ai-agent"
+    "category": "platform"
   },
   {
     "id": "Nimbus",
     "title": "Nimbus Agent Platform",
-    "summary": "Multi-tenant autonomous software engineering agent platform with disposable Docker sandbox workspaces, real-time WebSockets, and GitHub App credential brokering.",
-    "tech": ["FastAPI", "LangGraph", "Docker", "WebSockets", "GitHub API", "Python"],
+    "summary": "Engineered a multi-tenant autonomous software engineering agent platform featuring a trusted control plane, disposable Docker/MicroVM sandbox workspaces, real-time WebSocket event streams, and short-lived GitHub App credential brokering.",
+    "tech": ["Python", "FastAPI", "LangGraph", "Docker", "WebSockets", "GitHub API", "MicroVM Isolation"],
     "githubUrl": "https://github.com/anmolsharma152/Nimbus",
     "liveUrl": null,
     "featured": true,
@@ -44,22 +44,22 @@
     "category": "ai-agent"
   },
   {
-    "id": "AlgoDeck",
-    "title": "AlgoDeck Learning Workstation",
-    "summary": "Full-stack DSA workstation featuring a dual-pane VS Code Monaco IDE, isolated subprocess execution sandbox (5s kill timeout), and SM-2 spaced repetition math.",
-    "tech": ["Node.js", "Express", "PostgreSQL 16", "Docker Compose", "Monaco IDE", "Caddy"],
-    "githubUrl": "https://github.com/anmolsharma152/AlgoDeck",
-    "liveUrl": null,
-    "featured": false,
-    "sortOrder": 5,
-    "category": "platform"
-  },
-  {
     "id": "commerce_cortex",
     "title": "commerce_cortex",
-    "summary": "Containerized commerce backend with LangGraph state machine routing, PostgreSQL transactional checkpoints, Human-in-the-Loop approval gates, and Langfuse tracing.",
-    "tech": ["FastAPI", "LangGraph", "PostgreSQL", "Docker Compose", "Langfuse", "DeepEval"],
+    "summary": "Built a containerized commerce backend featuring LangGraph state machine routing, PostgreSQL transactional checkpoints, Human-in-the-Loop approval gates, and 3-tier LLMOps observability with distributed execution tracing.",
+    "tech": ["Python", "FastAPI", "LangGraph", "PostgreSQL", "Docker Compose", "Langfuse"],
     "githubUrl": "https://github.com/anmolsharma152/commerce_cortex",
+    "liveUrl": null,
+    "featured": true,
+    "sortOrder": 5,
+    "category": "ai-agent"
+  },
+  {
+    "id": "Disha",
+    "title": "Disha Multi-Agent Intelligence",
+    "summary": "Production-grade agentic Personal Intelligence platform with LLM resume evaluation, cyclic supervisor routing, SSRF protection, and pgvector long-term memory.",
+    "tech": ["Python", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "Next.js"],
+    "githubUrl": "https://github.com/anmolsharma152/Disha",
     "liveUrl": null,
     "featured": false,
     "sortOrder": 6,
