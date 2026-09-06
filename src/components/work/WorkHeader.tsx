@@ -9,10 +9,7 @@ export default function WorkHeader() {
     <header className="work-panel p-5 sm:p-7 lg:p-9 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.08),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(255,255,255,.03),transparent_40%)]"
-      />
+
 
       {/* Top Metadata Row */}
       <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">

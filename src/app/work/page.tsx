@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <div className="min-h-screen relative pb-36 bg-[#090b0e] text-white selection:bg-white selection:text-black">
+    <div className="min-h-screen relative pb-36 bg-black text-white selection:bg-white selection:text-black">
       {/* Deep Atmospheric Glow & Subtle Grid Raster */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-15 [background-image:radial-gradient(rgba(255,255,255,0.4)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-12 [background-image:radial-gradient(rgba(255,255,255,0.45)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
       />
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div

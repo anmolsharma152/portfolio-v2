@@ -13,10 +13,6 @@ export default function ExperienceSection() {
     <section className="min-w-0 lg:sticky lg:top-24 lg:self-start" aria-label="Experience and Education">
       <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe">
         <GlassSheen className="left-[-40%] bg-white/[0.035]" />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.03),transparent_42%)]"
-        />
 
         {/* Header with Interactive Tabs */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
@@ -90,10 +86,6 @@ export default function ExperienceSection() {
                   className="work-card p-5 sm:p-6"
                 >
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
-                  />
                   <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-[0.68rem] uppercase tracking-wider text-white/50">
                     <span className="text-emerald-400 font-bold">{exp.period}</span>
                     <span>{exp.location}</span>
@@ -146,10 +138,6 @@ export default function ExperienceSection() {
                   className="work-card p-5 sm:p-6"
                 >
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
-                  />
                   <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-[0.68rem] uppercase tracking-wider text-white/50">
                     <span className="text-emerald-400 font-bold">{edu.period}</span>
                     <span className="rounded-full bg-white/10 px-2 py-0.5 text-white/90 font-semibold text-[0.6rem]">
