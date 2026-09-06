@@ -30,7 +30,7 @@ const About = () => {
   }, [isZoomed]);
 
   return (
-    <section id="about" className="pt-16 md:pt-24 pb-8 md:pb-12 relative z-10 isolate overflow-hidden">
+    <section id="about" className="relative z-10 isolate overflow-hidden scroll-mt-0">
       {/* Background ambient lighting & Ohshin dot-matrix raster */}
       <div
         aria-hidden="true"
@@ -45,14 +45,14 @@ const About = () => {
         className="pointer-events-none absolute -right-32 top-1/3 -z-10 h-[30rem] w-[30rem] rounded-full bg-white/[0.03] blur-3xl"
       />
 
-      <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10">
+      <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-10 lg:pt-12 relative z-10 space-y-8 sm:space-y-10 lg:space-y-12">
         {/* Dedicated About Header Card (Obsidian Glass) */}
         <motion.header
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="work-panel p-5 sm:p-7 lg:p-9 mb-8 sm:mb-10 motion-safe:animate-glass-breathe"
+          className="work-panel p-5 sm:p-7 lg:p-9 motion-safe:animate-glass-breathe"
         >
           <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
 
@@ -90,7 +90,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="work-panel p-6 sm:p-8 lg:p-10 mb-8 sm:mb-10 motion-safe:animate-glass-breathe"
+          className="work-panel p-6 sm:p-8 lg:p-10 motion-safe:animate-glass-breathe"
         >
           <GlassSheen className="left-[-42%] bg-white/[0.035]" />
 
