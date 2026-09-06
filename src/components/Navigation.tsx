@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useEffect } from 'react';
 import {
   FaGithub,
   FaInstagram,
@@ -25,11 +25,7 @@ interface SocialLink {
 
 export const Navigation: React.FC = () => {
   const pathname = usePathname();
-  const router = useRouter();
   const isWork = pathname?.startsWith('/work');
-  const [isDockHidden, setIsDockHidden] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const lastScrollY = useRef(0);
 
   // Exact 5 icons and classes from ohshin-site SOCIAL_ICON_CLASS_MAP (Image 2)
   const socialLinks: SocialLink[] = [
@@ -59,37 +55,6 @@ export const Navigation: React.FC = () => {
       icon: <FaGithub className="h-5 w-5 sm:h-6 sm:w-6" />,
     },
   ];
-
-  // Immediately reveal dock on route change
-  useEffect(() => {
-    setIsDockHidden(false);
-  }, [pathname]);
-
-  // Direction-aware dock visibility: hides on rapid downward scroll, immediately surfaces on upward scroll or hover
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isHovered) {
-        setIsDockHidden(false);
-        return;
-      }
-
-      const currentScrollY = window.scrollY;
-      const delta = currentScrollY - lastScrollY.current;
-
-      if (currentScrollY < 60) {
-        setIsDockHidden(false);
-      } else if (delta > 20 && currentScrollY > 120) {
-        setIsDockHidden(true);
-      } else if (delta < -10) {
-        setIsDockHidden(false);
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHovered]);
 
   // Handle smooth scroll to #about when landing from /work
   useEffect(() => {
@@ -127,16 +92,10 @@ export const Navigation: React.FC = () => {
 
   return (
     <header
-      className={`pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-50 flex w-full justify-center px-2 transition-transform duration-300 ease-out sm:bottom-6 sm:px-3 ${
-        isDockHidden ? 'translate-y-[calc(100%+2rem)]' : 'translate-y-0'
-      }`}
+      className="pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-50 flex w-full justify-center px-2 sm:bottom-6 sm:px-3"
       data-site-nav
     >
-      <div
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5"
-      >
+      <div className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5">
         {/* Physical 3D Glass Specular Highlight from ohshin-site */}
         <span
           aria-hidden="true"
