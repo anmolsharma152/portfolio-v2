@@ -7,18 +7,18 @@ import { curatedProjectsContent } from '@/content/loaders';
 
 export default function ProjectsSection() {
   return (
-    <main className="min-w-0">
+    <section className="min-w-0" aria-label="Projects Showcase">
       <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe">
         <GlassSheen className="left-[-40%] bg-white/[0.035]" />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(211,23,10,.18),transparent_42%)]"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.03),transparent_42%)]"
         />
         <div className="flex items-end justify-between gap-3 mb-6">
           <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
             projects
           </h2>
-          <span className="font-mono text-[0.62rem] sm:text-[0.68rem] uppercase tracking-[0.2em] text-rose-200/80 font-semibold">
+          <span className="font-mono text-[0.62rem] sm:text-[0.68rem] uppercase tracking-[0.2em] text-white/50 font-semibold">
             Build Log ({curatedProjectsContent.length})
           </span>
         </div>
@@ -29,23 +29,23 @@ export default function ProjectsSection() {
               key={project.id}
               className="group work-card p-5 sm:p-6 sm:grid sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center gap-4"
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(211,23,10,.16),transparent_42%)]"
+                className="pointer-events-none absolute inset-0 -z-10 opacity-45 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.07),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.02),transparent_42%)]"
               />
               {/* Left Serial Number */}
-              <div className="hidden sm:block font-doto text-[1.45rem] font-black leading-none text-rose-300/80 pr-2 select-none">
+              <div className="hidden sm:block font-doto text-[1.45rem] font-black leading-none text-white/40 pr-2 select-none">
                 {String(idx + 1).padStart(2, '0')}
               </div>
 
               {/* Middle Content */}
               <div className="min-w-0">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="sm:hidden font-doto text-[1.2rem] font-black leading-none text-rose-300/80 select-none">
+                  <span className="sm:hidden font-doto text-[1.2rem] font-black leading-none text-white/40 select-none">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="min-w-0 break-words font-doto text-[1.05rem] sm:text-[1.2rem] font-black uppercase tracking-tight text-white group-hover:text-rose-200 transition-colors">
+                  <h3 className="min-w-0 break-words font-doto text-[1.05rem] sm:text-[1.2rem] font-black uppercase tracking-tight text-white group-hover:text-neutral-200 transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -95,6 +95,6 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 }

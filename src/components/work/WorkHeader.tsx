@@ -11,7 +11,7 @@ export default function WorkHeader() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.08),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(211,23,10,.20),transparent_40%)]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.08),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(255,255,255,.03),transparent_40%)]"
       />
 
       {/* Top Metadata Row */}

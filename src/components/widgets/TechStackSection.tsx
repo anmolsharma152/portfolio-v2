@@ -275,12 +275,12 @@ export const TechStackSection: React.FC = () => {
       {/* Radial lighting */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(211,23,10,.18),transparent_36%)]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_14%,rgba(255,255,255,.08),transparent_28%),radial-gradient(circle_at_86%_60%,rgba(255,255,255,.03),transparent_36%)]"
       />
 
       <div className="grid gap-4 lg:grid-cols-[12rem_minmax(0,1fr)] lg:items-center">
         <div>
-          <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-rose-200 font-semibold sm:text-[0.62rem]">
+          <p className="font-mono text-[0.56rem] uppercase tracking-[0.22em] text-white/60 font-semibold sm:text-[0.62rem]">
             stack overload
           </p>
           <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem]">
