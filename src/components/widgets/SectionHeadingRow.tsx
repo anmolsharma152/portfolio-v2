@@ -27,7 +27,7 @@ export default function SectionHeadingRow({
       </h2>
       <p
         className={cn(
-          'font-mono text-[0.58rem] sm:text-[0.62rem] uppercase tracking-[0.2em] sm:tracking-[0.28em] text-[#D3170A] font-semibold',
+          'font-mono text-[0.58rem] sm:text-[0.62rem] uppercase tracking-[0.2em] sm:tracking-[0.28em] text-white/70 font-semibold',
           labelClassName
         )}
       >

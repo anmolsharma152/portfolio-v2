@@ -59,10 +59,10 @@ export const Hero = () => {
             }}
           >
             <div className="relative inline-block">
-              {/* Ghost Crimson Chromatic Aberration for Depth */}
+              {/* Ghost Terminal Offset Aberration for Depth */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 -z-10 font-doto text-[2.75rem] font-black leading-[1.04] text-[#D3170A]/50 blur-[2px] mix-blend-screen motion-safe:animate-chroma-shake sm:text-[4rem] md:text-[5.25rem] lg:text-[6.5rem]"
+                className="pointer-events-none absolute inset-x-0 top-0 -z-10 font-doto text-[2.75rem] font-black leading-[1.04] text-cyan-400/25 blur-[2px] mix-blend-screen motion-safe:animate-chroma-shake sm:text-[4rem] md:text-[5.25rem] lg:text-[6.5rem]"
               >
                 hi, im anmol.
               </span>
