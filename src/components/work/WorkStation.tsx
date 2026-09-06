@@ -38,7 +38,7 @@ export default function WorkStation() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-12 relative z-10 space-y-8 sm:space-y-10 lg:space-y-12"
+      className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-10 lg:pt-12 relative z-10 space-y-8 sm:space-y-10 lg:space-y-12"
     >
       <motion.div variants={itemVariants}>
         <WorkHeader />
