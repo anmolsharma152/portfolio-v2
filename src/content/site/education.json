@@ -5,7 +5,7 @@
     "institution": "Indian Institute of Technology (IIT), Mandi",
     "period": "05/2025 – 06/2026",
     "grade": "CGPA 8.44 / 10",
-    "description": "Center for Continuing Education (CCE). Mathematical Foundations → Classical ML → Deep Learning (GANs, VAEs, Transformers, RL, Computer Vision).",
+    "description": "Center for Continuing Education (CCE). Classical ML, Deep Learning, Transformers, and Computer Vision.",
     "honors": ["Dean's Commendation", "First Class with Distinction"],
     "sortOrder": 1
   },
@@ -15,21 +15,8 @@
     "institution": "Jaipur National University",
     "period": "06/2019 – 05/2022",
     "grade": "77.4% — First Division",
-    "description": "Comprehensive core foundations in Computer Science, Relational Database Management Systems (RDBMS), Data Structures & Algorithms, Object-Oriented Programming, and Operating Systems.",
-    "honors": ["First Division (77.4%)"],
+    "description": "Core computer science: Relational Databases (RDBMS), Data Structures & Algorithms, OOP, and Operating Systems.",
+    "honors": ["First Division (77.4%)", "NTSE Scholar"],
     "sortOrder": 2
-  },
-  {
-    "id": "ssla",
-    "degree": "Undergraduate Coursework in Economics, Political Science & Research",
-    "institution": "Symbiosis School for Liberal Arts (SSLA), Pune",
-    "period": "07/2016 – 05/2020",
-    "grade": "Formative Studies & Student Council",
-    "description": "Completed 3+ years of interdisciplinary coursework in macroeconomic systems, constitutional law, and empirical social research. Served on the Student Council; organized campus events and debates.",
-    "honors": [
-      "Director's Certificate of Appreciation (Student Council, SSLA)",
-      "NTSE Scholar (National Talent Search Examination)"
-    ],
-    "sortOrder": 3
   }
 ]

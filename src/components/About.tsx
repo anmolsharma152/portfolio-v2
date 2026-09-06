@@ -48,7 +48,7 @@ const About = () => {
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10">
         {/* Dedicated About Header Card (Obsidian Glass) */}
-        <header className="relative isolate overflow-hidden rounded-[2rem] bg-white/[0.05] p-5 shadow-[0_30px_120px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:p-7 lg:rounded-[2.5rem] lg:p-9 mb-8">
+        <header className="work-panel p-5 sm:p-7 lg:p-9 mb-8 motion-safe:animate-glass-breathe">
           <GlassSheen className="left-[-35%] bg-white/[0.045]" />
 
           <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
@@ -68,7 +68,7 @@ const About = () => {
           initial={{ opacity: 0, y: 36 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative isolate min-w-0 w-full overflow-hidden rounded-[1.5rem] bg-white/[0.05] shadow-[0_24px_100px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/12 backdrop-blur-2xl motion-safe:animate-glass-breathe sm:rounded-[2rem] lg:rounded-[2.35rem] p-6 sm:p-8 lg:p-10 mb-12"
+          className="work-panel p-6 sm:p-8 lg:p-10 mb-12 motion-safe:animate-glass-breathe"
         >
           <GlassSheen className="left-[-42%] bg-white/[0.035]" />
 

@@ -13,7 +13,7 @@ export const ReadingStack: React.FC = () => {
   );
 
   return (
-    <div className="relative isolate min-w-0 overflow-hidden rounded-[1.75rem] sm:rounded-[2.25rem] bg-white/[0.075] p-5 sm:p-7 shadow-[0_24px_80px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/15 backdrop-blur-2xl motion-safe:animate-glass-breathe [contain:paint] flex flex-col justify-between h-full">
+    <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe [contain:paint] flex flex-col justify-between h-full">
       <GlassSheen className="left-[-42%] bg-white/[0.03]" />
 
       <div>

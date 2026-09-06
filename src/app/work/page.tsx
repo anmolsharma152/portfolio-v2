@@ -40,7 +40,7 @@ export default function WorkPage() {
         <DeliverablesSection />
         <TechStackSection />
 
-        <div className="grid gap-8 py-2 lg:grid-cols-[minmax(18rem,0.56fr)_minmax(0,1fr)] lg:gap-8 items-start">
+        <div className="grid gap-8 py-2 lg:grid-cols-2 lg:gap-8 items-start">
           <ExperienceSection />
           <ProjectsSection />
         </div>
