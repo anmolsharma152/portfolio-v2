@@ -5,13 +5,13 @@
     "company": "The Bullseye",
     "period": "04/2024 – Present",
     "location": "Jaipur, India",
-    "summary": "Engineering automated analytics pipelines, workflow automation, and dynamic LLM personalization systems.",
+    "summary": "Engineering agency workflow automation, multimodal generative AI pipelines, and dynamic marketing intelligence systems.",
     "highlights": [
-      "Built multi-platform automation workflows (n8n, Zapier, Webhooks) for lead capture and CRM synchronization.",
-      "Deployed LLM prompt pipelines (FastAPI, Groq) for weekly performance digests, cutting manual turnaround by 65%.",
-      "Engineered automated Python (pandas, SQL) pipelines aggregating cross-channel B2B conversion metrics."
+      "Architected end-to-end agency automation pipelines across n8n, Zapier, and Make for automated multi-channel lead capture, CRM enrichment, and client onboarding.",
+      "Engineered multimodal AI pipelines leveraging Claude, OpenAI, and Cursor alongside image generation (Flux, Midjourney) and video production models (Runway, Kling) to automate creative asset generation.",
+      "Automated cross-channel marketing intelligence and executive client performance digests, cutting manual turnaround by 65%."
     ],
-    "techBadges": ["Python", "SQL", "n8n", "Zapier", "FastAPI", "Groq API", "Webhooks", "pandas"],
+    "techBadges": ["Claude", "OpenAI", "Cursor", "Image Gen (Flux / Midjourney)", "Video AI (Runway / Kling)", "n8n", "Zapier", "Marketing Automation", "Python", "FastAPI"],
     "featured": true,
     "sortOrder": 1
   },
