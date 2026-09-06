@@ -256,7 +256,7 @@ function TechMarquee({
   reverse?: boolean;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-full border border-white/12 bg-black/45 shadow-[inset_0_2px_8px_rgba(0,0,0,0.40),0_4px_16px_rgba(0,0,0,0.20)]">
+    <div className="relative overflow-hidden rounded-full border border-white/14 bg-white/[0.04] shadow-[inset_0_2px_8px_rgba(255,255,255,0.04),0_4px_16px_rgba(0,0,0,0.20)]">
       <div
         className={cn(
           'flex w-max transform-gpu gap-2 py-2 will-change-transform motion-safe:animate-stack-marquee motion-reduce:animate-none hover:[animation-play-state:paused]',
@@ -276,7 +276,10 @@ export const TechStackSection: React.FC = () => {
     <section className="work-panel p-5 sm:p-6 motion-safe:animate-glass-breathe">
       <GlassSheen className="left-[-35%] bg-white/[0.035]" />
 
-
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
+      />
 
       <div className="grid gap-4 lg:grid-cols-[12rem_minmax(0,1fr)] lg:items-center">
         <div>

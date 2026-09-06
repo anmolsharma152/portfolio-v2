@@ -21,6 +21,11 @@ export default function ProjectsSection() {
       <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe flex flex-col justify-between h-full">
         <GlassSheen className="left-[-40%] bg-white/[0.035]" />
 
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
+        />
+
         <div>
           {/* Header with Interactive Tabs (Matching ExperienceSection) */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
@@ -88,9 +93,13 @@ export default function ProjectsSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.18 }}
-                  className="group work-card p-4 sm:p-4.5 transition-all hover:bg-black/60"
+                  className="group work-card p-4 sm:p-4.5 transition-all"
                 >
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
+                  />
 
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-start gap-3 min-w-0">
