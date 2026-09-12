@@ -17,7 +17,7 @@ This document records the design philosophy, technical choices, resolved issues,
 
 ## 2. Floating Dock Navigation (`Navigation.tsx`)
 
-- **Design Parity**: Re-engineered to achieve 1-to-1 visual and physical parity with Ohshin Bhat's floating dock.
+- **Design System**: Re-engineered to achieve a physical floating dock navigation with tactile spring mechanics.
 - **Physical Glass Treatment**:
   - Replaced flat gray borders with layered 3D bevels: `shadow-nav-glass` (`0 18px 60px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.06)`).
   - Added specular sheen overlays and physical border rings.
@@ -26,7 +26,7 @@ This document records the design philosophy, technical choices, resolved issues,
   - Driven by Framer Motion's `layoutId="dock-active-pill"` with spring physics (`stiffness: 360, damping: 32, mass: 0.35`).
 - **Icon Library & Order**:
   - Switched from Lucide lines to official FontAwesome 6 icons via `react-icons/fa6` (`FaXTwitter`, `FaSpotify`, `FaRegEnvelope`, `FaLinkedinIn`, `FaGithub`).
-  - Aligned exact icon order matching the Ohshin layout:
+  - Aligned dock icon sequence:
     `[abt me | work]  |  [X  •  Spotify  •  Email  •  LinkedIn  •  GitHub]`
   - Added pixelated Minecraft badges for the primary tabs: Alex skin for `abt me` and Diamond Pickaxe for `work`.
 
@@ -65,7 +65,7 @@ This document records the design philosophy, technical choices, resolved issues,
 
 ## 6. The Spotify Shelf: Analysis, Purpose & Open Decision
 
-### Why was it used by Ohshin in the original site?
+### Why include cultural curation shelves on personal sites?
 1. **Taste Signaling**: In design engineering, resumes and tech stacks look identical on paper. Curating music and books serves as proof-of-work that the creator is a cultured human with distinct aesthetic standards.
 2. **Flow-State Moodboard**: Playlist titles like *"ambient focus"* or *"late night building"* invite the visitor into the creator's mental workshop — the sonic backdrop to shipping systems at 2 AM.
 3. **Editorial Rhythm**: Visually balances the text-heavy Reading Stack with rich album art.
@@ -78,7 +78,7 @@ Next.js App Router unmounts `page.tsx` when navigating between `/` and `/work`. 
 | Option | Implementation | Pros | Cons |
 |---|---|---|---|
 | **Option A: Replace with ArXiv Papers / Homelab Rig** *(Recommended)* | Replace the Spotify card with an **"ArXiv Research & Systems Papers"** shelf (papers studied/implemented: *Attention, LoRA, FlashAttention-2, Silero VAD, BitNet, ReAct*) or a **"Hardware & Systems Rig"** card (Mac unified memory / RTX setup, vLLM metrics, Arch dotfiles). | 100× higher signal for an AI/Systems engineer. Uniquely authentic to Anmol. No broken audio expectations. | Requires designing a clean Paper / Rig card component. |
-| **Option B: Pure Curated Crates Showcase** | Keep Spotify on Home, but format it purely as curated crates with direct Spotify launch links, removing the expectation that it serves as an in-page audio player. | Retains Ohshin visual parity. Zero code changes required. | Still unmounts if played; 30-sec limit applies for unauthenticated guests. |
+| **Option B: Pure Curated Crates Showcase** | Keep Spotify on Home, but format it purely as curated crates with direct Spotify launch links, removing the expectation that it serves as an in-page audio player. | Retains existing visual composition. Zero code changes required. | Still unmounts if played; 30-sec limit applies for unauthenticated guests. |
 | **Option C: Persistent Audio Engine** | Move an audio controller / mini-player into `src/app/layout.tsx` so audio persists seamlessly across route transitions. | True high-craft engineering flex; uninterrupted background music. | Requires managing global audio state and sourcing non-iframe audio streams (e.g. ambient radio stream or custom tracks). |
 
 ---

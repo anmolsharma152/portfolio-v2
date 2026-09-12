@@ -5,7 +5,7 @@
 | **As of** | 2026-09-06 |
 | **Repository** | `anmolsharma152/portfolio-v2` |
 | **Branch** | `main` |
-| **Design Archetype** | Retro-Future Obsidian & Crimson Glassmorphism (Inspired by Ohshin Bhat) |
+| **Design Archetype** | Retro-Future Obsidian & Crimson Glassmorphism |
 | **Framework** | Next.js 14.2 (App Router), React 18, Tailwind CSS, Framer Motion |
 | **Typography** | Doto (Google Dot-Matrix Display), IBM Plex Mono (Body), Inter, Tektur |
 | **Iconography** | FontAwesome 6 via `react-icons/fa6`, Lucide React |

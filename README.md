@@ -3,7 +3,7 @@
 # Anmol Sharma — Portfolio (v2)
 
 **A multi-page personal portfolio website built with Next.js 14, Tailwind CSS, and Framer Motion.**  
-Features a dark retro-futuristic aesthetic inspired by [Ohshin Bhat](https://ohshin.me), with Google's `Doto` dot-matrix typography, physical frosted glassmorphism, an interactive floating dock navigation, and decoupled JSON content management.
+Features a dark retro-futuristic obsidian aesthetic with Google's `Doto` dot-matrix typography, physical frosted glassmorphism, an interactive floating dock navigation, and decoupled JSON content management.
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)

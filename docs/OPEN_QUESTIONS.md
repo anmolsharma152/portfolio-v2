@@ -7,7 +7,7 @@ This document tracks all active, undecided questions and pending design choices 
 ## 1. The Spotify Shelf vs. Systems/Engineering Shelf (STATUS: PENDING DECISION)
 
 ### Context
-In Ohshin Bhat's portfolio, the Home page (`/`) features two side-by-side cultural shelves:
+On the Home page (`/`), there are two side-by-side cultural shelves:
 1. **Records Shelf** (Spotify playlists)
 2. **Reading Stack** (Books)
 
@@ -29,7 +29,7 @@ In Ohshin Bhat's portfolio, the Home page (`/`) features two side-by-side cultur
 #### Option B: Keep Spotify Shelf as Curated Crate Showcase (No In-Page Audio Focus)
 - **Concept**: Retain the Spotify cards on Home, but explicitly re-frame them as **"Curated Playlist Crates"** with prominent direct-launch links (`Open in Spotify`), de-emphasizing in-page audio playback.
 - **Why this works**:
-  - Retains 1-to-1 visual parity with Ohshin's records shelf layout.
+  - Retains the dual-shelf visual layout aesthetic.
   - Fixes user expectation: visitors browse cover art and vibe titles, then open in their native Spotify desktop/mobile client.
 - **Trade-off**: Still unmounts if played in-browser; doesn't eliminate the fundamental iframe limitation.
 

@@ -31,7 +31,7 @@ export const SpotifyShelf: React.FC<SpotifyShelfProps> = ({ config }) => {
         className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
       />
 
-      {/* Header Row (Ohshin Style) */}
+      {/* Header Row */}
       <div>
         <div className="flex items-end justify-between gap-4 border-b border-white/12 pb-4 mb-5">
           <div>

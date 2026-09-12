@@ -31,7 +31,7 @@ const About = () => {
 
   return (
     <section id="about" className="relative z-10 isolate overflow-hidden scroll-mt-0">
-      {/* Background ambient lighting & Ohshin dot-matrix raster */}
+      {/* Background ambient lighting & dot-matrix raster */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-12 [background-image:radial-gradient(rgba(255,255,255,0.45)_0.62px,transparent_0.62px)] [background-size:6px_6px]"
@@ -103,7 +103,7 @@ const About = () => {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)] gap-8 lg:gap-10 items-stretch">
             {/* Left Column: Flowing Personal Narrative */}
             <div className="flex min-w-0 flex-col justify-center">
-              {/* Minimalist Profile Pills (Ohshin Style) */}
+              {/* Minimalist Profile Pills */}
               <div className="mb-6 flex flex-wrap gap-2 font-mono text-[0.56rem] uppercase tracking-[0.22em] text-white/46">
                 {ABOUT_TAGS.map((item) => (
                   <span
@@ -179,7 +179,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* 2-Column Side-by-Side Shelves (Ohshin Style: Playlists Left, Books Right) */}
+        {/* 2-Column Side-by-Side Shelves (Playlists Left, Books Right) */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}

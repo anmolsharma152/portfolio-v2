@@ -84,7 +84,7 @@ export const Navigation: React.FC = () => {
       data-site-nav
     >
       <div className="pointer-events-auto relative max-w-[calc(100vw-1rem)] overflow-hidden rounded-full border border-white/14 bg-[rgba(10,12,17,0.42)] p-1 shadow-nav-glass backdrop-blur-2xl sm:max-w-full sm:p-1.5">
-        {/* Physical 3D Glass Specular Highlight from ohshin-site */}
+        {/* Physical 3D Glass Specular Highlight */}
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.045)_42%,rgba(0,0,0,0.12))]"

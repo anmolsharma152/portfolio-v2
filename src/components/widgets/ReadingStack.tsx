@@ -29,7 +29,7 @@ export const ReadingStack: React.FC = () => {
       />
 
       <div>
-        {/* Header Row (Ohshin Style) */}
+        {/* Header Row */}
         <div className="flex items-end justify-between gap-4 border-b border-white/12 pb-4 mb-5">
           <div>
             <p className="font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.24em] text-white/46 mb-1">
@@ -44,7 +44,7 @@ export const ReadingStack: React.FC = () => {
           </span>
         </div>
 
-        {/* 2-Column Book Grid Matching Ohshin Pattern */}
+        {/* 2-Column Book Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
           {booksWithImages.map((book) => (
             <article
