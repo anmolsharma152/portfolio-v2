@@ -5,13 +5,24 @@
     "company": "The Bullseye",
     "period": "04/2024 – Present",
     "location": "Jaipur, India",
-    "summary": "Engineering agency workflow automation, multimodal generative AI pipelines, and dynamic marketing intelligence systems.",
+    "summary": "Architecting enterprise automated data pipelines, growth automation systems, and dynamic LLM reporting backends.",
     "highlights": [
-      "Architected end-to-end agency automation pipelines across n8n, Zapier, and Make for automated multi-channel lead capture, CRM enrichment, and client onboarding.",
-      "Engineered multimodal AI pipelines leveraging Claude, OpenAI, and Cursor alongside image generation (Flux, Midjourney) and video production models (Runway, Kling) to automate creative asset generation.",
-      "Automated cross-channel marketing intelligence and executive client performance digests, cutting manual turnaround by 65%."
+      "Architected automated Python and SQL ETL/ELT pipelines across 10+ B2B SaaS client accounts, aggregating cross-channel attribution and onboarding metrics into PostgreSQL with 99.5% pipeline reliability.",
+      "Engineered multi-stage growth automation workflows using n8n, Zapier, and enterprise REST webhooks, automating LinkedIn lead capture, email sequencing pipelines, and bidirectional CRM synchronization.",
+      "Developed LLM-driven reporting pipelines (FastAPI, Groq/OpenAI APIs) integrated with n8n to dynamically synthesize weekly client performance digests, cutting manual reporting turnaround by 65%."
     ],
-    "techBadges": ["Claude", "OpenAI", "Cursor", "Image Gen (Flux / Midjourney)", "Video AI (Runway / Kling)", "n8n", "Zapier", "Marketing Automation", "Python", "FastAPI"],
+    "techBadges": [
+      "Python",
+      "PostgreSQL",
+      "ETL/ELT Pipelines",
+      "n8n",
+      "Zapier",
+      "Webhooks",
+      "FastAPI",
+      "OpenAI API",
+      "Groq",
+      "SQL"
+    ],
     "featured": true,
     "sortOrder": 1
   },
@@ -21,12 +32,19 @@
     "company": "Teleperformance",
     "period": "06/2023 – 03/2024",
     "location": "Jaipur, India",
-    "summary": "Enterprise technical support, system diagnostics, and security troubleshooting under strict SLAs.",
+    "summary": "Enterprise technical support, database transaction verification, structured log analysis, and system diagnostics under strict enterprise SLAs.",
     "highlights": [
-      "Delivered voice technical support, security troubleshooting, and diagnostic resolution for enterprise clients (Norton / Microsoft).",
-      "Trained on enterprise security client SOPs, system diagnostic workflows, and SLA metrics."
+      "Delivered enterprise technical support across 9.5-hour shifts handling software troubleshooting, client security SOPs (Norton / Microsoft), and system diagnostics under strict enterprise SLA targets.",
+      "Utilized SQL queries and structured log analysis to diagnose system anomalies, verify database transactions, triage application errors, and escalate complex edge cases within enterprise escalation frameworks."
     ],
-    "techBadges": ["System Diagnostics", "Windows Security", "Enterprise SOPs", "SLA Management"],
+    "techBadges": [
+      "SQL",
+      "Structured Log Analysis",
+      "System Diagnostics",
+      "Enterprise SLAs",
+      "Software Troubleshooting",
+      "Security SOPs"
+    ],
     "featured": true,
     "sortOrder": 2
   }

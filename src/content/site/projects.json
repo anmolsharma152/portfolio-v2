@@ -1,8 +1,9 @@
 [
   {
     "id": "CodexEngine",
-    "title": "CodexEngine v4/v5",
-    "summary": "Deployed a production document intelligence platform (codex-engine.vercel.app) on LangGraph state machines with multi-tenant pgvector search, streaming SSE responses, and automated golden dataset faithfulness regression testing.",
+    "title": "CodexEngine",
+    "subtitle": "Document Intelligence & Production RAG",
+    "summary": "Deployed a production document intelligence platform (codex-engine.vercel.app) on LangGraph state machines featuring multi-tenant pgvector search, streaming SSE responses, and automated golden dataset faithfulness regression testing.",
     "tech": ["Python", "LangGraph", "FastAPI", "Next.js", "pgvector", "LangSmith", "RAGAS"],
     "githubUrl": "https://github.com/anmolsharma152/CodexEngine",
     "liveUrl": "https://codex-engine.vercel.app",
@@ -11,52 +12,57 @@
     "category": "ai-agent"
   },
   {
-    "id": "Fine-tuning-Sarvam-1",
-    "title": "Sarvam-1 QLoRA Fine-Tuning",
-    "summary": "Distilled a 10K multilingual instruction corpus from Nemotron-49B teacher model; engineered SFTTrainer pipeline using 4-bit NF4 QLoRA (r=16, alpha=32) with completion loss masking and dual-engine FastAPI/vLLM serving.",
-    "tech": ["Python", "PyTorch", "QLoRA (NF4)", "PEFT", "SFTTrainer", "vLLM", "Synthetic Data"],
-    "githubUrl": "https://github.com/anmolsharma152/Fine-tuning-Sarvam-1",
-    "liveUrl": null,
-    "featured": true,
-    "sortOrder": 2,
-    "category": "ml-vision"
-  },
-  {
-    "id": "AlgoDeck",
-    "title": "AlgoDeck Learning Workstation",
-    "summary": "Built a full-stack learning workstation featuring a dual-pane VS Code Monaco IDE, isolated subprocess execution sandbox (5s kill timeout, 512KB buffer limit), PostgreSQL 16 connection pooling, and automated test suites.",
-    "tech": ["Node.js", "Express", "PostgreSQL 16", "Docker Compose", "Monaco IDE", "Sandbox"],
-    "githubUrl": "https://github.com/anmolsharma152/AlgoDeck",
-    "liveUrl": null,
-    "featured": true,
-    "sortOrder": 3,
-    "category": "platform"
-  },
-  {
-    "id": "Nimbus",
-    "title": "Nimbus Cloud Agent Platform",
-    "summary": "Autonomous cloud software engineering agent platform featuring a trusted control plane, disposable cloud Docker/MicroVM sandboxes, real-time WebSockets, and GitHub App credential brokering.",
-    "tech": ["Python", "FastAPI", "LangGraph", "Docker", "WebSockets", "GitHub API", "MicroVM Isolation"],
-    "githubUrl": "https://github.com/anmolsharma152/Nimbus",
-    "liveUrl": null,
-    "featured": true,
-    "sortOrder": 4,
-    "category": "ai-agent"
-  },
-  {
     "id": "commerce_cortex",
     "title": "commerce_cortex",
-    "summary": "Built a containerized commerce backend featuring LangGraph state machine routing, PostgreSQL transactional checkpoints, Human-in-the-Loop approval gates, and 3-tier LLMOps observability with distributed execution tracing.",
-    "tech": ["Python", "FastAPI", "LangGraph", "PostgreSQL", "Docker Compose", "Langfuse"],
+    "subtitle": "Distributed Multi-Agent Transactional Orchestration Engine",
+    "summary": "Engineered a containerized multi-agent commerce backend featuring LangGraph state routing, PostgreSQL transactional checkpoints, Human-in-the-Loop approval gates, and 3-tier observability with OpenTelemetry and Langfuse distributed tracing.",
+    "tech": ["Python", "FastAPI", "LangGraph", "PostgreSQL", "Docker Compose", "Langfuse", "OpenTelemetry"],
     "githubUrl": "https://github.com/anmolsharma152/commerce_cortex",
     "liveUrl": null,
     "featured": true,
-    "sortOrder": 5,
+    "sortOrder": 2,
     "category": "ai-agent"
+  },
+  {
+    "id": "Nimbus",
+    "title": "Nimbus",
+    "subtitle": "Autonomous Developer Agent & Sandbox Control Plane",
+    "summary": "Engineered a multi-tenant autonomous coding agent platform featuring a trusted control plane, disposable Docker/MicroVM sandbox workspaces, real-time WebSocket event streams, and short-lived GitHub App credential brokering.",
+    "tech": ["Python", "FastAPI", "LangGraph", "Docker", "WebSockets", "GitHub API"],
+    "githubUrl": "https://github.com/anmolsharma152/Nimbus",
+    "liveUrl": null,
+    "featured": true,
+    "sortOrder": 3,
+    "category": "ai-agent"
+  },
+  {
+    "id": "AlgoDeck",
+    "title": "AlgoDeck",
+    "subtitle": "Full-Stack Workstation & Sandboxed Execution Runner",
+    "summary": "Built a full-stack developer learning workstation featuring a dual-pane VS Code Monaco IDE, isolated subprocess execution sandbox (5s kill timeout, 512KB buffer limit), PostgreSQL 16 connection pooling, and automated test harness.",
+    "tech": ["Node.js", "Express", "PostgreSQL 16", "Docker Compose", "Monaco IDE"],
+    "githubUrl": "https://github.com/anmolsharma152/AlgoDeck",
+    "liveUrl": "https://algodeck.vercel.app",
+    "featured": true,
+    "sortOrder": 4,
+    "category": "platform"
+  },
+  {
+    "id": "Fine-tuning-Sarvam-1",
+    "title": "Sarvam-1 QLoRA Fine-Tuning",
+    "subtitle": "Multilingual Parameter-Efficient Fine-Tuning",
+    "summary": "Distilled a 10K multilingual instruction corpus from Nemotron-49B teacher model; engineered SFTTrainer pipeline using 4-bit NF4 QLoRA (r=16, alpha=32) with completion loss masking and dual-engine FastAPI/vLLM serving.",
+    "tech": ["Python", "PyTorch", "QLoRA (NF4)", "PEFT", "SFTTrainer", "vLLM"],
+    "githubUrl": "https://github.com/anmolsharma152/Fine-tuning-Sarvam-1",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 5,
+    "category": "ml-vision"
   },
   {
     "id": "Disha",
     "title": "Disha Multi-Agent Intelligence",
+    "subtitle": "Personal Intelligence & Evaluation Swarm",
     "summary": "Production-grade agentic Personal Intelligence platform with LLM resume evaluation, cyclic supervisor routing, SSRF protection, and pgvector long-term memory.",
     "tech": ["Python", "LangGraph", "FastAPI", "PostgreSQL", "pgvector", "Next.js"],
     "githubUrl": "https://github.com/anmolsharma152/Disha",
@@ -68,6 +74,7 @@
   {
     "id": "vad_processor",
     "title": "vad_processor",
+    "subtitle": "Edge DSP & Voice Activity Detection",
     "summary": "Real-time client-side Voice Activity Detection built with Rust, WebAssembly, and ONNX Runtime for sub-150ms speech pipeline integration.",
     "tech": ["Rust", "WASM", "ONNX Runtime", "Silero VAD", "Audio DSP"],
     "githubUrl": "https://github.com/anmolsharma152/vad_processor",
@@ -79,6 +86,7 @@
   {
     "id": "Aura",
     "title": "Aura Edge Biometrics",
+    "subtitle": "Decoupled Linux PAM & Biometrics Daemon",
     "summary": "Privacy-focused edge Linux biometric authentication daemon decoupled via Unix domain sockets and custom PAM security modules.",
     "tech": ["C", "Rust", "Linux PAM", "Unix Sockets", "Security"],
     "githubUrl": "https://github.com/anmolsharma152/Aura",

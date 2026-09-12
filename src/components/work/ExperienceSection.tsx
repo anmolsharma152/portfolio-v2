@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, Briefcase, Award } from 'lucide-react';
+import React, { useState } from 'react';
+
 import GlassSheen from '@/components/widgets/GlassSheen';
 import { workExperienceContent, educationContent } from '@/content/loaders';
 
@@ -92,10 +93,7 @@ export default function ExperienceSection() {
               className="space-y-4"
             >
               {workExperienceContent.map((exp) => (
-                <article
-                  key={exp.id}
-                  className="work-card p-5 sm:p-6"
-                >
+                <article key={exp.id} className="work-card p-5 sm:p-6">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
                   <div
                     aria-hidden="true"
@@ -148,10 +146,7 @@ export default function ExperienceSection() {
               className="space-y-4"
             >
               {educationContent.map((edu) => (
-                <article
-                  key={edu.id}
-                  className="work-card p-5 sm:p-6"
-                >
+                <article key={edu.id} className="work-card p-5 sm:p-6">
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
                   <div
                     aria-hidden="true"
@@ -167,14 +162,26 @@ export default function ExperienceSection() {
                   <h3 className="font-mono text-base sm:text-lg font-bold text-white mb-0.5 tracking-tight">
                     {edu.degree}
                   </h3>
-                  <p className="font-mono text-xs sm:text-sm text-white/80 mb-2.5 font-semibold">
+                  <p className="font-mono text-xs sm:text-sm text-white/80 mb-1 font-semibold">
                     {edu.institution}
                   </p>
+                  {edu.division && (
+                    <p className="font-mono text-[11px] sm:text-xs text-emerald-400/90 mb-2 font-medium">
+                      {edu.division}
+                    </p>
+                  )}
 
                   {edu.description && (
-                    <p className="font-mono text-xs sm:text-[0.84rem] text-white/80 leading-relaxed mb-3.5">
+                    <p className="font-mono text-xs sm:text-[0.84rem] text-white/80 leading-relaxed mb-2.5">
                       {edu.description}
                     </p>
+                  )}
+
+                  {edu.curriculum && (
+                    <div className="mb-3 rounded-lg border border-white/8 bg-white/[0.03] p-2.5 font-mono text-[11px] text-white/70 leading-relaxed">
+                      <span className="text-white/90 font-semibold">Curriculum: </span>
+                      <span>{edu.curriculum}</span>
+                    </div>
                   )}
 
                   {edu.honors && edu.honors.length > 0 && (
@@ -192,6 +199,32 @@ export default function ExperienceSection() {
                   )}
                 </article>
               ))}
+
+              {/* Dedicated Honors & Leadership Card */}
+              <article className="work-card p-5 sm:p-6">
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
+                />
+                <div className="flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-wider text-white/60">
+                  <Award className="w-4 h-4 text-emerald-400" />
+                  <span className="text-white font-bold">Honors &amp; Leadership</span>
+                </div>
+                <div className="space-y-2.5 font-mono text-xs sm:text-[0.82rem] text-white/85">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-0.5 select-none font-bold">▹</span>
+                    <span>
+                      Director&apos;s Certificate of Appreciation, Student Council, Symbiosis School
+                      for Liberal Arts (SSLA), Pune
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-400 mt-0.5 select-none font-bold">▹</span>
+                    <span>NTSE Scholar, National Talent Search Examination</span>
+                  </div>
+                </div>
+              </article>
             </motion.div>
           )}
         </AnimatePresence>

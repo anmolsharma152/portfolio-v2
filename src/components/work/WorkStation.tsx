@@ -1,13 +1,14 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
-import WorkHeader from '@/components/work/WorkHeader';
-import DeliverablesSection from '@/components/work/DeliverablesSection';
+import React from 'react';
+
 import TechStackSection from '@/components/widgets/TechStackSection';
+import DeliverablesSection from '@/components/work/DeliverablesSection';
 import ExperienceSection from '@/components/work/ExperienceSection';
 import ProjectsSection from '@/components/work/ProjectsSection';
 import ReachOutSection from '@/components/work/ReachOutSection';
+import WorkHeader from '@/components/work/WorkHeader';
 
 const containerVariants = {
   hidden: { opacity: 0 },

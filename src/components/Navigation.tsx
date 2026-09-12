@@ -4,13 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  FaRegEnvelope,
-  FaXTwitter,
-} from 'react-icons/fa6';
+import { FaGithub, FaInstagram, FaLinkedinIn, FaRegEnvelope, FaXTwitter } from 'react-icons/fa6';
 
 const ALEX_SKIN_URL =
   'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/entity/player/slim/alex.png';

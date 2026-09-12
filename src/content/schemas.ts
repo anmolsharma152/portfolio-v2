@@ -2,6 +2,17 @@ import { z } from 'zod';
 
 export const HeroContentSchema = z.object({
   name: z.string().min(1),
+  targetRole: z.string().optional(),
+  tagline: z.string().optional(),
+  location: z.string().optional(),
+  contact: z
+    .object({
+      email: z.string().email().optional(),
+      phone: z.string().optional(),
+      github: z.string().optional(),
+      linkedin: z.string().optional(),
+    })
+    .optional(),
   headlinePrefix: z.string().min(1),
   headlineGradient: z.string().min(1),
   headlineSuffix: z.string().min(1),
@@ -55,9 +66,11 @@ export const EducationItemSchema = z.object({
   id: z.string().min(1),
   degree: z.string().min(1),
   institution: z.string().min(1),
+  division: z.string().optional(),
   period: z.string().min(1),
   grade: z.string().min(1),
   description: z.string().optional(),
+  curriculum: z.string().optional(),
   honors: z.array(z.string()).optional(),
   sortOrder: z.number().int().nonnegative(),
 });
@@ -65,6 +78,7 @@ export const EducationItemSchema = z.object({
 export const CuratedProjectSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
+  subtitle: z.string().optional(),
   summary: z.string().min(1),
   tech: z.array(z.string().min(1)).min(1),
   githubUrl: z.string().url(),
@@ -138,6 +152,7 @@ export const ContactContentSchema = z.object({
   sectionTitle: z.string().min(1),
   sectionSubtitle: z.string().min(1),
   email: z.string().email(),
+  phone: z.string().optional(),
   location: z.string().min(1),
   lanes: z.array(ContactLaneSchema).min(1),
   offerings: z.array(z.string().min(1)).min(1),

@@ -1,9 +1,10 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import DecryptedText from './widgets/DecryptedText';
+import { heroContent } from '@/content/loaders';
 
 export const Hero = () => {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -18,6 +19,15 @@ export const Hero = () => {
   const textY = useTransform(scrollYProgress, [0, 0.82], [0, -172]);
   const textFilter = useTransform(scrollYProgress, [0, 0.74], ['blur(0px)', 'blur(10px)']);
   const textOpacity = useTransform(scrollYProgress, [0, 0.68], [1, 0]);
+
+  const [titleIndex, setTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTitleIndex((prev) => (prev + 1) % heroContent.typewriterTitles.length);
+    }, 3800);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section
@@ -38,7 +48,7 @@ export const Hero = () => {
             y: imageY,
           }}
         />
-        {/* Soft Night Window Scrim: Shates the central bright window to deep night sky for supreme contrast */}
+        {/* Soft Night Window Scrim */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 h-80 w-[min(94vw,54rem)] rounded-[50%] bg-[#080d1a]/70 blur-[54px]"
@@ -86,22 +96,43 @@ export const Hero = () => {
               </h1>
             </div>
 
-            {/* Terminal Status Subtitle Pill for 100% Contrast & Developer Feel */}
+            {/* Terminal Status Subtitle Pill with Rotating Titles */}
             <div className="mt-5 flex items-center justify-center sm:mt-7">
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/65 px-5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.7)] backdrop-blur-md">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/65 px-5 py-2 shadow-[0_8px_24px_rgba(0,0,0,0.7)] backdrop-blur-md min-h-[2.5rem]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
-                <p className="font-mono text-xs font-medium tracking-[0.2em] text-neutral-200 uppercase sm:text-sm">
+                <p className="font-mono text-xs font-medium tracking-[0.16em] sm:tracking-[0.2em] text-neutral-200 uppercase sm:text-sm">
                   <DecryptedText
-                    text="engineer // researcher // builder"
-                    speed={45}
+                    key={titleIndex}
+                    text={heroContent.typewriterTitles[titleIndex].toLowerCase()}
+                    speed={35}
                     sequential
                     animateOn="view"
                     encryptedClassName="text-white/40"
                   />
                 </p>
+              </div>
+            </div>
+
+            {/* Hero Tagline & Context */}
+            <div className="mt-4 flex flex-col items-center gap-2">
+              <p className="font-mono text-xs sm:text-[0.92rem] text-neutral-300/90 tracking-wide max-w-xl mx-auto [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">
+                Building Low-Latency AI Infra &amp; Stateful Multi-Agent Backends
+              </p>
+              <div className="flex items-center gap-3 font-mono text-[11px] text-white/50 pt-1">
+                <span>Jaipur, India</span>
+                <span className="text-white/30">•</span>
+                <a
+                  href="/resume.pdf"
+                  download="Anmol_Sharma_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white underline underline-offset-4 transition-colors cursor-pointer"
+                >
+                  Download Master Resume
+                </a>
               </div>
             </div>
           </motion.div>

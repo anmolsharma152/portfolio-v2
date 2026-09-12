@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
 import { ArrowUpRight, Download } from 'lucide-react';
+import React from 'react';
+
 import GlassSheen from '@/components/widgets/GlassSheen';
 
 export default function ReachOutSection() {
@@ -32,12 +33,14 @@ export default function ReachOutSection() {
             open channels
           </p>
           <h2 className="font-doto text-[clamp(3rem,13vw,7.5rem)] font-black uppercase leading-[0.82] tracking-tighter text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.30)]">
-            reach<br />out
+            reach
+            <br />
+            out
           </h2>
         </div>
         <p className="max-w-[58ch] font-mono text-[0.82rem] leading-7 text-white/70 sm:text-[0.9rem] lg:justify-self-end">
-          Whether you are looking to collaborate, hire for AI systems, seek architecture advice,
-          or simply start a conversation, choose the channel that matches your intent.
+          Whether you are looking to collaborate, hire for AI systems, seek architecture advice, or
+          simply start a conversation, choose the channel that matches your intent.
         </p>
       </div>
 
@@ -45,7 +48,10 @@ export default function ReachOutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6">
         {/* Channel 01: Team */}
         <article className="work-card p-6 sm:p-7 flex flex-col justify-between">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20"
+          />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
@@ -74,7 +80,9 @@ export default function ReachOutSection() {
                   </a>
                   <a
                     href="/resume.pdf"
-                    download
+                    download="Anmol_Sharma_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-mono text-[0.66rem] sm:text-xs font-bold uppercase tracking-[0.16em] text-black shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-neutral-200 transition-all hover:scale-105 cursor-pointer"
                   >
                     <span>get resume</span>
@@ -107,7 +115,10 @@ export default function ReachOutSection() {
 
         {/* Channel 02: Advisory / Contract */}
         <article className="work-card p-6 sm:p-7 flex flex-col justify-between">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20"
+          />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
@@ -138,7 +149,10 @@ export default function ReachOutSection() {
 
         {/* Channel 03: Casual DM */}
         <article className="work-card p-6 sm:p-7 flex flex-col justify-between">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20"
+          />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
