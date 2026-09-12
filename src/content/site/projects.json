@@ -94,5 +94,53 @@
     "featured": false,
     "sortOrder": 8,
     "category": "systems"
+  },
+  {
+    "id": "Scholar-Loop",
+    "title": "Scholar-Loop",
+    "subtitle": "Spaced-Repetition Agent & FSRS Scheduler",
+    "summary": "Personal spaced-repetition agent executing FSRS-scheduled Learn + Quiz loops daily via Resend across System Design, ML, and DSA.",
+    "tech": ["Python", "FSRS", "FastAPI", "PostgreSQL", "Resend API"],
+    "githubUrl": "https://github.com/anmolsharma152/Scholar-Loop",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 9,
+    "category": "ai-agent"
+  },
+  {
+    "id": "RecSys_RL",
+    "title": "RecSys_RL",
+    "subtitle": "Reinforcement Learning Recommendation Environment",
+    "summary": "Reinforcement learning environments and policy gradient agents engineered for adaptive user personalization and sequential recommendation.",
+    "tech": ["Python", "PyTorch", "Gymnasium", "RL", "NumPy"],
+    "githubUrl": "https://github.com/anmolsharma152/RecSys_RL",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 10,
+    "category": "ml-vision"
+  },
+  {
+    "id": "wikirag",
+    "title": "wikirag",
+    "subtitle": "Offline FAISS Retrieval Engine",
+    "summary": "Lightweight, fully offline retrieval-augmented generation engine operating over Wikipedia dumps using RoBERTa embeddings and FAISS index.",
+    "tech": ["Python", "FAISS", "RoBERTa", "Hugging Face", "Vector Search"],
+    "githubUrl": "https://github.com/anmolsharma152/wikirag",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 11,
+    "category": "ai-agent"
+  },
+  {
+    "id": "promptcraft-lab",
+    "title": "promptcraft-lab",
+    "subtitle": "Systematic Prompt Engineering & Evaluation Benchmarks",
+    "summary": "Research-grade instrument to systematically benchmark prompt architectures, reasoning chains, and structured outputs across LLM providers.",
+    "tech": ["Python", "LLM Evals", "Prompt Engineering", "OpenAI", "Anthropic"],
+    "githubUrl": "https://github.com/anmolsharma152/promptcraft-lab",
+    "liveUrl": null,
+    "featured": false,
+    "sortOrder": 12,
+    "category": "platform"
   }
 ]
