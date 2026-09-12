@@ -2,22 +2,27 @@
 
 import React from 'react';
 import { FaAws, FaDatabase } from 'react-icons/fa6';
+import { RiOpenaiFill } from 'react-icons/ri';
 import {
+  SiClaude,
   SiDocker,
-  SiExpo,
   SiFastapi,
   SiFigma,
-  SiFramer,
-  SiGithubactions,
+  SiGithub,
   SiGooglecloud,
   SiGraphql,
   SiHuggingface,
   SiKubernetes,
   SiLangchain,
+  SiLanggraph,
   SiLinux,
+  SiN8N,
+  SiNeo4J,
   SiNextdotjs,
   SiNvidia,
+  SiOllama,
   SiOnnx,
+  SiOpentelemetry,
   SiPostgresql,
   SiPytorch,
   SiQdrant,
@@ -28,6 +33,7 @@ import {
   SiTypescript,
   SiVite,
   SiVllm,
+  SiPython,
 } from 'react-icons/si';
 
 import GlassSheen from './GlassSheen';
@@ -41,46 +47,43 @@ export interface TechStackItem {
 
 const ROW_1_ITEMS: TechStackItem[] = [
   { id: 'pytorch', label: 'PyTorch', accent: true },
-  { id: 'cuda', label: 'CUDA', accent: true },
-  { id: 'tensorrt', label: 'TensorRT-LLM', accent: true },
+  { id: 'langgraph', label: 'LangGraph', accent: true },
+  { id: 'openai', label: 'OpenAI', accent: true },
+  { id: 'claude', label: 'Claude', accent: true },
+  { id: 'ollama', label: 'Ollama', accent: true },
+  { id: 'huggingface', label: 'Hugging Face', accent: true },
   { id: 'vllm', label: 'vLLM', accent: true },
   { id: 'onnx', label: 'ONNX Runtime', accent: true },
-  { id: 'huggingface', label: 'Hugging Face', accent: true },
-  { id: 'qlora', label: 'PEFT / QLoRA', accent: true },
-  { id: 'rag', label: 'Agentic RAG', accent: true },
-  { id: 'langgraph', label: 'LangGraph', accent: true },
-  { id: 'agents', label: 'Multi-Agent Systems', accent: true },
   { id: 'mcp', label: 'MCP Protocol', accent: true },
   { id: 'python', label: 'Python', accent: true },
   { id: 'rust', label: 'Rust', accent: true },
   { id: 'linux', label: 'Linux PAM', accent: true },
-  { id: 'gcp', label: 'Google Cloud (GCP)', accent: true },
+  { id: 'gcp', label: 'Google Cloud', accent: true },
   { id: 'aws', label: 'AWS', accent: true },
-  { id: 'graphql', label: 'GraphQL', accent: false },
-  { id: 'spline', label: 'Spline', accent: false },
+  { id: 'cuda', label: 'CUDA', accent: true },
+  { id: 'tensorrt', label: 'TensorRT-LLM', accent: true },
 ];
 
 const ROW_2_ITEMS: TechStackItem[] = [
   { id: 'docker', label: 'Docker', accent: true },
   { id: 'kubernetes', label: 'Kubernetes', accent: true },
   { id: 'n8n', label: 'n8n Automation', accent: true },
-  { id: 'sql', label: 'SQL', accent: true },
   { id: 'postgres', label: 'PostgreSQL / pgvector', accent: true },
   { id: 'qdrant', label: 'Qdrant Vector DB', accent: true },
   { id: 'redis', label: 'Redis Semantic Cache', accent: true },
-  { id: 'langfuse', label: 'LangSmith / Langfuse', accent: true },
-  { id: 'ragas', label: 'RAGAS Evals', accent: true },
+  { id: 'opentelemetry', label: 'OpenTelemetry', accent: true },
+  { id: 'langchain', label: 'LangChain', accent: true },
   { id: 'fastapi', label: 'FastAPI', accent: true },
+  { id: 'neo4j', label: 'Neo4j GraphRAG', accent: true },
+  { id: 'sql', label: 'SQL', accent: true },
   { id: 'nextjs', label: 'Next.js', accent: true },
   { id: 'typescript', label: 'TypeScript', accent: true },
   { id: 'react', label: 'React', accent: true },
-  { id: 'react-native', label: 'React Native', accent: true },
-  { id: 'expo', label: 'Expo', accent: false },
   { id: 'tailwind', label: 'Tailwind CSS', accent: true },
+  { id: 'github', label: 'GitHub', accent: true },
+  { id: 'graphql', label: 'GraphQL', accent: false },
   { id: 'vite', label: 'Vite', accent: false },
-  { id: 'github', label: 'GitHub CI/CD', accent: true },
-  { id: 'figma', label: 'Figma', accent: true },
-  { id: 'framer', label: 'Framer', accent: false },
+  { id: 'figma', label: 'Figma', accent: false },
 ];
 
 function TechMark({ id }: { id: string }) {
@@ -89,6 +92,58 @@ function TechMark({ id }: { id: string }) {
   switch (id) {
     case 'pytorch':
       return <SiPytorch className={iconClass} />;
+    case 'langgraph':
+      return <SiLanggraph className={iconClass} />;
+    case 'openai':
+      return <RiOpenaiFill className={iconClass} />;
+    case 'claude':
+      return <SiClaude className={iconClass} />;
+    case 'ollama':
+      return <SiOllama className={iconClass} />;
+    case 'huggingface':
+      return <SiHuggingface className={iconClass} />;
+    case 'vllm':
+      return <SiVllm className={iconClass} />;
+    case 'onnx':
+      return <SiOnnx className={iconClass} />;
+    case 'mcp':
+      return (
+        <svg
+          className={iconClass}
+          viewBox="0 0 180 180"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23.6 85.3L86.2 22.7c8.6-8.6 22.7-8.6 31.3 0s8.6 22.7 0 31.3L70.2 101.2"
+            stroke="currentColor"
+            strokeWidth="15"
+            strokeLinecap="round"
+          />
+          <path
+            d="M70.9 100.6L117.5 54c8.6-8.6 22.7-8.6 31.3 0l0.3 0.3c8.6 8.6 8.6 22.7 0 31.3l-56.6 56.6c-2.9 2.9-2.9 7.6 0 10.4l11.6 11.7"
+            stroke="currentColor"
+            strokeWidth="15"
+            strokeLinecap="round"
+          />
+          <path
+            d="M101.9 38.3L55.6 84.6c-8.6 8.6-8.6 22.7 0 31.3s22.7 8.6 31.3 0L133.2 69.6"
+            stroke="currentColor"
+            strokeWidth="15"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case 'python':
+      return <SiPython className={iconClass} />;
+    case 'rust':
+      return <SiRust className={iconClass} />;
+    case 'linux':
+      return <SiLinux className={iconClass} />;
+    case 'gcp':
+      return <SiGooglecloud className={iconClass} />;
+    case 'aws':
+      return <FaAws className={iconClass} />;
     case 'cuda':
       return <SiNvidia className={iconClass} />;
     case 'tensorrt':
@@ -105,124 +160,44 @@ function TechMark({ id }: { id: string }) {
           <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
         </svg>
       );
-    case 'vllm':
-      return <SiVllm className={iconClass} />;
-    case 'onnx':
-      return <SiOnnx className={iconClass} />;
-    case 'huggingface':
-      return <SiHuggingface className={iconClass} />;
-    case 'qlora':
-      return (
-        <svg
-          className={iconClass}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <rect x="3" y="3" width="7" height="7" rx="1.5" />
-          <rect x="14" y="3" width="7" height="7" rx="1.5" />
-          <rect x="8.5" y="14" width="7" height="7" rx="1.5" />
-          <path d="M6.5 10v2a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" />
-        </svg>
-      );
-    case 'rag':
-      return (
-        <svg
-          className={iconClass}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <circle cx="11" cy="11" r="7" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          <line x1="11" y1="8" x2="11" y2="14" />
-          <line x1="8" y1="11" x2="14" y2="11" />
-        </svg>
-      );
-    case 'agents':
-      return (
-        <svg
-          className={iconClass}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <circle cx="12" cy="5" r="3" />
-          <circle cx="5" cy="19" r="3" />
-          <circle cx="19" cy="19" r="3" />
-          <line x1="12" y1="8" x2="5" y2="16" />
-          <line x1="12" y1="8" x2="19" y2="16" />
-          <line x1="8" y1="19" x2="16" y2="19" />
-        </svg>
-      );
-    case 'langgraph':
-      return <SiLangchain className={iconClass} />;
-    case 'python':
-      return (
-        <svg className={iconClass} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M11.91 0c-3.13 0-5.02.32-6.19 1.39C4.6 2.41 4.5 3.93 4.5 5.86V8.1h7.55v1.07H2.82C1.48 9.17.41 10.3.16 11.69c-.31 1.74-.32 3.42 0 5.16.23 1.25 1.13 2.19 2.37 2.39.99.16 2.05.26 3.16.26v-2.82c0-1.84.82-3.48 2.34-4.22 1.34-.66 2.87-.7 4.29-.11 1.23.51 2.08 1.69 2.08 3.03v2.85h1.89c1.94 0 3.45-.1 4.47-1.22 1.07-1.17 1.39-3.06 1.39-6.19v-2.7h-7.55V8.1h9.23c1.34 0 2.41-1.13 2.66-2.52.31-1.74.32-3.42 0-5.16-.23-1.25-1.13-2.19-2.37-2.39C20.14.32 16.03 0 11.91 0zM8.36 2.53a1.18 1.18 0 110 2.36 1.18 1.18 0 010-2.36z" />
-          <path d="M12.09 24c3.13 0 5.02-.32 6.19-1.39 1.12-1.02 1.22-2.54 1.22-4.47v-2.24h-7.55v-1.07h9.23c1.34 0 2.41-1.13 2.66-2.52.31-1.74.32-3.42 0-5.16-.23-1.25-1.13-2.19-2.37-2.39-.99-.16-2.05-.26-3.16-.26v2.82c0 1.84-.82 3.48-2.34 4.22-1.34.66-2.87.7-4.29.11-1.23-.51-2.08-1.69-2.08-3.03V5.82H7.63c-1.94 0-3.45.1-4.47 1.22C2.09 8.21 1.77 10.1 1.77 13.23v2.7h7.55v1.07H.09c-1.34 0-2.41 1.13-2.66 2.52-.31 1.74-.32 3.42 0 5.16.23 1.25 1.13 2.19 2.37 2.39 1.99.29 6.1.53 12.29.53zm3.55-2.53a1.18 1.18 0 110-2.36 1.18 1.18 0 010 2.36z" />
-        </svg>
-      );
-    case 'rust':
-      return <SiRust className={iconClass} />;
-    case 'linux':
-      return <SiLinux className={iconClass} />;
-    case 'gcp':
-      return <SiGooglecloud className={iconClass} />;
     case 'docker':
       return <SiDocker className={iconClass} />;
     case 'kubernetes':
       return <SiKubernetes className={iconClass} />;
-    case 'sql':
-      return <FaDatabase className={iconClass} />;
-    case 'fastapi':
-      return <SiFastapi className={iconClass} />;
+    case 'n8n':
+      return <SiN8N className={iconClass} />;
     case 'postgres':
       return <SiPostgresql className={iconClass} />;
     case 'qdrant':
       return <SiQdrant className={iconClass} />;
     case 'redis':
       return <SiRedis className={iconClass} />;
+    case 'opentelemetry':
+      return <SiOpentelemetry className={iconClass} />;
+    case 'langchain':
+      return <SiLangchain className={iconClass} />;
+    case 'fastapi':
+      return <SiFastapi className={iconClass} />;
+    case 'neo4j':
+      return <SiNeo4J className={iconClass} />;
+    case 'sql':
+      return <FaDatabase className={iconClass} />;
     case 'nextjs':
       return <SiNextdotjs className={iconClass} />;
     case 'typescript':
       return <SiTypescript className={iconClass} />;
     case 'react':
-    case 'react-native':
       return <SiReact className={iconClass} />;
-    case 'expo':
-      return <SiExpo className={iconClass} />;
     case 'tailwind':
       return <SiTailwindcss className={iconClass} />;
     case 'github':
-      return <SiGithubactions className={iconClass} />;
-    case 'aws':
-      return <FaAws className={iconClass} />;
+      return <SiGithub className={iconClass} />;
     case 'graphql':
       return <SiGraphql className={iconClass} />;
-    case 'figma':
-      return <SiFigma className={iconClass} />;
     case 'vite':
       return <SiVite className={iconClass} />;
-    case 'framer':
-      return <SiFramer className={iconClass} />;
-    case 'spline':
-      return (
-        <svg
-          className={iconClass}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
-          <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" />
-        </svg>
-      );
+    case 'figma':
+      return <SiFigma className={iconClass} />;
     default:
       return (
         <span className="grid h-6 min-w-6 place-items-center rounded-md bg-white/12 px-1.5 font-doto text-[0.68rem] font-black uppercase text-white">
