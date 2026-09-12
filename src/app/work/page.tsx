@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
+
 import WorkStation from '@/components/work/WorkStation';
 
 export const metadata: Metadata = {
-  title: 'Work & Systems // Anmol Sharma',
+  title: 'Work & Systems // Anmol Sharma — Agentic AI & Systems Engineer',
   description:
-    'Engineering output, production AI architectures, research models, and career timeline.',
+    'Production AI architectures, stateful multi-agent systems, document intelligence RAG, and engineering career timeline.',
 };
 
 export default function WorkPage() {

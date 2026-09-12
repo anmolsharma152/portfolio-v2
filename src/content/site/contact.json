@@ -2,6 +2,7 @@
   "sectionTitle": "Get In Touch",
   "sectionSubtitle": "Have an engineering challenge, an agent platform to architect, or want to discuss low-latency systems? Reach out through any of the channels below.",
   "email": "anmolsharma152.dev@gmail.com",
+  "phone": "+91-84128-80194",
   "location": "Jaipur, India",
   "lanes": [
     {
@@ -10,7 +11,7 @@
       "title": "Hire for Systems & AI",
       "description": "For high-impact AI systems engineering, stateful multi-agent architectures, PEFT/QLoRA pipelines, and production backend infrastructure.",
       "actionLabel": "Send Message",
-      "actionHref": "#contact-form",
+      "actionHref": "mailto:anmolsharma152.dev@gmail.com?subject=Hiring%20Anmol%20-%20Engineering%20Role",
       "isPrimary": true
     },
     {

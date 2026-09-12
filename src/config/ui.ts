@@ -30,8 +30,7 @@ export const surfaces = {
 };
 
 export const effects = {
-  glassSheen:
-    'pointer-events-none absolute inset-y-0 -z-10 w-1/2 motion-safe:animate-glass-sheen',
+  glassSheen: 'pointer-events-none absolute inset-y-0 -z-10 w-1/2 motion-safe:animate-glass-sheen',
 };
 
 export function staggerDelay(index: number, base: number, step: number) {

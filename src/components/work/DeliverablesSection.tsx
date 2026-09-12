@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
 import { Terminal } from 'lucide-react';
+import React from 'react';
+
 import GlassSheen from '@/components/widgets/GlassSheen';
 import { reachMetricsContent } from '@/content/loaders';
 

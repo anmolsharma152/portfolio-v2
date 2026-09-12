@@ -22,17 +22,17 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Anmol Sharma',
+  title: 'Anmol Sharma | Agentic AI & Systems Engineer',
   description:
-    'Engineering production-grade agentic platforms, sub-150ms voice pipelines, and edge intelligence daemons.',
+    'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. 3+ years experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and production LLMOps.',
   metadataBase: new URL('https://anmolsharma152.vercel.app'),
   other: {
     'msapplication-TileColor': '#000000',
   },
   openGraph: {
-    title: 'Anmol Sharma',
+    title: 'Anmol Sharma | Agentic AI & Systems Engineer',
     description:
-      'Engineering production-grade agentic platforms, sub-150ms voice pipelines, and edge intelligence daemons.',
+      'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. 3+ years experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and production LLMOps.',
     url: 'https://anmolsharma152.vercel.app',
     siteName: 'Anmol Sharma',
     locale: 'en_US',
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anmol Sharma',
+    title: 'Anmol Sharma | Agentic AI & Systems Engineer',
     description:
-      'Engineering production-grade agentic platforms, sub-150ms voice pipelines, and edge intelligence daemons.',
+      'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. 3+ years experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and production LLMOps.',
   },
 };
 
@@ -51,20 +51,32 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Anmol Sharma',
   url: 'https://anmolsharma152.vercel.app',
-  sameAs: ['https://github.com/anmolsharma152', 'https://www.linkedin.com/in/anmolsharma152/'],
-  jobTitle: 'AI Systems Engineer',
+  sameAs: ['https://github.com/anmolsharma152', 'https://linkedin.com/in/anmolsharma152'],
+  jobTitle: 'Agentic AI & Systems Engineer',
+  telephone: '+91-84128-80194',
+  email: 'anmolsharma152.dev@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Jaipur',
+    addressCountry: 'IN',
+  },
   worksFor: {
     '@type': 'Organization',
-    name: 'Independent R&D',
+    name: 'The Bullseye',
   },
   knowsAbout: [
-    'Artificial Intelligence',
-    'Agentic RAG',
+    'Agentic AI',
+    'Multi-Agent Systems',
     'LangGraph',
-    'Low-Latency Voice Systems',
-    'WebAssembly',
+    'Enterprise RAG',
+    'pgvector',
+    'LLMOps',
+    'Langfuse',
+    'LangSmith',
     'FastAPI',
     'Python',
+    'PostgreSQL 16',
+    'Docker',
   ],
 };
 
@@ -100,7 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider>
           <Navigation />
-          <main className="flex-1">{children}</main>
+          <div className="flex-1">{children}</div>
           <Toaster />
         </ThemeProvider>
         <Analytics />

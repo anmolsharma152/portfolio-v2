@@ -1,7 +1,7 @@
 {
   "sectionTitle": "About Me",
   "profileImage": "/images/anmol-profile.jpg",
-  "introText": "AI Engineer with 3+ years of professional experience across AI systems, data pipelines, and technical operations, bridging rigorous systems engineering with analytical research and communication. Experienced in architecting production-grade LangGraph state machines, pgvector semantic search, 4-bit NF4 QLoRA adaptation, Docker containerized microservices, prompt injection guardrails, and automated LLM evaluation harnesses (LangSmith, Langfuse, RAGAS). Graduate of BCA (77.4% First Division) and Minor in AI & Data Science from CCE, IIT Mandi (CGPA 8.44/10).",
+  "introText": "Agentic AI & Systems Engineer with 3+ years of professional experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and fault-tolerant microservices and production LLMOps infrastructure. Adept at building LangGraph cyclic orchestration frameworks with prompt engineering guardrails, pgvector semantic search, and enterprise REST/SSE APIs with automated LLM evaluation harnesses (LangSmith, Langfuse, RAGAS). Graduate of BCA (77.4% First Division) and Minor in AI & Data Science from CCE, IIT Mandi (CGPA 8.44/10).",
   "missionTitle": "My Mission",
   "missionStatement": "To build high-performance, resilient AI systems that eliminate cloud vendor lock-in, deliver sub-150ms real-time interactions, and bring privacy-first agentic intelligence directly to production environments.",
   "capabilities": [

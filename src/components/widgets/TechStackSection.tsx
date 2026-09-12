@@ -248,13 +248,7 @@ function TechPill({ item }: { item: TechStackItem }) {
   );
 }
 
-function TechMarquee({
-  items,
-  reverse = false,
-}: {
-  items: TechStackItem[];
-  reverse?: boolean;
-}) {
+function TechMarquee({ items, reverse = false }: { items: TechStackItem[]; reverse?: boolean }) {
   return (
     <div className="relative overflow-hidden rounded-full border border-white/14 bg-white/[0.04] shadow-[inset_0_2px_8px_rgba(255,255,255,0.04),0_4px_16px_rgba(0,0,0,0.20)]">
       <div
@@ -293,7 +287,9 @@ export const TechStackSection: React.FC = () => {
             stack overload
           </p>
           <h2 className="mt-2 font-doto text-[2rem] font-black uppercase leading-none tracking-tight text-white sm:text-[2.65rem] drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
-            tech<br />stack
+            tech
+            <br />
+            stack
           </h2>
         </div>
 
