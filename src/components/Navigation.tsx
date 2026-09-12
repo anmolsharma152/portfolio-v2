@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
-import { FaGithub, FaInstagram, FaLinkedinIn, FaRegEnvelope, FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaLinkedinIn, FaRegEnvelope, FaXTwitter } from 'react-icons/fa6';
 
 const ALEX_SKIN_URL =
   'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/entity/player/slim/alex.png';
@@ -21,17 +21,11 @@ export const Navigation: React.FC = () => {
   const pathname = usePathname();
   const isWork = pathname?.startsWith('/work');
 
-  // Exact 5 icons and classes from ohshin-site SOCIAL_ICON_CLASS_MAP (Image 2)
   const socialLinks: SocialLink[] = [
     {
       label: 'X',
       href: 'https://x.com/ozymandias152',
       icon: <FaXTwitter className="h-5 w-5 sm:h-5.5 sm:w-5.5" />,
-    },
-    {
-      label: 'Instagram',
-      href: 'https://www.instagram.com/anmolsharma152/',
-      icon: <FaInstagram className="h-6 w-6 sm:h-7 sm:w-7" />,
     },
     {
       label: 'Mail',
