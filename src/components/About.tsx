@@ -11,7 +11,7 @@ import SpotifyShelf from './widgets/SpotifyShelf';
 import WorkClock from './widgets/WorkClock';
 import { aboutContent, spotifyConfig } from '@/content/loaders';
 
-const ABOUT_TAGS = ['origin', 'linux', 'chess', 'systems', 'side-quests'];
+const ABOUT_TAGS = ['craft', 'systems', 'linux', 'chess', 'curiosity'];
 
 const About = () => {
   const [isZoomed, setIsZoomed] = useState(false);
@@ -115,33 +115,33 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Personal Story Copy */}
+              {/* Personal Story & Craft Copy */}
               <div className="max-w-[72ch] space-y-4 font-mono text-[0.92rem] sm:text-[1rem] leading-[1.85] text-white/90">
                 <p>
-                  I grew up fascinated by how things work under the hood. My early obsession started
-                  in Jaipur—tearing down computers, breaking Linux kernels, and getting hopelessly
-                  lost in terminal configs long before I ever thought of it as a career path.
+                  I build software because I love understanding things down to the metal. What
+                  excites me most is peeling back layers of abstraction, whether that means
+                  profiling sub-150 millisecond inference pipelines, wiring stateful multi-agent
+                  graphs that run without babysitting, or dialing in a clean Linux kernel
+                  environment.
                 </p>
                 <p>
-                  My journey didn&apos;t follow the standard engineering playbook. I spent three
-                  years studying political science and economics at the Symbiosis School for Liberal
-                  Arts (SSLA). It was an unconventional detour for an engineer, but it fundamentally
-                  shaped how I think: teaching me to analyze complex macro incentives, technological
-                  governance, and the systemic feedback loops that dictate human behavior.
+                  My background outside traditional engineering gave me an unusual lens on
+                  technology. Studying political economy and systemic incentives taught me to treat
+                  software not just as code, but as living feedback loops. I care deeply about
+                  building systems that are resilient, predictable, and transparent, where state
+                  transitions are deterministic and failures degrade gracefully.
                 </p>
                 <p>
-                  Still, no matter how deeply I explored economic theory, I kept being pulled back
-                  to what I love most: writing code and building machines. I transitioned into deep
-                  AI and systems engineering at IIT Mandi, realizing that machine intelligence,
-                  local models, and autonomous agents are the ultimate synthesis of incentives,
-                  math, and low-level code.
+                  Most of my day-to-day focus centers on agentic architectures, local machine
+                  intelligence, and low-latency backends. I believe the most durable software is
+                  fast, private, and quiet. When AI is engineered properly, it disappears into the
+                  background and simply does the job with precision.
                 </p>
                 <p>
-                  When I&apos;m not fine-tuning models, orchestrating multi-agent swarms, or writing
-                  low-latency speech pipelines, I&apos;m usually tinkering with minimalist
-                  Arch/Hyprland tiling environments, exploring cognitive spaced-repetition science,
-                  or diving deep into classic sci-fi worldbuilding with post-rock blasting on my
-                  headphones.
+                  Outside of terminal windows, my curiosity gravitates toward spaced-repetition
+                  cognitive systems, classical economics, chess tactics, and classic science fiction
+                  worldbuilding. I enjoy deep work, good books, and the quiet satisfaction of
+                  shipping tools that actually work.
                 </p>
               </div>
             </div>

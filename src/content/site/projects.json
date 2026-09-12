@@ -42,7 +42,7 @@
     "summary": "Built a full-stack developer learning workstation featuring a dual-pane VS Code Monaco IDE, isolated subprocess execution sandbox (5s kill timeout, 512KB buffer limit), PostgreSQL 16 connection pooling, and automated test harness.",
     "tech": ["Node.js", "Express", "PostgreSQL 16", "Docker Compose", "Monaco IDE"],
     "githubUrl": "https://github.com/anmolsharma152/AlgoDeck",
-    "liveUrl": "https://algodeck.vercel.app",
+    "liveUrl": null,
     "featured": true,
     "sortOrder": 4,
     "category": "platform"
