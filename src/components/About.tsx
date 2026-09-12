@@ -115,20 +115,6 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Professional Summary Lead Box */}
-              <div className="mb-4 rounded-xl border border-white/14 bg-white/[0.04] p-4 sm:p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
-                <p className="font-mono text-[0.86rem] sm:text-[0.93rem] leading-relaxed text-white/95">
-                  Agentic AI &amp; Systems Engineer with 3+ years of professional experience
-                  architecting enterprise RAG pipelines, autonomous multi-agent state machines, and
-                  fault-tolerant microservices and production LLMOps infrastructure. Adept at
-                  building LangGraph cyclic orchestration frameworks with prompt engineering
-                  guardrails, pgvector semantic search, and enterprise REST/SSE APIs with automated
-                  LLM evaluation harnesses (LangSmith, Langfuse, RAGAS). Graduate of BCA (77.4%
-                  First Division) and Minor in AI &amp; Data Science from CCE, IIT Mandi (CGPA
-                  8.44/10).
-                </p>
-              </div>
-
               {/* Personal Story Copy */}
               <div className="max-w-[72ch] space-y-4 font-mono text-[0.92rem] sm:text-[1rem] leading-[1.85] text-white/90">
                 <p>
