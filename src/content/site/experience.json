@@ -12,16 +12,17 @@
       "Developed LLM-driven reporting pipelines (FastAPI, Groq/OpenAI APIs) integrated with n8n to dynamically synthesize weekly client performance digests, cutting manual reporting turnaround by 65%."
     ],
     "techBadges": [
-      "Python",
-      "PostgreSQL",
-      "ETL/ELT Pipelines",
+      "Claude",
+      "OpenAI",
+      "Cursor",
+      "Image Gen (Flux / Midjourney)",
+      "Video AI (Runway / Kling)",
       "n8n",
       "Zapier",
       "REST Webhooks",
+      "Python",
       "FastAPI",
-      "OpenAI API",
-      "Groq",
-      "SQL"
+      "PostgreSQL"
     ],
     "featured": true,
     "sortOrder": 1
