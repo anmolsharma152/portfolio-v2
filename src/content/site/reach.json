@@ -1,34 +1,27 @@
 [
   {
-    "id": "turnaround",
-    "label": "Operational Turnaround",
-    "value": 65,
-    "prefix": "-",
-    "suffix": "%",
-    "description": "Manual operations reduction across automated client reporting pipelines at The Bullseye."
+    "id": "shipped-systems",
+    "label": "Systems Shipped",
+    "value": 4,
+    "description": "Shipped end to end: CanonData, Nimbus, CodexEngine, and rust-agent-core."
   },
   {
-    "id": "voice-latency",
-    "label": "Voice Edge Latency",
-    "value": 150,
-    "prefix": "<",
-    "suffix": "ms",
-    "description": "Client-side voice activity detection and local streaming speech inferencing."
+    "id": "automated-tests",
+    "label": "Automated Test Cases",
+    "value": 240,
+    "description": "Pytest cases across CanonData, Nimbus, and CodexEngine.",
+    "suffix": "+"
   },
   {
-    "id": "synthetic-samples",
-    "label": "Distilled Instruction Pairs",
-    "value": 10000,
-    "prefix": "",
-    "suffix": "+",
-    "description": "Multilingual instruction dataset synthesized for Sarvam-1 QLoRA fine-tuning."
+    "id": "instruction-pairs",
+    "label": "Instruction Pairs",
+    "value": 15017,
+    "description": "Synthetic Hinglish, Hindi, and English pairs distilled from Nemotron-Super 49B for Sarvam-1 QLoRA tuning."
   },
   {
-    "id": "open-source",
-    "label": "Public GitHub Repositories",
-    "value": 42,
-    "prefix": "",
-    "suffix": "+",
-    "description": "Open source agent frameworks, system daemons, ML pipelines, and tools shipped."
+    "id": "repositories",
+    "label": "GitHub Repositories",
+    "value": 51,
+    "description": "Agent runtimes, retrieval engines, ML pipelines, Linux tooling, and learning labs."
   }
 ]

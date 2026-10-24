@@ -1,38 +1,47 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { IBM_Plex_Mono, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import React from 'react';
 import './globals.css';
 
 // Components
 import Navigation from '@/components/Navigation';
-import { Toaster } from '@/components/ui/Toaster';
-import { ThemeProvider } from '@/context/ThemeContext';
 
+// All fonts are self-hosted at build time: no render-blocking third-party requests.
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const plexMono = IBM_Plex_Mono({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-jakarta',
+  variable: '--font-plex-mono',
+});
+
+// Doto is newer than Next 14's Google font list, so its variable latin subset is vendored.
+const doto = localFont({
+  src: './fonts/Doto-Variable.woff2',
+  weight: '400 900',
+  display: 'swap',
+  variable: '--font-doto',
 });
 
 export const metadata: Metadata = {
-  title: 'Anmol Sharma | Agentic AI & Systems Engineer',
+  title: 'Anmol Sharma | AI/ML & Systems Engineer',
   description:
-    'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. 3+ years experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and production LLMOps.',
+    'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. Architecting RAG pipelines, multi-agent state machines, and containerized execution runtimes.',
   metadataBase: new URL('https://anmolsharma152.vercel.app'),
   other: {
     'msapplication-TileColor': '#000000',
   },
   openGraph: {
-    title: 'Anmol Sharma | Agentic AI & Systems Engineer',
+    title: 'Anmol Sharma | AI/ML & Systems Engineer',
     description:
-      'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. 3+ years experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and production LLMOps.',
+      'AI/ML & Systems Engineer building containerized execution sandboxes, hybrid retrieval engines, asynchronous agent runtimes, and automated LLM evaluation harnesses.',
     url: 'https://anmolsharma152.vercel.app',
     siteName: 'Anmol Sharma',
     locale: 'en_US',
@@ -40,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anmol Sharma | Agentic AI & Systems Engineer',
+    title: 'Anmol Sharma | AI/ML & Systems Engineer',
     description:
-      'Building Low-Latency AI Infra & Stateful Multi-Agent Backends. 3+ years experience architecting enterprise RAG pipelines, autonomous multi-agent state machines, and production LLMOps.',
+      'AI/ML & Systems Engineer building containerized execution sandboxes, hybrid retrieval engines, asynchronous agent runtimes, and automated LLM evaluation harnesses.',
   },
 };
 
@@ -52,7 +61,7 @@ const jsonLd = {
   name: 'Anmol Sharma',
   url: 'https://anmolsharma152.vercel.app',
   sameAs: ['https://github.com/anmolsharma152', 'https://linkedin.com/in/anmolsharma152'],
-  jobTitle: 'Agentic AI & Systems Engineer',
+  jobTitle: 'AI/ML & Systems Engineer',
   telephone: '+91-84128-80194',
   email: 'anmolsharma152.dev@gmail.com',
   address: {
@@ -60,23 +69,23 @@ const jsonLd = {
     addressLocality: 'Jaipur',
     addressCountry: 'IN',
   },
-  worksFor: {
-    '@type': 'Organization',
-    name: 'The Bullseye',
-  },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Indian Institute of Technology Mandi' },
+    { '@type': 'CollegeOrUniversity', name: 'Jaipur National University' },
+  ],
   knowsAbout: [
-    'Agentic AI',
-    'Multi-Agent Systems',
-    'LangGraph',
-    'Enterprise RAG',
-    'pgvector',
-    'LLMOps',
-    'Langfuse',
-    'LangSmith',
-    'FastAPI',
     'Python',
-    'PostgreSQL 16',
+    'Rust',
+    'FastAPI',
     'Docker',
+    'Container Security',
+    'LangGraph',
+    'Retrieval-Augmented Generation',
+    'pgvector',
+    'PyTorch',
+    'QLoRA',
+    'vLLM',
+    'LLM Evaluation',
   ],
 };
 
@@ -85,36 +94,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`dark bg-[#000000] text-[#ededed] ${inter.variable} ${jakarta.variable}`}
+      className={`dark bg-[#000000] text-[#ededed] ${inter.variable} ${plexMono.variable} ${doto.variable}`}
       style={{ colorScheme: 'dark' }}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/google-font-preconnect */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/doto/v3/t5t6IRMbNJ6TQG7Il_EKPqP9zTnvqouBWho.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display, @next/next/google-font-preconnect */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Doto:wght@400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Tektur:wght@500;600;700;800&display=block"
-        />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          // Escape "<" so the JSON can never close the script tag early.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider>
-          <Navigation />
-          <div className="flex-1">{children}</div>
-          <Toaster />
-        </ThemeProvider>
+        <Navigation />
+        <div className="flex-1">{children}</div>
         <Analytics />
       </body>
     </html>
