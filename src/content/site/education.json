@@ -3,31 +3,19 @@
     "id": "iit-mandi",
     "degree": "Minor in Data Science and Artificial Intelligence",
     "institution": "Indian Institute of Technology (IIT), Mandi",
-    "division": "Center for Continuing Education (CCE)",
+    "division": "Centre for Continuing Education (CCE)",
     "period": "05/2025 – 06/2026",
     "grade": "CGPA 8.44 / 10",
-    "description": "Rigorous academic curriculum covering Mathematical Foundations, Classical ML, and Deep Learning (Transformers, Attention, CNNs, Optimization).",
-    "curriculum": "Mathematical Foundations, Classical ML, Deep Learning (Transformers, Attention, CNNs, Optimization)",
-    "honors": [
-      "Center for Continuing Education (CCE)",
-      "CGPA: 8.44 / 10"
-    ],
+    "curriculum": "Machine Learning Fundamentals (ML-101), Mathematics for Data Science (MTH-101), Deep Learning (Transformers, Attention, CNNs, Optimization)",
     "sortOrder": 1
   },
   {
     "id": "jnu-bca",
     "degree": "Bachelor of Computer Applications (BCA)",
     "institution": "Jaipur National University",
-    "division": "Department of Computer Science & Applications",
-    "period": "06/2019 – 05/2022",
+    "period": "06/2019 – 06/2022",
     "grade": "77.4% — First Division",
-    "description": "Graduated with 77.4% First Division. Comprehensive coursework in Relational Database Management Systems (RDBMS), Data Structures & Algorithms, OOP, and Operating Systems.",
-    "curriculum": "Relational Databases, Algorithms, Operating Systems, Computer Networks",
-    "honors": [
-      "77.4% — First Division",
-      "Director's Certificate of Appreciation, Student Council, Symbiosis School for Liberal Arts (SSLA), Pune",
-      "NTSE Scholar, National Talent Search Examination"
-    ],
+    "curriculum": "Data Structures (C), DBMS, Operating Systems, Computer Networks, OOP (C++)",
     "sortOrder": 2
   }
 ]

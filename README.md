@@ -131,7 +131,6 @@ npm run build     # Test production Next.js build
 Detailed architectural notes and open decision logs are maintained in the [`docs/`](./docs) directory:
 - [**`docs/DECISIONS.md`**](./docs/DECISIONS.md) — Technical decision records covering dock navigation parity, FOUT elimination, layout void fixes, and styling choices.
 - [**`docs/OPEN_QUESTIONS.md`**](./docs/OPEN_QUESTIONS.md) — Tracks active, undecided design questions (such as evaluating whether to keep the Spotify shelf or replace it with an ArXiv research / systems shelf).
-- [**`docs/STATUS.md`**](./docs/STATUS.md) — Current build status, verified environments, and quick-resume commands.
 - [**`docs/V2_ARCHITECTURE.md`**](./docs/V2_ARCHITECTURE.md) — Component hierarchy, CSS animation tokens, and Framer Motion spring physics specs.
 
 ---

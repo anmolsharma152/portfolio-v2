@@ -12,7 +12,6 @@ The v2 portfolio is built on Next.js 14.2 App Router using React 18, Tailwind CS
 portfolio-v2/
 ├── docs/                      # Architecture, decision records, and roadmap
 │   ├── DECISIONS.md           # Design choices & unanswered questions
-│   ├── STATUS.md              # Project state & quick resume commands
 │   └── V2_ARCHITECTURE.md     # Component hierarchy & design system
 ├── public/                    # Static assets
 │   ├── backgrounds/           # Atmosphere overlays & pixel textures
@@ -42,7 +41,6 @@ portfolio-v2/
 │   │   └── site/              # Pure JSON content records
 │   │       ├── about.json
 │   │       ├── books.json
-│   │       ├── contact.json
 │   │       ├── personal.json
 │   │       ├── projects.json
 │   │       ├── reach-metrics.json

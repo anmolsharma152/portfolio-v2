@@ -47,13 +47,7 @@ const About = () => {
 
       <div className="max-w-[1460px] mx-auto px-4 sm:px-8 lg:px-10 pt-8 sm:pt-10 lg:pt-12 relative z-10 space-y-8 sm:space-y-10 lg:space-y-12">
         {/* Dedicated About Header Card (Obsidian Glass) */}
-        <motion.header
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="work-panel p-5 sm:p-7 lg:p-9 motion-safe:animate-glass-breathe"
-        >
+        <header className="work-panel p-5 sm:p-7 lg:p-9 motion-safe:animate-glass-breathe">
           <GlassSheen className="left-[-35%] bg-white/[0.045] motion-safe:[animation-delay:-2.4s] motion-safe:[animation-duration:10.2s]" />
 
           {/* 28px Mesh Grid */}
@@ -67,9 +61,9 @@ const About = () => {
             className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_18%_18%,rgba(255,255,255,.09),transparent_32%),radial-gradient(circle_at_82%_82%,rgba(255,255,255,.04),transparent_40%)]"
           />
 
-          <div className="flex items-center justify-between font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/50">
+          <div className="flex items-center justify-between font-mono text-[0.68rem] sm:text-[0.7rem] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-white/60">
             <span className="text-white/80 font-medium">profile / anmol</span>
-            <span className="hidden sm:block text-center text-white/50">scroll / inspect</span>
+            <span className="hidden sm:block text-center text-white/60">scroll / inspect</span>
             <span className="flex items-center gap-1.5 font-bold text-white/80">
               <span>jaipur, in</span>
               <span className="text-white/30">•</span>
@@ -82,16 +76,10 @@ const About = () => {
               about
             </h2>
           </div>
-        </motion.header>
+        </header>
 
         {/* Main Showcase: Flowing Personal Narrative on Left, Full Portrait on Right */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.75, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="work-panel p-6 sm:p-8 lg:p-10 motion-safe:animate-glass-breathe"
-        >
+        <div className="work-panel p-6 sm:p-8 lg:p-10 motion-safe:animate-glass-breathe">
           <GlassSheen className="left-[-42%] bg-white/[0.035]" />
 
           {/* 28px Mesh Grid */}
@@ -104,7 +92,7 @@ const About = () => {
             {/* Left Column: Flowing Personal Narrative */}
             <div className="flex min-w-0 flex-col justify-center">
               {/* Minimalist Profile Pills */}
-              <div className="mb-6 flex flex-wrap gap-2 font-mono text-[0.56rem] uppercase tracking-[0.22em] text-white/46">
+              <div className="mb-6 flex flex-wrap gap-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-white/60">
                 {ABOUT_TAGS.map((item) => (
                   <span
                     key={item}
@@ -119,10 +107,9 @@ const About = () => {
               <div className="max-w-[72ch] space-y-4 font-mono text-[0.92rem] sm:text-[1rem] leading-[1.85] text-white/90">
                 <p>
                   I build software because I love understanding things down to the metal. What
-                  excites me most is peeling back layers of abstraction, whether that means
-                  profiling sub-150 millisecond inference pipelines, wiring stateful multi-agent
-                  graphs that run without babysitting, or dialing in a clean Linux kernel
-                  environment.
+                  excites me most is peeling back layers of abstraction, whether that means locking
+                  down untrusted code inside hardened containers, wiring stateful agent graphs that
+                  run without babysitting, or dialing in a clean Linux environment.
                 </p>
                 <p>
                   My background outside traditional engineering gave me an unusual lens on
@@ -177,19 +164,13 @@ const About = () => {
               </div>
             </figure>
           </div>
-        </motion.div>
+        </div>
 
         {/* 2-Column Side-by-Side Shelves (Playlists Left, Books Right) */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           <SpotifyShelf config={spotifyConfig} />
           <ReadingStack />
-        </motion.div>
+        </div>
       </div>
 
       {/* Lightbox / Zoom Modal for High-Res Portrait */}

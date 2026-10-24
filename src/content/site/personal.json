@@ -3,7 +3,9 @@
     {
       "id": "ddia",
       "title": "Designing Data-Intensive Applications",
-      "authors": ["Martin Kleppmann"],
+      "authors": [
+        "Martin Kleppmann"
+      ],
       "category": "systems-ai",
       "publishedDate": "2017",
       "thumbnail": "/images/books/ddia.jpg",
@@ -13,7 +15,11 @@
     {
       "id": "deep-learning",
       "title": "Deep Learning",
-      "authors": ["Ian Goodfellow", "Yoshua Bengio", "Aaron Courville"],
+      "authors": [
+        "Ian Goodfellow",
+        "Yoshua Bengio",
+        "Aaron Courville"
+      ],
       "category": "systems-ai",
       "publishedDate": "2016",
       "thumbnail": "/images/books/deep-learning.jpg",
@@ -23,7 +29,10 @@
     {
       "id": "pragmatic-programmer",
       "title": "The Pragmatic Programmer",
-      "authors": ["David Thomas", "Andrew Hunt"],
+      "authors": [
+        "David Thomas",
+        "Andrew Hunt"
+      ],
       "category": "systems-ai",
       "publishedDate": "1999",
       "thumbnail": "/images/books/pragmatic-programmer.jpg",
@@ -33,25 +42,21 @@
     {
       "id": "abundance",
       "title": "Abundance: What Progress Takes",
-      "authors": ["Derek Thompson", "Ezra Klein"],
+      "authors": [
+        "Derek Thompson",
+        "Ezra Klein"
+      ],
       "category": "economics-policy",
-      "publishedDate": "2024",
+      "publishedDate": "2025",
       "thumbnail": "/images/books/abundance.webp",
       "takeaway": "Supply-side progressivism: why physical capacity, building velocity, and state execution matter."
     },
     {
-      "id": "how-to-win-trade-war",
-      "title": "How to Win a Trade War",
-      "authors": ["Soumaya Keynes"],
-      "category": "economics-policy",
-      "publishedDate": "2023",
-      "thumbnail": "/images/books/how-to-win-trade-war.webp",
-      "takeaway": "An inside analysis of globalization, tariff mechanics, subsidies, and strategic economic warfare."
-    },
-    {
       "id": "avoiding-the-fall",
       "title": "Avoiding the Fall: China's Restructuring",
-      "authors": ["Michael Pettis"],
+      "authors": [
+        "Michael Pettis"
+      ],
       "category": "economics-policy",
       "publishedDate": "2013",
       "thumbnail": "/images/books/avoiding-the-fall.webp",
@@ -72,28 +77,32 @@
         "title": "Deep Focus",
         "subtitle": "Ambient & Minimal Post-Rock",
         "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator",
-        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWZeKCadgRdKQ"
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWZeKCadgRdKQ",
+        "coverImage": "/images/playlists/deep-focus.jpg"
       },
       {
         "id": "beats-to-think-to",
         "title": "Beats to think to",
         "subtitle": "Melodic Techno & Downtempo",
         "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DXa2SPUyWl8Y5?utm_source=generator",
-        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DXa2SPUyWl8Y5"
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DXa2SPUyWl8Y5",
+        "coverImage": "/images/playlists/beats-to-think-to.jpg"
       },
       {
         "id": "brain-food",
         "title": "Brain Food",
         "subtitle": "Hypnotic Electronic Focus",
         "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWXLeA8Omikj7?utm_source=generator",
-        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWXLeA8Omikj7"
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWXLeA8Omikj7",
+        "coverImage": "/images/playlists/brain-food.jpg"
       },
       {
         "id": "lofi-beats",
-        "title": "Lofi Beats",
+        "title": "lofi beats",
         "subtitle": "Late-Night Instrumental Focus",
         "embedUrl": "https://open.spotify.com/embed/playlist/37i9dQZF1DWWQRwui0ExPn?utm_source=generator",
-        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn"
+        "externalUrl": "https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn",
+        "coverImage": "/images/playlists/lofi-beats.jpg"
       }
     ]
   }

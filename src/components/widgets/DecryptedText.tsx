@@ -1,7 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
 
@@ -20,6 +19,14 @@ function getRandomCharacter(): string {
   return CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
 }
 
+function scramble(segment: string): string {
+  return segment.replace(/\S/g, () => getRandomCharacter());
+}
+
+function prefersReducedMotion(): boolean {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 export default function DecryptedText({
   text,
   className = '',
@@ -30,34 +37,34 @@ export default function DecryptedText({
   revealDirection = 'start',
   animateOn = 'view',
 }: DecryptedTextProps) {
-  const [displayText, setDisplayText] = useState(text);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [hasPlayed, setHasPlayed] = useState(false);
+  // null = idle (plain text, which is also what SSR renders); a number = characters revealed so far
+  const [progress, setProgress] = useState<number | null>(null);
+  const hasPlayedRef = useRef(false);
   const containerRef = useRef<HTMLSpanElement | null>(null);
-  const intervalRef = useRef<number | null>(null);
+  const total = text.length;
+  const isAnimating = progress !== null;
 
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current !== null) {
-        window.clearInterval(intervalRef.current);
-      }
-    };
+  const start = useCallback(() => {
+    if (prefersReducedMotion()) {
+      return;
+    }
+    setProgress(0);
   }, []);
 
   useEffect(() => {
-    if (animateOn !== 'view' || hasPlayed || !containerRef.current) {
+    if (animateOn !== 'view' || !containerRef.current) {
       return;
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (!entries[0]?.isIntersecting) {
+        if (!entries[0]?.isIntersecting || hasPlayedRef.current) {
           return;
         }
 
-        setHasPlayed(true);
-        setIsAnimating(true);
+        hasPlayedRef.current = true;
         observer.disconnect();
+        start();
       },
       { threshold: 0.3 }
     );
@@ -65,83 +72,54 @@ export default function DecryptedText({
     observer.observe(containerRef.current);
 
     return () => observer.disconnect();
-  }, [animateOn, hasPlayed]);
+  }, [animateOn, start]);
 
   useEffect(() => {
     if (!isAnimating) {
       return;
     }
 
-    let progress = 0;
-    const characters = text.split('');
-    const total = characters.length;
-
-    if (intervalRef.current !== null) {
-      window.clearInterval(intervalRef.current);
-    }
-    intervalRef.current = window.setInterval(() => {
-      progress += 1;
-
-      setDisplayText(
-        characters
-          .map((character, index) => {
-            if (character === ' ') {
-              return ' ';
-            }
-
-            const isRevealed = sequential
-              ? revealDirection === 'start'
-                ? index < progress
-                : index >= total - progress
-              : progress > total / 2;
-
-            return isRevealed ? character : getRandomCharacter();
-          })
-          .join('')
-      );
-
-      if (progress > total) {
-        if (intervalRef.current !== null) {
-          window.clearInterval(intervalRef.current);
-        }
-        setDisplayText(text);
-        setIsAnimating(false);
-      }
+    const intervalId = window.setInterval(() => {
+      setProgress((current) => (current === null || current >= total ? null : current + 1));
     }, speed);
 
-    return () => {
-      if (intervalRef.current !== null) {
-        window.clearInterval(intervalRef.current);
-      }
-    };
-  }, [isAnimating, revealDirection, sequential, speed, text]);
+    return () => window.clearInterval(intervalId);
+  }, [isAnimating, speed, total]);
 
-  const startOnHover =
-    animateOn === 'hover'
-      ? () => {
-          setDisplayText(text);
-          setIsAnimating(true);
-        }
-      : undefined;
+  // Render at most two text nodes per frame instead of one animated element per character.
+  let revealed = text;
+  let encrypted = '';
+  let encryptedFirst = false;
+
+  if (progress !== null) {
+    if (!sequential) {
+      if (progress <= total / 2) {
+        revealed = '';
+        encrypted = scramble(text);
+      }
+    } else if (revealDirection === 'start') {
+      revealed = text.slice(0, progress);
+      encrypted = scramble(text.slice(progress));
+    } else {
+      encryptedFirst = true;
+      encrypted = scramble(text.slice(0, total - progress));
+      revealed = text.slice(total - progress);
+    }
+  }
+
+  const revealedNode = revealed && <span className={className || undefined}>{revealed}</span>;
+  const encryptedNode = encrypted && (
+    <span className={`${className} ${encryptedClassName}`.trim() || undefined}>{encrypted}</span>
+  );
 
   return (
-    <span ref={containerRef} className={parentClassName} onMouseEnter={startOnHover}>
-      {displayText.split('').map((character, index) => {
-        const originalCharacter = text[index];
-        const isEncrypted = character !== ' ' && character !== originalCharacter && isAnimating;
-
-        return (
-          <motion.span
-            key={`${character}-${index}`}
-            initial={{ opacity: 0.4, filter: 'blur(4px)' }}
-            animate={{ opacity: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.15, ease: 'easeOut' }}
-            className={`${className} ${isEncrypted ? encryptedClassName : ''}`.trim()}
-          >
-            {character}
-          </motion.span>
-        );
-      })}
+    <span
+      ref={containerRef}
+      className={parentClassName || undefined}
+      onMouseEnter={animateOn === 'hover' ? start : undefined}
+    >
+      {encryptedFirst ? encryptedNode : revealedNode}
+      {encryptedFirst ? revealedNode : encryptedNode}
     </span>
   );
 }

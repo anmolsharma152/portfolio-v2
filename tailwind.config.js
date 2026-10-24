@@ -183,12 +183,10 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
-        heading: ['var(--font-jakarta)', ...fontFamily.sans],
-        doto: ['"Doto"', 'monospace'],
-        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
-        metric: ['"Tektur"', 'monospace'],
+        doto: ['var(--font-doto)', 'monospace'],
+        mono: ['var(--font-plex-mono)', 'ui-monospace', 'monospace'],
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [],
 };

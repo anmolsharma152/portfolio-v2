@@ -182,10 +182,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   * {
     border-color: hsl(var(--border));
     --tw-ring-color: rgba(255, 255, 255, 0.15);
@@ -215,32 +211,7 @@
   }
 }
 
-/* Custom utility classes */
-.glass {
-  background-color: var(--glass-bg);
-  -webkit-backdrop-filter: blur(0.5rem);
-  backdrop-filter: blur(0.5rem);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
-
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-}
-
-.gradient-text {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, #2563eb, #4f46e5);
-}
-
-/* Smooth scrolling */
 html {
-  scroll-behavior: smooth;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -269,19 +240,6 @@ html {
 * {
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, hsl(var(--foreground)) 20%, transparent) transparent;
-}
-
-*:hover {
-  scrollbar-color: color-mix(in srgb, hsl(var(--foreground)) 30%, transparent) transparent;
-}
-
-@layer utilities {
-  .font-small-caps {
-    font-variant: small-caps;
-    font-variant-caps: all-small-caps;
-    -webkit-font-feature-settings: "smcp", "c2sc";
-    font-feature-settings: "smcp", "c2sc";
-  }
 }
 
 /* Smoked Obsidian Glass Surface */

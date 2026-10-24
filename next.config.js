@@ -1,3 +1,22 @@
+const isDev = process.env.NODE_ENV !== 'production';
+
+// Next.js injects inline bootstrap scripts, and dev mode needs eval for fast refresh.
+// The only third-party origin is the Spotify player, loaded on demand in an iframe.
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  'frame-src https://open.spotify.com',
+  `connect-src 'self'${isDev ? ' ws:' : ''}`,
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  ...(isDev ? [] : ['upgrade-insecure-requests']),
+].join('; ');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -7,26 +26,22 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'react-icons'],
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'i.scdn.co',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.jsdelivr.net',
-      },
-    ],
+    // Every image is served from /public; no remote hosts are allowed.
+    formats: ['image/avif', 'image/webp'],
   },
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: contentSecurityPolicy,
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on',
@@ -50,6 +65,16 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
+          },
+        ],
+      },
+      {
+        // Static assets in /public are not content-hashed, so cache for a day and revalidate.
+        source: '/:dir(images|backgrounds|fonts)/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
           },
         ],
       },

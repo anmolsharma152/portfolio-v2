@@ -6,10 +6,8 @@ import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { FaGithub, FaLinkedinIn, FaRegEnvelope, FaXTwitter } from 'react-icons/fa6';
 
-const ALEX_SKIN_URL =
-  'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/entity/player/slim/alex.png';
-const DIAMOND_PICKAXE_URL =
-  'https://cdn.jsdelivr.net/npm/minecraft-assets@1.17.0/minecraft-assets/data/1.21.8/items/diamond_pickaxe.png';
+const ALEX_SKIN_URL = '/images/nav/alex.png';
+const DIAMOND_PICKAXE_URL = '/images/nav/diamond-pickaxe.png';
 
 interface SocialLink {
   label: string;
@@ -100,7 +98,7 @@ export const Navigation: React.FC = () => {
             <Link
               href="/#about"
               onClick={handleAbtClick}
-              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[10px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
+              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[11px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
                 !isWork ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
             >
@@ -142,7 +140,7 @@ export const Navigation: React.FC = () => {
             <Link
               href="/work"
               onClick={handleWorkClick}
-              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[10px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
+              className={`relative z-10 min-w-[4.65rem] shrink-0 rounded-full px-2.5 py-2.5 text-center font-doto text-[11px] font-black tracking-[0.06em] outline-none focus-visible:ring-1 focus-visible:ring-white/30 sm:min-w-[7rem] sm:px-6 sm:py-3 sm:text-[14px] sm:tracking-[0.12em] ${
                 isWork ? 'text-white' : 'text-white/70 hover:text-white'
               }`}
             >

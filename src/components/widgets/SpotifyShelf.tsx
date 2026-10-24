@@ -1,9 +1,10 @@
 'use client';
 
-import { ExternalLink, Disc3, Radio } from 'lucide-react';
-import React from 'react';
+import { ExternalLink, Play } from 'lucide-react';
+import Image from 'next/image';
+import React, { useState } from 'react';
 
-import GlassSheen from './GlassSheen';
+import { PanelEffects } from './PanelEffects';
 import type { SpotifyConfig } from '@/content/schemas';
 
 interface SpotifyShelfProps {
@@ -12,84 +13,104 @@ interface SpotifyShelfProps {
 
 export const SpotifyShelf: React.FC<SpotifyShelfProps> = ({ config }) => {
   const playlists = config?.playlists ?? [];
-  const profileUrl =
-    config?.profileUrl || 'https://open.spotify.com/user/31fzcv4ts52untro5xsamjhddtre';
+  // The Spotify player is only loaded once a visitor picks a playlist.
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const active = playlists.find((p) => p.id === activeId);
 
   return (
-    <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe [contain:paint] flex flex-col justify-between h-full">
-      <GlassSheen className="left-[-42%] bg-white/[0.032]" />
-
-      {/* 28px Mesh Grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
-      />
-
-      {/* Specular Radial Lighting Gradient */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
-      />
-
-      {/* Header Row */}
-      <div>
-        <div className="flex items-end justify-between gap-4 border-b border-white/12 pb-4 mb-5">
-          <div>
-            <p className="font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.24em] text-white/46 mb-1">
-              records shelf &bull; 4 playlists
-            </p>
-            <h3 className="font-doto text-[2rem] sm:text-[2.8rem] font-black lowercase leading-none tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
-              playlists
-            </h3>
-          </div>
+    <section
+      className="work-panel flex h-full flex-col p-5 [contain:paint] motion-safe:animate-glass-breathe sm:p-7"
+      aria-labelledby="playlists-heading"
+    >
+      <PanelEffects sheenClassName="left-[-42%] bg-white/[0.032]" />
+      <header className="flex items-end justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-white/60">
+            on rotation · {playlists.length} playlists
+          </p>
+          <h3
+            id="playlists-heading"
+            className="mt-1 font-doto text-[2rem] font-black lowercase leading-none tracking-tight text-white sm:text-[2.6rem] drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]"
+          >
+            playlists
+          </h3>
+        </div>
+        {config?.profileUrl && (
           <a
-            href={profileUrl}
+            href={config.profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono text-[10px] sm:text-[11px] font-semibold bg-[#1DB954] text-black hover:bg-[#1ed760] transition-colors shadow-sm shrink-0 cursor-pointer"
+            className="flex shrink-0 items-center gap-1.5 rounded-full bg-[#1DB954] px-3 py-1.5 font-mono text-[11px] font-semibold text-black transition-colors hover:bg-[#1ed760]"
           >
-            <Disc3 className="w-3.5 h-3.5 animate-spin [animation-duration:8s]" />
-            <span>Profile</span>
-            <ExternalLink className="w-3 h-3" />
+            <span>Spotify</span>
+            <ExternalLink aria-hidden="true" className="h-3 w-3" />
           </a>
-        </div>
+        )}
+      </header>
 
-        {/* 4 Playlists in a 2x2 Grid — All 4 Completely Visible */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
-          {playlists.map((playlist, idx) => (
-            <div key={playlist.embedUrl} className="space-y-1.5">
-              <div className="flex items-center justify-between font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/60 px-1">
-                <span className="text-[#1DB954] font-semibold">{`0${idx + 1}`}</span>
-                <span className="truncate max-w-[12rem] text-right text-white/80">
-                  {playlist.title.replace(/^Playlist \d+\s*\/\/\s*/i, '')}
-                </span>
-              </div>
-              <div className="overflow-hidden rounded-[1.25rem] bg-black/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_24px_rgba(0,0,0,0.3)] ring-1 ring-white/10 hover:ring-white/25 transition-all">
-                <iframe
-                  title={playlist.title}
-                  src={playlist.embedUrl}
-                  className="block w-full h-[152px] border-0"
-                  width="100%"
-                  height="152"
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
+      <ul className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {playlists.map((playlist) => {
+          const isActive = playlist.id === activeId;
+          return (
+            <li key={playlist.id} className="min-w-0">
+              <button
+                type="button"
+                onClick={() => setActiveId(isActive ? null : playlist.id)}
+                aria-pressed={isActive}
+                aria-label={`${isActive ? 'Close' : 'Play'} ${playlist.title}`}
+                className={`group relative block aspect-square w-full overflow-hidden rounded-xl bg-white/5 shadow-[0_14px_30px_-8px_rgba(0,0,0,0.7)] ring-1 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                  isActive ? 'ring-[#1DB954]' : 'ring-white/10'
+                }`}
+              >
+                {playlist.coverImage && (
+                  <Image
+                    src={playlist.coverImage}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 45vw, 150px"
+                    className="object-cover"
+                  />
+                )}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/30"
                 />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+                <span
+                  aria-hidden="true"
+                  className={`absolute bottom-2 right-2 grid h-9 w-9 place-items-center rounded-full bg-[#1DB954] text-black shadow-lg transition-all duration-200 ${
+                    isActive
+                      ? 'opacity-100'
+                      : 'translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100'
+                  }`}
+                >
+                  <Play className="ml-0.5 h-4 w-4 fill-current" />
+                </span>
+              </button>
+              <p className="mt-2.5 truncate text-[0.78rem] font-semibold text-white">
+                {playlist.title}
+              </p>
+              {playlist.subtitle && (
+                <p className="truncate text-[0.7rem] text-white/60">{playlist.subtitle}</p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
 
-      {/* Footer Info Row */}
-      <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 font-mono text-[0.62rem] sm:text-[0.68rem] text-white/46">
-        <span className="flex items-center gap-1.5">
-          <Radio className="w-3 h-3 text-[#1DB954] animate-pulse" />
-          <span>algorithmic focus &amp; flow mixes</span>
-        </span>
-        <span className="text-white/30 hidden sm:inline">spotify verified</span>
-      </div>
-    </div>
+      {active && (
+        <div className="mt-5 overflow-hidden rounded-xl ring-1 ring-white/10">
+          <iframe
+            key={active.id}
+            title={`Spotify player: ${active.title}`}
+            src={active.embedUrl}
+            className="block h-[152px] w-full border-0"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
+        </div>
+      )}
+    </section>
   );
 };
 

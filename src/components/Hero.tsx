@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 import DecryptedText from './widgets/DecryptedText';
@@ -27,17 +28,24 @@ export const Hero = () => {
     >
       {/* Background Linux Developer Room */}
       <div className="absolute inset-0">
-        <motion.img
-          src="/backgrounds/bg-linux-user-room.webp"
-          alt=""
+        <motion.div
           aria-hidden="true"
-          className="h-full w-full object-cover object-center will-change-transform"
+          className="absolute inset-0 will-change-transform"
           style={{
             scale: imageScale,
             x: imageX,
             y: imageY,
           }}
-        />
+        >
+          <Image
+            src="/backgrounds/bg-linux-user-room.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
         {/* Soft Night Window Scrim */}
         <div
           aria-hidden="true"

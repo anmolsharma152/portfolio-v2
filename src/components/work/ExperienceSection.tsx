@@ -1,233 +1,104 @@
-'use client';
+import { Award } from 'lucide-react';
+import React from 'react';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { GraduationCap, Briefcase, Award } from 'lucide-react';
-import React, { useState } from 'react';
+import { PanelEffects } from '@/components/widgets/PanelEffects';
+import { educationContent, workExperienceContent } from '@/content/loaders';
 
-import GlassSheen from '@/components/widgets/GlassSheen';
-import { workExperienceContent, educationContent } from '@/content/loaders';
+const HONORS = [
+  "Director's Certificate of Appreciation, Student Council, Symbiosis School for Liberal Arts (SSLA), Pune",
+  'NTSE Scholar, National Talent Search Examination',
+];
 
 export default function ExperienceSection() {
-  const [activeTab, setActiveTab] = useState<'experience' | 'education'>('experience');
-
   return (
-    <section className="min-w-0" aria-label="Experience and Education">
-      <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe">
-        <GlassSheen className="left-[-40%] bg-white/[0.035]" />
+    <section
+      className="work-panel p-5 motion-safe:animate-glass-breathe sm:p-7"
+      aria-labelledby="experience-heading"
+    >
+      <PanelEffects />
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-10">
+        <div className="min-w-0">
+          <h2
+            id="experience-heading"
+            className="font-doto text-3xl font-black uppercase tracking-tight text-white sm:text-4xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]"
+          >
+            experience
+          </h2>
 
-        {/* 28px Mesh Grid */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
-        />
-
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
-        />
-
-        {/* Header with Interactive Tabs */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-          <div>
-            <div className="flex items-center gap-1.5 p-1 rounded-full bg-white/[0.06] border border-white/10 w-fit mb-3">
-              <button
-                type="button"
-                onClick={() => setActiveTab('experience')}
-                className={`relative px-3.5 py-1 rounded-full font-mono text-[0.66rem] sm:text-xs uppercase tracking-[0.16em] transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'experience'
-                    ? 'text-white font-bold'
-                    : 'text-white/50 hover:text-white/80'
-                }`}
-              >
-                {activeTab === 'experience' && (
-                  <motion.div
-                    layoutId="exp-edu-active-pill"
-                    className="absolute inset-0 rounded-full bg-white/15 border border-white/20 shadow-sm"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <Briefcase className="w-3.5 h-3.5 relative z-10" />
-                <span className="relative z-10">Experience</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveTab('education')}
-                className={`relative px-3.5 py-1 rounded-full font-mono text-[0.66rem] sm:text-xs uppercase tracking-[0.16em] transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'education'
-                    ? 'text-white font-bold'
-                    : 'text-white/50 hover:text-white/80'
-                }`}
-              >
-                {activeTab === 'education' && (
-                  <motion.div
-                    layoutId="exp-edu-active-pill"
-                    className="absolute inset-0 rounded-full bg-white/15 border border-white/20 shadow-sm"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <GraduationCap className="w-3.5 h-3.5 relative z-10" />
-                <span className="relative z-10">Education</span>
-              </button>
-            </div>
-
-            <h2 className="font-doto text-2xl sm:text-3xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
-              {activeTab === 'experience' ? 'experience' : 'education'}
-            </h2>
-          </div>
-
-          <span className="font-mono text-[0.64rem] sm:text-xs uppercase tracking-[0.2em] text-white/50 font-semibold">
-            {activeTab === 'experience' ? 'Career Timeline' : 'Academic Credentials'}
-          </span>
+          <ol className="mt-6 space-y-6 border-l border-white/12 pl-5">
+            {workExperienceContent.map((exp) => (
+              <li key={exp.id} className="relative">
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[1.6rem] top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-4 ring-black"
+                />
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  {exp.period} <span className="font-normal text-white/60">· {exp.location}</span>
+                </p>
+                <h3 className="mt-1 font-mono text-base font-bold tracking-tight text-white sm:text-lg">
+                  {exp.role}
+                </h3>
+                <p className="font-mono text-xs font-semibold text-white/70 sm:text-sm">
+                  {exp.company}
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {exp.highlights.map((h) => (
+                    <li
+                      key={h}
+                      className="flex gap-2.5 font-mono text-[0.82rem] leading-relaxed text-white/80"
+                    >
+                      <span aria-hidden="true" className="select-none text-emerald-400">
+                        ▹
+                      </span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
         </div>
 
-        {/* Tab Content */}
-        <AnimatePresence mode="wait">
-          {activeTab === 'experience' ? (
-            <motion.div
-              key="experience"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.2 }}
-              className="space-y-4"
-            >
-              {workExperienceContent.map((exp) => (
-                <article key={exp.id} className="work-card p-5 sm:p-6">
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
-                  />
-                  <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-xs uppercase tracking-wider text-white/50">
-                    <span className="text-emerald-400 font-bold">{exp.period}</span>
-                    <span className="text-white/40">{exp.location}</span>
-                  </div>
-
-                  <h3 className="font-mono text-base sm:text-lg font-bold text-white mb-0.5 tracking-tight">
-                    {exp.role}
-                  </h3>
-                  <p className="font-mono text-xs sm:text-sm text-white/80 mb-3 font-semibold">
-                    {exp.company}
+        <div className="min-w-0 space-y-6">
+          <h2 className="font-doto text-3xl font-black uppercase tracking-tight text-white sm:text-4xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
+            education
+          </h2>
+          <ul className="space-y-5">
+            {educationContent.map((edu) => (
+              <li key={edu.id}>
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  {edu.period} <span className="font-normal text-white/60">· {edu.grade}</span>
+                </p>
+                <h3 className="mt-1 font-mono text-sm font-bold text-white sm:text-base">
+                  {edu.degree}
+                </h3>
+                <p className="font-mono text-xs text-white/70">
+                  {edu.institution}
+                  {edu.division && ` · ${edu.division}`}
+                </p>
+                {edu.curriculum && (
+                  <p className="mt-1.5 font-mono text-[0.76rem] leading-relaxed text-white/60">
+                    {edu.curriculum}
                   </p>
+                )}
+              </li>
+            ))}
+          </ul>
 
-                  <ul className="space-y-2 mb-4">
-                    {exp.highlights.map((h, i) => (
-                      <li
-                        key={i}
-                        className="font-mono text-xs sm:text-[0.84rem] text-white/85 leading-relaxed flex items-start gap-2.5"
-                      >
-                        <span className="text-emerald-400 mt-0.5 select-none font-bold">▹</span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/8">
-                    {exp.techBadges.map((badge) => (
-                      <span
-                        key={badge}
-                        className="text-[10px] sm:text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.08] text-white/80 border border-white/12"
-                      >
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
-                </article>
+          <div className="border-t border-white/10 pt-5">
+            <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-white/80">
+              <Award aria-hidden="true" className="h-4 w-4 text-emerald-400" />
+              Honors &amp; Leadership
+            </p>
+            <ul className="mt-3 space-y-2">
+              {HONORS.map((honor) => (
+                <li key={honor} className="font-mono text-[0.78rem] leading-relaxed text-white/75">
+                  {honor}
+                </li>
               ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              key="education"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.2 }}
-              className="space-y-4"
-            >
-              {educationContent.map((edu) => (
-                <article key={edu.id} className="work-card p-5 sm:p-6">
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
-                  />
-                  <div className="flex items-baseline justify-between gap-2 mb-2 font-mono text-xs uppercase tracking-wider text-white/50">
-                    <span className="text-emerald-400 font-bold">{edu.period}</span>
-                    <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-white/90 font-semibold text-[0.68rem]">
-                      {edu.grade}
-                    </span>
-                  </div>
-
-                  <h3 className="font-mono text-base sm:text-lg font-bold text-white mb-0.5 tracking-tight">
-                    {edu.degree}
-                  </h3>
-                  <p className="font-mono text-xs sm:text-sm text-white/80 mb-1 font-semibold">
-                    {edu.institution}
-                  </p>
-                  {edu.division && (
-                    <p className="font-mono text-[11px] sm:text-xs text-emerald-400/90 mb-2 font-medium">
-                      {edu.division}
-                    </p>
-                  )}
-
-                  {edu.description && (
-                    <p className="font-mono text-xs sm:text-[0.84rem] text-white/80 leading-relaxed mb-2.5">
-                      {edu.description}
-                    </p>
-                  )}
-
-                  {edu.curriculum && (
-                    <div className="mb-3 rounded-lg border border-white/8 bg-white/[0.03] p-2.5 font-mono text-[11px] text-white/70 leading-relaxed">
-                      <span className="text-white/90 font-semibold">Curriculum: </span>
-                      <span>{edu.curriculum}</span>
-                    </div>
-                  )}
-
-                  {edu.honors && edu.honors.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/8">
-                      {edu.honors.map((honor) => (
-                        <span
-                          key={honor}
-                          className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-950/40 text-emerald-300 border border-emerald-500/25"
-                        >
-                          <Award className="w-3 h-3 text-emerald-400" />
-                          <span>{honor}</span>
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </article>
-              ))}
-
-              {/* Dedicated Honors & Leadership Card */}
-              <article className="work-card p-5 sm:p-6">
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/20" />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background:radial-gradient(circle_at_16%_16%,rgba(255,255,255,.08),transparent_35%),radial-gradient(circle_at_84%_84%,rgba(255,255,255,.03),transparent_42%)]"
-                />
-                <div className="flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-wider text-white/60">
-                  <Award className="w-4 h-4 text-emerald-400" />
-                  <span className="text-white font-bold">Honors &amp; Leadership</span>
-                </div>
-                <div className="space-y-2.5 font-mono text-xs sm:text-[0.82rem] text-white/85">
-                  <div className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-0.5 select-none font-bold">▹</span>
-                    <span>
-                      Director&apos;s Certificate of Appreciation, Student Council, Symbiosis School
-                      for Liberal Arts (SSLA), Pune
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-emerald-400 mt-0.5 select-none font-bold">▹</span>
-                    <span>NTSE Scholar, National Talent Search Examination</span>
-                  </div>
-                </div>
-              </article>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,99 +1,67 @@
-'use client';
-
+import Image from 'next/image';
 import React from 'react';
 
-import GlassSheen from './GlassSheen';
+import { PanelEffects } from './PanelEffects';
 import { booksContent } from '@/content/loaders';
 import type { BookItem } from '@/content/schemas';
 
+const books = booksContent.filter((book): book is BookItem & { thumbnail: string } =>
+  Boolean(book.thumbnail)
+);
+
 export const ReadingStack: React.FC = () => {
-  // Strict filter: only use books which have verified image thumbnails
-  const booksWithImages = booksContent.filter((book): book is BookItem & { thumbnail: string } =>
-    Boolean(book.thumbnail && book.thumbnail.length > 0)
-  );
-
   return (
-    <div className="work-panel p-5 sm:p-7 motion-safe:animate-glass-breathe [contain:paint] flex flex-col justify-between h-full">
-      <GlassSheen className="left-[-42%] bg-white/[0.03]" />
+    <section
+      className="work-panel flex h-full flex-col p-5 [contain:paint] motion-safe:animate-glass-breathe sm:p-7"
+      aria-labelledby="books-heading"
+    >
+      <PanelEffects sheenClassName="left-[-42%] bg-white/[0.03]" />
+      <header className="flex items-end justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-white/60">
+            reading stack · {books.length} volumes
+          </p>
+          <h3
+            id="books-heading"
+            className="mt-1 font-doto text-[2rem] font-black lowercase leading-none tracking-tight text-white sm:text-[2.6rem] drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]"
+          >
+            books
+          </h3>
+        </div>
+      </header>
 
-      {/* 28px Mesh Grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 opacity-[0.06] mix-blend-screen [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:28px_28px]"
-      />
-
-      {/* Specular Radial Lighting Gradient */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,.09),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,.04),transparent_42%)]"
-      />
-
-      <div>
-        {/* Header Row */}
-        <div className="flex items-end justify-between gap-4 border-b border-white/12 pb-4 mb-5">
-          <div>
-            <p className="font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.24em] text-white/46 mb-1">
-              reading stack &bull; {booksWithImages.length} volumes
+      <ul className="mt-5 grid grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-5">
+        {books.map((book) => (
+          <li key={book.id} className="group min-w-0">
+            <div className="relative aspect-[2/3] overflow-hidden rounded-[0.35rem] bg-white/5 shadow-[0_14px_30px_-8px_rgba(0,0,0,0.7)] ring-1 ring-white/10 transition-transform duration-300 ease-out group-hover:-translate-y-1">
+              <Image
+                src={book.thumbnail}
+                alt={`Cover of ${book.title}`}
+                fill
+                sizes="(max-width: 640px) 30vw, 140px"
+                className="object-cover"
+              />
+              {/* Spine crease on the left edge and a soft gloss from the top-left */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/40 via-white/10 to-transparent"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent"
+              />
+            </div>
+            <p className="mt-2.5 line-clamp-2 text-[0.78rem] font-semibold leading-snug text-white">
+              {book.title}
             </p>
-            <h3 className="font-doto text-[2rem] sm:text-[2.8rem] font-black lowercase leading-none tracking-tight text-white drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]">
-              books
-            </h3>
-          </div>
-          <span className="font-mono text-[0.56rem] sm:text-[0.62rem] uppercase tracking-[0.2em] text-white/40">
-            systems &bull; economics
-          </span>
-        </div>
-
-        {/* 2-Column Book Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          {booksWithImages.map((book) => (
-            <article
-              key={book.id}
-              className="relative min-h-[7.8rem] overflow-hidden rounded-[1.2rem] p-3 shadow-[0_16px_40px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.10)] ring-1 ring-white/15 hover:ring-white/25 bg-black/40 transition-all duration-200 hover:scale-[1.015]"
-            >
-              {/* Top Highlight & Ambient Subtle Glow */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/25" />
-              <div className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-white/[0.06] blur-2xl" />
-
-              <div className="relative flex h-full items-start gap-3">
-                {/* Book Cover Image Container */}
-                <div className="relative h-20 w-14 flex-none overflow-hidden rounded-md bg-black/40 shadow-[0_10px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.15)] ring-1 ring-white/20">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={book.thumbnail}
-                    alt={book.title}
-                    className="h-full w-full object-cover saturate-[1.15] contrast-[1.04]"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Metadata Column */}
-                <div className="flex min-w-0 flex-1 flex-col justify-between self-stretch py-0.5">
-                  <div className="space-y-1">
-                    <p className="text-[0.82rem] font-semibold leading-snug text-white line-clamp-2">
-                      {book.title}
-                    </p>
-                    <p className="text-[0.66rem] leading-snug text-white/65 line-clamp-1">
-                      {book.authors.join(', ')}
-                    </p>
-                  </div>
-                  <div className="mt-2.5 flex items-center justify-between gap-2 border-t border-white/16 pt-1.5 font-mono text-[0.52rem] uppercase tracking-[0.2em] text-white/50">
-                    <span>book</span>
-                    <span>{book.publishedDate}</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      {/* Footer Info Row */}
-      <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 font-mono text-[0.62rem] sm:text-[0.68rem] text-white/46">
-        <span>systems engineering &bull; political economy</span>
-        <span className="text-white/30 hidden sm:inline">curated library</span>
-      </div>
-    </div>
+            <p className="mt-0.5 line-clamp-1 text-[0.7rem] text-white/60">
+              {book.authors.join(', ')}
+            </p>
+            <p className="mt-0.5 font-mono text-[0.7rem] text-white/60">{book.publishedDate}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
 
